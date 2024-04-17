@@ -1,0 +1,3075 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+  title: ""
+  version: 0.0.1
+paths:
+  /api/v1/clients:
+    get:
+      tags:
+        - ClientService
+      operationId: ClientService_ListClient
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListClientsResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/clients/{clientId}:
+    get:
+      tags:
+        - ClientService
+      operationId: ClientService_GetClient
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetClientResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    put:
+      tags:
+        - ClientService
+      operationId: ClientService_UpdateClient
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mask
+          in: query
+          schema:
+            type: string
+            format: field-mask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateClient"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateClientResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - ClientService
+      operationId: ClientService_UpdateClient
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mask
+          in: query
+          schema:
+            type: string
+            format: field-mask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateClient"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateClientResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/clients/{clientId}/secrets:
+    post:
+      tags:
+        - ClientService
+      operationId: ClientService_CreateClientSecret
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateClientSecretResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/clients/{clientId}/secrets/{secretId}:
+    put:
+      tags:
+        - ClientService
+      operationId: ClientService_UpdateClientSecret
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: secretId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mask
+          in: query
+          schema:
+            type: string
+            format: field-mask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateClientSecret"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateClientSecretResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - ClientService
+      operationId: ClientService_DeleteClientSecret
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: secretId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - ClientService
+      operationId: ClientService_UpdateClientSecret
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: secretId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mask
+          in: query
+          schema:
+            type: string
+            format: field-mask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateClientSecret"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateClientSecretResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/environments:
+    get:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_ListEnvironment
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: uint32
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListEnvironmentsResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_CreateEnvironment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateEnvironment"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateEnvironmentResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/environments/{id}:
+    get:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_GetEnvironment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetEnvironmentResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_DeleteEnvironment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_UpdateEnvironment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateEnvironment"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateEnvironmentResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/environments/{id}/custom-domains:
+    post:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_CreateCustomDomain
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateCustomDomainRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateCustomDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/environments/{id}/custom-domains:check:
+    post:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_CheckCustomDomainStatus
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetEnvironmentRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetEnvironmentResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/environments/{id}/dns:
+    post:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_GetRequiredDNSRecords
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetDNSRecordsRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDNSRecordsResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/environments/{id}/dns:verify:
+    post:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_VerifyDNSRecords
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetDNSRecordsRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/environments/{id}:update:
+    patch:
+      tags:
+        - EnvironmentService
+      operationId: EnvironmentService_UpdateEnvironmentDomain
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateEnvironmentDomain"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateEnvironmentResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/members:
+    get:
+      tags:
+        - MembersService
+      operationId: MembersService_ListMembers
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: uint32
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListMemberResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - MembersService
+      operationId: MembersService_CreateMember
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Member"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateMemberResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/members/{id}:
+    get:
+      tags:
+        - MembersService
+      operationId: MembersService_GetMember
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetMemberResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - MembersService
+      operationId: MembersService_DeleteMember
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - MembersService
+      operationId: MembersService_UpdateMember
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateMember"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateMemberResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/members:this:
+    get:
+      tags:
+        - MembersService
+      operationId: MembersService_GetCurrentMember
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetMemberResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - MembersService
+      operationId: MembersService_UpdateCurrentMember
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateMember"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateMemberResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations:
+    get:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_ListOrganization
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: uint32
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListOrganizationsResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_CreateOrganization
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateOrganization"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateOrganizationResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-:
+    delete:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_DeleteOrganization
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/connections:
+    get:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_ListConnections
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: include
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListConnectionsResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_CreateConnection
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateConnection"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/connections/{id}:
+    get:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_GetConnection
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_DeleteConnection
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_UpdateConnection
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateConnection"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/connections/{id}:disable:
+    patch:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_DisableConnection
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToggleConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/connections/{id}:enable:
+    patch:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_EnableConnection
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToggleConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/connections:search:
+    get:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_GetConnectionByDomain
+      parameters:
+        - name: domain
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetConnectionByDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/domains:
+    get:
+      tags:
+        - DomainService
+      operationId: DomainService_ListDomains
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: connectionId
+          in: query
+          schema:
+            type: string
+        - name: include
+          in: query
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: pageNumber
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - DomainService
+      operationId: DomainService_CreateDomain
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: connectionId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateDomain"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - DomainService
+      operationId: DomainService_UpdateDomain
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: connectionId
+          in: query
+          schema:
+            type: string
+        - name: id
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateDomain"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/domains/{id}:
+    get:
+      tags:
+        - DomainService
+      operationId: DomainService_GetDomain
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - DomainService
+      operationId: DomainService_DeleteDomain
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: connectionId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/users:
+    get:
+      tags:
+        - UserService
+      operationId: UserService_ListUsers
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: uint32
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - UserService
+      operationId: UserService_CreateUser
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - UserService
+      operationId: UserService_UpdateUser
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: id
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateUser"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/users/-:
+    get:
+      tags:
+        - UserService
+      operationId: UserService_GetUser
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: id
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - UserService
+      operationId: UserService_DeleteUser
+      parameters:
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: id
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/-/users/{id}:
+    get:
+      tags:
+        - UserService
+      operationId: UserService_GetUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{id}:
+    get:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_GetOrganization
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetOrganizationResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_DeleteOrganization
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_UpdateOrganization
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: updateMask
+          in: query
+          schema:
+            type: string
+            format: field-mask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateOrganization"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateOrganizationResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{id}/portal_links:
+    get:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_GetCustomerPortalLink
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerPortalLinksResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    put:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_GenerateCustomerPortalLink
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerPortalLinksResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - OrganizationService
+      operationId: OrganizationService_DeleteCustomerPortalLink
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{organizationId}/connections:
+    get:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_ListConnections
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: include
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListConnectionsResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_CreateConnection
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateConnection"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{organizationId}/connections/{id}:
+    get:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_GetConnection
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_DeleteConnection
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_UpdateConnection
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateConnection"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{organizationId}/connections/{id}:disable:
+    patch:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_DisableConnection
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToggleConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{organizationId}/connections/{id}:enable:
+    patch:
+      tags:
+        - ConnectionService
+      operationId: ConnectionService_EnableConnection
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ToggleConnectionResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{organizationId}/domains:
+    get:
+      tags:
+        - DomainService
+      operationId: DomainService_ListDomains
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: connectionId
+          in: query
+          schema:
+            type: string
+        - name: include
+          in: query
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: pageNumber
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - DomainService
+      operationId: DomainService_CreateDomain
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: connectionId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateDomain"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{organizationId}/domains/{id}:
+    get:
+      tags:
+        - DomainService
+      operationId: DomainService_GetDomain
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - DomainService
+      operationId: DomainService_DeleteDomain
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: connectionId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - DomainService
+      operationId: DomainService_UpdateDomain
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+        - name: connectionId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateDomain"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateDomainResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{organizationId}/users:
+    get:
+      tags:
+        - UserService
+      operationId: UserService_ListUsers
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: uint32
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    post:
+      tags:
+        - UserService
+      operationId: UserService_CreateUser
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/organizations/{organizationId}/users/{id}:
+    get:
+      tags:
+        - UserService
+      operationId: UserService_GetUser
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    delete:
+      tags:
+        - UserService
+      operationId: UserService_DeleteUser
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content: {}
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - UserService
+      operationId: UserService_UpdateUser
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateUser"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateUserResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/signup:
+    post:
+      tags:
+        - WorkspaceService
+      operationId: WorkspaceService_CreateWorkspace
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateWorkspace"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateWorkspaceResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/workspaces/{id}:
+    get:
+      tags:
+        - WorkspaceService
+      operationId: WorkspaceService_GetWorkspace
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetWorkspaceResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - WorkspaceService
+      operationId: WorkspaceService_UpdateWorkspace
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateWorkspace"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateWorkspaceResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+  /api/v1/workspaces:this:
+    get:
+      tags:
+        - WorkspaceService
+      operationId: WorkspaceService_GetCurrentWorkspace
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetWorkspaceResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+    patch:
+      tags:
+        - WorkspaceService
+      operationId: WorkspaceService_UpdateCurrentWorkspace
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateWorkspace"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateWorkspaceResponse"
+        default:
+          description: Default error response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+components:
+  schemas:
+    Client:
+      type: object
+      properties:
+        id:
+          type: string
+        keyId:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        redirectUris:
+          type: array
+          items:
+            type: string
+        defaultRedirectUri:
+          type: string
+        secrets:
+          type: array
+          items:
+            $ref: "#/components/schemas/ClientSecret"
+    ClientSecret:
+      type: object
+      properties:
+        id:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        secretSuffix:
+          type: string
+        createdBy:
+          type: string
+        status:
+          type: integer
+          format: enum
+        expireTime:
+          type: string
+          format: date-time
+        lastUsedTime:
+          type: string
+          format: date-time
+    Connection:
+      type: object
+      properties:
+        id:
+          type: string
+        provider:
+          type: integer
+          format: enum
+        type:
+          type: integer
+          format: enum
+        status:
+          type: integer
+          format: enum
+        enabled:
+          type: boolean
+        debugEnabled:
+          type: boolean
+        organizationId:
+          type: string
+        uiButtonTitle:
+          type: string
+        loginInitiationUri:
+          type: string
+        logoutUri:
+          type: string
+        configurationType:
+          type: integer
+          format: enum
+        testConnectionUri:
+          type: string
+        oidcConfig:
+          $ref: "#/components/schemas/OIDCConnectionConfig"
+        samlConfig:
+          $ref: "#/components/schemas/SAMLConnectionConfigResponse"
+        attributeMapping:
+          type: object
+          additionalProperties:
+            type: string
+    CreateClientSecretResponse:
+      type: object
+      properties:
+        plainSecret:
+          type: string
+        secret:
+          $ref: "#/components/schemas/ClientSecret"
+    CreateConnection:
+      type: object
+      properties:
+        provider:
+          type: integer
+          format: enum
+        type:
+          type: integer
+          format: enum
+    CreateConnectionResponse:
+      type: object
+      properties:
+        connection:
+          $ref: "#/components/schemas/Connection"
+    CreateCustomDomainRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        customDomain:
+          type: string
+    CreateCustomDomainResponse:
+      type: object
+      properties:
+        environment:
+          $ref: "#/components/schemas/Environment"
+    CreateDomain:
+      type: object
+      properties:
+        domain:
+          type: string
+    CreateDomainResponse:
+      type: object
+      properties:
+        domain:
+          $ref: "#/components/schemas/Domain"
+    CreateEnvironment:
+      type: object
+      properties:
+        displayName:
+          type: string
+        regionCode:
+          type: integer
+          format: enum
+        type:
+          type: integer
+          format: enum
+    CreateEnvironmentResponse:
+      type: object
+      properties:
+        environment:
+          $ref: "#/components/schemas/Environment"
+    CreateMemberResponse:
+      type: object
+      properties:
+        member:
+          $ref: "#/components/schemas/Member"
+    CreateOrganization:
+      type: object
+      properties:
+        displayName:
+          type: string
+        regionCode:
+          type: integer
+          format: enum
+        externalId:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    CreateOrganizationResponse:
+      type: object
+      properties:
+        organization:
+          $ref: "#/components/schemas/Organization"
+    CreateUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+    CreateWorkspace:
+      type: object
+      properties:
+        email:
+          type: string
+        company:
+          type: string
+        sendWelcomeEmail:
+          type: integer
+          format: enum
+    CreateWorkspaceResponse:
+      type: object
+      properties:
+        workspace:
+          $ref: "#/components/schemas/Workspace"
+        link:
+          type: string
+    CustomerPortalLinksResponse:
+      type: object
+      properties:
+        links:
+          type: array
+          items:
+            $ref: "#/components/schemas/Link"
+    DNSRecords:
+      type: object
+      properties:
+        hostName:
+          type: string
+        type:
+          type: string
+        value:
+          type: string
+    Domain:
+      type: object
+      properties:
+        id:
+          type: string
+        domain:
+          type: string
+        environmentId:
+          type: string
+        organizationId:
+          type: string
+        connectionId:
+          type: string
+        txtRecordKey:
+          type: string
+        txtRecordSecret:
+          type: string
+        verificationStatus:
+          type: integer
+          format: enum
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+    Environment:
+      type: object
+      properties:
+        id:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        displayName:
+          type: string
+        domain:
+          type: string
+        regionCode:
+          type: integer
+          format: enum
+        type:
+          type: integer
+          format: enum
+        customDomain:
+          type: string
+        customDomainStatus:
+          type: integer
+          format: enum
+    GetClientResponse:
+      type: object
+      properties:
+        client:
+          $ref: "#/components/schemas/Client"
+    GetConnectionByDomainResponse:
+      type: object
+      properties:
+        connectionId:
+          type: string
+        status:
+          type: integer
+          format: enum
+        type:
+          type: integer
+          format: enum
+        uiButtonTitle:
+          type: string
+    GetConnectionResponse:
+      type: object
+      properties:
+        connection:
+          $ref: "#/components/schemas/Connection"
+    GetDNSRecordsRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        customDomain:
+          type: string
+    GetDNSRecordsResponse:
+      type: object
+      properties:
+        dnsRecords:
+          type: array
+          items:
+            $ref: "#/components/schemas/DNSRecords"
+    GetDomainResponse:
+      type: object
+      properties:
+        domain:
+          $ref: "#/components/schemas/Domain"
+    GetEnvironmentRequest:
+      type: object
+      properties:
+        id:
+          type: string
+    GetEnvironmentResponse:
+      type: object
+      properties:
+        environment:
+          $ref: "#/components/schemas/Environment"
+    GetMemberResponse:
+      type: object
+      properties:
+        member:
+          $ref: "#/components/schemas/Member"
+    GetOrganizationResponse:
+      type: object
+      properties:
+        organization:
+          $ref: "#/components/schemas/Organization"
+    GetUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+    GetWorkspaceResponse:
+      type: object
+      properties:
+        workspace:
+          $ref: "#/components/schemas/Workspace"
+    GoogleProtobufAny:
+      type: object
+      properties:
+        "@type":
+          type: string
+          description: The type of the serialized message.
+      additionalProperties: true
+      description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+    IDPCertificate:
+      type: object
+      properties:
+        certificate:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        expiryTime:
+          type: string
+          format: date-time
+        id:
+          type: string
+        issuer:
+          type: string
+    Link:
+      type: object
+      properties:
+        id:
+          type: string
+        location:
+          type: string
+        expireTime:
+          type: string
+          format: date-time
+    ListClientsResponse:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: uint32
+        clients:
+          type: array
+          items:
+            $ref: "#/components/schemas/Client"
+    ListConnection:
+      type: object
+      properties:
+        id:
+          type: string
+        provider:
+          type: integer
+          format: enum
+        type:
+          type: integer
+          format: enum
+        status:
+          type: integer
+          format: enum
+        enabled:
+          type: boolean
+        organizationId:
+          type: string
+        uiButtonTitle:
+          type: string
+    ListConnectionsResponse:
+      type: object
+      properties:
+        connections:
+          type: array
+          items:
+            $ref: "#/components/schemas/ListConnection"
+    ListDomainResponse:
+      type: object
+      properties:
+        pageSize:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        domains:
+          type: array
+          items:
+            $ref: "#/components/schemas/Domain"
+    ListEnvironmentsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        totalSize:
+          type: integer
+          format: uint32
+        environments:
+          type: array
+          items:
+            $ref: "#/components/schemas/Environment"
+    ListMemberResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        totalSize:
+          type: integer
+          format: uint32
+        members:
+          type: array
+          items:
+            $ref: "#/components/schemas/Member"
+    ListOrganizationsResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        totalSize:
+          type: integer
+          format: uint32
+        organizations:
+          type: array
+          items:
+            $ref: "#/components/schemas/Organization"
+    ListUserResponse:
+      type: object
+      properties:
+        nextPageToken:
+          type: string
+        totalSize:
+          type: integer
+          format: uint32
+        user:
+          type: array
+          items:
+            $ref: "#/components/schemas/User"
+    Member:
+      type: object
+      properties:
+        id:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        workspaceId:
+          type: string
+        role:
+          type: integer
+          format: enum
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    OIDCConnectionConfig:
+      type: object
+      properties:
+        issuer:
+          type: string
+        discoveryEndpoint:
+          type: string
+        authorizeUri:
+          type: string
+        tokenUri:
+          type: string
+        userInfoUri:
+          type: string
+        jwksUri:
+          type: string
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: integer
+            format: enum
+        tokenAuthType:
+          type: integer
+          format: enum
+        redirectUri:
+          type: string
+        pkceEnabled:
+          type: boolean
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        displayName:
+          type: string
+        regionCode:
+          type: integer
+          format: enum
+        externalId:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    SAMLConnectionConfigRequest:
+      type: object
+      properties:
+        idpMetadataUrl:
+          type: string
+        idpEntityId:
+          type: string
+        idpSsoUrl:
+          type: string
+        idpCertificate:
+          type: string
+        idpSloUrl:
+          type: string
+        uiButtonTitle:
+          type: string
+        idpNameIdFormat:
+          type: integer
+          format: enum
+        ssoRequestBinding:
+          type: integer
+          format: enum
+        sloRequestBinding:
+          type: integer
+          format: enum
+        samlSigningOption:
+          type: integer
+          format: enum
+        allowIdpInitiatedLogin:
+          type: boolean
+        forceAuthn:
+          type: boolean
+        defaultRedirectUri:
+          type: string
+        assertionEncrypted:
+          type: boolean
+        wantRequestSigned:
+          type: boolean
+    SAMLConnectionConfigResponse:
+      type: object
+      properties:
+        spEntityId:
+          type: string
+        spAssertionUrl:
+          type: string
+        spMetadataUrl:
+          type: string
+        idpMetadataUrl:
+          type: string
+        idpEntityId:
+          type: string
+        idpSsoUrl:
+          type: string
+        idpCertificates:
+          type: array
+          items:
+            $ref: "#/components/schemas/IDPCertificate"
+        idpSloUrl:
+          type: string
+        uiButtonTitle:
+          type: string
+        idpNameIdFormat:
+          type: integer
+          format: enum
+        idpSsoRequestBinding:
+          type: integer
+          format: enum
+        idpSloRequestBinding:
+          type: integer
+          format: enum
+        samlSigningOption:
+          type: integer
+          format: enum
+        allowIdpInitiatedLogin:
+          type: boolean
+        forceAuthn:
+          type: boolean
+        defaultRedirectUri:
+          type: string
+        assertionEncrypted:
+          type: boolean
+        wantRequestSigned:
+          type: boolean
+    Status:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+          format: int32
+        message:
+          type: string
+          description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+        details:
+          type: array
+          items:
+            $ref: "#/components/schemas/GoogleProtobufAny"
+          description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+      description: "The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors)."
+    ToggleConnectionResponse:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        errorMessage:
+          type: string
+    UpdateClient:
+      type: object
+      properties:
+        redirectUris:
+          type: array
+          items:
+            type: string
+        defaultRedirectUri:
+          type: string
+    UpdateClientResponse:
+      type: object
+      properties:
+        client:
+          $ref: "#/components/schemas/Client"
+    UpdateClientSecret:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: enum
+    UpdateClientSecretResponse:
+      type: object
+      properties:
+        secret:
+          $ref: "#/components/schemas/ClientSecret"
+    UpdateConnection:
+      type: object
+      properties:
+        provider:
+          type: integer
+          format: enum
+        type:
+          type: integer
+          format: enum
+        debugEnabled:
+          type: boolean
+        uiButtonTitle:
+          type: string
+        logoutUri:
+          type: string
+        configurationType:
+          type: integer
+          format: enum
+        oidcConfig:
+          $ref: "#/components/schemas/OIDCConnectionConfig"
+        samlConfig:
+          $ref: "#/components/schemas/SAMLConnectionConfigRequest"
+        attributeMapping:
+          type: object
+          additionalProperties:
+            type: string
+    UpdateConnectionResponse:
+      type: object
+      properties:
+        connection:
+          $ref: "#/components/schemas/Connection"
+    UpdateDomain:
+      type: object
+      properties: {}
+    UpdateDomainResponse:
+      type: object
+      properties:
+        domain:
+          $ref: "#/components/schemas/Domain"
+    UpdateEnvironment:
+      type: object
+      properties:
+        displayName:
+          type: string
+    UpdateEnvironmentDomain:
+      type: object
+      properties:
+        domain:
+          type: string
+    UpdateEnvironmentResponse:
+      type: object
+      properties:
+        environment:
+          $ref: "#/components/schemas/Environment"
+    UpdateMember:
+      type: object
+      properties:
+        role:
+          type: integer
+          format: enum
+        firstName:
+          type: string
+        lastName:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    UpdateMemberResponse:
+      type: object
+      properties:
+        member:
+          $ref: "#/components/schemas/Member"
+    UpdateOrganization:
+      type: object
+      properties:
+        displayName:
+          type: string
+        externalId:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+      description: For update messages ensure the indexes are same as the base model itself.
+    UpdateOrganizationResponse:
+      type: object
+      properties:
+        organization:
+          $ref: "#/components/schemas/Organization"
+    UpdateUser:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        externalId:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    UpdateUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+    UpdateWorkspace:
+      type: object
+      properties:
+        displayName:
+          type: string
+    UpdateWorkspaceResponse:
+      type: object
+      properties:
+        workspace:
+          $ref: "#/components/schemas/Workspace"
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        externalId:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    Workspace:
+      type: object
+      properties:
+        id:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        displayName:
+          type: string
+        regionCode:
+          type: integer
+          format: enum
+tags:
+  - name: ClientService
+  - name: ConnectionService
+  - name: DomainService
+  - name: EnvironmentService
+  - name: MembersService
+  - name: OrganizationService
+  - name: UserService
+  - name: WorkspaceService

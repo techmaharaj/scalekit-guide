@@ -34,6 +34,8 @@ const config: Config = {
       'classic',
       {
         docs: {
+          showLastUpdateTime: true,
+          sidebarCollapsed: false,
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -84,12 +86,22 @@ const config: Config = {
           label: 'Docs',
         },
         {to: '/api', label: 'API Reference', position: 'left'},
-        
+        {
+          type: 'search',
+          position: 'left',
+        },
       ],
     },
     footer: {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} Scalekit Inc.`,
+    },
+    algolia: {
+      appId: 'R2IYF7ETH7',
+      apiKey: '599cec31baffa4868cae4e79f180729b', // Public API key: it is safe to commit it
+      indexName: 'docsearch',
+      contextualSearch: true,
+      externalUrlRegex: 'external\\.com|domain\\.com',
     },
     prism: {
       theme: prismThemes.github,

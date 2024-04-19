@@ -1,0 +1,651 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Organization Management API",
+        "description": "This API is intended to configure and manage organizations or tenants of your app",
+        "version": "1.0",
+        "contact": {
+            "name": "Scalekit",
+            "url": "https://scalekit.com",
+            "email": "support@scalekit.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "tags": [
+        {
+            "name": "OrganizationService"
+        }
+    ],
+    "consumes": [
+        "application/json",
+        "application/grpc",
+        "application/grpc-web+proto"
+    ],
+    "produces": [
+        "application/json",
+        "application/grpc",
+        "application/grpc-web+proto"
+    ],
+    "paths": {
+        "/api/v1/organizations": {
+            "get": {
+                "operationId": "OrganizationService_ListOrganization",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "$ref": "#/definitions/organizationsListOrganizationsResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "pageSize",
+                        "description": "Number of results to be returned. Max supported page_size is 30",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "pageToken",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            },
+            "post": {
+                "summary": "Create Organization",
+                "operationId": "OrganizationService_CreateOrganization",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "$ref": "#/definitions/organizationsCreateOrganizationResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "organization",
+                        "description": "Organization details",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/v1organizationsCreateOrganization",
+                            "description": "The org object"
+                        }
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            }
+        },
+        "/api/v1/organizations/-": {
+            "get": {
+                "summary": "Get Organization Description here",
+                "operationId": "OrganizationService_GetOrganization2",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "$ref": "#/definitions/organizationsGetOrganizationResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "externalId",
+                        "description": "External Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            },
+            "delete": {
+                "summary": "Delete an Organization",
+                "operationId": "OrganizationService_DeleteOrganization2",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {}
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "externalId",
+                        "description": "External Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            },
+            "patch": {
+                "summary": "Update Organization description here",
+                "operationId": "OrganizationService_UpdateOrganization2",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "$ref": "#/definitions/organizationsUpdateOrganizationResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "organization",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/v1organizationsUpdateOrganization",
+                            "description": "Organization Parameters to be updated"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "description": "Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "externalId",
+                        "description": "External Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            }
+        },
+        "/api/v1/organizations/{id}": {
+            "get": {
+                "summary": "Get Organization Description here",
+                "operationId": "OrganizationService_GetOrganization",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "$ref": "#/definitions/organizationsGetOrganizationResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "Id of the Org to update",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "externalId",
+                        "description": "External Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            },
+            "delete": {
+                "summary": "Delete an Organization",
+                "operationId": "OrganizationService_DeleteOrganization",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {}
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "Id of the Org to update",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "externalId",
+                        "description": "External Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            },
+            "patch": {
+                "summary": "Update Organization description here",
+                "operationId": "OrganizationService_UpdateOrganization",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "$ref": "#/definitions/organizationsUpdateOrganizationResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "Id of the Org to update",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "organization",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/v1organizationsUpdateOrganization",
+                            "description": "Organization Parameters to be updated"
+                        }
+                    },
+                    {
+                        "name": "externalId",
+                        "description": "External Id of the Org to update",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            }
+        },
+        "/api/v1/organizations/{id}/portal_links": {
+            "get": {
+                "operationId": "OrganizationService_GetCustomerPortalLink",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "$ref": "#/definitions/organizationsCustomerPortalLinksResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            },
+            "delete": {
+                "operationId": "OrganizationService_DeleteCustomerPortalLink",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {}
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            },
+            "put": {
+                "summary": "Generate Portal Link for Org",
+                "operationId": "OrganizationService_GeneratePortalLink",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "$ref": "#/definitions/organizationsCustomerPortalLinksResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "An unexpected error response.",
+                        "schema": {
+                            "$ref": "#/definitions/rpcStatus"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "OrganizationService"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "commonsRegionCode": {
+            "type": "string",
+            "enum": [
+                "REGION_CODE_UNSPECIFIED",
+                "US",
+                "EU"
+            ],
+            "default": "REGION_CODE_UNSPECIFIED",
+            "description": " - REGION_CODE_UNSPECIFIED: If the region code is unspecified the selected region will automatically be decided based on the origin of the call."
+        },
+        "organizationsCreateOrganizationResponse": {
+            "type": "object",
+            "properties": {
+                "organization": {
+                    "$ref": "#/definitions/organizationsOrganization"
+                }
+            }
+        },
+        "organizationsCustomerPortalLinksResponse": {
+            "type": "object",
+            "properties": {
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/v1organizationsLink"
+                    }
+                }
+            }
+        },
+        "organizationsGetOrganizationResponse": {
+            "type": "object",
+            "properties": {
+                "organization": {
+                    "$ref": "#/definitions/organizationsOrganization"
+                }
+            }
+        },
+        "organizationsListOrganizationsResponse": {
+            "type": "object",
+            "properties": {
+                "nextPageToken": {
+                    "type": "string"
+                },
+                "totalSize": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "organizations": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/organizationsOrganization"
+                    }
+                }
+            }
+        },
+        "organizationsOrganization": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "org_2123312131125533",
+                    "description": "Organization ID",
+                    "title": "Id"
+                },
+                "createTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2023-03-03 12:30",
+                    "description": "Created Time",
+                    "title": "Created Time"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Updated Time",
+                    "title": "Updated time"
+                },
+                "displayName": {
+                    "type": "string",
+                    "example": "Acme Corp",
+                    "description": "Display Name of the Organization",
+                    "title": "Name of the org to be used in display"
+                },
+                "regionCode": {
+                    "$ref": "#/definitions/commonsRegionCode",
+                    "example": "US",
+                    "description": "Region code . Only US is supported ",
+                    "title": "Optional regioncode"
+                },
+                "externalId": {
+                    "type": "string",
+                    "example": "my_unique_id",
+                    "description": "External Id . This can be used to store a unique identifier that can help correalate scalekit Org with your SaaS app's tenant",
+                    "title": "External Id is useful to store a unique identifier for a given Org that. The unique Identifier can be the id of your tenant / org in your SaaSApp"
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key value pairs extension attributes."
+                }
+            },
+            "required": [
+                "createTime"
+            ]
+        },
+        "organizationsUpdateOrganizationResponse": {
+            "type": "object",
+            "properties": {
+                "organization": {
+                    "$ref": "#/definitions/organizationsOrganization"
+                }
+            }
+        },
+        "protobufAny": {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "string",
+                    "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+                }
+            },
+            "additionalProperties": {},
+            "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+        },
+        "rpcStatus": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "details": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/protobufAny"
+                    }
+                }
+            }
+        },
+        "v1organizationsCreateOrganization": {
+            "type": "object",
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "example": "Acme Corp",
+                    "description": "Display Name of the Organization",
+                    "title": "Name of the org to be used in display"
+                },
+                "regionCode": {
+                    "$ref": "#/definitions/commonsRegionCode",
+                    "example": "US",
+                    "description": "Region code . Only US is supported ",
+                    "title": "Optional regioncode"
+                },
+                "externalId": {
+                    "type": "string",
+                    "example": "my_unique_id",
+                    "description": "External Id . This can be used to store a unique identifier that can help correalate scalekit Org with your SaaS app's tenant",
+                    "title": "External Id is useful to store a unique identifier for a given Org that. The unique Identifier can be the id of your tenant / org in your SaaSApp"
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Key value pairs extension attributes."
+                }
+            }
+        },
+        "v1organizationsLink": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                }
+            }
+        },
+        "v1organizationsUpdateOrganization": {
+            "type": "object",
+            "properties": {
+                "displayName": {
+                    "type": "string"
+                },
+                "externalId": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "description": "For update messages ensure the indexes are same as the base model itself."
+        }
+    },
+    "externalDocs": {
+        "description": "Detailed documentation for Scalekit",
+        "url": "https://dash.readme.com/hub-go/test-scalekit?redirect=/v1.0"
+    }
+}

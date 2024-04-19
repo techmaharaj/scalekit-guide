@@ -56,7 +56,7 @@ const config: Config = {
           // Pass it a path to a local OpenAPI YAML file
           {
             // Redocusaurus will automatically bundle your spec into a single file during the build
-            spec: 'openapi/index.yaml',
+            spec: 'openapi/swagger.json',
             route: '/api/',
           }
         ],
@@ -97,11 +97,12 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Scalekit Inc.`,
     },
     algolia: {
-      appId: 'R2IYF7ETH7',
-      apiKey: '599cec31baffa4868cae4e79f180729b', // Public API key: it is safe to commit it
-      indexName: 'docsearch',
+      appId: "7554BDRAJD",
+      apiKey: "",
+      indexName: "scalekit",
       contextualSearch: true,
-      externalUrlRegex: 'external\\.com|domain\\.com',
+      
+      //externalUrlRegex: 'external\\.com|domain\\.com',
     },
     prism: {
       theme: prismThemes.github,

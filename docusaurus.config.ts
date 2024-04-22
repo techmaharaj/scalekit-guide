@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://scalekit-inc.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -17,7 +17,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'scalekit-inc', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
-
+  deploymentBranch: 'gh-pages',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
@@ -85,7 +85,7 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {to: '/api', label: 'API Reference', position: 'left'},
+        { to: '/api', label: 'API Reference', position: 'left' },
         {
           type: 'search',
           position: 'left',
@@ -98,11 +98,9 @@ const config: Config = {
     },
     algolia: {
       appId: "7554BDRAJD",
-      apiKey: "",
+      apiKey: "5c8fcd5b62f610f4acb73f0fac3c81ff",
       indexName: "scalekit",
       contextualSearch: true,
-      
-      //externalUrlRegex: 'external\\.com|domain\\.com',
     },
     prism: {
       theme: prismThemes.github,

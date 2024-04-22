@@ -77,7 +77,7 @@ You can leave the Default Relay State as blank. Similarly, select your preferenc
 
 ### 3. Attribute Mapping
 
-Check the **Attribute Mapping** section in the ****SSO Configuration Portal, and carefully map the same attributes on your Okta Admin Console. 
+Check the **Attribute Mapping** section in the **SSO Configuration Portal**, and carefully map the same attributes on your Okta Admin Console. 
 <figure>
 ![Attribute mapping on SSO Configuration Portal ](Okta%20-%20SAML%201a513c0d00d44ffe91d4fbc23586c7cb/Untitled%209.png)
 <figcaption>Attribute mapping on SSO Configuration Portal</figcaption>

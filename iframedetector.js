@@ -1,5 +1,8 @@
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
-if (ExecutionEnvironment.canUseDOM) {
-  document.documentElement.dataset.insideIframe = (window.parent !== window);
+export function onRouteUpdate({location, previousLocation}) {
+  if (location.pathname !== previousLocation?.pathname) {
+    document.documentElement.dataset.insideIframe =
+        (document.location.href.includes('/integrations/') &&
+         window.parent !== window);
+  }
 }

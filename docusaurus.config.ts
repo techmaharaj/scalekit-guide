@@ -37,7 +37,9 @@ const config: Config = {
           showLastUpdateTime: true,
           sidebarCollapsed: false,
           sidebarPath: './sidebars.ts',
+          routeBasePath:'/'
         },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -69,12 +71,6 @@ const config: Config = {
     navbar: {
       title: 'Scalekit',
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Docs',
-        },
         { to: '/api', label: 'API Reference', position: 'left' },
         {
           type: 'search',

@@ -322,3 +322,9 @@ img {
     /* Fixes #3856 */
   }
 }
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+}

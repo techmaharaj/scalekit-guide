@@ -165,11 +165,11 @@ If the connection fails, you’ll see an error, the reason for the error, and a 
 
 ### 8. Enable connection
 
-Click on **Enable Connection.** This will let all your selected users login to the new application via your Microsoft Entra ID SSO. 
+Click on **Enable Connection.** This will let all your selected users login to the new application via your Okta SSO. 
 <figure>
 ![Enable SSO on Okta Admin Console](Okta%20-%20SAML%201a513c0d00d44ffe91d4fbc23586c7cb/Untitled%2019.png)
 <figcaption>Enable SSO on Okta Admin Console</figcaption>
 </figure>
 
 
-With this, we are done configuring your Microsoft Entra ID application for an SSO login setup.
+With this, we are done configuring your Okta application for an SSO login setup.

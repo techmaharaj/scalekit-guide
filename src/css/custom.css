@@ -323,6 +323,16 @@ img {
   }
 }
 
+/*hide unnecessary elements when inside an iframe*/
+html[data-inside-iframe="true"] .theme-doc-sidebar-container,
+html[data-inside-iframe="true"] nav.navbar,
+html[data-inside-iframe="true"] nav.pagination-nav,
+html[data-inside-iframe="true"] footer,
+html[data-inside-iframe="true"] .theme-doc-breadcrumbs,
+html[data-inside-iframe="true"] .theme-doc-toc-desktop {
+  display: none;
+}
+
 figcaption {
   text-align: center;
   font-style: italic;

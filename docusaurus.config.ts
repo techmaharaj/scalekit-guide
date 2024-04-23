@@ -69,7 +69,7 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: 'Scalekit',
+      title: 'Scalekit Docs',
       items: [
         { to: '/api', label: 'API Reference', position: 'left' },
         {
@@ -84,13 +84,14 @@ const config: Config = {
     },
     algolia: {
       appId: "7554BDRAJD",
-      apiKey: "5c8fcd5b62f610f4acb73f0fac3c81ff",
+      apiKey: "0a906499d09119c83fd6d0568e7f8517",
       indexName: "scalekit",
       contextualSearch: true,
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.palenight,
+      additionalLanguages: ['java','python','go', 'ruby', 'javascript', 'json', 'typescript'],
     },
   } satisfies Preset.ThemeConfig,
 };

@@ -24,6 +24,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      link: {
+        type: 'generated-index',
+        title: 'Integration Guides',
+        slug: '/integrations'
+      },
       label: 'Integration Guides',
       items: ['integrations/saml', 'integrations/oidc', 'integrations/azure-ad-saml', 'integrations/okta-saml', 'integrations/onelogin-saml' ]
     },

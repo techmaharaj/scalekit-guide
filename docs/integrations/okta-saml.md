@@ -1,8 +1,13 @@
+---
+sidebar_position: 2
+title: Okta - SAML
+description: SSO Configuration Guide for Okta
+---
+import Subtitle from '@site/src/components/custom';
+
 # Okta - SAML
+<Subtitle>Step-by-step guide to configure Single Sign-on with Okta as the Identity Provider. </Subtitle>
 
-### Description
-
-This step-by-step guide will detail how to configure Single Sign-on with Okta as the Identity Provider. 
 
 ### 1. Create Enterprise Application
 
@@ -120,7 +125,6 @@ Click on **Test Connection.** If everything is done correctly, you will see a **
 If the connection fails, you’ll see an error, the reason for the error, and a way to solve that error right on the screen.  
 <figure>![Test SSO configuration](Okta%20-%20SAML%201a513c0d00d44ffe91d4fbc23586c7cb/Untitled%2018.png)
 <figcaption>Test SSO configuration</figcaption></figure>
-
 
 
 

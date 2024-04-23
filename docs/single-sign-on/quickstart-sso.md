@@ -219,6 +219,6 @@ Excellent! By now, you should have successfully integrated Scalekit in your appl
 
 But, this is not all. You can do so much more with Scalekit. To learn more about what you can do with Scalekit, check out:
 
-- [NodeJS SDK Reference](quickstart-nodejs) - Explore the SDK reference used in this quick start guide fully.
-- [Sample NodeJS App](https://www.github.com) - You can download our fully functional sample app to download the code used in this guide and setup a running NodeJS code quickly.
-- [Production Checklist](https://dash.readme.com/project/scalekit/v1.0/docs/production-checklist-1) - Go through the production check list we have put together to ensure a secure and successful production release.
+
+- [Sample Apps](https://www.github.com/scalekit-inc/) - You can download our fully functional sample app to download the code used in this guide and setup a running application quickly.
+- [Production Checklist](golive-checklist.md) - Go through the production check list we have put together to ensure a secure and successful production release.

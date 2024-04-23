@@ -91,9 +91,9 @@ const config: Config = {
       insights: true,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.palenight,
-      // additionalLanguages: ['java','python','go', 'ruby', 'javascript', 'json', 'typescript'],
+      theme: prismThemes.vsLight,
+      darkTheme: prismThemes.vsDark,
+      additionalLanguages: ['java', 'python', 'json', 'go'],
     },
   } satisfies Preset.ThemeConfig,
 };

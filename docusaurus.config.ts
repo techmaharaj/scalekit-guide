@@ -55,8 +55,8 @@ const config: Config = {
           // Pass it a path to a local OpenAPI YAML file
           {
             // Redocusaurus will automatically bundle your spec into a single file during the build
-            spec: 'openapi/swagger.json',
-            route: '/api/',
+            spec: 'openapi/scalekit.swagger.yaml',
+            route: '/api',
           }
         ],
         // Theme Options for modifying how redoc renders them

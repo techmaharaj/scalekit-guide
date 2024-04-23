@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://scalekit-inc.github.io',
+  url: 'https://docs.scalekit.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -91,7 +91,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.palenight,
-      additionalLanguages: ['java','python','go', 'ruby', 'javascript', 'json', 'typescript'],
+      // additionalLanguages: ['java','python','go', 'ruby', 'javascript', 'json', 'typescript'],
     },
   } satisfies Preset.ThemeConfig,
 };

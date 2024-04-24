@@ -40,15 +40,15 @@ const config: Config = {
         configuration: {
           isEditable: false,
           spec: {
-            url: 'https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.json',
+            url: 'https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json',
             
           },
           searchHotKey: "b",
           hideModels: true,
           hiddenClients: ['c','objc','ocaml','powershell','swift','unirest','cohttp'],
           hideDownloadButton: true,
-          customCss: '',
-          theme: 'alternate'
+          //customCss: '',
+          theme: 'deepSpace'
         },
       } as ScalarOptions,
     ],
@@ -96,7 +96,7 @@ const config: Config = {
     navbar: {
       title: 'Scalekit Docs',
       items: [
-        //{ to: '/api-reference', label: 'API Reference', position: 'left' },
+        //{ to: '/api', label: 'API Docs', position: 'left' },
         {
           type: 'search',
           position: 'right',

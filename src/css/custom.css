@@ -28,7 +28,8 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
-  --ifm-menu-color-active: #3E63DD;
+  --ifm-menu-color: #000;
+  --ifm-menu-color-active: #000;
   --ifm-font-family-base: "Inter", sans-serif;
   --tblr-blue: #206bc4;
   --tblr-azure: #4299e1;
@@ -61,6 +62,16 @@
 
 .menu__link--sublist-caret:after {
   background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem;
+}
+
+.menu__list-item-collapsible {
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 10px;
+}
+
+..menu__link--active {
+  background-color: #656d77;
 }
 
 .menu__caret:before {

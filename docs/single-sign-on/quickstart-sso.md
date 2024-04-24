@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Quick Start
 
-## What you will learn
+## What you will learn - Test on Netlify
 
 In this follow-along quick start guide, you will learn how to
 

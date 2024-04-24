@@ -47,25 +47,25 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
     // Redocusaurus config
-    // [
-    //   'redocusaurus',
-    //   {
-    //     // Plugin Options for loading OpenAPI files
-    //     specs: [
-    //       // Pass it a path to a local OpenAPI YAML file
-    //       {
-    //         // Redocusaurus will automatically bundle your spec into a single file during the build
-    //         spec: 'openapi/swagger.json',
-    //         route: '/api/',
-    //       }
-    //     ],
-    //     // Theme Options for modifying how redoc renders them
-    //     theme: {
-    //       // Change with your site colors
-    //       primaryColor: '#1890ff',
-    //     },
-    //   },
-    // ] satisfies Redocusaurus.PresetEntry,
+    [
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          // Pass it a path to a local OpenAPI YAML file
+          {
+            // Redocusaurus will automatically bundle your spec into a single file during the build
+            spec: 'openapi/scalekit.swagger.yaml',
+            route: '/api',
+          }
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#1890ff',
+        },
+      },
+    ] satisfies Redocusaurus.PresetEntry,
   ],
   
   themeConfig: {

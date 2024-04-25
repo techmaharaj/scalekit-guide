@@ -1,13 +1,12 @@
 ---
 sidebar_position: 1
-slug: /
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Quick Start
 
-## What you will learn - Test on Netlify
+## What you will learn
 
 In this follow-along quick start guide, you will learn how to
 

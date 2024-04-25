@@ -64,9 +64,13 @@
   background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem;
 }
 
+.menu__list-item:not(:first-child) {
+  margin-top: 10px;
+}
+
 .menu__list-item-collapsible {
   font-weight: bold;
-  font-size: larger;
+  font-size: 16px;
   margin-top: 10px;
 }
 
@@ -133,6 +137,10 @@ p {
   --tblr-alert-color: #4299e1;
 }
 
+.request-card-footer {
+  display: none !important;
+}
+
 .screenshot-full {
   border: 1px solid #dadde1;
 }
@@ -190,7 +198,12 @@ svg[class^='iconExternalLink'] {
 }
 
 .menu__list {
-  font-size: 0.8rem;
+  font-size: 16px;
+}
+
+.menu__list .menu__list {
+
+  border-left: 2px solid rebeccapurple;
 }
 
 img {
@@ -348,4 +361,14 @@ figcaption {
   text-align: center;
   font-style: italic;
   font-size: smaller;
+}
+
+div.narrow-references-container>div:nth-child(2)>section>div>div>div:nth-child(2) {
+  display: none;
+}
+
+#tag\/customer-portal>div>div>div:nth-child(2),
+#tag\/organization>div>div>div:nth-child(2),
+#tag\/connectionservice>div>div>div:nth-child(2) {
+  display: none;
 }

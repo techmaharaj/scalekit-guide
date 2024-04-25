@@ -40,15 +40,18 @@ const config: Config = {
         configuration: {
           isEditable: false,
           spec: {
-            url: 'https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json',
+            url: 'https://raw.githubusercontent.com/scalekit-inc/docs/openapi-test/openapi/scalekit.swagger.json',
             
           },
           searchHotKey: "b",
-          hideModels: true,
-          hiddenClients: ['c','objc','ocaml','powershell','swift','unirest','cohttp'],
+          hideModels: false,
+          showSidebar: true,
+          hiddenClients: ['c','objc','clojure','powershell','swift','cohttp'],
           hideDownloadButton: true,
-          //customCss: '',
-          theme: 'deepSpace'
+          darkMode: false,
+
+          // customCss: './css/custom.css',
+          
         },
       } as ScalarOptions,
     ],
@@ -79,9 +82,11 @@ const config: Config = {
     //       // Pass it a path to a local OpenAPI YAML file
     //       {
     //         // Redocusaurus will automatically bundle your spec into a single file during the build
-    //         spec: 'openapi/scalekit.swagger.yaml',
+    //         spec: 'openapi/scalekit.swagger.json',
     //         route: '/api',
-    //       }
+            
+    //       },
+          
     //     ],
     //     // Theme Options for modifying how redoc renders them
     //     theme: {
@@ -96,7 +101,7 @@ const config: Config = {
     navbar: {
       title: 'Scalekit Docs',
       items: [
-        //{ to: '/api', label: 'API Docs', position: 'left' },
+        // { to: '/api', label: 'API Docs', position: 'left' },
         {
           type: 'search',
           position: 'right',
@@ -117,7 +122,7 @@ const config: Config = {
       searchPagePath: false
     },
     prism: {
-      theme: prismThemes.vsLight
+      theme: prismThemes.github
       // additionalLanguages: ['java', 'python', 'json', 'go'],
     },
   } satisfies Preset.ThemeConfig,

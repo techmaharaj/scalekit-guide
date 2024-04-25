@@ -40,7 +40,7 @@ const config: Config = {
         configuration: {
           isEditable: false,
           spec: {
-            url: 'https://raw.githubusercontent.com/scalekit-inc/docs/openapi-test/openapi/scalekit.swagger.json',
+            url: 'https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json',
             
           },
           searchHotKey: "b",

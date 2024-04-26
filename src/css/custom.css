@@ -407,11 +407,13 @@ div.narrow-references-container>div:nth-child(2)>section>div>div>div:nth-child(2
   display: none;
 }
 
-.section-column .markdown code {
+#tag\/customer-portal .section-column .markdown code,
+#tag\/connection .section-column .markdown code,
+#tag\/organization .section-column .markdown code {
   background-color: transparent !important;
-  /* border-radius: 0px; */
   box-shadow: none !important;
   font-size: 0.875rem !important;
+  font-weight: 501;
 }
 
 hr {
@@ -423,6 +425,6 @@ hr {
 
 /* #tag\/customer-portal>div>div>div:nth-child(2),
 #tag\/organization>div>div>div:nth-child(2),
-#tag\/connectionservice>div>div>div:nth-child(2) {
+#tag\/connection>div>div>div:nth-child(2) {
   display: none;
 } */

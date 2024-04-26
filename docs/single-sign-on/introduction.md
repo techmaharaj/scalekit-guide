@@ -11,18 +11,16 @@ There are two key benefits to the users and organizations with a secure single s
 
 Furthermore, this integrated SSO mechanism enhances user convenience, boosts productivity, and reduces the risks associated with password fatigue and reuse. These security & administration benefits are driving factors for enterprise organizations to only procure SaaS applications that offer SSO-based authentication. 
 
-## How Single Sign-On works
+## How Single Sign-On (SSO) works
 
-As a B2B application developer, you must be wondering how to integrate with these myriad Identity Providers that your enterprise customers might be using to offer Single Sign-on experience for your users. 
-
-Fundamentally, Single Sign-on works by exchanging user information in a pre-determined format between two trusted parties, your application and your customer's Identity Provider. Most of these interactions happen via the browser as some of the steps need user intervention too. 
+Fundamentally, Single Sign-on works by exchanging user information in a pre-determined format between two trusted parties - your application and your customer's identity provider (aka IdP). Most of these interactions happen in the browser context as some steps need user intervention. 
 
 <!-- <Single Sign-on Image>
 <Application <==> Identity Provider> -->
 
-To ensure secure and seamless exchange of user information between your application and your customer's Identity Provider, most Identity Providers support either or both of the two protocols: Secure Assertion Markup Language (SAML) or OpenID Connect (OIDC). The objective of both these protocols is the same: Allow secure user information exchange between Service Provider (Your Application) and Identity Provider (Your customer's Authentication System). They differ in how these systems trust each other, communicate with each other and exchange user information.
+To ensure secure exchange of user information between your application and your customer's identity provider, most IdPs support two protocols: Secure Assertion Markup Language (SAML) or OpenID Connect (OIDC). The objective of both these protocols is same: allow secure user information exchange between the Service Provider (your application) and Identity Provider (your customer's identity system). These protocols differ in how these systems trust each other, communicate, and exchange user information.
 
-Let's look at these protocols at a high level below:
+Let's understand these protocols at a high level.
 
 ## SAML
 

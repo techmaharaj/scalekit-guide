@@ -24,21 +24,23 @@ Let's understand these protocols at a high level.
 
 ## SAML
 
-SAML 2.0 (Secure Assertion Markup Language) has been in use since 2005 and is also most widely implemented protocol in the wild. SAML exchanges user information using XML files via HTTPS or SOAP. 
+SAML 2.0 (Secure Assertion Markup Language) has been in use since 2005 and is also most widely implemented protocol. SAML exchanges user information using XML files via HTTPS or SOAP. But, before the user information is exchanged between the two parties, they need to establish the trust between them. Trust is established by exchanging information about each other as part of SAML configuration parameters like Assetion Consumer Service URL (ACS URL), Entity ID, X.509 Certificates, etc. 
 
-But, before the user information is exchanged between these two parties, first they need to establish trust between them. This is done by exchanging information about each other as part of SAML Configuration parameters like ACS URL (Assetion Consumer Service URL), Entity ID, X.509 Certificates etc. 
+After the trust has been established, subsequent user information can be exchanged in two ways - 
+1) your application requesting for a user's information - this is Service Provider initiated login flow
+2) Or the identity provider directly shares user details via a pre-configured ACS URL - this is Identity Provider initiated Login flow
 
-Once the trust has been established, all subsequent user information requests can happen either by your application requesting for a user's information (Service Provider initiated Login flow) or by the Identity Provider directly giving you user details via the pre-configured ACS URL and request you to grant user access to your product (Identity Provider initiated Login flow) 
+Lets understand these two SSO flows.
 
 ### Service Provider initiated SSO
 
-In case of SP initiated SSO, 
-1. User tries to access your application. You identify that this users credentials need to be verified by their Identity Provider. 
-2. Your application requests the user's Identity Provider for the user's information. 
-3. Identity Provider authenticates the user and sends the users details as Assertions to your application.
-4. You will validate the assertions, retrieve the user information from those assertions and if everything is valid, you will allow the user inside your application.
+For service provider initiated SSO flow, 
+1. User tries to access your application and your app identifies that the user's credentials need to be verified by their identity provider. 
+2. Your application requests the identity provider for the user's information. 
+3. The identity provider authenticates the user and returns user details as "assertions" to your application.
+4. You will validate assertions, retrieve the user information, and if everything checks, allow the user to successfully login yo your application.
 
-As you can imagine, in this workflow, the user login behaviour starts from your application and thats why this is termed as SP initiated SSO.
+As you can imagine, in this workflow, the user login behaviour starts from your application and thats why this is termed as service provider initiated SSO (aka SP-initiated SSO)
 
 
 ### Identity Provider initiated SSO

@@ -20,7 +20,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-  --ifm-color-primary: #000;
+  --ifm-color-primary: #202020;
   --ifm-color-primary-dark: rgb(33, 175, 144);
   --ifm-color-primary-darker: rgb(31, 165, 136);
   --ifm-color-primary-darkest: rgb(26, 136, 112);
@@ -28,8 +28,8 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
-  --ifm-menu-color: #000;
-  --ifm-menu-color-active: #000;
+  --ifm-menu-color: #202020;
+  --ifm-menu-color-active: #202020;
   --ifm-font-family-base: "Inter", sans-serif;
   --tblr-blue: #206bc4;
   --tblr-azure: #4299e1;
@@ -103,6 +103,10 @@
   margin-top: 8px;
 }
 
+.menu__list-item-collapsible:hover {
+  background: none;
+}
+
 .theme-doc-sidebar-item-category-level-1 {
   margin-bottom: 24px;
 }
@@ -138,9 +142,28 @@
 
 }
 
-article {
+article,
+nav.pagination-nav {
   padding-left: 7%;
   padding-right: 7%;
+}
+
+.pagination-nav__link--prev .pagination-nav__sublabel:before {
+  content: "« "
+}
+
+.pagination-nav__link--next .pagination-nav__sublabel::after {
+  content: " »"
+}
+
+.pagination-nav__link--prev .pagination-nav__label::before,
+.pagination-nav__link--next .pagination-nav__label::after {
+  content: "";
+}
+
+.pagination-nav__label {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
 }
 
 .menu__caret {
@@ -223,7 +246,7 @@ p {
   }
 
   article h2 {
-    font-size: 1.2rem !important;
+    font-size: 1.25rem !important;
   }
 
   article h3 {
@@ -238,11 +261,15 @@ p {
   }
 
   article h1 {
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
   }
 
   article h2 {
-    font-size: 1.2rem !important;
+    font-size: 1.5rem !important;
+  }
+
+  article h3 {
+    font-size: 1.125rem !important;
   }
 }
 

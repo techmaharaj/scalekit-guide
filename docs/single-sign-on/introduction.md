@@ -3,52 +3,72 @@ slug: /
 ---
 # Introduction to Single Sign-on
 
-Single Sign-On (SSO) streamlines user access by enabling a single authentication event to grant access to multiple applications with the same credentials. For example, logging into one Google service, such as Gmail, automatically authenticates you to YouTube, Google Drive, and other Google platforms.
+Single Sign-On (SSO) streamlines user access by enabling a single authentication event to grant access to multiple applications with the same credentials. For example, logging into one Google service, such as Gmail, automatically authenticates you to YouTube, Google Drive, and other Google platforms. 
 
-This unified approach also applies to logging out—signing out of one service automatically logs you out from all associated services. By reducing the need for multiple credentials, SSO not only simplifies the login process but also enhances security by minimizing the instances in which credentials are entered and potentially exposed.
+There are two key benefits to the users and organizations with secure single sign-on implementation.
+- User can seamlessly access multiple applications using only one set of credentials. 
+- User credentials are managed only in one central identity authentication provider. So, in a business context, this centralized identity & authentication enables Business Admins to configure and maange the authentication policies for all their users from their Identity Provider. 
 
-Furthermore, this integrated login and logout mechanism enhances user convenience, boosts productivity, and reduces the risks associated with password fatigue and reuse. Crucially, SSO ensures compliance with rigorous security and compliance standards, establishing it as an essential element in the architecture of modern B2B and SaaS applications.
+Furthermore, this integrated SSO mechanism enhances user convenience, boosts productivity, and reduces the risks associated with password fatigue and reuse. Because of the security & administration benefits the single sign-on offers, most (if not all) enterprise organizations prefer to purchase and use business applications that can seamlessly integrate with their Identity Provider. 
 
 ## How Single Sign-On works
 
-SSO is compatible with any Identity Provider that supports SAML (Security Assertion Markup Language) or OIDC (OpenID Connect) protocols, adhering to the OAuth 2.0 framework. This setup abstracts the complex authentication interactions between various IdPs, providing a streamlined user authentication process across different platforms.
+As a B2B application developer, you must be wondering how to integrate with these myriad Identity Providers that your enterprise customers might be using to offer Single Sign-on experience for your users. 
 
-In SSO, a central domain authenticates the user and then shares this authenticated session with other domains. Although sharing mechanisms can vary between SSO protocols, they typically involve generating a signed JSON Web Token (JWT), which is encrypted and contains all necessary user identification information. This token, secured from tampering by its signature, is passed to the client and can be used by any domain within the network to verify user identity through redirects or direct token transmission.
+Fundamentally, Single Sign-on works by exchanging user information in a pre-determined format between two trusted parties, your application and your customer's Identity Provider. Most of these interactions happen via the browser as some of the steps need user intervention too. 
 
-### SAML
+<!-- <Single Sign-on Image>
+<Application <==> Identity Provider> -->
 
-Security Assertion Markup Language (SAML) protocol is widely used in SSO implementation. SAML exchanges authorization and authentication data in XML format; the main parts of this exchange are the user, the identity provider, and the service provider. With SAML:
+To ensure secure and seamless exchange of user information between your application and your customer's Identity Provider, most Identity Providers support either or both of the two protocols: Secure Assertion Markup Language (SAML) or OpenID Connect (OIDC). The objective of both these protocols is the same: Allow secure user information exchange between Service Provider (Your Application) and Identity Provider (Your customer's Authentication System). They differ in how these systems trust each other, communicate with each other and exchange user information.
 
-1. A user requests a resource from the service provider.
-2. The service provider checks with the identity provider to see if the user should have access to the resource.
-3. The identity provider verifies the user's identity, and if valid, asserts back to the service provider that the user should have access.
+Let's look at these protocols at a high level below:
 
-### OIDC
+## SAML
 
-OpenID Connect (OIDC) is an authentication protocol commonly used in consumer-facing SSO implementations. The OIDC protocol handles authentication through JSON Web Tokens and a central identity provider. With OIDC:
+SAML 2.0 (Secure Assertion Markup Language) has been in use since 2005 and is also most widely implemented protocol in the wild. SAML exchanges user information using XML files via HTTPS or SOAP. 
 
-1. A user requests access to an application
-2. The application redirects the user to the identity provider for authentication
-3. The identity provider verifies the user, and if successful, prompts the user to grant data access to the application
-4. If access is granted, the identity provider generates an ID Token, which contains user identity information that the application can consume
-5. The identity provider returns the user to the application
+But, before the user information is exchanged between these two parties, first they need to establish trust between them. This is done by exchanging information about each other as part of SAML Configuration parameters like ACS URL (Assetion Consumer Service URL), Entity ID, X.509 Certificates etc. 
 
-## Service Provider initiated SSO
+Once the trust has been established, all subsequent user information requests can happen either by your application requesting for a user's information (Service Provider initiated Login flow) or by the Identity Provider directly giving you user details via the pre-configured ACS URL and request you to grant user access to your product (Identity Provider initiated Login flow) 
 
-For Service-Provider-initiated implementations, Scalekit is the SSO Service Provider (SP). When a user logs into a B2B, SaaS application:
+### Service Provider initiated SSO
 
-1. The application presents the user with an external Identity Provider (IdP)
-2. The user selects the IdP to authenticate with and logs in
-3. Upon successful authentication, the user is returned to the application with an active session
+In case of SP initiated SSO, 
+1. User tries to access your application. You identify that this users credentials need to be verified by their Identity Provider. 
+2. Your application requests the user's Identity Provider for the user's information. 
+3. Identity Provider authenticates the user and sends the users details as Assertions to your application.
+4. You will validate the assertions, retrieve the user information from those assertions and if everything is valid, you will allow the user inside your application.
 
-## Identity Provider initiated SSO
+As you can imagine, in this workflow, the user login behaviour starts from your application and thats why this is termed as SP initiated SSO.
 
-For Identity Provider initiated SSO, an external Identity Provider (IdP) is the SSO provider. When a user logs in to an application:
 
-1. The application redirects the user to the identity provider
-2. The identity provider performs authentication
-3. Upon successful authentication, the user is returned to the application
+### Identity Provider initiated SSO
 
-For B2B, SaaS applications, SSO can simplify packaging your application for enterprise consumption. With Scalekit, your applications can support common enterprise federation scenarios SAML, OIDC, Active Directory (AD). This allows your enterprise customers to log in with their preferred identity provider technologies.
+In case of Identity Provider initiated SSO, 
+1. User logs into their Identity Provider portal and clicks on your application tile in their IdP portal.
+2. Identity Provider sends the user details as Assertions to your application.
+3. You will validate the assertions, retrieve the user information from those assertions and if everything is valid, you will allow the user inside your application.
 
-Now, lets look at a [Quick Start](/docs/single-sign-on/quickstart-sso.md) guide of SSO with Scalekit.
+Because the user login behaviour starts from the Identity Provider (and not from your application), this flow is called as Idp initiated SSO.
+
+#### Risks with IdP initiated SSO
+IdP initiated SSO is susceptible for common security attacks like Man In the Middle attack, Stolen Assertion attack or Assertion Replay attack etc. While it is possible to prevent these vulnerabilities by strictly implementing the SEction 4.1.5 of SAML 2.0 profile specification, it is always recommended to use SP initiated SSO as much as possible.
+
+## OIDC
+
+OpenID Connect (OIDC) is an authentication protocol based on top of OAuth 2.0 to simplify the user information exchange process between Relying Party (Your Application) and the OpenID Provider (your customer's Identity Provider). The OIDC protocol exchanges user information via signed Json Web Tokens (JWT) over HTTPS. Because of the simplified nature of handling JWTs, it is often used in modern web applications, native desktop clients and mobile applications. With the latest extensions to the OIDC procotol like PKCE (Proof Key of Code Exchange) and DPoP (Demonstrating Proof of Possession), the overall security of user exchange information is increasing.
+
+In it's current format, OIDC only supports SP initiated Login. In this flow: 
+
+1. User tries to access your application. You identify that this users credentials need to be verified by their Identity Provider. 
+2. Your application requests the user's Identity Provider for the user's information via an OAuth2 request.
+3. Identity Provider authenticates the user and sends the users details with an authorization_code to a pre-registered redirect_url on your server.
+4. You will exchange the code for the actual user details by providing your information with the Identity provider. 
+5. Identity Provider will then send the user information in the form of JWTs. You retrieve the user information from those assertions and if everything is valid, you will allow the user inside your application.
+
+## How does Scalekit help
+
+Scalekit acts as the intermediary between your application and your customer's identity providers and abstracts all the complexities and security issues in handling SAML or OIDC protocols. By integrating with Scalekit in just a few lines of code, your application can integrate with dozens of Identity Providers with SAML and OIDC Protocols. 
+
+Go through our follow along [Quick Start](/docs/single-sign-on/quickstart-sso.md) guide, to integrate with Scalekit in just a few minutes.

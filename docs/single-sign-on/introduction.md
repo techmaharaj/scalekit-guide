@@ -38,7 +38,7 @@ For service provider initiated SSO flow,
 1. User tries to access your application and your app identifies that the user's credentials need to be verified by their identity provider. 
 2. Your application requests the identity provider for the user's information. 
 3. The identity provider authenticates the user and returns user details as "assertions" to your application.
-4. You will validate assertions, retrieve the user information, and if everything checks, allow the user to successfully login yo your application.
+4. You validate assertions, retrieve the user information, and if everything checks, allow the user to successfully login yo your application.
 
 As you can imagine, in this workflow, the user login behaviour starts from your application and thats why this is termed as service provider initiated SSO (aka SP-initiated SSO)
 
@@ -46,18 +46,18 @@ As you can imagine, in this workflow, the user login behaviour starts from your 
 ### Identity Provider initiated SSO
 
 In case of Identity Provider initiated SSO, 
-1. User logs into their Identity Provider portal and clicks on your application tile in their IdP portal.
-2. Identity Provider sends the user details as Assertions to your application.
-3. You will validate the assertions, retrieve the user information from those assertions and if everything is valid, you will allow the user inside your application.
+1. User logs into their identity provider portal and selects your application from within the IdP portal.
+2. Identity Provider sends the user details as assertions to your application.
+3. You validate assertions, retrieve the user information, and if everything checks, allow the user to successfully login yo your application.
 
-Because the user login behaviour starts from the Identity Provider (and not from your application), this flow is called as Idp initiated SSO.
+Since the user login workflow starts from the Identity Provider portal (and not from your application), this flow is called as Identity Provider initiated SSO (aka IdP-initiated SSO).
 
 #### Risks with IdP initiated SSO
-IdP initiated SSO is susceptible for common security attacks like Man In the Middle attack, Stolen Assertion attack or Assertion Replay attack etc. While it is possible to prevent these vulnerabilities by strictly implementing the SEction 4.1.5 of SAML 2.0 profile specification, it is always recommended to use SP initiated SSO as much as possible.
+IdP initiated SSO is susceptible for common security attacks like Man In the Middle attack, Stolen Assertion attack or Assertion Replay attack etc. While it is possible to prevent these vulnerabilities by strictly implementing SAML 2.0 profile specification, it is always recommended to use SP initiated SSO as much as possible.
 
 ## OIDC
 
-OpenID Connect (OIDC) is an authentication protocol based on top of OAuth 2.0 to simplify the user information exchange process between Relying Party (Your Application) and the OpenID Provider (your customer's Identity Provider). The OIDC protocol exchanges user information via signed Json Web Tokens (JWT) over HTTPS. Because of the simplified nature of handling JWTs, it is often used in modern web applications, native desktop clients and mobile applications. With the latest extensions to the OIDC procotol like PKCE (Proof Key of Code Exchange) and DPoP (Demonstrating Proof of Possession), the overall security of user exchange information is increasing.
+OpenID Connect (OIDC) is an authentication protocol based on top of OAuth 2.0 to simplify the user information exchange process between Relying Party (your application) and the OpenID Provider (your customer's Identity Provider). The OIDC protocol exchanges user information via signed JSON Web Tokens (JWT) over HTTPS. Because of the simplified nature of handling JWTs, it is often used in modern web applications, native desktop clients and mobile applications. With the latest extensions to the OIDC procotol like Proof Key of Code Exchange (PKCE) and Demonstrating Proof of Possession (DPoP), the overall security of user exchange information is strengthened.
 
 In it's current format, OIDC only supports SP initiated Login. In this flow: 
 

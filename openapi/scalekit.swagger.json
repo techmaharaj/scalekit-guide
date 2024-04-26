@@ -11,7 +11,7 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "# Introduction\nScalekit API is modeled around the [REST](https://en.wikipedia.org/wiki/REST) architecture style. That means, our API has predictable resource-oriented URLs, accepts form-encoded request bodies and produces JSON formatted responses, uses standard HTTP verbs and error codes. \n\n## Getting Started\nIf you are just getting started, you can also refer to our [Quick Start Guide](/single-sign-on/quickstart-sso). \n\nApart from REST APIs, we have published SDKs in some of the popular languages as shown below. You can use these SDKs and integrate with Scalekit much faster.\n\n```\nNodeJS\nGo Lang\n```\n\nSome additional instructions around using our APIs\n\n- API Endpoint Host must use the `Environment Domain` of the environment you are targeting.\n- All API communication must be made over `HTTPS`. \n- API requests without appropriate authentication headers will fail with 401 status code. \n\nRead below to understand more about how to authenticate the API calls and how to handle errors appropriately.\n \n\n# Authentication\nScalekit API uses [OAuth2 Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials) based authentication. You can view and manage the necessary information from your `API Config` section in the Scalekit Dashboard.\n\nYou will need the following information to authenticate with Scalekit APIs\n- Client ID\n- Client Secret\n- Environment Domain\n\nYou can obtain a secure token by making `POST` call to the `https://{ENV_DOMAIN}/oauth/token` endpoint and sending client_id and client_secret as part of the request body. \n\n```shell\n$ curl https://{ENV_DOMAIN}/oauth/token \\\n  -X POST \\\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\n  -d 'client_id={client_id}' \\\n  -d 'client_secret={client_secret}' \\\n  -d 'grant_type=client_credentials'\\\n```\n\nUpon successful processing, you will receive the access token as part of the JSON response as shown in example below:\n```json\n{\n  \"access_token\": \"DCRD10-e7c5c8139165228a82e442445fe01c16\",\n  \"token_type\": \"bearer\",\n  \"expires_in\": 1799\n}\n```\nThe `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit. \n\nTo make a request to one of our APIs, you need to include the access token in the Authorization header of the request as Bearer 'access_token' like the following example shows:\n```shell\n$ curl --request GET \"https://{ENV_DOMAIN}/api/v1/organizations\" \\\n-H \"Content-Type: application/json\" \\\n-H \"Authorization: Bearer {access_token}\"\n```\n\nPlease make sure that you keep your Client Secrets safely. Do not share your client secret in publicly accessible areas such as GitHub, client-side code, etc. Refer to [this guide](/security/client-secrets) to understand some of the best practices around keeping client secrets secure.\n\nOur SDKs will automatically handle the API authentication and error handling to make the job of using our APIs much easier for you.\n\n# Error Handling\nAs mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs.\n\nIn general: \n- `200 or 201`: API request is successful\n- `400`: The request was unacceptable, often due to missing a required parameter.\n- `401`: Invalid Authentication Headers found in the request.\n- `404`: Resource not found\n- `429`: Too many requests hit the API too quickly. Retry the request after a cool-off period.\n- `500 or 501 or 504`: Something went wrong at our end. However rare they are, we automatically log these requests for proactive support and fixing the underlying issue.\n\nAlong with HTTP Status Codes, we also respond with detailed error messages. An example error message for a 401 error is shown below.\n\n```json\n{\n    \"code\": 16,\n    \"message\": \"Token empty\",\n    \"details\":\n    [\n        {\n            \"@type\": \"type.googleapis.com/scalekit.v1.errdetails.ErrorInfo\",\n            \"error_code\": \"UNAUTHENTICATED\"\n        }\n    ]\n}         \n```\n\nWe strongly recommend you to handle errors gracefully while writing code using our SDKs. ",
+    "description": "Enterprise Ready Authentication Platform for SaaS",
     "title": "Scalekit APIs",
     "contact": {
       "name": "Scalekit",
@@ -65,12 +65,6 @@
             "schema": {
               "$ref": "#/definitions/connectionsListConnectionsResponse"
             }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       }
@@ -104,12 +98,6 @@
             "schema": {
               "$ref": "#/definitions/organizationsListOrganizationsResponse"
             }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       },
@@ -137,12 +125,6 @@
             "description": "Created Successfully",
             "schema": {
               "$ref": "#/definitions/organizationsCreateOrganizationResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
             }
           }
         }
@@ -176,12 +158,6 @@
             "schema": {
               "$ref": "#/definitions/organizationsGetOrganizationResponse"
             }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       },
@@ -210,12 +186,6 @@
           "200": {
             "description": "Deleted Successfully",
             "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       },
@@ -255,12 +225,6 @@
             "schema": {
               "$ref": "#/definitions/organizationsUpdateOrganizationResponse"
             }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       }
@@ -287,12 +251,6 @@
             "schema": {
               "$ref": "#/definitions/organizationsCustomerPortalLinksResponse"
             }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       },
@@ -317,12 +275,6 @@
             "schema": {
               "$ref": "#/definitions/organizationsCustomerPortalLinksResponse"
             }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       },
@@ -345,12 +297,6 @@
           "200": {
             "description": "Success",
             "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       }
@@ -390,12 +336,6 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/connectionsGetConnectionResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
             }
           }
         }
@@ -437,12 +377,6 @@
             "schema": {
               "$ref": "#/definitions/connectionsToggleConnectionResponse"
             }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       }
@@ -483,12 +417,6 @@
             "schema": {
               "$ref": "#/definitions/connectionsToggleConnectionResponse"
             }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
           }
         }
       }
@@ -496,20 +424,15 @@
   },
   "definitions": {
     "commonsRegionCode": {
-      "description": " - REGION_CODE_UNSPECIFIED: If the region code is unspecified the selected region will automatically be decided based on the origin of the call.",
       "type": "string",
-      "default": "REGION_CODE_UNSPECIFIED",
       "enum": [
-        "REGION_CODE_UNSPECIFIED",
         "US",
         "EU"
       ]
     },
     "connectionsConfigurationType": {
       "type": "string",
-      "default": "CONFIGURATION_TYPE_UNSPECIFIED",
       "enum": [
-        "CONFIGURATION_TYPE_UNSPECIFIED",
         "DISCOVERY",
         "MANUAL"
       ]
@@ -582,9 +505,7 @@
     },
     "connectionsConnectionProvider": {
       "type": "string",
-      "default": "CONNECTION_PROVIDER_UNSPECIFIED",
       "enum": [
-        "CONNECTION_PROVIDER_UNSPECIFIED",
         "OKTA",
         "GOOGLE",
         "MICROSOFT_AD",
@@ -597,9 +518,7 @@
     },
     "connectionsConnectionStatus": {
       "type": "string",
-      "default": "CONNECTION_STATUS_UNSPECIFIED",
       "enum": [
-        "CONNECTION_STATUS_UNSPECIFIED",
         "DRAFT",
         "IN_PROGRESS",
         "COMPLETED"
@@ -607,9 +526,7 @@
     },
     "connectionsConnectionType": {
       "type": "string",
-      "default": "INVALID",
       "enum": [
-        "INVALID",
         "OIDC",
         "SAML",
         "PASSWORD"
@@ -704,9 +621,7 @@
     },
     "connectionsNameIdFormat": {
       "type": "string",
-      "default": "NAME_ID_FORMAT_NIL",
       "enum": [
-        "NAME_ID_FORMAT_NIL",
         "UNSPECIFIED",
         "EMAIL",
         "TRANSIENT",
@@ -786,9 +701,7 @@
     },
     "connectionsOIDCScope": {
       "type": "string",
-      "default": "OIDC_SCOPE_UNSPECIFIED",
       "enum": [
-        "OIDC_SCOPE_UNSPECIFIED",
         "openid",
         "profile",
         "email",
@@ -798,9 +711,7 @@
     },
     "connectionsRequestBinding": {
       "type": "string",
-      "default": "REQUEST_BINDING_UNSPECIFIED",
       "enum": [
-        "REQUEST_BINDING_UNSPECIFIED",
         "HTTP_POST",
         "HTTP_REDIRECT"
       ]
@@ -906,9 +817,7 @@
     "connectionsSAMLSigningOptions": {
       "type": "string",
       "title": "enums all",
-      "default": "SAML_SIGNING_OPTIONS_UNSPECIFIED",
       "enum": [
-        "SAML_SIGNING_OPTIONS_UNSPECIFIED",
         "NO_SIGNING",
         "SAML_ONLY_RESPONSE_SIGNING",
         "SAML_ONLY_ASSERTION_SIGNING",
@@ -928,9 +837,7 @@
     },
     "connectionsTokenAuthType": {
       "type": "string",
-      "default": "TOKEN_AUTH_TYPE_UNSPECIFIED",
       "enum": [
-        "TOKEN_AUTH_TYPE_UNSPECIFIED",
         "URL_PARAMS",
         "BASIC_AUTH"
       ]
@@ -1057,36 +964,6 @@
         }
       }
     },
-    "protobufAny": {
-      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics.",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "rpcStatus": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/protobufAny"
-          }
-        },
-        "message": {
-          "type": "string"
-        }
-      }
-    },
     "v1organizationsCreateOrganization": {
       "type": "object",
       "properties": {
@@ -1144,11 +1021,15 @@
   ],
   "tags": [
     {
-      "description": "Organization represents a customer or a tenant of your product. This is the top level entity and all the resources are mapped to this Organization object. Each organization will be uniquely identified by `organization_id`. You can use this service to create and manage Enterprise SSO Connections for an organization.\n\n**Attributes**\n\n| Attribute Name | Attribute Description |\n|---|---|\n| `id`\u003cbr\u003e_string_ | Unique ID of an Organization. This attribute is required for all API operations to be performed against this organization.  |\n| `display_name`\u003cbr\u003e_string_ | Name of the Organization |\n| `create_time`\u003cbr\u003e_string_ | Timestamp at which this organization record was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2011-10-05T14:48:00.000Z` |\n| `update_time`\u003cbr\u003e_string_ | Timestamp at which this organization record was last updated in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: \u003cbr\u003e`2021-10-05T14:48:00.000Z` |\n| `external_id`\u003cbr\u003e_string_ | Unique ID of this organization according to your system. You can store your unique ID for this organization in Scalekit's system and later use this to fetch Organization and Connection details. This is helpful if you don't want to persist Scalekit's Unique Identifiers in your database. |\n| `metadata`\u003cbr\u003e_string_ | JSON representation of any additional organization information that you want to store in Scalekit's system. Example: `{\"key\":\"value\"}` |\n| `region_code`\u003cbr\u003e_string_ | Represents the Data Center region in which this organization's data is stored. Currently, it always returns `US` |",
+      "description": "# Introduction\nScalekit API is modeled around the [REST](https://en.wikipedia.org/wiki/REST) architecture style. That means, our API has predictable resource-oriented URLs, accepts form-encoded request bodies and produces JSON formatted responses, uses standard HTTP verbs and error codes.\n\n## Getting Started\nIf you are just getting started, you can also refer to our [Quick Start Guide](/single-sign-on/quickstart-sso).\n\nApart from REST APIs, we have published SDKs in some of the popular languages as shown below. You can use these SDKs and integrate with Scalekit much faster.\n\n```\nNodeJS\nGo Lang\n```\n\nSome additional instructions around using our APIs\n\n- API Endpoint Host must use the `Environment Domain` of the environment you are targeting.\n- All API communication must be made over `HTTPS`.\n- API requests without appropriate authentication headers will fail with 401 status code.\n\nRead below to understand more about how to authenticate the API calls and how to handle errors appropriately.\n\n\n# Authentication\nScalekit API uses [OAuth2 Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials) based authentication. You can view and manage the necessary information from your `API Config` section in the Scalekit Dashboard.\n\nYou will need the following information to authenticate with Scalekit APIs\n- Client ID\n- Client Secret\n- Environment Domain\n\nYou can obtain a secure token by making `POST` call to the `https://{ENV_DOMAIN}/oauth/token` endpoint and sending client_id and client_secret as part of the request body.\n\n```shell\n$ curl https://{ENV_DOMAIN}/oauth/token \\\n  -X POST \\\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\n  -d 'client_id={client_id}' \\\n  -d 'client_secret={client_secret}' \\\n  -d 'grant_type=client_credentials'\\\n```\n\nUpon successful processing, you will receive the access token as part of the JSON response as shown in example below:\n```json\n{\n  \"access_token\": \"DCRD10-e7c5c8139165228a82e442445fe01c16\",\n  \"token_type\": \"bearer\",\n  \"expires_in\": 1799\n}\n```\nThe `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit.\n\nTo make a request to one of our APIs, you need to include the access token in the Authorization header of the request as Bearer 'access_token' like the following example shows:\n```shell\n$ curl --request GET \"https://{ENV_DOMAIN}/api/v1/organizations\" \\\n-H \"Content-Type: application/json\" \\\n-H \"Authorization: Bearer {access_token}\"\n```\n\nPlease make sure that you keep your Client Secrets safely. Do not share your client secret in publicly accessible areas such as GitHub, client-side code, etc. Refer to [this guide](/security/client-secrets) to understand some of the best practices around keeping client secrets secure.\n\nOur SDKs will automatically handle the API authentication and error handling to make the job of using our APIs much easier for you.\n\n# Error Handling\nAs mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs.\n\nIn general:\n- `200 or 201`: API request is successful\n- `400`: The request was unacceptable, often due to missing a required parameter.\n- `401`: Invalid Authentication Headers found in the request.\n- `404`: Resource not found\n- `429`: Too many requests hit the API too quickly. Retry the request after a cool-off period.\n- `500 or 501 or 504`: Something went wrong at our end. However rare they are, we automatically log these requests for proactive support and fixing the underlying issue.\n\nAlong with HTTP Status Codes, we also respond with detailed error messages. An example error message for a 401 error is shown below.\n\n```json\n{\n    \"code\": 16,\n    \"message\": \"Token empty\",\n    \"details\":\n    [\n        {\n            \"@type\": \"type.googleapis.com/scalekit.v1.errdetails.ErrorInfo\",\n            \"error_code\": \"UNAUTHENTICATED\"\n        }\n    ]\n}\n```\n\nWe strongly recommend you to handle errors gracefully while writing code using our SDKs.",
+      "name": "Getting Started"
+    },
+    {
+      "description": "Organization represents a customer or a tenant of your product. This is the top level entity and all the resources are mapped to this Organization object. Each organization will be uniquely identified by `organization_id`. You can use this service to create and manage Enterprise SSO Connections for an organization.\n\n**Attributes**\n\n| Attribute Name | Attribute Description |\n|---|---|\n| `id`\u003cbr\u003e_string_ | Unique ID of an Organization. This attribute is required for all API operations to be performed against this organization.  |\n| `display_name`\u003cbr\u003e_string_ | Name of the Organization |\n| `create_time`\u003cbr\u003e_string_ | Timestamp at which this organization record was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2011-10-05T14:48:00.000Z` |\n| `update_time`\u003cbr\u003e_string_ | Timestamp at which this organization record was last updated in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: \u003cbr\u003e`2021-10-05T14:48:00.000Z` |\n| `external_id`\u003cbr\u003e_string_ | Unique ID of this organization according to your system. You can store your unique ID for this organization in Scalekit's system and later use this to fetch Organization and Connection details. This is helpful if you don't want to persist Scalekit's Unique Identifiers in your database. |\n| `metadata`\u003cbr\u003e_object_ | JSON representation of any additional organization information that you want to store in Scalekit's system. Example: `{\"key\":\"value\"}` |\n| `region_code`\u003cbr\u003e_string_ | Represents the Data Center region in which this organization's data is stored. Currently, it always returns `US` |",
       "name": "Organization"
     },
     {
-      "description": "Connection represents a unique Single Sign-on instance for an Organization. This resource has all the configuration and settings that are needed to establish an SSO and exchange user information securely between Scalekit and your customer's Identity Provider. Depending on the connection_type parameter, the corresponding configuration details can be retrieved by using `oidc_config` or `saml_config` parameter.\n\n**Connection Attributes**\n\n| Attribute Name | Attribute Description |\n|---|---|\n| `id`\u003cbr\u003e_string_ | Unique ID of an SSO Connection. This attribute is required for all API operations to be performed against this connection.  |\n| `provider`\u003cbr\u003e_ENUM_ | Name of the Identity Provider. Possible Values are: `OKTA`,`GOOGLE`,`MICROSOFT_AD`,`AUTH0`,`ONELOGIN`,`PING_IDENTITY`,`JUMPCLOUD`,`CUSTOM` |\n| `type`\u003cbr\u003e_ENUM_ | Protocol type that is used for this connection. Possible values are `SAML` or `OIDC` |\n| `status`\u003cbr\u003e_ENUM_ | Indicates the configuration progress status of the SSO Connection. Possible Values are `DRAFT`, `INPROGRESS`, `COMPLETED`. \u003cbr\u003e_Note_: This doesn't indicate whether this connection is active or not. |\n| `enabled`\u003cbr\u003e_boolean_ | Indicates whether this connection is active or not. Users can only login via active SSO connections. |\n| `organization_id`\u003cbr\u003e_string_ | Organization ID to which this SSO connection belongs to. |\n| `saml_config`\u003cbr\u003e_Object_ | If this connection is of type `SAML`, the configuration details are found in this object. |\n| `oidc_config`\u003cbr\u003e_Object_ | If this connection is of type `OIDC`, the configuration details are found in this object. |\n| `attribute_mapping`\u003cbr\u003e_Object_ | Array of attribute mappings using which the user information received from the Identity Provider is normalized. Example: `{\u003cbr\u003e            \"email\": \"email\",\u003cbr\u003e            \"family_name\": \"lastName\",\u003cbr\u003e            \"given_name\": \"firstName\",\u003cbr\u003e            \"sub\": \"nameid\"\u003cbr\u003e        }` |\n| `create_time` | Timestamp at which this connection record was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-05T14:48:00.000Z` |\n| `update_time`\u003cbr\u003e_string_ | Timestamp at which this connection record was last updated in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-10T14:48:00.000Z` |",
+      "description": " Connection represents a unique Single Sign-on instance for an Organization. This resource has all the configuration and settings that are needed to establish an SSO and exchange user information securely between Scalekit and your customer's Identity Provider. Depending on the connection_type parameter, the corresponding configuration details can be retrieved by using `oidc_config` or `saml_config` parameter.\n\n**Connection Attributes**\n\n| Attribute Name | Attribute Description |\n|---|---|\n| `id`\u003cbr\u003e_string_ | Unique ID of an SSO Connection. This attribute is required for all API operations to be performed against this connection.  |\n| `provider`\u003cbr\u003e_ENUM_ | Name of the Identity Provider. Possible Values are: `OKTA`,`GOOGLE`,`MICROSOFT_AD`,`AUTH0`,`ONELOGIN`,`PING_IDENTITY`,`JUMPCLOUD`,`CUSTOM` |\n| `type`\u003cbr\u003e_ENUM_ | Protocol type that is used for this connection. Possible values are `SAML` or `OIDC` |\n| `status`\u003cbr\u003e_ENUM_ | Indicates the configuration progress status of the SSO Connection. Possible Values are `DRAFT`, `INPROGRESS`, `COMPLETED`. \u003cbr\u003e_Note_: This doesn't indicate whether this connection is active or not. |\n| `enabled`\u003cbr\u003e_boolean_ | Indicates whether this connection is active or not. Users can only login via active SSO connections. |\n| `organization_id`\u003cbr\u003e_string_ | Organization ID to which this SSO connection belongs to. |\n| `saml_config`\u003cbr\u003e_Object_ | If this connection is of type `SAML`, the configuration details are found in this object. |\n| `oidc_config`\u003cbr\u003e_Object_ | If this connection is of type `OIDC`, the configuration details are found in this object. |\n| `attribute_mapping`\u003cbr\u003e_Object_ | Array of attribute mappings using which the user information received from the Identity Provider is normalized. Example: `{\u003cbr\u003e            \"email\": \"email\",\u003cbr\u003e            \"family_name\": \"lastName\",\u003cbr\u003e            \"given_name\": \"firstName\",\u003cbr\u003e            \"sub\": \"nameid\"\u003cbr\u003e        }` |\n| `create_time` | Timestamp at which this connection record was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-05T14:48:00.000Z` |\n| `update_time`\u003cbr\u003e_string_ | Timestamp at which this connection record was last updated in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-10T14:48:00.000Z` |",
       "name": "Connection"
     }
   ],

@@ -54,28 +54,53 @@
   --tblr-font-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --tblr-font-monospace: monospace;
   --tblr-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --doc-sidebar-width: 250px !important;
+  --doc-sidebar-width: 280px !important;
   --ifm-link-color: #3e63dd;
-  --ifm-menu-color-background-active: #f0f4ff;
-  --ifm-link-menu-color-background-hover: #f0f4ff;
+  --ifm-menu-color-background-active: #f0f0f0;
+  --ifm-link-menu-color-background-hover: #f9f9f9;
+  --ifm-menu-link-padding-horizontal: 16px;
+  --ifm-menu-link-padding-vertical: 10px;
+  --ifm-toc-border-color: #e8e8e8;
+}
+
+.menu.thin-scrollbar {
+  padding: 0.5rem;
 }
 
 .menu__link--sublist-caret:after {
   background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem;
 }
 
+.menu__list .menu__list {
+  margin-top: 0px;
+}
+
 .menu__list-item:not(:first-child) {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .menu__list-item-collapsible {
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-top: 8px;
 }
 
-..menu__link--active {
-  background-color: #656d77;
+.theme-doc-sidebar-item-category-level-1 {
+  margin-bottom: 24px;
+}
+
+.theme-doc-sidebar-item-link-level-1 {
+  margin-bottom: 24px;
+}
+
+.menu__list-item {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.menu__link--active {
+  font-weight: 600;
+  font-size: 0.875rem;
 }
 
 .menu__caret:before {
@@ -160,13 +185,10 @@ p {
   text-decoration: underline;
 }
 
-svg[class^='iconExternalLink'] {
-  display: none;
-}
 
 @media screen and (max-width: 996px) {
   :root {
-    --ifm-font-size-base: 14px;
+    --ifm-font-size-base: 16px;
   }
 
   article h1 {
@@ -185,7 +207,7 @@ svg[class^='iconExternalLink'] {
 
 @media screen and (min-width: 997px) {
   :root {
-    --ifm-font-size-base: 14px;
+    --ifm-font-size-base: 16px;
   }
 
   article h1 {
@@ -195,15 +217,6 @@ svg[class^='iconExternalLink'] {
   article h2 {
     font-size: 1.2rem !important;
   }
-}
-
-.menu__list {
-  font-size: 16px;
-}
-
-.menu__list .menu__list {
-
-  border-left: 2px solid rebeccapurple;
 }
 
 img {
@@ -367,8 +380,8 @@ div.narrow-references-container>div:nth-child(2)>section>div>div>div:nth-child(2
   display: none;
 }
 
-#tag\/customer-portal>div>div>div:nth-child(2),
+/* #tag\/customer-portal>div>div>div:nth-child(2),
 #tag\/organization>div>div>div:nth-child(2),
 #tag\/connectionservice>div>div>div:nth-child(2) {
   display: none;
-}
+} */

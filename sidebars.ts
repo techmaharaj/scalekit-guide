@@ -17,24 +17,26 @@ const sidebars: SidebarsConfig = {
   // But you can create a sidebar manually
   
   tutorialSidebar: [
-    "introduction",
     {
       type: 'category',
       label: 'Single Sign-on',
-      items: ['single-sign-on/quickstart-sso', 'single-sign-on/quickstart-customer-portal', 'single-sign-on/testing-considerations', 'single-sign-on/golive-checklist']
+      items: ['single-sign-on/introduction','single-sign-on/quickstart-sso', 'single-sign-on/quickstart-customer-portal', 'single-sign-on/testing-considerations', 'single-sign-on/golive-checklist']
     },
     {
       type: 'category',
       label: 'Customization',
       items: ['customization/custom-domain', 'customization/branding-theming']
     },
-    // Internal link
     {
-      type: 'link',
-      label: 'API Reference', // The link label
-      href: '/api-reference', // The internal path
+      type: 'category',
+      label: 'API & SDKs',
+      items: [{
+        type: 'link',
+        label: 'API Reference', // The link label
+        href: '/api-reference', // The internal path
+      }, 'sdks']
     },
-    "sdks",
+    
     {
       type: 'category',
       link: {

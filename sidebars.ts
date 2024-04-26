@@ -20,7 +20,11 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Single Sign-on',
-      items: ['single-sign-on/introduction','single-sign-on/quickstart-sso', 'single-sign-on/quickstart-customer-portal', 'single-sign-on/testing-considerations', 'single-sign-on/golive-checklist']
+      items: [{
+        type: 'doc',
+        label: 'Introduction', // The link label
+        id: 'single-sign-on/introduction', // The internal path
+      },'single-sign-on/quickstart-sso', 'single-sign-on/quickstart-customer-portal', 'single-sign-on/testing-considerations', 'single-sign-on/golive-checklist']
     },
     {
       type: 'category',

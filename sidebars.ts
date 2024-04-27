@@ -40,7 +40,16 @@ const sidebars: SidebarsConfig = {
         href: '/api-reference', // The internal path
       }, 'sdks']
     },
-    
+    {
+      type: 'category',
+      // link: {
+      //   type: 'generated-index',
+      //   title: 'Integration Guides',
+      //   slug: '/integrations'
+      // },
+      label: 'Best Practices',
+      items: ['best-practices/manage-client-secrets', 'best-practices/redirect-uri', 'best-practices/error-handling' ]
+    },
     {
       type: 'category',
       // link: {

@@ -1,8 +1,10 @@
 ---
 sidebar_position: 1
 ---
+import InstallSDK from './../templates/install-sdk.md';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
 
 # Quick Start
 
@@ -69,63 +71,9 @@ A redirect URL is the URL endpoint in your application that Scalekit redirects t
 
 After a successful user authentication, Scalekit provides a temporary code value to the redirect_url you configured. You'll need to POST this code back to Scalekit with your client secret in exchange for the actual user information details. 
 
-#### Install Scalekit SDK
+### Configure SDK
 
-To make Scalekit integration easier, you can install our SDK by running the below command in your terminal. 
-
-<Tabs groupId="tech-stack">
-<TabItem value="nodejs" label="NodeJS">
-
-
-```shell
-$ npm install @scalekit-inc/nodejs-sdk
-```
-
-</TabItem>
-<TabItem value="py" label="Python">
-
-```shell
-$ pip install scalekit
-```
-
-</TabItem>
-<TabItem value="golang" label="Go">
-
-```go
-import "scalekit-inc/go-sdk"
-```
-
-</TabItem>
-</Tabs>
-
-
-To use the Scalekit SDK in your application code, you can create the client using the following code and use the client to invoke appropriate API calls.
-
-
-<Tabs groupId="tech-stack">
-<TabItem value="nodejs" label="NodeJS">
-
-```javascript
-const scalekit = new Scalekit(SCALEKIT_ENVIRONMENT_URL, SCALEKIT_CLIENT_ID, SCALEKIT_CLIENT_SECRET);
-```
-
-</TabItem>
-<TabItem value="py" label="Python">
-
-```python
-# write python code here
-```
-
-</TabItem>
-<TabItem value="golang" label="Go">
-
-```go
-// write go code here
-```
-
-</TabItem>
-</Tabs>
-
+<InstallSDK />
 
 
 ### Initiate SSO login

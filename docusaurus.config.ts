@@ -70,7 +70,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css',]
         },
       } satisfies Preset.Options,
     ],
@@ -107,6 +107,7 @@ const config: Config = {
           type: 'search',
           position: 'right',
         },
+        { to: 'https://app.scalekit.com', label: 'Go to Dashboard ->', position: 'right', className: 'loginLink' },
       ],
     },
     imageZoom: {
@@ -133,7 +134,8 @@ const config: Config = {
       indexName: "scalekit",
       contextualSearch: false,
       insights: true,
-      searchPagePath: false
+      searchPagePath: false,
+
     },
     prism: {
       theme: prismThemes.github

@@ -239,6 +239,7 @@
         "parameters": [
           {
             "type": "string",
+            "description": "Organization ID",
             "name": "id",
             "in": "path",
             "required": true
@@ -263,6 +264,7 @@
         "parameters": [
           {
             "type": "string",
+            "description": "Organization ID",
             "name": "id",
             "in": "path",
             "required": true
@@ -272,7 +274,7 @@
           "200": {
             "description": "Create Customer Portal Link",
             "schema": {
-              "$ref": "#/definitions/organizationsCustomerPortalLinksResponse"
+              "$ref": "#/definitions/organizationsGenerateCustomerPortalLinkResponse"
             }
           }
         }
@@ -287,6 +289,7 @@
         "parameters": [
           {
             "type": "string",
+            "description": "Organization ID",
             "name": "id",
             "in": "path",
             "required": true
@@ -853,11 +856,21 @@
       "type": "object",
       "properties": {
         "links": {
+          "description": "Customer Portal Links",
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/organizationsLink"
           }
+        }
+      }
+    },
+    "organizationsGenerateCustomerPortalLinkResponse": {
+      "type": "object",
+      "properties": {
+        "link": {
+          "description": "Customer Portal Link",
+          "$ref": "#/definitions/organizationsLink"
         }
       }
     },
@@ -873,14 +886,20 @@
       "type": "object",
       "properties": {
         "expire_time": {
+          "description": "Expiry time of the link. The link is valid for 1 week.",
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "example": "2024-02-06T14:48:00.000Z"
         },
         "id": {
-          "type": "string"
+          "description": "Unique Identifier for the link",
+          "type": "string",
+          "example": "lnk_123123123123123"
         },
         "location": {
-          "type": "string"
+          "description": "Location of the link. This is the URL that can be used to access the customer portal. The link is valid for 1 week.",
+          "type": "string",
+          "example": "https://scalekit.com/portal/lnk_123123123123123"
         }
       }
     },
@@ -914,7 +933,7 @@
           "type": "string",
           "format": "date-time",
           "title": "Created Time",
-          "example": "2023-03-03 12:30"
+          "example": "2024-001-05T14:48:00.000Z"
         },
         "display_name": {
           "description": "Display Name of the Organization",

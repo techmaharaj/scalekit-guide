@@ -40,24 +40,24 @@ Here's a description of how it works:
 
 ### 0. Prerequisites
 
-Before you get started, make sure 
+Before you get started: 
 
-- you are logged into your [Scalekit account](https://app.scalekit.com) and keep API credentials handy
-- you have local access to your codebase to make changes and deploy in a test environment
+- Ensure you're logged into your [Scalekit account](https://app.scalekit.com) and have your API credentials ready
+- Access to your codebase is also necessary to implement and test changes
 
 
 ### 1. Install SDK
 
-Scalekit offers SDKs to quickly build SSO authentication mechanism in your application. 
+Scalekit provides SDKs for various languages to quickly add SSO in your application.
 
-Install the SDK using the command below:
+Install the relevant SDK using the command below:
 
 <InstallSDK />
 
 ### 2. Configure your Secrets
 
 
-To make the API calls to Scalekit, you need to add the API credentials that are found in your Scalekit dashboard. 
+Set up your API credentials, found on your Scalekit dashboard, as environment variables for secure API communication.
 
 **API Credentials:**
 
@@ -77,7 +77,7 @@ SCALEKIT_CLIENT_SECRET="test_CbGfKxzfIipiY7RHuDkchgLdwUVO6ISirRcTKMbcX3dsfdsfdsf
 
 ### 3. Initiate the Authorization URL
 
-The endpoint to initiate SSO via the Scalekit API is crucial for the authentication workflow. The SSO integration starts after you redirect the user to Scalekit Authorization URL.
+The endpoint to initiate SSO is crucial for the authentication workflow. The SSO integration starts after you redirect the user to Scalekit Authorization URL.
 
 There are a few configuration options to send the Authorization URL to Scalekit:
 
@@ -133,7 +133,7 @@ After a successful user authentication, Scalekit provides a temporary code value
 
 ### 4. Fetch User Details
 
-After the user has successfully authenticated with their Identity Provider, Scalekit sends a unique authorization code to the redirect_uri that is sent as part of the authorization URL above. You will need to send this `code` and `redirect_uri` to get the authenticated user's profile information.
+After Scalekit completes SSO authentication, it sends a unique authorization code to the redirect_uri that is sent as part of the authorization URL above. You will need to send this `code` and `redirect_uri` to get the authenticated user's profile information.
 
 <Tabs groupId="tech-stack">
 <TabItem value="nodejs" label="NodeJS">

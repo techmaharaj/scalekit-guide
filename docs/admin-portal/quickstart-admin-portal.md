@@ -18,10 +18,11 @@ Depending on your architecture and UX preferences, you can choose one of the two
 ## 1. Integration via API
 
 ### Configure SDK
+Begin by installing the Scalekit SDK, which provides necessary tools for creating a secure and efficient connection to the Admin Portal.
 <InstallSDK />
 
-### Generate Link
-You can generate a Admin Portal link for an organization using the below API. 
+### Generate Magic Link
+Utilize our API to generate an Admin Portal link that is uniquely keyed to an organization.
 
 
 <Tabs groupId="tech-stack">
@@ -49,9 +50,11 @@ const links = await sc.organization.generateCustomerPortalLink('org_1233222' as 
 </TabItem>
 </Tabs>
 
-The generated portal link is a magic link that will expiry within 5 minutes of generation or with the first access. But, the session that is created via this magic link will be valid till the IT admin completes the SSO configuration. 
+Note: 
+- This link is designed for one-time use, expiring after 5 minutes or upon its initial access.
+- Once activated, the IT admin can configure SSO for a longer period of time. The session will remain active until the setup is complete.
+- Depending on your UX strategy, you may choose to redirect the IT admin to this link or embed it within your application as an iframe, allowing configuration without navigating away from your product.
 
-You can either the redirect the user to this Admin Portal link or embed it as an iframe within your product for the IT admin to complete the configuration within your product. 
 
 ## 2. Integration via Shareable Link
 

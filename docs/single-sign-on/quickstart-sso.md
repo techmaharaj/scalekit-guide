@@ -72,7 +72,7 @@ We recommend you to store these credentials as environment variables (in your .e
 ```jsx
 SCALEKIT_ENVIRONMENT_URL="<https://yoursaas-dev.scalekit.com>"
 SCALEKIT_CLIENT_ID="skc_122056050118122349527"
-SCALEKIT_CLIENT_SECRET="test_CbGfKxzfIipiY7RHuDkchgLdwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
+SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
 ```
 
 ### 3. Initiate the Authorization URL
@@ -152,7 +152,8 @@ const res = await sc.authenticateWithCode({
 // const user_email = res.user.email;
 
 
-// next step is to create a session for this user and redirect the user to your application.
+// next step is to create a session for this user and 
+// redirect the user to your application.
 ```
 
 </TabItem>

@@ -8,14 +8,12 @@ import TabItem from '@theme/TabItem';
 # Integrate Admin Portal
 
 ## Overview
-Admin Portal is the self-serve UI widget that your customers can use to configure Single Sign-on between your application and their Identity Provider. 
+Admin Portal provides a self-serve user interface for your customers' IT admins to configure SSO. This customer-facing UI is designed to eliminate back-n-forth with your engineering team and offers IdP-specific config documentation. As this is completely hosted and managed by Scalekit, the admin portal makes SSO configuration fast and simple for your customers. It's easy integrate the admin portal with a few lines of code. 
 
-As this is completely hosted and managed by Scalekit, we ensure that it is intuitive, up-to-date and customized for your customer's identity provider making the SSO configuration experience a breeze for your customers. 
+Depending on your architecture and UX preference, you can choose either of the two methods we offer to integrate Admin Portal with your application.
 
-Depending on your architecture and preference, you can choose either of the two methods we offer to integrate Admin Portal with your application.
-
-1. Admin Portal integration via API
-2. Admin Portal integration via Shareable Link
+1. Integrate via API
+2. Integrate via a Shareable Link
 
 ## 1. via API
 

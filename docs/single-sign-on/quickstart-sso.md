@@ -176,12 +176,12 @@ const res = await sc.authenticateWithCode({
 
 ## Onboarding Enterprise Customers
 
-Excellent! You have successfully implemented Single Sign-on via Scalekit. But, before you onboard enterprise customers, make sure you go through these next steps so that your application is secure and production ready.
+Once SSO is implemented, you’ll want to thoroughly test the setup and go through a production checklist to ensure your application is secure and ready for enterprise use.
 
 - [Test SSO](/docs/single-sign-on/testing-sso.md)
 - [Production Check-list](/docs/single-sign-on/golive-checklist.md)
 
-But, this is not all. You can do so much more with Scalekit. To learn more about what you can do with Scalekit, check out:
+Explore more. Check out:
 
-- [Node.js SDK](https://github.com/scalekit-inc/scalekit-sdk-node) - the SDK reference used in this quick start guide
-- [Sample Node.js App](https://github.com/scalekit-inc/scalekit-demos/tree/main/your-saas-app) - Download our fully functional sample app and kicstart a running code
+- [Node.js SDK](https://github.com/scalekit-inc/scalekit-sdk-node) - Reference the SDK used in this guide for a deep dive into its capabilities
+- [Sample Node.js App](https://github.com/scalekit-inc/scalekit-demos/tree/main/your-saas-app) - Download and explore a fully functional sample app to jumpstart your implementation

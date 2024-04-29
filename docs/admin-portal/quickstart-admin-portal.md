@@ -58,12 +58,11 @@ Note:
 
 ## 2. Integration via Shareable Link
 
-You can login to the Scalekit Dashboard and go to a specific organization's overview section.
+Log in to your Scalekit Dashboard and navigate to the desired organization's overview section.
 
 ### Generate Link
-You can click on the Generate Link button to generate a new Admin Portal link that can be shared either via slack or email or any other communication means.
-
 <!-- <Show screenshot> -->
-The generated Admin Portal link is a magic link that has a default expiry period of 7 days from generation. You can also revoke this link anytime you wish from the Scalekit Dashboard. 
-
-Any user who has access to this link can view and update SSO configuration for that organization. So, be careful to share this link with the appropriate user. 
+Click 'Generate Link' to create a new, shareable Admin Portal link. 
+- This link is valid for 7 days but can be revoked at any time from the dashboard for security purposes.
+- The link can be distributed through communication channels such as email, Slack, etc
+- Exercise caution, as anyone with this link can view and update their organization's SSO settings

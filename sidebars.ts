@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Single Sign-on',
+      className: 'sso_category',
       items: [
         {
           type: 'doc',

@@ -78,6 +78,10 @@
   --ifm-paragraph-margin-bottom: 10px;
 }
 
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
 .sidebar-group-item:has(.active_page) .sidebar-group-item__folder {
   color: #000 !important;
 }
@@ -99,6 +103,16 @@
 
 .menu__link--sublist-caret:after {
   display: none;
+}
+
+.sso_category .menu__list-item-collapsible .menu__link:before {
+  content: '';
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-cpu'%3E%3Crect width='16' height='16' x='4' y='4' rx='2'/%3E%3Crect width='6' height='6' x='9' y='9' rx='1'/%3E%3Cpath d='M15 2v2'/%3E%3Cpath d='M15 20v2'/%3E%3Cpath d='M2 15h2'/%3E%3Cpath d='M2 9h2'/%3E%3Cpath d='M20 15h2'/%3E%3Cpath d='M20 9h2'/%3E%3Cpath d='M9 2v2'/%3E%3Cpath d='M9 20v2'/%3E%3C/svg%3E") 50% / 1rem 1rem;
+  margin-right: 5px;
+  margin-left: -1.25rem;
+  line-height: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .menu__link--sublist-caret:before {
@@ -302,6 +316,19 @@ p {
   article h3 {
     font-size: 1.125rem !important;
   }
+
+  .col.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
+    max-width: 90% !important;
+  }
+
+}
+
+ul.table-of-contents.table-of-contents__left-border:before {
+  content: "TABLE OF CONTENTS";
+  min-width: 100%;
+  text-align: center;
+  margin-left: 8px;
+  font-weight: 500;
 }
 
 img {

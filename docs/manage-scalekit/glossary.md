@@ -1,4 +1,4 @@
-# Scalekit Glossary
+# Glossary
 
 Familiarize yourself with the entities and glossary of Scalekit platform
 

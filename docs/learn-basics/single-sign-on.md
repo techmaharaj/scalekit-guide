@@ -1,5 +1,5 @@
 ---
-slug: /
+
 ---
 # Introduction to Single Sign-on
 

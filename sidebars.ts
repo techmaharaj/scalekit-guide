@@ -20,11 +20,12 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Single Sign-on',
-      items: [{
-        type: 'doc',
-        label: 'Introduction', // The link label
-        id: 'single-sign-on/introduction', // The internal path
-      },{
+      items: [
+        {
+          type: 'doc',
+          label: 'SSO Basics', // The link label
+          id: 'learn-basics/single-sign-on', // The internal path
+        },{
         type: 'doc',
         label: 'Quick Start', // The link label
         id: 'single-sign-on/quickstart-sso', // The internal path
@@ -33,16 +34,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Admin Portal',
-      items: ['admin-portal/introduction','admin-portal/quickstart-admin-portal','admin-portal/custom-domain', 'admin-portal/branding-theming']
-    },
-    {
-      type: 'category',
-      label: 'API & SDKs',
-      items: [{
-        type: 'link',
-        label: 'API Reference', // The link label
-        href: '/api-reference', // The internal path
-      }, 'sdks']
+      items: ['admin-portal/quickstart-admin-portal','admin-portal/custom-domain', 'admin-portal/branding-theming']
     },
     {
       type: 'category',
@@ -51,8 +43,18 @@ const sidebars: SidebarsConfig = {
       //   title: 'Integration Guides',
       //   slug: '/integrations'
       // },
-      label: 'Best Practices',
-      items: ['best-practices/manage-client-secrets', 'best-practices/redirect-uri', 'best-practices/error-handling' ]
+      label: 'Advanced Guides',
+      items: ['best-practices/manage-client-secrets', 'best-practices/redirect-uri', 'best-practices/error-handling', 'best-practices/advanced-saml', 'best-practices/troubleshooting-sso' ]
+    },
+    {
+      type: 'category',
+      // link: {
+      //   type: 'generated-index',
+      //   title: 'Integration Guides',
+      //   slug: '/integrations'
+      // },
+      label: 'Manage Scalekit',
+      items: ['manage-scalekit/glossary' ]
     },
     {
       type: 'category',
@@ -64,7 +66,15 @@ const sidebars: SidebarsConfig = {
       label: 'Integration Guides',
       items: ['integrations/saml', 'integrations/oidc', 'integrations/azure-ad-saml', 'integrations/okta-saml', 'integrations/onelogin-saml' ]
     },
-
+    {
+      type: 'category',
+      label: 'API & SDKs',
+      items: [{
+        type: 'link',
+        label: 'API Reference', // The link label
+        href: '/api-reference', // The internal path
+      }, 'sdks']
+    },
     
   ],
   

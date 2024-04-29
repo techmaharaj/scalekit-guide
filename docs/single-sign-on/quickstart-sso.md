@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+slug: /
 ---
 import InstallSDK from './../templates/install-sdk.md';
 import Tabs from '@theme/Tabs';
@@ -38,9 +38,7 @@ Here's a description of how it works:
 
 ## Implement Single Sign-on
 
-Reference this [glossary](/docs/want-to-know/glossary.md) of key terms as you follow this implementation guide.
-
-## Prerequisites
+### 0. Prerequisites
 
 Before you get started, make sure 
 

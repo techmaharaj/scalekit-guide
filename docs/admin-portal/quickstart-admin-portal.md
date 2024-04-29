@@ -8,14 +8,14 @@ import TabItem from '@theme/TabItem';
 # Integrate Admin Portal
 
 ## Overview
-Admin Portal provides a self-serve user interface for your customers' IT admins to configure SSO. This customer-facing UI is designed to eliminate back-n-forth with your engineering team and offers IdP-specific config documentation. As this is completely hosted and managed by Scalekit, the admin portal makes SSO configuration fast and simple for your customers. It's easy integrate the admin portal with a few lines of code. 
+Admin Portal is a self-service interface that empowers your customers' IT admins to configure SSO on their own. Designed to streamline the SSO setup process, it reduces the demand on your engineering resources and provides comprehensive IdP-specific documentation. Fully hosted and managed by Scalekit, the Admin Portal simplifies the SSO config experience, ensuring a fast and secure integration with only a few lines of code.
 
-Depending on your architecture and UX preference, you can choose either of the two methods we offer to integrate Admin Portal with your application.
+Depending on your architecture and UX preferences, you can choose one of the two methods to integrate the Admin Portal into your application:
 
-1. Integrate via API
-2. Integrate via a Shareable Link
+1. Integration via API
+2. Integration via Shareable Link
 
-## 1. via API
+## 1. Integration via API
 
 ### Configure SDK
 <InstallSDK />
@@ -53,7 +53,7 @@ The generated portal link is a magic link that will expiry within 5 minutes of g
 
 You can either the redirect the user to this Admin Portal link or embed it as an iframe within your product for the IT admin to complete the configuration within your product. 
 
-## 2. via Shareable Link
+## 2. Integration via Shareable Link
 
 You can login to the Scalekit Dashboard and go to a specific organization's overview section.
 

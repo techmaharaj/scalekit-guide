@@ -117,8 +117,8 @@ const config: Config = {
       // see: https://www.npmjs.com/package/medium-zoom#options
       options: {
         margin: 48,
-        //background: '#BADA55',
-        scrollOffset: 0,
+        background: "#000000CC",
+        scrollOffset: 48,
         //container: '#zoom-container',
         //template: '#zoom-template',
       },

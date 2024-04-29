@@ -4,99 +4,112 @@ sidebar_position: 1
 import InstallSDK from './../templates/install-sdk.md';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import {SimpleCode} from '@site/src/components/custom';
 
 
-# Quick Start
+# SSO Quick Start
 
-## What you will learn
+Scalekit’s SSO solution is compatible with any Identity Provider that supports SAML (Security Assertion Markup Language) or OIDC (OpenID Connect) protocols, adhering to the OAuth 2.0 framework. This setup abstracts the complex authentication interactions between various IdPs, providing a streamlined user authentication process across different platforms.
 
-In this follow-along quick start guide, you will learn how to
+Scalekit acts as federated authentication middleware between your application and your enterprise customers’ identity provider technologies. Scalekit eliminates the hassle of integrating with these Identity Providers and handling authentication protocols like SAML, OIDC, or OAuth 2. You can integrate with Scalekit in a few hours and enable SSO-based authentication in your application. 
 
-- successfully integrate your system with Scalekit using our NodeJS SDK
-- test end-end integration for a test organization in your dev environment
-- get ready to kick start your go-live journey.
+<figure>![How Scalekit works](SSO%20Quick%20Start%204e17d8bce9ab46c0a604aaf82da33187/How_Scalekit_connects_(1).png)
+<figcaption>How Scalekit works</figcaption></figure>
 
-:::tip
+## What you'll build
 
-Quick Tip: You can copy the code samples given in the doc to get started quickly!
+By the end of this guide, you would implement Enterprise SSO in your application through Scalekit APIs. 
 
-:::
+The sequence diagram below explains the SSO workflow between your application, Scalekit, and identity providers in your customers organizations.
+
+<figure>![Sequence Diagram for SSO Workflow](SSO%20Quick%20Start%204e17d8bce9ab46c0a604aaf82da33187/How_SSO_works_(3).png)
+<figcaption>Sequence Diagram for SSO Workflow</figcaption></figure>
+
+Here's a description of how it works:
+
+1. The user attempts to login to your application and access resources.
+2. Based on the user’s unique identity (typically, this is email address, but can be any unique id), your application detects that this user needs to be authenticated via Single Sign-on. Your application will redirect the user to Scalekit’s Authorization URL and pass the user’s email address or the organization ID. 
+3. Based on the user details provided, Scalekit detects the SSO configuration and redirects the user to the respective organization’s identity provider (using SAML or OIDC)
+4. The identity provider authenticates the user in the identity system
+5. Once authenticated, the identity provider securely sends the user profile details to Scalekit.
+6. Scalekit will redirect the user to the Redirect URI that is configured as part of Authorization URL (in Step 2) with a one-time code.
+7. Your application will send the one-time code along with your API credentials to fetch the user identity and profile information (that’s shared by the identity provider)
+8. Based on the user details received from Scalekit, your application will create a session, login the user to your product, and allow the user to access the resource(s).
+
+## Implement Single Sign-on
+
+Reference this [glossary](/docs/want-to-know/glossary.md) of key terms as you follow this implementation guide.
 
 ## Prerequisites
 
 Before you get started, make sure 
 
-- You have access to your [Scalekit account](https://app.scalekit.com). 
-- You have local access to your codebase to make changes and deploy in a test environment
-
-## Integrate with Scalekit
-
-Scalekit allows your users to authenticate with any of their Enterprise Identity Provider either via SAML or OIDC without you having to lift your finger. This quick start guide helps you to integrate with Scalekit easily so that you can enable Enterprise Authentication capabilities to your customers. 
-
-At a high level, the Single Sign-on workflow between your product and Scalekit can be described as below:
-
-<figure>![Single Sign-on workflow between your product and Scalekit](/img/how_sso_works.png)
-<figcaption>Single Sign-on workflow between your product and Scalekit</figcaption></figure>
-
-### Configure your environment
-
-To securely exchange user information via Scalekit, you need to configure your environment so that Scalekit platform knows how to communicate with your product securely. 
-
-To make your integration, testing and deployment experience easier - we have created a development environment for you as part of your account creation and also have setup the bare minimum needed for you to get started immediately. 
-
-:::info
-
-Environments:  We have created Development and Production Environments in your Scalekit Dashboard to keep your configuration, customization and customer data completely isolated from each other so that you can integrate, test and go-live to production with complete confidence.
-
-:::
+- you are logged into your [Scalekit account](https://app.scalekit.com) and keep API credentials handy
+- you have local access to your codebase to make changes and deploy in a test environment
 
 
-To make successful API calls with Scalekit, you need 
+### 1. Install SDK
 
-- **Environment URL**: this is the base url of the environment to which all your API calls are made to. This changes from environment to environment so that you can route the API requests to the appropriate environment. 
-- **Client ID**: This is a unique, alpha-numeric string that your application will use for all communications with Scalekit to uniquely identify you.
-- **Client Secret**: A long, random cryptographically generated secret that is used to authenticate your APIs. For security purposes, this is generated only when you request using the Scalekit Dashboard. For all practical purposes, we treat Client Secret as a password for your application. And you should too. 
+Scalekit offers SDKs to quickly build SSO authentication mechanism in your application. 
 
-Head-on over to your Scalekit Dashboard, choose "Development" Environment and click on API Config to access these configuration details. We recommend storing these values as environment variables for ease of replacement and use. We have done the same for all code samples shown below.
-
-```javascript title=".env"
-SCALEKIT_ENVIRONMENT_URL="https://yoursaas-dev.scalekit.com"
-SCALEKIT_CLIENT_ID="skc_12205605011849527"
-SCALEKIT_CLIENT_SECRET="test_CbGfKxzfIipiY7RHuDkchgLdwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
-```
-
-#### Redirect URLs
-
-A redirect URL is the URL endpoint in your application that Scalekit redirects the user to after they have completed the authentication with their Identity Provider. 
-
-After a successful user authentication, Scalekit provides a temporary code value to the redirect_url you configured. You'll need to POST this code back to Scalekit with your client secret in exchange for the actual user information details. 
-
-### Configure SDK
+Install the SDK using the command below:
 
 <InstallSDK />
 
+### 2. Configure your Secrets
 
-### Initiate SSO login
 
-When a user intends to login with SSO from your login page, you need to send the request to Scalekit so that we can complete the user authentication process via Single Sign-on with their Identity Provider. This process will start from you redirecting the user to Scalekit Authorization URL. 
+To make the API calls to Scalekit, you need to add the API credentials that are found in your Scalekit dashboard. 
 
-As part of the Authorization URL, you would need to send one of the below required information to Scalekit so that we can process the request and authorize the user via their configured Identity Provider. 
+**API Credentials:**
 
-- `organization_id`: Unique Organization ID that the user belongs to. Scalekit will identify the SSO Connections configured for this organization and will choose the first active SSO connection. Example: `org_12434341`
-- `connection_id`: Unique Connection ID of the specific SSO connection. Example: `conn_121414141`
-- `domain`:  If you have configured that your application will enforce Single Sign-on for all users from a single email domain, this attribute is used to detect the appropriate SSO connection. Example: `google.com` or `yourcustomerdomain.com`
+- **Environment URL**: this is the base url of the environment to which all your API calls are made to. This URL is unique to an environment, so that you can route the API requests to the appropriate environment.
+- **Client ID**: A unique, alpha-numeric string that your application will use for all communications with Scalekit.
+- **Client Secret**: Randomly generated secret that is used to authenticate your APIs. For security purposes, this is generated only when you request using the Scalekit Dashboard. See [here](/docs/best-practices/manage-client-secrets.md) to learn best practices on how to manage Client Secret.
+
+Now, go to your Scalekit Dashboard, choose the "Development" environment and select “API Config” to access these configuration details. 
+
+We recommend you to store these credentials as environment variables (in your .env file). 
+
+```jsx
+SCALEKIT_ENVIRONMENT_URL="<https://yoursaas-dev.scalekit.com>"
+SCALEKIT_CLIENT_ID="skc_122056050118122349527"
+SCALEKIT_CLIENT_SECRET="test_CbGfKxzfIipiY7RHuDkchgLdwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
+```
+
+### 3. Initiate the Authorization URL
+
+The endpoint to initiate SSO via the Scalekit API is crucial for the authentication workflow. The SSO integration starts after you redirect the user to Scalekit Authorization URL.
+
+There are a few configuration options to send the Authorization URL to Scalekit:
+
+1. **<SimpleCode>organization_id</SimpleCode>**: Organization ID that the user belongs to. This is the preferred parameter for SAML and OIDC connections.  Example: <SimpleCode>org_12434341</SimpleCode>
+
+
+2. **<SimpleCode>connection_id</SimpleCode>**: You can also use the Connection ID for the specific SSO connection. Example: <SimpleCode>conn_121414141</SimpleCode>
+
+3. **<SimpleCode>domain</SimpleCode>**: If your application enforces SSO for all users that belong to a particular email domain, this attribute can be useful to detect the appropriate SSO connection. Example: <SimpleCode>google.com or yourcustomerdomain.com</SimpleCode>
 
 
 <Tabs groupId="tech-stack">
 <TabItem value="nodejs" label="NodeJS">
 
 ```javascript showLineNumbers
+// init client
+const scalekit = new Scalekit(
+  SCALEKIT_ENVIRONMENT_URL,
+  SCALEKIT_CLIENT_ID,
+  SCALEKIT_CLIENT_SECRET
+);
+
 const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
         loginHint: "user@example.com",
-  			//connectionId: "conn_1223231234124",
-  			//domain: "example.com",
+        //connectionId: "conn_1223231234124",
+        //domain: "example.com",
         organizationId: "org_123235245"
       })
+
+// next step is to redirect the user to this authorizationURL
 ```
 
 </TabItem>
@@ -116,10 +129,13 @@ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
 </TabItem>
 </Tabs>
 
+**Redirect URI**<br/>A redirect URI is the endpoint in your application that Scalekit redirects the user to after they have completed the authentication with their Identity Provider.
 
-### Get user info as part of Redirect URI
+After a successful user authentication, Scalekit provides a temporary code value to the redirect_uri you configured. You'll need to POST this code back to Scalekit with your client secret in order to retrieve user details.
 
-After the user has successfully authenticated with their Identity Provider, Scalekit sends a unique authorization `code` to the redirect_uri that is sent as part of the authorization URL above. You will need to send this `code` and your `client_secret` to get the authenticated user's profile information.
+### 4. Fetch User Details
+
+After the user has successfully authenticated with their Identity Provider, Scalekit sends a unique authorization code to the redirect_uri that is sent as part of the authorization URL above. You will need to send this `code` and `redirect_uri` to get the authenticated user's profile information.
 
 <Tabs groupId="tech-stack">
 <TabItem value="nodejs" label="NodeJS">
@@ -138,7 +154,7 @@ const res = await sc.authenticateWithCode({
 // const user_email = res.user.email;
 
 
-// create a session for this user and redirect the user to your application.
+// next step is to create a session for this user and redirect the user to your application.
 ```
 
 </TabItem>
@@ -160,12 +176,14 @@ const res = await sc.authenticateWithCode({
 
 
 
-## Next Steps
+## Onboarding Enterprise Customers
 
-Excellent! By now, you should have successfully integrated Scalekit in your application to let your users authenticate via their Enterprise Identity Provider.
+Excellent! You have successfully implemented Single Sign-on via Scalekit. But, before you onboard enterprise customers, make sure you go through these next steps so that your application is secure and production ready.
+
+- [Test SSO](/docs/single-sign-on/testing-sso.md)
+- [Production Check-list](/docs/single-sign-on/golive-checklist.md)
 
 But, this is not all. You can do so much more with Scalekit. To learn more about what you can do with Scalekit, check out:
 
-
-- [Sample Apps](https://www.github.com/scalekit-inc/) - You can download our fully functional sample app to download the code used in this guide and setup a running application quickly.
-- [Production Checklist](golive-checklist.md) - Go through the production check list we have put together to ensure a secure and successful production release.
+- [Node.js SDK](https://github.com/scalekit-inc/scalekit-sdk-node) - the SDK reference used in this quick start guide
+- [Sample Node.js App](https://github.com/scalekit-inc/scalekit-demos/tree/main/your-saas-app) - Download our fully functional sample app and kicstart a running code

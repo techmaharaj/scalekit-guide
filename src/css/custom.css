@@ -74,6 +74,8 @@
   --ifm-code-border-radius: 0;
   --ifm-global-shadow-lw: none;
   --ifm-table-head-font-weight: 600;
+  --ifm-list-paragraph-margin: 10px;
+  --ifm-paragraph-margin-bottom: 10px;
 }
 
 .sidebar-group-item:has(.active_page) .sidebar-group-item__folder {
@@ -465,6 +467,10 @@ hr {
 #tag\/connection>div>div>div:nth-child(2) {
   display: none;
 } */
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
+}
 
 .tabs-container .margin-top--md {
   margin-top: 0 !important;

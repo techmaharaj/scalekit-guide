@@ -9,16 +9,16 @@ import {SimpleCode} from '@site/src/components/custom';
 
 # SSO Quick Start
 
-Scalekit’s SSO solution is compatible with any Identity Provider that supports SAML (Security Assertion Markup Language) or OIDC (OpenID Connect) protocols, adhering to the OAuth 2.0 framework. This setup abstracts the complex authentication interactions between various IdPs, providing a streamlined user authentication process across different platforms.
+This step-by-step guide will help you implement enterprise-grade Single Sign-On (SSO) in your application through Scalekit’s intuitive APIs.
 
-Scalekit acts as federated authentication middleware between your application and your enterprise customers’ identity provider technologies. Scalekit eliminates the hassle of integrating with these Identity Providers and handling authentication protocols like SAML, OIDC, or OAuth 2. You can integrate with Scalekit in a few hours and enable SSO-based authentication in your application. 
+Scalekit facilitates seamless integration between your application and a multitude of Identity Providers (IdPs) supporting SAML or OIDC protocols. Acting as an authentication middleware, Scalekit abstracts the complexities associated with SAML, OIDC, and OAuth 2.0, enabling you to focus on delivering a top-notch user experience.
 
 <figure>![How Scalekit works](SSO%20Quick%20Start%204e17d8bce9ab46c0a604aaf82da33187/How_Scalekit_connects_(1).png)
 <figcaption>How Scalekit works</figcaption></figure>
 
 ## What you'll build
 
-By the end of this guide, you would implement Enterprise SSO in your application through Scalekit APIs. 
+By following this guide, you’ll implement an SSO solution that simplifies your user authentication process and securely connects to customers' IdPs.
 
 The sequence diagram below explains the SSO workflow between your application, Scalekit, and identity providers in your customers organizations.
 
@@ -27,13 +27,13 @@ The sequence diagram below explains the SSO workflow between your application, S
 
 Here's a description of how it works:
 
-1. The user attempts to login to your application and access resources.
-2. Based on the user’s unique identity (typically, this is email address, but can be any unique id), your application detects that this user needs to be authenticated via Single Sign-on. Your application will redirect the user to Scalekit’s Authorization URL and pass the user’s email address or the organization ID. 
-3. Based on the user details provided, Scalekit detects the SSO configuration and redirects the user to the respective organization’s identity provider (using SAML or OIDC)
-4. The identity provider authenticates the user in the identity system
-5. Once authenticated, the identity provider securely sends the user profile details to Scalekit.
+1. A user initiates a login to your application.
+2. Your application recognizes the need for SSO and redirects the user to Scalekit's Authorization URL and pass their unique identifier, which could be user's email address or the organization ID.
+3. Based on the user details provided, Scalekit determines the appropriate SSO configuration and redirects the user to the organization’s identity provider
+4. The user is authenticated by their IdP using either SAML or OIDC.
+5. Post-authentication, the IdP sends the user's profile details to Scalekit.
 6. Scalekit will redirect the user to the Redirect URI that is configured as part of Authorization URL (in Step 2) with a one-time code.
-7. Your application will send the one-time code along with your API credentials to fetch the user identity and profile information (that’s shared by the identity provider)
+7. Your application exchanges the one-time code along with your API credentials to fetch the user details shared by the IdP
 8. Based on the user details received from Scalekit, your application will create a session, login the user to your product, and allow the user to access the resource(s).
 
 ## Implement Single Sign-on

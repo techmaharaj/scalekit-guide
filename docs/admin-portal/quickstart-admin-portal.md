@@ -8,20 +8,21 @@ import TabItem from '@theme/TabItem';
 # Integrate Admin Portal
 
 ## Overview
-Admin Portal provides a self-serve user interface for your customers' IT admins to configure SSO. This customer-facing UI is designed to eliminate back-n-forth with your engineering team and offers IdP-specific config documentation. As this is completely hosted and managed by Scalekit, the admin portal makes SSO configuration fast and simple for your customers. It's easy integrate the admin portal with a few lines of code. 
+Admin Portal is a self-service interface that empowers your customers' IT admins to configure SSO on their own. Designed to streamline the SSO setup process, it reduces the demand on your engineering resources and provides comprehensive IdP-specific documentation. Fully hosted and managed by Scalekit, the Admin Portal simplifies the SSO config experience, ensuring a fast and secure integration with only a few lines of code.
 
-Depending on your architecture and UX preference, you can choose either of the two methods we offer to integrate Admin Portal with your application.
+Depending on your architecture and UX preferences, you can choose one of the two methods to integrate the Admin Portal into your application:
 
-1. Integrate via API
-2. Integrate via a Shareable Link
+1. Integration via API
+2. Integration via Shareable Link
 
-## 1. via API
+## 1. Integration via API
 
 ### Configure SDK
+Begin by installing the Scalekit SDK, which provides necessary tools for creating a secure and efficient connection to the Admin Portal.
 <InstallSDK />
 
-### Generate Link
-You can generate a Admin Portal link for an organization using the below API. 
+### Generate Magic Link
+Utilize our API to generate an Admin Portal link that is uniquely keyed to an organization.
 
 
 <Tabs groupId="tech-stack">
@@ -49,18 +50,19 @@ const links = await sc.organization.generateCustomerPortalLink('org_1233222' as 
 </TabItem>
 </Tabs>
 
-The generated portal link is a magic link that will expiry within 5 minutes of generation or with the first access. But, the session that is created via this magic link will be valid till the IT admin completes the SSO configuration. 
+Note: 
+- This link is designed for one-time use, expiring after 5 minutes or upon its initial access.
+- Once activated, the IT admin can configure SSO for a longer period of time. The session will remain active until the setup is complete.
+- Depending on your UX strategy, you may choose to redirect the IT admin to this link or embed it within your application as an iframe, allowing configuration without navigating away from your product.
 
-You can either the redirect the user to this Admin Portal link or embed it as an iframe within your product for the IT admin to complete the configuration within your product. 
 
-## 2. via Shareable Link
+## 2. Integration via Shareable Link
 
-You can login to the Scalekit Dashboard and go to a specific organization's overview section.
+Log in to your Scalekit Dashboard and navigate to the desired organization's overview section.
 
 ### Generate Link
-You can click on the Generate Link button to generate a new Admin Portal link that can be shared either via slack or email or any other communication means.
-
 <!-- <Show screenshot> -->
-The generated Admin Portal link is a magic link that has a default expiry period of 7 days from generation. You can also revoke this link anytime you wish from the Scalekit Dashboard. 
-
-Any user who has access to this link can view and update SSO configuration for that organization. So, be careful to share this link with the appropriate user. 
+Click 'Generate Link' to create a new, shareable Admin Portal link. 
+- This link is valid for 7 days but can be revoked at any time from the dashboard for security purposes.
+- The link can be distributed through communication channels such as email, Slack, etc
+- Exercise caution, as anyone with this link can view and update their organization's SSO settings

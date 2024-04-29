@@ -69,6 +69,6 @@ In it's current format, OIDC only supports SP initiated Login. In this flow:
 
 ## How does Scalekit help
 
-Scalekit acts as the intermediary between your application and your customer's identity providers and abstracts all the complexities and security issues in handling SAML or OIDC protocols. By integrating with Scalekit in just a few lines of code, your application can integrate with dozens of Identity Providers with SAML and OIDC Protocols. 
+Scalekit serves as an intermediary, abstracting the complexities involved in handling SSO with SAML and OIDC protocols. By integrating with Scalekit in just a few lines of code, your application can connect with numerous IdPs efficiently, ensuring security and compliance. 
 
-Go through our follow along [Quick Start](/docs/single-sign-on/quickstart-sso.md) guide, to integrate with Scalekit in just a few minutes.
+Explore our [Quick Start](/docs/single-sign-on/quickstart-sso.md) guide to integrate your application with Scalekit in just a few steps, leveraging our robust SSO solution.

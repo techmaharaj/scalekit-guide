@@ -30,11 +30,7 @@ As you prepare to take your Single Sign-On (SSO) implementation live, it’s cru
 
 5. **Review Customer Portal URL**
     
-    Self-serve customer portals that are shared with your customers use the environment URL (https<nolink />://*.scalekit.com) pattern. Consider implementing CNAME to customize this to your domain (https<nolink />://sso.yourdomain.com) so that your customers see your branding information through. 
-
-    :::tip
-    After you configure Custom Domain for your environment url, don't forget to update your environment URL configuration in the .env file.
-    :::
+    Customize the admin portal URL to match your domain (https<nolink />://sso.yourdomain.com) for a seamless brand experience. Remember to update this in your .env file post-CNAME configuration. 
 
 6. **Graceful Error Handling**
     

@@ -181,7 +181,11 @@ Once SSO is implemented, you’ll want to thoroughly test the setup and go throu
 - [Test SSO](/docs/single-sign-on/testing-sso.md)
 - [Production Check-list](/docs/single-sign-on/golive-checklist.md)
 
+
 Explore more. Check out:
 
 - [Node.js SDK](https://github.com/scalekit-inc/scalekit-sdk-node) - Reference the SDK used in this guide for a deep dive into its capabilities
 - [Sample Node.js App](https://github.com/scalekit-inc/scalekit-demos/tree/main/your-saas-app) - Download and explore a fully functional sample app to jumpstart your implementation
+
+
+Now that you have a working SSO integration with Scalekit, you're ready to provide a seamless authentication experience for your users. Happy coding!

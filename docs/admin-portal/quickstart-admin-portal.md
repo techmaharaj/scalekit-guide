@@ -26,15 +26,15 @@ Utilize our API to generate an Admin Portal link that is uniquely keyed to an or
 
 
 <Tabs groupId="tech-stack">
-<TabItem value="nodejs" label="NodeJS">
+<TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
 const links = await sc.organization.generateCustomerPortalLink('org_1233222' as string);
 // links[0] is the Admin Portal link
 ```
 
-</TabItem>
-<TabItem value="py" label="Python">
+ </TabItem>
+<!--<TabItem value="py" label="Python">
 
 ```python
 # write python code here
@@ -47,7 +47,7 @@ const links = await sc.organization.generateCustomerPortalLink('org_1233222' as 
 // write go code here
 ```
 
-</TabItem>
+</TabItem> -->
 </Tabs>
 
 Note: 

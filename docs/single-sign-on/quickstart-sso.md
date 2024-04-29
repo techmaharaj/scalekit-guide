@@ -90,7 +90,7 @@ There are a few configuration options to send the Authorization URL to Scalekit:
 
 
 <Tabs groupId="tech-stack">
-<TabItem value="nodejs" label="NodeJS">
+<TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
 // init client
@@ -111,7 +111,7 @@ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
 ```
 
 </TabItem>
-<TabItem value="py" label="Python">
+<!-- <TabItem value="py" label="Python">
 
 ```python
 # write python code here
@@ -124,7 +124,7 @@ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
 // write go code here
 ```
 
-</TabItem>
+</TabItem> -->
 </Tabs>
 
 **Redirect URI**<br/>A redirect URI is the endpoint in your application that Scalekit redirects the user to after they have completed the authentication with their Identity Provider.
@@ -136,7 +136,7 @@ After a successful user authentication, Scalekit provides a temporary code value
 After Scalekit completes SSO authentication, it sends a unique authorization code to the redirect_uri that is sent as part of the authorization URL above. You will need to send this `code` and `redirect_uri` to get the authenticated user's profile information.
 
 <Tabs groupId="tech-stack">
-<TabItem value="nodejs" label="NodeJS">
+<TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
 const {code} = req.query;
@@ -157,7 +157,7 @@ const res = await sc.authenticateWithCode({
 ```
 
 </TabItem>
-<TabItem value="py" label="Python">
+<!-- <TabItem value="py" label="Python">
 
 ```python
 # write python code here
@@ -170,7 +170,7 @@ const res = await sc.authenticateWithCode({
 // write go code here
 ```
 
-</TabItem>
+</TabItem> -->
 </Tabs>
 
 

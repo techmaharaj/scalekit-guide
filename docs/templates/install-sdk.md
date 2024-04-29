@@ -12,7 +12,7 @@ $ npm install @scalekit-inc/nodejs-sdk
 ```
 
 </TabItem>
-<TabItem value="py" label="Python">
+<!-- <TabItem value="py" label="Python">
 
 ```shell
 $ pip install scalekit
@@ -25,5 +25,5 @@ $ pip install scalekit
 import "scalekit-inc/go-sdk"
 ```
 
-</TabItem>
+</TabItem> -->
 </Tabs>

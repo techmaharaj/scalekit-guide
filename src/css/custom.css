@@ -320,7 +320,7 @@ p {
 }
 
 ul.table-of-contents.table-of-contents__left-border:before {
-  content: "TABLE OF CONTENTS";
+  content: "ON THIS PAGE";
   min-width: 100%;
   text-align: center;
   margin-left: 8px;

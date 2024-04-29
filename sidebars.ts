@@ -38,7 +38,7 @@ const sidebars: SidebarsConfig = {
         },
        {
          type: 'doc',
-         label: 'Production Checklist', // The link label
+         label: 'Go-live Checklist', // The link label
          id: 'single-sign-on/golive-checklist', // The internal path
         }]
     },

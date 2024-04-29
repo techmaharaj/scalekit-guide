@@ -45,7 +45,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Admin Portal',
-      items: ['admin-portal/quickstart-admin-portal','admin-portal/custom-domain', 'admin-portal/branding-theming']
+      items: [
+         {
+          type: 'doc',
+          label: 'Integrate', // The link label
+          id: 'admin-portal/quickstart-admin-portal', // The internal path
+        },
+              'admin-portal/custom-domain', 'admin-portal/branding-theming']
     },
     {
       type: 'category',

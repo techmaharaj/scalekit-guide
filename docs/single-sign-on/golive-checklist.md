@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# SSO Production Checklist
+# Go-live Checklist
 
 As you prepare to take your Single Sign-On (SSO) implementation live, it’s crucial to ensure every aspect is tuned for a secure and smooth production environment. Below is a checklist designed to guide developers through the essential steps: 
 

@@ -105,7 +105,7 @@
   display: none;
 }
 
-.sso_category .menu__list-item-collapsible .menu__link:before {
+/* .sso_category .menu__list-item-collapsible .menu__link:before {
   content: '';
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-cpu'%3E%3Crect width='16' height='16' x='4' y='4' rx='2'/%3E%3Crect width='6' height='6' x='9' y='9' rx='1'/%3E%3Cpath d='M15 2v2'/%3E%3Cpath d='M15 20v2'/%3E%3Cpath d='M2 15h2'/%3E%3Cpath d='M2 9h2'/%3E%3Cpath d='M20 15h2'/%3E%3Cpath d='M20 9h2'/%3E%3Cpath d='M9 2v2'/%3E%3Cpath d='M9 20v2'/%3E%3C/svg%3E") 50% / 1rem 1rem;
   margin-right: 5px;
@@ -113,7 +113,7 @@
   line-height: 1.25rem;
   width: 1.25rem;
   height: 1.25rem;
-}
+} */
 
 .menu__link--sublist-caret:before {
   content: '';
@@ -315,10 +315,6 @@ p {
 
   article h3 {
     font-size: 1.125rem !important;
-  }
-
-  .col.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
-    max-width: 90% !important;
   }
 
 }

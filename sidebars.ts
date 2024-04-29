@@ -81,7 +81,7 @@ const sidebars: SidebarsConfig = {
       //   title: 'Integration Guides',
       //   slug: '/integrations'
       // },
-      label: 'Integration Guides',
+      label: 'Integrations',
       collapsible: true,
       collapsed: true,
       items: ['integrations/saml', 'integrations/oidc', 'integrations/azure-ad-saml', 'integrations/okta-saml', 'integrations/onelogin-saml' ]

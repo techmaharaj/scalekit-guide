@@ -40,7 +40,7 @@ const sidebars: SidebarsConfig = {
          type: 'doc',
          label: 'Production Checklist', // The link label
          id: 'single-sign-on/golive-checklist', // The internal path
-        }
+        }]
     },
     {
       type: 'category',

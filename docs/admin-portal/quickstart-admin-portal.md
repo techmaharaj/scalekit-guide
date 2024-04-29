@@ -5,7 +5,7 @@ import InstallSDK from './../templates/install-sdk.md';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Integrating Admin Portal
+# Integrate Admin Portal
 
 ## Overview
 Admin Portal is the self-serve UI widget that your customers can use to configure Single Sign-on between your application and their Identity Provider. 

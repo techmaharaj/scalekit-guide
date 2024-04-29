@@ -26,16 +26,21 @@ const sidebars: SidebarsConfig = {
           label: 'SSO Basics', // The link label
           id: 'learn-basics/single-sign-on', // The internal path
         },
-        {
-          type: 'doc',
-          label: 'Test SSO', // The link label
-          id: 'single-sign-on/testing-sso', // The internal path
-        },
        {
         type: 'doc',
         label: 'Quick Start', // The link label
         id: 'single-sign-on/quickstart-sso', // The internal path
-      }, 'single-sign-on/golive-checklist']
+      }, 
+      {
+         type: 'doc',
+         label: 'Test SSO', // The link label
+         id: 'single-sign-on/testing-sso', // The internal path
+        },
+       {
+         type: 'doc',
+         label: 'Production Checklist', // The link label
+         id: 'single-sign-on/golive-checklist', // The internal path
+        }
     },
     {
       type: 'category',

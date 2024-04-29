@@ -25,11 +25,17 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           label: 'SSO Basics', // The link label
           id: 'learn-basics/single-sign-on', // The internal path
-        },{
+        },
+        {
+          type: 'doc',
+          label: 'Test SSO', // The link label
+          id: 'single-sign-on/testing-sso', // The internal path
+        },
+       {
         type: 'doc',
         label: 'Quick Start', // The link label
         id: 'single-sign-on/quickstart-sso', // The internal path
-      }, 'single-sign-on/testing-sso', 'single-sign-on/golive-checklist']
+      }, 'single-sign-on/golive-checklist']
     },
     {
       type: 'category',

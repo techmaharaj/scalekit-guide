@@ -49,28 +49,29 @@ const sidebars: SidebarsConfig = {
       items: [
          {
           type: 'doc',
-          label: 'Integrate', // The link label
-          id: 'admin-portal/quickstart-admin-portal', // The internal path
+          label: 'Integrate',
+          id: 'admin-portal/quickstart-admin-portal',
         },
-              'admin-portal/custom-domain', 'admin-portal/branding-theming']
+       
+         {
+          type: 'doc',
+          label: 'Custom Domain',
+          id: 'admin-portal/custom-domain',
+        },
+       
+         {
+          type: 'doc',
+          label: 'UX Customization',
+          id: 'admin-portal/branding-theming',
+        }]
     },
     {
       type: 'category',
-      // link: {
-      //   type: 'generated-index',
-      //   title: 'Integration Guides',
-      //   slug: '/integrations'
-      // },
-      label: 'Advanced Guides',
+      label: 'Go Live',
       items: ['best-practices/manage-client-secrets', 'best-practices/redirect-uri', 'best-practices/error-handling', 'best-practices/advanced-saml', 'best-practices/troubleshooting-sso' ]
     },
     {
       type: 'category',
-      // link: {
-      //   type: 'generated-index',
-      //   title: 'Integration Guides',
-      //   slug: '/integrations'
-      // },
       label: 'Manage Scalekit',
       items: ['manage-scalekit/glossary' ]
     },

@@ -117,7 +117,7 @@ const sidebars: SidebarsConfig = {
       label: 'Integrations',
       collapsible: true,
       collapsed: true,
-      items: ['integrations/saml', 'integrations/oidc', 'integrations/azure-ad-saml', 'integrations/okta-saml', 'integrations/onelogin-saml' ]
+      items: ['integrations/saml', 'integrations/oidc', 'integrations/azure-ad-saml', 'integrations/okta-saml', 'integrations/onelogin-saml', 'integrations/jumpcloud-saml' ]
     },
     {
       type: 'category',

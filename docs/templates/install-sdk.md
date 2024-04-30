@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 
 ```shell
-$ npm install @scalekit-inc/nodejs-sdk
+$ npm install @scalekit-sdk/node-sdk
 ```
 
 </TabItem>
@@ -22,7 +22,7 @@ $ pip install scalekit
 <TabItem value="golang" label="Go">
 
 ```go
-import "scalekit-inc/go-sdk"
+go get https://www.github.com/scalekit-inc/go-sdk
 ```
 
 </TabItem> -->

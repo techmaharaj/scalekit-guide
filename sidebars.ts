@@ -68,7 +68,33 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Go Live',
-      items: ['best-practices/manage-client-secrets', 'best-practices/redirect-uri', 'best-practices/error-handling', 'best-practices/advanced-saml', 'best-practices/troubleshooting-sso' ]
+      items: [
+        {
+          type: 'doc',
+          label: 'Manage Client Secrets',
+          id: 'best-practices/manage-client-secrets',
+        },
+        {
+          type: 'doc',
+          label: 'Redirect URI',
+          id: 'best-practices/redirect-uri',
+        },
+        {
+          type: 'doc',
+          label: 'Error Handling',
+          id: 'best-practices/error-handling',
+        },
+        {
+          type: 'doc',
+          label: 'SAML Configurations',
+          id: 'best-practices/advanced-saml',
+        },
+        {
+          type: 'doc',
+          label: 'Troubleshoot SSO',
+          id: 'best-practices/troubleshooting-sso',
+        }
+       ]
     },
     {
       type: 'category',

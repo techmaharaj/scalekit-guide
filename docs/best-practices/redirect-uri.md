@@ -23,7 +23,7 @@ During the IdP initiated SAML SSO flow, the redirect_uri that is marked as defau
 - `localhost` URIs are supported in Dev Environment only
 - Redirect URIs must begin with one of the two schemes `http`  or `https`
     - `http`  scheme is only supported for `localhost`  as the host name
-- Redirect URIs **can** contain wildcard character provided all the rules mentioned below regarding the usage of wildcard character in Redirect URI.
+- Redirect URIs **can** contain wildcard character provided all the rules mentioned below regarding the usage of wildcard character in Redirect URI are followed.
 
 **Additional Validation Rules for Redirect URI in Prod Environment**
 

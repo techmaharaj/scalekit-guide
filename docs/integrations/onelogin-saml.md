@@ -1,8 +1,8 @@
+import Subtitle from '@site/src/components/custom';
+
 # OneLogin - SAML
 
-### Description
-
-This step-by-step guide will detail how to configure Single Sign-on with OneLogin as the Identity Provider. 
+<Subtitle>Step-by-step guide to configure Single Sign-on with OneLogin as the Identity Provider. </Subtitle>
 
 ### 1. Creating Enterprise Application
 

@@ -100,7 +100,10 @@ const config: Config = {
   
   themeConfig: {
     navbar: {
-      title: 'Scalekit Docs',
+      //title: 'Scalekit Docs',
+      logo: {src:'https://assets-global.website-files.com/65b87d98fa638289e10b8f61/65c269053d86c92e0cf91db5_scalekit-logo.svg',
+        srcDark:'https://assets-global.website-files.com/65b87d98fa638289e10b8f61/65c269053d86c92e0cf91db5_scalekit-logo.svg'
+      },
       items: [
         // { to: '/api', label: 'API Docs', position: 'left' },
         {
@@ -138,7 +141,7 @@ const config: Config = {
 
     },
     prism: {
-      theme: prismThemes.github
+      theme: prismThemes.oneLight
       // additionalLanguages: ['java', 'python', 'json', 'go'],
     },
   } satisfies Preset.ThemeConfig,

@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="nodejs" label="Node.js">
 
 
-```shell
+```command-line
 $ npm install @scalekit-sdk/node-sdk
 ```
 

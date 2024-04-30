@@ -1,11 +1,7 @@
 import Subtitle from '@site/src/components/custom';
 
 # SAML
-<Subtitle>Step-by-step guide to configure Single Sign-on using SAML with any Identity Provider. </Subtitle>
-
-## Description
-
-This step-by-step guide will detail how to configure Single Sign-on with a custom Identity Provider. 
+<Subtitle>Step-by-step guide to configure Single Sign-on using SAML with any Identity Provider. </Subtitle> 
 
 ## Pre-requisite: Create a SAML application
 

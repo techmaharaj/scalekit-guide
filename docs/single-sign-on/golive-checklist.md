@@ -10,7 +10,7 @@ As you prepare to take your Single Sign-On (SSO) implementation live, it’s cru
 
     Switch from development to production credentials, including the Client ID, Client Secret, and Environment URL. Your .env file should reflect these production values, distinct from your test settings. Sample .env file is below:
 
-    ```typescript .env
+    ```typescript title=".env"
     SCALEKIT_ENV_URL="https://acmecorp.scalekit.com"
     SCALEKIT_CLIENT_ID="12wedfgt567898uyg"
     SCALEKIT_CLIENT_SECRET="b6264fca-8adf-457f-a94f-5a4b0d1ca2b9"

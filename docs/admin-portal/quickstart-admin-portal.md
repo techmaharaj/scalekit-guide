@@ -15,6 +15,9 @@ Depending on your architecture and UX preferences, you can choose one of the two
 1. Integration via API
 2. Integration via Shareable Link
 
+<figure>![Two ways of integrating Admin Portal](./Integrate%20with%20Scalekit.png)
+<figcaption>Two ways of integrating Admin Portal</figcaption></figure>
+
 ## 1. Integration via API
 
 ### Configure SDK
@@ -22,15 +25,15 @@ Begin by installing the Scalekit SDK, which provides necessary tools for creatin
 <InstallSDK />
 
 ### Generate Magic Link
-Utilize our API to generate an Admin Portal link that is uniquely keyed to an organization.
+Use the [generateCustomerPortalLink](/api-reference#tag/customer-portal/put/api/v1/organizations/{id}/portal_links) API to generate an Admin Portal link that is uniquely keyed to an organization. You can either embed this as an iframe in your application or redirect the user to this link for the admin to self serve configure SSO for their organization.
 
 
 <Tabs groupId="tech-stack">
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
-const links = await sc.organization.generateCustomerPortalLink('org_1233222' as string);
-// links[0] is the Admin Portal link
+const link = await sc.organization.generateCustomerPortalLink('org_1233222' as string);
+// link is the Admin Portal link
 ```
 
  </TabItem>

@@ -14,7 +14,7 @@ This step-by-step guide will help you implement enterprise-grade Single Sign-On 
 Scalekit facilitates seamless integration between your application and a multitude of Identity Providers (IdPs) supporting SAML or OIDC protocols. Acting as an authentication middleware, Scalekit abstracts the complexities associated with SAML, OIDC, and OAuth 2.0, enabling you to focus on delivering a top-notch user experience.
 
 <figure>![How Scalekit works](SSO%20Quick%20Start%204e17d8bce9ab46c0a604aaf82da33187/How_Scalekit_connects_(1).png)
-<figcaption>How Scalekit works</figcaption></figure>
+<figcaption>Scalekit in a nutshell</figcaption></figure>
 
 ## What you'll build
 
@@ -22,8 +22,8 @@ By following this guide, you’ll implement an SSO solution that simplifies your
 
 The sequence diagram below explains the SSO workflow between your application, Scalekit, and identity providers in your customers organizations.
 
-<figure>![Sequence Diagram for SSO Workflow](SSO%20Quick%20Start%204e17d8bce9ab46c0a604aaf82da33187/How_SSO_works_(3).png)
-<figcaption>Sequence Diagram for SSO Workflow</figcaption></figure>
+<figure>![Sequence Diagram for SSO Workflow](SSO%20Quick%20Start%204e17d8bce9ab46c0a604aaf82da33187/How%20SSO%20works.png)
+<figcaption>How Scalekit integrates with your SSO flow</figcaption></figure>
 
 Here's a description of how it works:
 
@@ -69,7 +69,7 @@ Now, go to your Scalekit Dashboard, choose the "Development" environment and sel
 
 We recommend you to store these credentials as environment variables (in your .env file). 
 
-```jsx
+```jsx title=".env"
 SCALEKIT_ENVIRONMENT_URL="<https://yoursaas-dev.scalekit.com>"
 SCALEKIT_CLIENT_ID="skc_122056050118122349527"
 SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"

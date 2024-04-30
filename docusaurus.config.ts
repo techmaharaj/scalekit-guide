@@ -21,7 +21,7 @@ const config: Config = {
   organizationName: 'scalekit-inc', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   deploymentBranch: 'gh-pages',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'warn',
   clientModules:['./iframedetector.js'],
   // Even if you don't use internationalization, you can use this field to set

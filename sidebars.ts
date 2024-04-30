@@ -67,7 +67,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Go Live',
+      label: 'Best Practices',
       items: [
         {
           type: 'doc',
@@ -81,20 +81,26 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
+          label: 'SAML Configurations',
+          id: 'best-practices/advanced-saml',
+        },
+       ]
+    },
+    {
+       type: 'category',
+       label: 'Troubleshoot',
+       items: [
+       {
+          type: 'doc',
           label: 'Error Handling',
           id: 'best-practices/error-handling',
         },
         {
           type: 'doc',
-          label: 'SAML Configurations',
-          id: 'best-practices/advanced-saml',
-        },
-        {
-          type: 'doc',
           label: 'Troubleshoot SSO',
           id: 'best-practices/troubleshooting-sso',
-        }
-       ]
+        },
+      ]
     },
     {
       type: 'category',

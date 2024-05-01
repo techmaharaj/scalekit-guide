@@ -376,14 +376,14 @@ ul.table-of-contents.table-of-contents__left-border:before {
     --ifm-hero-background-color: #00bcd4;
 }
 
-.navbar__logo img {
-    border-radius: 0px !important;
-    box-shadow: none !important
+.navbar__logo {
+    height: 1.5rem;
+    cursor: pointer;
 }
 
-/* strong {
-  color: #4d72fa;
-} */
+a.navbar__item.navbar__link[href="\/api-reference"] {
+    display: none;
+}
 
 .alert a {
     color: inherit;
@@ -585,12 +585,17 @@ table tr {
     border-bottom: 1px solid var(--ifm-color-primary);
 }
 
+.loginLink:hover {
+    background-color: #f9f9f9;
+    text-decoration: none;
+}
+
 .loginLink {
-    padding-right: 25px !important;
-    padding-left: 25px;
+    padding-right: 12px !important;
+    padding-left: 12px;
     padding-top: 4px;
     padding-bottom: 4px;
-    border: 1px solid var(--ifm-color-secondary-darker);
+    border: 1px solid #cecece;
     border-radius: 5px;
     margin-right: 20px;
     margin-left: 20px;

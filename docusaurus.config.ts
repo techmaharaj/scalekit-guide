@@ -1,7 +1,7 @@
-import { themes as prismThemes } from 'prism-react-renderer';
-import type { Config } from '@docusaurus/types';
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import type { ScalarOptions } from '@scalar/docusaurus'
+import type {ScalarOptions} from '@scalar/docusaurus'
 
 
 const config: Config = {
@@ -18,19 +18,16 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'scalekit-inc', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'scalekit-inc',  // Usually your GitHub org/user name.
+  projectName: 'docs',               // Usually your repo name.
   deploymentBranch: 'gh-pages',
   onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'warn',
-  clientModules:['./iframedetector.js'],
+  clientModules: ['./iframedetector.js'],
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en']
-  },
+  i18n: {defaultLocale: 'en', locales: ['en']},
   plugins: [
     [
       '@scalar/docusaurus',
@@ -40,18 +37,20 @@ const config: Config = {
         configuration: {
           isEditable: false,
           spec: {
-            url: 'https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json',
-            
+            url:
+                'https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json',
+
           },
-          searchHotKey: "b",
+          searchHotKey: 'b',
           hideModels: false,
           showSidebar: true,
-          hiddenClients: ['c','objc','clojure','powershell','swift','cohttp'],
+          hiddenClients:
+              ['c', 'objc', 'clojure', 'powershell', 'swift', 'cohttp'],
           hideDownloadButton: true,
           darkMode: false,
 
           // customCss: './css/custom.css',
-          
+
         },
       } as ScalarOptions,
     ],
@@ -66,11 +65,13 @@ const config: Config = {
           sidebarCollapsed: false,
           sidebarCollapsible: false,
           sidebarPath: './sidebars.ts',
-          routeBasePath:'/'
+          routeBasePath: '/'
         },
         blog: false,
         theme: {
-          customCss: ['./src/css/custom.css',]
+          customCss: [
+            './src/css/custom.css',
+          ]
         },
       } satisfies Preset.Options,
     ],
@@ -82,12 +83,12 @@ const config: Config = {
     //     specs: [
     //       // Pass it a path to a local OpenAPI YAML file
     //       {
-    //         // Redocusaurus will automatically bundle your spec into a single file during the build
-    //         spec: 'openapi/scalekit.swagger.json',
+    //         // Redocusaurus will automatically bundle your spec into a single
+    //         file during the build spec: 'openapi/scalekit.swagger.json',
     //         route: '/api',
-            
+
     //       },
-          
+
     //     ],
     //     // Theme Options for modifying how redoc renders them
     //     theme: {
@@ -97,12 +98,14 @@ const config: Config = {
     //   },
     // ] satisfies Redocusaurus.PresetEntry,
   ],
-  
+
   themeConfig: {
     navbar: {
-      //title: 'Scalekit Docs',
-      logo: {src:'https://assets-global.website-files.com/65b87d98fa638289e10b8f61/65c269053d86c92e0cf91db5_scalekit-logo.svg',
-        srcDark:'https://assets-global.website-files.com/65b87d98fa638289e10b8f61/65c269053d86c92e0cf91db5_scalekit-logo.svg'
+      // title: 'Scalekit Docs',
+      logo: {
+        src: 'https://cdn.scalekit.cloud/v1/scalekit-logo-dark.svg',
+        srcDark:
+            'https://assets-global.website-files.com/65b87d98fa638289e10b8f61/65c269053d86c92e0cf91db5_scalekit-logo.svg'
       },
       items: [
         // { to: '/api', label: 'API Docs', position: 'left' },
@@ -110,7 +113,12 @@ const config: Config = {
           type: 'search',
           position: 'right',
         },
-        { to: 'https://app.scalekit.com', label: 'Go to Dashboard ->', position: 'right', className: 'loginLink' },
+        {
+          to: 'https://app.scalekit.com',
+          label: 'Go to Dashboard ->',
+          position: 'right',
+          className: 'loginLink'
+        },
       ],
     },
     imageZoom: {
@@ -120,10 +128,10 @@ const config: Config = {
       // see: https://www.npmjs.com/package/medium-zoom#options
       options: {
         margin: 48,
-        background: "#000000CC",
+        background: '#000000CC',
         scrollOffset: 48,
-        //container: '#zoom-container',
-        //template: '#zoom-template',
+        // container: '#zoom-container',
+        // template: '#zoom-template',
       },
     },
     colorMode: {
@@ -132,9 +140,9 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     algolia: {
-      appId: "7554BDRAJD",
-      apiKey: "0a906499d09119c83fd6d0568e7f8517",
-      indexName: "scalekit",
+      appId: '7554BDRAJD',
+      apiKey: '0a906499d09119c83fd6d0568e7f8517',
+      indexName: 'scalekit',
       contextualSearch: false,
       insights: true,
       searchPagePath: false,

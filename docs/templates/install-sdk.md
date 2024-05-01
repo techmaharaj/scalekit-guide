@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 
 ```command-line
-$ npm install @scalekit-sdk/node-sdk
+$ npm install @scalekit-sdk/node
 ```
 
 </TabItem>

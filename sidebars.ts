@@ -94,6 +94,11 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                     type: 'doc',
+                    label: 'Handling IdP Initiated SSO',
+                    id: 'best-practices/handling-idp-initiated',
+                },
+                {
+                    type: 'doc',
                     label: 'SAML Configurations',
                     id: 'best-practices/advanced-saml',
                 },

@@ -79,16 +79,27 @@ SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
 
 The endpoint to initiate SSO is crucial for the authentication workflow. The SSO integration starts after you redirect the user to Scalekit Authorization URL.
 
-There are a few configuration options to send the Authorization URL to Scalekit:
 
-1. **<SimpleCode>organization_id</SimpleCode>**: Organization ID that the user belongs to. This is the preferred parameter for SAML and OIDC connections.  Example: <SimpleCode>org_12434341</SimpleCode>
+As part of Authorization URL, you will need to send the following required parameters for successfully initiating SSO. You can read more details about the entire list of parameters that are accepted as part of authoriation url <a href="/best-practices/authorization-url" target="_blank">here</a>
+
+1. **Redirect URI:** A redirect URI is the endpoint in your application that Scalekit redirects the user to after they have completed the authentication with their Identity Provider.
+
+After a successful user authentication, Scalekit provides a temporary code value to the redirect_uri you configured. You'll need to POST this code back to Scalekit with your client secret in order to retrieve user details.
+
+2. **SSO Connection Identifier:** One of the following request parameters should be present to identify the appropriate SSO connection to be used to initiate the SSO.
+
+- **<SimpleCode>organization_id</SimpleCode>**: Organization ID that the user belongs to. This is the preferred parameter for SAML and OIDC connections.  Example: <SimpleCode>org_12434341</SimpleCode>
 
 
-2. **<SimpleCode>connection_id</SimpleCode>**: You can also use the Connection ID for the specific SSO connection. Example: <SimpleCode>conn_121414141</SimpleCode>
+- **<SimpleCode>connection_id</SimpleCode>**: You can also use the Connection ID for the specific SSO connection. Example: <SimpleCode>conn_121414141</SimpleCode>
 
-3. **<SimpleCode>domain</SimpleCode>**: If your application enforces SSO for all users that belong to a particular email domain, this attribute can be useful to detect the appropriate SSO connection. Example: <SimpleCode>google.com or yourcustomerdomain.com</SimpleCode>
+- **<SimpleCode>domain</SimpleCode>**: If your application enforces SSO for all users that belong to a particular email domain, this attribute can be useful to detect the appropriate SSO connection. Example: <SimpleCode>google.com or yourcustomerdomain.com</SimpleCode>
 
+3. **client_id:** Client ID uniquely identifies your application and environment and hence it is mandatory. 
 
+:::tip
+our SDK automatically fills in the required parameters while constructing the authorizationURL as shown below.
+:::
 <Tabs groupId="tech-stack">
 <TabItem value="nodejs" label="Node.js">
 
@@ -100,12 +111,22 @@ const scalekit = new Scalekit(
   SCALEKIT_CLIENT_SECRET
 );
 
-const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-        loginHint: "user@example.com",
-        //connectionId: "conn_1223231234124",
-        //domain: "example.com",
-        organizationId: "org_123235245"
-      })
+// Authorization URL with organization ID parameter and optional state parameter
+ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+   organizationId: 'org_12442',
+   state: state
+ })
+
+// Authorization URL with optional login hint parameter
+ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+   loginHint: "user@example.com",
+   organizationId: 'org_12442'
+ })
+
+// Authorization URL with connection ID parameter
+ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+   connectionId: 'conn_1242242',
+ })
 
 // next step is to redirect the user to this authorizationURL
 ```
@@ -127,9 +148,6 @@ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
 </TabItem> -->
 </Tabs>
 
-**Redirect URI**<br/>A redirect URI is the endpoint in your application that Scalekit redirects the user to after they have completed the authentication with their Identity Provider.
-
-After a successful user authentication, Scalekit provides a temporary code value to the redirect_uri you configured. You'll need to POST this code back to Scalekit with your client secret in order to retrieve user details.
 
 ### 4. Fetch User Details
 
@@ -139,21 +157,34 @@ After Scalekit completes SSO authentication, it sends a unique authorization cod
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
-const {code} = req.query;
+const {code, error, error_description, idp_initiated_login, connection_id, relay_state} = req.query;
 
-// handle errors, if any
+if (error) {
+  // handle errors
+}
 
+// check if this is an idp initiated login
+if (idp_initiated_login && idp_initiated_login === "success") {
+  // handle idp initiated login
+  const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+    connectionId: connection_id,
+    ...(relay_state && {state: relay_state}) // optionally pass relay state as state parameter
+  })
+
+  // next step is to redirect the user to this authorizationURL
+}
+
+// if there are no errors and if this is not an IdP initiated SSO, then authenticate with the code
 const res = await sc.authenticateWithCode({
-        code: code,
-        redirectUri: redirectUri
-      });
+  code: code,
+  redirectUri: redirectUri
+});
 
 // res.user has the authenticated user's details 
-// const user_email = res.user.email;
+const userEmail = res.user.email;
 
 
-// next step is to create a session for this user and 
-// redirect the user to your application.
+// next step is to create a session for this user and allow access to your application resources
 ```
 
 </TabItem>

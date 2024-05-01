@@ -14,11 +14,13 @@ Depending on your architecture and UX preferences, you can choose one of the two
 
 1. Integration via API
 2. Integration via Shareable Link
-
+<!-- 
 <figure>![Two ways of integrating Admin Portal](./Integrate%20with%20Scalekit.png)
-<figcaption>Two ways of integrating Admin Portal</figcaption></figure>
+<figcaption>Two ways of integrating Admin Portal</figcaption></figure> -->
 
 ## 1. Integration via API
+<figure>![Integrate via API](./IntegrateviaAPI.png)
+<figcaption>Integrate via API</figcaption></figure>
 
 ### Configure SDK
 Begin by installing the Scalekit SDK, which provides necessary tools for creating a secure and efficient connection to the Admin Portal.
@@ -32,8 +34,8 @@ Use the [generateCustomerPortalLink](/api-reference#tag/customer-portal/put/api/
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
-const link = await sc.organization.generateCustomerPortalLink('org_1233222' as string);
-// link is the Admin Portal link
+const link = await sc.organization.generatePortalLink('org_1233222' as string);
+// link.location is the Admin Portal url
 ```
 
  </TabItem>
@@ -60,6 +62,8 @@ Note:
 
 
 ## 2. Integration via Shareable Link
+<figure>![Integrate via Shareable Link](./Shareablelink.png)
+<figcaption>Integrate via Shareable Link</figcaption></figure>
 
 Log in to your Scalekit Dashboard and navigate to the desired organization's overview section.
 

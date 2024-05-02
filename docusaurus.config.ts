@@ -110,6 +110,16 @@ const config: Config = {
       items: [
         // { to: '/api', label: 'API Docs', position: 'left' },
         {
+          to: '/',
+          label: 'Documentation',
+          position: 'left',
+        },
+        {
+          to: '/integrations',
+          label: 'Integrations',
+          position: 'left',
+        },
+        {
           type: 'search',
           position: 'right',
         },

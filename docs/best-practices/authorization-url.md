@@ -4,7 +4,7 @@ import TabItem from '@theme/TabItem';
 
 # Authorization URL
 
-As mentionined in the [SSO Basics](/docs/learn-basics/single-sign-on.md) document, the first step of initiating login with SSO via Scalekit is to send the **Authorization URL** request. 
+As mentionined in the [SSO Basics](./single-sign-on.md) document, the first step of initiating login with SSO via Scalekit is to send the **Authorization URL** request. 
 
 In this document, we will detail all the parameters accepted by us and the corresponding behaviour of these request parameters.
 
@@ -13,9 +13,12 @@ Before we talk about all the possible request parameters accepted, let's see an 
 
 ```http
 https://<environment_domain>/oauth/authorize?
-client_id=...&
-redirect_uri=...&
-organization_id=...
+    response_type=code&
+    client_id=skc_1234&
+    scope=openid%20profile&
+    redirect_uri=https%3A%2F%2Fyoursaas.com%2Fcallback&
+    organization_id=org_1243412&
+    state=aHR0cHM6Ly95b3Vyc2Fhcy5jb20vZGVlcGxpbms%3D
 ```
 
 You can use our SDK to generate this authorization URL.

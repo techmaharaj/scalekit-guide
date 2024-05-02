@@ -19,15 +19,14 @@ Depending on your architecture and UX preferences, you can choose one of the two
 <figcaption>Two ways of integrating Admin Portal</figcaption></figure> -->
 
 ## 1. Integration via API
-<figure className='width-70'>![Integrate via API](./IntegrateviaAPI.png)
-<figcaption>Integrate via API</figcaption></figure>
+<figure className='width-50'>![Integrate via API](./IntegrateviaAPI.png)</figure>
 
 ### Configure SDK
 Begin by installing the Scalekit SDK, which provides necessary tools for creating a secure and efficient connection to the Admin Portal.
 <InstallSDK />
 
 ### Generate Magic Link
-Use the [generateCustomerPortalLink](/api-reference#tag/customer-portal/put/api/v1/organizations/{id}/portal_links) API to generate an Admin Portal link that is uniquely keyed to an organization. You can either embed this as an iframe in your application or redirect the user to this link for the admin to self serve configure SSO for their organization.
+Use the [generatePortalLink](/api-reference#tag/customer-portal/put/api/v1/organizations/{id}/portal_links) API to generate an Admin Portal link that is uniquely keyed to an organization. You can either embed this as an iframe in your application or redirect the user to this link for the admin to self serve configure SSO for their organization.
 
 
 <Tabs groupId="tech-stack">
@@ -65,8 +64,7 @@ Note:
 
 
 ## 2. Integration via Shareable Link
-<figure className='width-70'>![Integrate via Shareable Link](./Shareablelink.png)
-<figcaption>Integrate via Shareable Link</figcaption></figure>
+<figure className='width-50'>![Integrate via Shareable Link](./Shareablelink.png)</figure>
 
 Log in to your Scalekit Dashboard and navigate to the desired organization's overview section.
 

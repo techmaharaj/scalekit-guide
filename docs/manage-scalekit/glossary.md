@@ -2,9 +2,9 @@
 
 Familiarize yourself with the entities and glossary of Scalekit platform
 
-**Account / Workspace**
+**Workspace**
 
-Represents the account of Scalekit customer
+Represents the account of Scalekit customer.
 
 **Application**
 
@@ -26,9 +26,9 @@ The dashboard of Scalekit that your team members would use to configure and inte
 
 This is your customer’s organization. Your application’s users would belong to this organization.
 
-**Customer Portal**
+**Admin Portal**
 
-The user interface (UI) that your customers' admins use to configure SSO connections and settings. This self-service portal makes the SSO configuration experience simple, fast, and secure. Scalekit fully manages and hosts this portal. This UI can be rendered as a standalone portal or as an embedded portal within your application's admin panel.
+The user interface (UI) that your customers' admins use to configure SSO connections and settings. This self-service portal makes the SSO configuration experience simple, fast, and secure. Scalekit fully manages and hosts this portal. This UI can be rendered as a standalone portal or as an embedded portal within your application's admin settings section.
 
 **User**
 

@@ -33,6 +33,8 @@ After the trust has been established, subsequent user information can be exchang
 Lets understand these two SSO flows.
 
 ### Service Provider initiated SSO
+<figure>![SP initiated SSO workflow](./SP%20initiated%20SSO.png)
+<figcaption>SP initiated SSO workflow</figcaption></figure>
 
 For service provider initiated SSO flow, 
 1. User tries to access your application and your app identifies that the user's credentials need to be verified by their identity provider. 
@@ -44,7 +46,8 @@ As you can imagine, in this workflow, the user login behaviour starts from your 
 
 
 ### Identity Provider initiated SSO
-
+<figure>![IdP initiated SSO workflow](./IDP%20initiated%20SSO.png)
+<figcaption>IdP initiated SSO workflow</figcaption></figure>
 In case of Identity Provider initiated SSO, 
 1. User logs into their identity provider portal and selects your application from within the IdP portal.
 2. Identity Provider sends the user details as assertions to your application.

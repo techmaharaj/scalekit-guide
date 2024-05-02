@@ -1,3 +1,5 @@
+import {SimpleCode} from '@site/src/components/custom';
+
 # Redirect URI
 
 As part of integration between your application and Scalekit, redirect URI is the endpoint URL to which the user is redirected to after completing the authentication flow in the Identity Provider. 
@@ -37,16 +39,16 @@ According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://to
 
 :::warning
 
-Wildcard character is NOT allowed in PROD environment
+In Production enironments, Redirect URIs cannot contain Wildcard characters.
 
 :::
 
 In the DEV environments, the wildcard character `*`  can be used to configure the redirect URIs in the dashboard. However, the following rules will apply while allowing the wildcard character. 
 
-- Root level domains are **not** allowed (`https://*.com` is not allowed).
-- Only **one** wildcard is allowed per callback (`https://*.*.acmecorp.com` is not allowed).
-- The wildcard **must** be located in a subdomain within the hostname component. If URI has multiple subdomains, wildcard **must** be part of the subdomain that is farthest from the hostname component
-    - For example, `https://xyz.*.com`  is not allowed
+- Wildcard character as a root level domain is **not** allowed (<SimpleCode>https://*.com</SimpleCode> is not allowed).
+- Only **one** wildcard is allowed per callback (`https://*.*.acmecorp.com` is not allowed).
+- The wildcard **must** be located in a subdomain within the hostname component. If URI has multiple subdomains, wildcard **must** be part of the subdomain that is farthest from the hostname component
+    - For example, `https://xyz.*.com`  is not allowed
     - `https://*.acmecorp.com`  is allowed
     - `https://saml-auth-*.acmecorp.com`  is also allowed
 - A URL with a valid wildcard **will** match only one subdomain in it’s place.

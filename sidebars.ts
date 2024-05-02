@@ -14,11 +14,11 @@ const sidebars: SidebarsConfig = {
   integrationsSidebar: [
     {
       type: 'category',
-      link: {
-        type: 'generated-index',
-        title: 'Integration Guides',
-        slug: '/integrations'
-      },
+      //   link: {
+      //     type: 'generated-index',
+      //     title: 'Integration Guides',
+      //     slug: '/integrations'
+      //   },
       label: 'Integrations',
       collapsible: false,
       collapsed: false,

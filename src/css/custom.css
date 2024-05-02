@@ -99,7 +99,7 @@ figure.width-50 {
 }
 
 figure {
-    margin: 0
+    margin: 1.5rem 0;
 }
 
 figcaption {
@@ -346,6 +346,7 @@ p {
     margin: 0 0.5rem;
     font-weight: 400;
     border-radius: 4px;
+    font-size: 14px;
 }
 
 .navbar__link--active {
@@ -545,9 +546,6 @@ html[data-inside-iframe="true"] .theme-doc-toc-mobile {
     display: none;
 }
 
-html[data-inside-iframe="true"] figure {
-    margin: 1.5rem;
-}
 
 div.narrow-references-container>div:nth-child(2)>section>div>div>div:nth-child(2) {
     display: none;

@@ -516,8 +516,22 @@ ul.table-of-contents.table-of-contents__left-border:before {
         var(--ifm-color-emphasis-100) 100%);
 }
 
-.DocSearch-Button {
+/*Fixing Searchbar styling*/
+.DocSearch.DocSearch-Button {
     border-radius: 5px !important;
+    background: none;
+    border: 1px solid;
+
+}
+
+.DocSearch.DocSearch-Button:active,
+.DocSearch.DocSearch-Button:focus,
+.DocSearch.DocSearch-Button:hover {
+    outline: 0;
+    background: none;
+    box-shadow: none;
+    border: 1px solid var(--docsearch-text-color);
+    color: var(--docsearch-muted-color);
 }
 
 .DocSearch-Search-Icon {
@@ -534,6 +548,35 @@ ul.table-of-contents.table-of-contents__left-border:before {
         min-width: 200px;
         /* Fixes #3856 */
     }
+}
+
+.DocSearch-Button-Keys {
+    border: 1px solid var(--docsearch-muted-color);
+    min-width: 0 !important;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.DocSearch-Button-Keys .DocSearch-Button-Key {
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    color: var(--docsearch-text-color);
+    display: flex;
+    height: 18px;
+    justify-content: center;
+    position: relative;
+    border: 0;
+    top: 0;
+    width: 1rem;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.DocSearch-Button-Keys .DocSearch-Button-Key--pressed {
+    transform: translate3d(0, 1px, 0);
+    font-size: 1rem;
 }
 
 /*hide unnecessary elements when inside an iframe*/

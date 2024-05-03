@@ -38,17 +38,17 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'doc',
-          label: 'Quick Start',                 // The link label
+          label: 'Build',                       // The link label
           id: 'single-sign-on/quickstart-sso',  // The internal path
         },
         {
           type: 'doc',
-          label: 'Test SSO',                 // The link label
+          label: 'Test',                     // The link label
           id: 'single-sign-on/testing-sso',  // The internal path
         },
         {
           type: 'doc',
-          label: 'Go-live Checklist',             // The link label
+          label: 'Go-live',                       // The link label
           id: 'single-sign-on/golive-checklist',  // The internal path
         }
       ]

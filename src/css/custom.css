@@ -272,7 +272,7 @@ p {
     -webkit-tap-highlight-color: transparent;
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "liga" 0;
+    font-feature-settings: "liga"0;
     -webkit-font-smoothing: antialiased;
     --tblr-gutter-y: 0;
     --tblr-gutter-x: 2rem;
@@ -513,8 +513,8 @@ ul.table-of-contents.table-of-contents__left-border:before {
     /* Footer */
     --docsearch-footer-background: var(--ifm-background-surface-color);
     --docsearch-key-gradient: linear-gradient(-26.5deg,
-            var(--ifm-color-emphasis-200) 0%,
-            var(--ifm-color-emphasis-100) 100%);
+        var(--ifm-color-emphasis-200) 0%,
+        var(--ifm-color-emphasis-100) 100%);
 }
 
 /*Fixing Searchbar styling*/
@@ -708,4 +708,5 @@ table tr:nth-child(2n) {
     font-size: 0.9rem;
     background: none;
     border: none;
+    white-space: nowrap;
 }

@@ -1,3 +1,5 @@
+import {SimpleCode} from '@site/src/components/custom';
+
 # Normalized User Profile
 When a user logs in with SSO using their Identity Provider via Scalekit, we normalize the user profile information in standard fields so that you can easily access the user profile information regardless of the format, the Identity Provider chooses to send it in.
 
@@ -49,22 +51,22 @@ Below is the sample normalized user profile information in json.
 
 |Profile Attribute|Data Type|Description|
 |--- |--- |--- |
-|sub|string|An identifier for the user, as submitted by the Identity Provider that completed the Single Sign-on.|
-|email|string|The user's email address.|
-|email_verified|boolean|True if the user's e-mail address has been verified as claimed by the Identity Provider; otherwise false.|
-|name|string|Fully formatted user's name|
-|family_name|string|The user's surname or last name.|
-|given_name|string|The user's given name or first name.|
-|locale|string|The user's locale, represented by a BCP 47 language tag. Example: 'en'|
-|picture|string|The user's profile picture in URL format|
-|identities|Array of [Identity Objects](#identity-object-attributes)|Array of all identity information received from the Identity Providers in the raw format|
+|<SimpleCode>sub</SimpleCode>|string|An identifier for the user, as submitted by the Identity Provider that completed the Single Sign-on.|
+|<SimpleCode>email</SimpleCode>|string|The user's email address.|
+|<SimpleCode>email_verified</SimpleCode>|boolean|True if the user's e-mail address has been verified as claimed by the Identity Provider; otherwise false.|
+|<SimpleCode>name</SimpleCode>|string|Fully formatted user's name|
+|<SimpleCode>family_name</SimpleCode>|string|The user's surname or last name.|
+|<SimpleCode>given_name</SimpleCode>|string|The user's given name or first name.|
+|<SimpleCode>locale</SimpleCode>|string|The user's locale, represented by a BCP 47 language tag. Example: 'en'|
+|<SimpleCode>picture</SimpleCode>|string|The user's profile picture in URL format|
+|<SimpleCode>identities</SimpleCode>|Array of [Identity Objects](#identity-object-attributes)|Array of all identity information received from the Identity Providers in the raw format|
 
 ### Identity Object attributes
 |Identity Attribute|Data Type|Description|
 |--- |--- |--- |
-|organization_id|string|Unique ID of the organization to which this user belongs to|
-|connection_id|string|Unique ID of the connection for which this identity data is fetched from|
-|connection_type|string|type of the connection: SAML or OIDC|
-|provider_name|string|name of the connection provider. Example: Okta, Google, Auth0|
-|social|boolean|Is the connection a social provider (like Google, Microsoft, Github etc) or an enterprise connection.|
-|provider_raw_attributes|object|key-value map of all the raw attributes received from the connection provider as-is|
+|<SimpleCode>organization_id</SimpleCode>|string|Unique ID of the organization to which this user belongs to|
+|<SimpleCode>connection_id</SimpleCode>|string|Unique ID of the connection for which this identity data is fetched from|
+|<SimpleCode>connection_type</SimpleCode>|string|type of the connection: SAML or OIDC|
+|<SimpleCode>provider_name</SimpleCode>|string|name of the connection provider. Example: Okta, Google, Auth0|
+|<SimpleCode>social</SimpleCode>|boolean|Is the connection a social provider (like Google, Microsoft, Github etc) or an enterprise connection.|
+|<SimpleCode>provider_raw_attributes</SimpleCode>|object|key-value map of all the raw attributes received from the connection provider as-is|

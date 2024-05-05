@@ -41,11 +41,11 @@ const sidebars: SidebarsConfig = {
           label: 'Build',                       // The link label
           id: 'single-sign-on/quickstart-sso',  // The internal path
         },
-        {
-          type: 'doc',
-          label: 'Test',                     // The link label
-          id: 'single-sign-on/testing-sso',  // The internal path
-        },
+        // {
+        //   type: 'doc',
+        //   label: 'Test',                     // The link label
+        //   id: 'single-sign-on/testing-sso',  // The internal path
+        // },
         {
           type: 'doc',
           label: 'Go-live',                       // The link label
@@ -115,29 +115,29 @@ const sidebars: SidebarsConfig = {
           label: 'Handling IdP Initiated SSO',
           id: 'best-practices/handling-idp-initiated',
         },
-        {
-          type: 'doc',
-          label: 'SAML Configurations',
-          id: 'best-practices/advanced-saml',
-        },
+        // {
+        //   type: 'doc',
+        //   label: 'SAML Configurations',
+        //   id: 'best-practices/advanced-saml',
+        // },
       ]
     },
-    {
-      type: 'category',
-      label: 'Troubleshoot',
-      items: [
-        {
-          type: 'doc',
-          label: 'Error Handling',
-          id: 'best-practices/error-handling',
-        },
-        {
-          type: 'doc',
-          label: 'Troubleshoot SSO',
-          id: 'best-practices/troubleshooting-sso',
-        },
-      ]
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Troubleshoot',
+    //   items: [
+    //     {
+    //       type: 'doc',
+    //       label: 'Error Handling',
+    //       id: 'best-practices/error-handling',
+    //     },
+    //     {
+    //       type: 'doc',
+    //       label: 'Troubleshoot SSO',
+    //       id: 'best-practices/troubleshooting-sso',
+    //     },
+    //   ]
+    // },
     {
       type: 'category',
       label: 'Manage Scalekit',
@@ -153,7 +153,7 @@ const sidebars: SidebarsConfig = {
           label: 'API Reference',  // The link label
           href: '/api-reference',  // The internal path
         },
-        'sdks'
+        // 'sdks'
       ]
     },
 

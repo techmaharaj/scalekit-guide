@@ -1,8 +1,10 @@
 ---
 sidebar_position: 1
 ---
+import Subtitle from '@site/src/components/custom';
 
 # Go-live Checklist
+<Subtitle>Use this checklist to ensure a smooth transition when taking your integration live.</Subtitle>
 
 As you prepare to take your Single Sign-On (SSO) implementation live, it’s crucial to ensure every aspect is tuned for a secure and smooth production environment. Below is a checklist designed to guide developers through the essential steps: 
 

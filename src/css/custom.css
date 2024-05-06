@@ -627,12 +627,6 @@ code {
     font-weight: 501;
 }
 
-hr {
-    background-color: var(--ifm-hr-background-color);
-    border: 1px solid #333;
-    height: var(--ifm-hr-height);
-    margin: var(--ifm-hr-margin-vertical) 0;
-}
 
 /* #tag\/customer-portal>div>div>div:nth-child(2),
 #tag\/organization>div>div>div:nth-child(2),

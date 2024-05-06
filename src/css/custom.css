@@ -627,6 +627,12 @@ code {
     font-weight: 501;
 }
 
+.persist_chkbox {
+    vertical-align: middle;
+    margin: 2px;
+    accent-color: var(--ifm-color-primary);
+}
+
 
 /* #tag\/customer-portal>div>div>div:nth-child(2),
 #tag\/organization>div>div>div:nth-child(2),

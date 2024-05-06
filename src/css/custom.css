@@ -77,9 +77,10 @@
     --ifm-pre-border-radius: 10;
     --ifm-code-border-radius: 10;
     --ifm-global-shadow-lw: none;
-    --ifm-table-head-font-weight: 600;
+    --ifm-table-head-font-weight: 500;
     --ifm-list-paragraph-margin: 10px;
     --ifm-paragraph-margin-bottom: 10px;
+    --ifm-table-border-color: #e8e8e8;
 }
 
 .container {
@@ -398,6 +399,10 @@ p {
         font-size: 1.125rem !important;
     }
 
+    .col.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
+        max-width: fit-content !important;
+    }
+
 }
 
 ul.table-of-contents.table-of-contents__left-border:before {
@@ -643,23 +648,32 @@ hr {
     margin-top: 0 !important;
 }
 
+table {
+    border-collapse: collapse;
+
+}
+
+table tbody {
+    font-size: 0.95rem;
+}
+
+table td,
+table th {
+    border: 0;
+}
 
 table thead {
     background-color: aliceblue;
     text-align: left;
 }
 
+
+table tbody tr,
 table thead tr {
-    border-bottom: none;
+    border: 1px solid var(--ifm-table-border-color);
+
 }
 
-table tbody tr {
-    border-top: none;
-}
-
-table tr:nth-child(2n) {
-    background: none;
-}
 
 .tabs {
     background-color: aliceblue;

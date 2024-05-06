@@ -1,7 +1,7 @@
 # Managing Client Secrets
 Client ID and Client Secret are a form of API credentials, like a username and password. You are responsible for keeping Client Secrets safe and secure. Below are some best practices for how you can keep your secrets safe and how you can leverage some of the functionality offered by us to help you do the same.
 
-## **Protecting against key leakage**
+## Protecting against key leakage
 
 - **Use secure key management systems (KMS) to store client secrets.** 
 Whenever you generate a client secret from the Scalekit Dashboard, it is only shown once. You cannot recover this secret again as we only store the hash of the secret and never the raw secret with us. Immediately copy the key to a KMS, which is designed to handle sensitive information with encryption and access controls. Make sure you don’t leave a copy of the key in the local file.

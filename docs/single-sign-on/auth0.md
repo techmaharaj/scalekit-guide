@@ -31,13 +31,15 @@ Because of an [existing issue](https://community.auth0.com/t/creating-an-oidc-co
 
 You need to use the Auth0 Management API to create Scalekit as a OpenID connection for your tenant. See the sample curl command below
 
-```curl
+```bash showLineNumbers
+
 curl --request POST \
   --url 'https://<AUTH0_TENANT_DOMAIN>.us.auth0.com/api/v2/connections' \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   --header 'authorization: Bearer <API_TOKEN>' \
-  --data-raw '{ "strategy": "oidc", "name": "Scalekit", "options": { "type": "back_channel", "discovery_url": "<SCALEKIT_ENV_URL>/.well-known/openid-configuration", "client_secret" : "<SCALEKIT_CLIENT_SECRET>", "client_id" : "<SCALEKIT_CLIENT_ID>",  "scopes": "openid profile" } }'
+  --data '{ "strategy": "oidc", "name": "Scalekit", "options": { "type": "back_channel", "discovery_url": "<SCALEKIT_ENV_URL>/.well-known/openid-configuration", "client_secret" : "<SCALEKIT_CLIENT_SECRET>", "client_id" : "<SCALEKIT_CLIENT_ID>",  "scopes": "openid profile" } }'
+
 ```
 
 After the successful execution of the above API call, you will see a new OpenID Connect Connection created in your Auth0 tenant.

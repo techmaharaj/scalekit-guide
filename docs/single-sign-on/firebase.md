@@ -62,7 +62,7 @@ After you have successfully configured Scalekit as OIDC provider in your Firebas
 
 You can follow the below sample code in your app's login page to understand how to configure SSO through Scalekit using Firebase JS script.
 
-```javascript Login.js
+```javascript title="Login.js" showLineNumbers
 
 // Initialize Scalekit as OIDC provider
 // get the provider id from your firebase project

@@ -159,8 +159,8 @@ const config: Config = {
 
     },
     prism: {
-      theme: prismThemes.oneLight
-      // additionalLanguages: ['java', 'python', 'json', 'go'],
+      theme: prismThemes.oneLight,
+      additionalLanguages: ['bash'],
     },
   } satisfies Preset.ThemeConfig,
 };

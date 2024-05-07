@@ -210,7 +210,7 @@ figure img {
 }
 
 .theme-doc-sidebar-item-link-level-1 {
-    margin-bottom: 24px;
+    margin-bottom: 4px;
 }
 
 .menu__list-item,
@@ -401,8 +401,23 @@ p {
 
     .col.docItemCol_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module {
         max-width: fit-content !important;
+        min-width: 75%;
     }
 
+}
+
+.cardContainer {
+    --ifm-link-color: var(--ifm-color-emphasis-800);
+    --ifm-link-hover-color: var(--ifm-color-emphasis-700);
+    --ifm-link-hover-decoration: none;
+    box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
+    border: 1px solid var(--ifm-color-emphasis-200);
+    transition: all var(--ifm-transition-fast) ease;
+    transition-property: border, box-shadow;
+}
+
+.cardContainer p {
+    font-size: 0.9rem;
 }
 
 ul.table-of-contents.table-of-contents__left-border:before {
@@ -411,10 +426,6 @@ ul.table-of-contents.table-of-contents__left-border:before {
     text-align: center;
     margin-left: 8px;
     font-weight: 500;
-}
-
-.card {
-    border: 1px solid;
 }
 
 .card-icon img {

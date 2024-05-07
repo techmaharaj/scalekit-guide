@@ -1,6 +1,4 @@
----
-slug: '/integrations'
----
+
 import Subtitle from '@site/src/components/custom';
 
 # SAML

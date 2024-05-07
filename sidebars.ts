@@ -12,14 +12,15 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   integrationsSidebar: [
-    {
+    {type: 'doc', label: 'Overview', id: 'integrations/integrations'}, {
       type: 'category',
-      //   link: {
-      //     type: 'generated-index',
-      //     title: 'Integration Guides',
-      //     slug: '/integrations'
-      //   },
-      label: 'Integrations',
+      // link: {type: 'doc', id: 'integrations/integrations'},
+      // link: {
+      //   type: 'generated-index',
+      //   title: 'Integration Guides',
+      //   slug: '/integrations'
+      // },
+      label: 'Integration with SSO Providers',
       collapsible: false,
       collapsed: false,
       items: [
@@ -28,24 +29,26 @@ const sidebars: SidebarsConfig = {
         'integrations/jumpcloud-saml'
       ]
     },
+    {
+      type: 'category',
+      // link: {type: 'doc', id: 'integrations/integrations'},
+      label: 'Integration with Auth Providers',
+      className: 'sso_category',
+      items: [
+        {
+          type: 'doc',
+          label: 'Firebase',            // The link label
+          id: 'integrations/firebase',  // The internal path
+        },
+        {
+          type: 'doc',
+          label: 'Auth0',            // The link label
+          id: 'integrations/auth0',  // The internal path
+        },
+      ]
+    }
   ],
-  coexistanceSidebar: [{
-    type: 'category',
-    label: 'Integration with Auth Providers',
-    className: 'sso_category',
-    items: [
-      {
-        type: 'doc',
-        label: 'Firebase',              // The link label
-        id: 'single-sign-on/firebase',  // The internal path
-      },
-      {
-        type: 'doc',
-        label: 'Auth0',              // The link label
-        id: 'single-sign-on/auth0',  // The internal path
-      },
-    ]
-  }],
+  coexistanceSidebar: [],
   tutorialSidebar: [
     {
       type: 'category',

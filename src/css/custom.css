@@ -608,6 +608,9 @@ html[data-inside-iframe="true"] .theme-doc-toc-mobile {
     display: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 div.narrow-references-container>div:nth-child(2)>section>div>div>div:nth-child(2) {
     display: none;
@@ -629,7 +632,7 @@ code {
 
 .persist_chkbox {
     vertical-align: middle;
-    margin: 2px;
+    margin: 2px 4px 4px 2px;
     accent-color: var(--ifm-color-primary);
 }
 

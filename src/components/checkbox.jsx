@@ -19,7 +19,7 @@ const lsUtils = {
     },
 };
 
-export default function Checkbox({ shouldPersist = true, id, class_name='persist_chkbox' }) {
+function Checkbox({ shouldPersist = true, id, className = 'persist_chkbox' }) {
     if (shouldPersist && !id) {
         throw new Error(
             "Please provide a unique element identifier as shouldPersist is enabled"
@@ -30,11 +30,15 @@ export default function Checkbox({ shouldPersist = true, id, class_name='persist
         <input
       type="checkbox"
       id={id}
-      className={class_name}
+      className={className}
       defaultChecked={lsUtils.isChecked(id)}
       onChange={(e) =>
         shouldPersist && lsUtils.updateChecked(id, e.target.checked)
       }
     />
     );
+}
+
+export default function LabeledCheckbox({ children, ...props }) {
+    return (<label for={props.id}><Checkbox {...props} />{children}</label>)
 }

@@ -13,7 +13,8 @@ This guide is designed to provide you a walkthrough of integrating Scalekit with
 
 To begin, we'll start with an overview of the SSO workflow, laying the foundation for the subsequent integration steps.
 
-![SSO Overview](https://files.readme.io/5cf2483-SCR-20240405-lafj.png)
+<figure>![Scalekit - Auth0 Integration](./Auth0/How%20Scalekit%20connects%20with%20Auth0.png)
+<figcaption>Scalekit - Auth0 Integration</figcaption></figure>
 
 
 Scalekit is engineered as a fully compatible OpenID Connect Provider, thus streamlining the integration process. We'll demonstrate how to configure Scalekit so that Auth0 can automatically handle much of the workflow. As Auth0 manages the integration with Scalekit, you'll be able to seamlessly integrate Single Sign-On capability into your product without having to write a single line of code.

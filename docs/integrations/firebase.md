@@ -10,7 +10,10 @@ This guide is designed to streamline the integration process of Scalekit with Fi
 
 To begin, we'll start with an overview of the SSO workflow, laying the foundation for the subsequent integration steps.
 
-![SSO Overview](https://files.readme.io/5cf2483-SCR-20240405-lafj.png)
+<figure>![Scalekit - Firebase Integration](./firebase/How%20Scalekit%20connects%20with%20Firebase.png)
+<figcaption>Scalekit - Firebase Integration</figcaption></figure>
+
+
 
 
 Scalekit is engineered as a fully compatible OpenID Connect Provider, thus streamlining the integration process. We'll demonstrate how to configure Scalekit so that Firebase can automatically handle much of the workflow. With just a few lines of code, you'll be able to seamlessly integrate Single Sign-On capability into your product.

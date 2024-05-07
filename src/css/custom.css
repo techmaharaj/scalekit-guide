@@ -410,14 +410,29 @@ p {
     --ifm-link-color: var(--ifm-color-emphasis-800);
     --ifm-link-hover-color: var(--ifm-color-emphasis-700);
     --ifm-link-hover-decoration: none;
-    box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
     border: 1px solid var(--ifm-color-emphasis-200);
     transition: all var(--ifm-transition-fast) ease;
     transition-property: border, box-shadow;
+    padding: 12px;
+    border-radius: 4px;
 }
 
-.cardContainer p {
-    font-size: 0.9rem;
+.cardContainer:hover {
+    box-shadow: 0 0 0 1px rgba(50, 50, 93, 0.01), 0 7px 14px 0 rgba(50, 50, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.02)
+}
+
+.cardContainer h3 {
+    font-size: 1.25rem;
+}
+
+.cardContainer img {
+    float: left;
+    margin-right: 12px;
+}
+
+.cardContainer h3 p {
+    float: left;
+    line-height: 32px;
 }
 
 ul.table-of-contents.table-of-contents__left-border:before {

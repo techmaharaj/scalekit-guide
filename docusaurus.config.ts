@@ -133,7 +133,7 @@ const config: Config = {
     },
     imageZoom: {
       // CSS selector to apply the plugin to, defaults to '.markdown img'
-      selector: '.markdown img',
+      selector: '.markdown :not(.cardContainer h3) > img',
       // Optional medium-zoom options
       // see: https://www.npmjs.com/package/medium-zoom#options
       options: {

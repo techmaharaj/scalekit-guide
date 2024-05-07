@@ -28,4 +28,4 @@ When your customers login with SSO via SAML or OIDC, they may see the scalekit.c
 :::
 
 ### How to configure CNAME
-If you are interested to configure CNAME for your production environment, Please reach out to support@scalekit.com
+If you are interested to configure CNAME for your production environment, please reach out to support@scalekit.com

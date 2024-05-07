@@ -29,7 +29,23 @@ const sidebars: SidebarsConfig = {
       ]
     },
   ],
-
+  coexistanceSidebar: [{
+    type: 'category',
+    label: 'Integration with Auth Providers',
+    className: 'sso_category',
+    items: [
+      {
+        type: 'doc',
+        label: 'Firebase',              // The link label
+        id: 'single-sign-on/firebase',  // The internal path
+      },
+      {
+        type: 'doc',
+        label: 'Auth0',              // The link label
+        id: 'single-sign-on/auth0',  // The internal path
+      },
+    ]
+  }],
   tutorialSidebar: [
     {
       type: 'category',

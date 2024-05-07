@@ -14,4 +14,4 @@ There are three elements that can be customized:
 <!-- <Insert Screenshot for the positioning of these elements> -->
 
 ### How to customize branding
-If you are interested to customizing the Admin Portal's branding, Please reach out to support@scalekit.com
+If you are interested to customizing the Admin Portal's branding, please reach out to support@scalekit.com

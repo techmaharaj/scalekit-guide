@@ -4,9 +4,10 @@ metadata:
   description: "This document provides a guide on integrating Scalekit with Auth0 applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in your Auth0 tenant."
 ---
 # Auth0
+axcd
 
 ## Introduction
-This guide is designed to streamline the integration process of Scalekit with Auth0 applications, thereby facilitating seamless Single Sign-on (SSO) Authentication for your users. We will walk you through the process of configuring your Auth0 tenant with Scalekit.
+This guide is designed to streamline the integration of Scalekit with Auth0 applications, thereby facilitating seamless Single Sign-on (SSO) Authentication for your users. We will walk you through the process of configuring your Auth0 tenant with Scalekit.
 
 To begin, we'll start with an overview of the SSO workflow, laying the foundation for the subsequent integration steps.
 

@@ -34,9 +34,7 @@ Here's a description of how it works:
 
 ## Implement Single Sign-on
 
-### 0. Prerequisites
-
-Before you get started: 
+### 0. Before getting started
 
 - Ensure you're logged into your [Scalekit account](https://app.scalekit.com) and have your API credentials ready
 - Access to your codebase is also necessary to implement and test changes

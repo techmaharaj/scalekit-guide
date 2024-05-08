@@ -2,7 +2,7 @@
 # SAML
 <Subtitle>Step-by-step guide to configure Single Sign-on using SAML with any Identity Provider. </Subtitle> 
 
-## Pre-requisite: Create a SAML application
+## 0. Create a SAML application
 
 Login to your Identity Provider portal as an admin and create a new Application with SAML as the single sign-on method. 
 

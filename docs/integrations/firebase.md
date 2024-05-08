@@ -19,7 +19,7 @@ To begin, we'll start with an overview of the SSO workflow, laying the foundatio
 
 Scalekit is engineered as a fully compatible OpenID Connect Provider, thus streamlining the integration process. We'll demonstrate how to configure Scalekit so that Firebase can automatically handle much of the workflow. With just a few lines of code, you'll be able to seamlessly integrate Single Sign-On capability into your product.
 
-## Pre-requisites
+## Before getting started
 
 - Ensure you have access to Firebase Authentication with Identity Platform. **Please note** that OpenID Connect feature is not available in the Legacy Firebase Authentication. [Refer here](https://cloud.google.com/identity-platform/docs/product-comparison) for more information. 
 - Access to your Scalekit account

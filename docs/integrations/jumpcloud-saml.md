@@ -1,4 +1,4 @@
-# JumpCloud - SAML
+# JumpCloud SAML
 
 <Subtitle>Step-by-step guide to configure Single Sign-on with JumpCloud as the Identity Provider. </Subtitle>
 

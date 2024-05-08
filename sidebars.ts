@@ -12,7 +12,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   integrationsSidebar: [
-    {type: 'doc', label: 'Overview', id: 'integrations/integrations'}, {
+    {type: 'doc', label: 'Integrations Overview', id: 'integrations/integrations'}, {
       type: 'category',
       // link: {type: 'doc', id: 'integrations/integrations'},
       // link: {
@@ -20,19 +20,22 @@ const sidebars: SidebarsConfig = {
       //   title: 'Integration Guides',
       //   slug: '/integrations'
       // },
-      label: 'Integration with SSO Providers',
+      label: 'Identity Providers',
       collapsible: false,
       collapsed: false,
       items: [
-        'integrations/saml', 'integrations/oidc', 'integrations/azure-ad-saml',
-        'integrations/okta-saml', 'integrations/onelogin-saml',
-        'integrations/jumpcloud-saml'
+       'integrations/okta-saml',
+       'integrations/azure-ad-saml',
+       'integrations/onelogin-saml',
+       'integrations/jumpcloud-saml'
+       'integrations/saml', 
+       'integrations/oidc' 
       ]
     },
     {
       type: 'category',
       // link: {type: 'doc', id: 'integrations/integrations'},
-      label: 'Integration with Auth Providers',
+      label: 'Auth Systems',
       className: 'sso_category',
       items: [
         {

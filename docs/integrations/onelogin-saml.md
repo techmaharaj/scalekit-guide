@@ -1,5 +1,5 @@
 
-# OneLogin - SAML
+# OneLogin SAML
 
 <Subtitle>Step-by-step guide to configure Single Sign-on with OneLogin as the Identity Provider. </Subtitle>
 

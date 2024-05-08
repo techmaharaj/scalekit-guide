@@ -184,9 +184,9 @@ const userEmail = res.user.email;
 </TabItem>
 <!-- <TabItem value="py" label="Python">
 
-```python
-# write python code here
-```
+<CodeBlock language="python">
+ {`# write python code here`}
+</CodeBlock>
 
 </TabItem>
 <TabItem value="golang" label="Go">
@@ -195,7 +195,7 @@ const userEmail = res.user.email;
 // write go code here
 ```
 
-</TabItem> -->
+</TabItem>  -->
 </Tabs>
 
 

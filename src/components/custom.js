@@ -12,7 +12,8 @@ export function CardTileWithImage({url, imageSrc, title, description}){
   <article className='col col--4 margin-bottom--lg'>
     <a className='card padding--lg cardContainer' 
     href={url}>
-    <h3><img alt={title} src={imageSrc}></img>
+    <h3>
+      <img alt={title} src={imageSrc}></img>
       <p>{title}</p></h3><p>{description}</p></a>
       </article>
     )

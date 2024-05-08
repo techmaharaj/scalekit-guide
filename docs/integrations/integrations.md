@@ -47,16 +47,17 @@ url="/integrations/jumpcloud-saml"></CardTileWithImage>
 <section class="row">
 
 
-<CardTileWithImage
+<CardTileWithImage imageSrc="https://firebase.google.com/static/downloads/brand-guidelines/SVG/logo-logomark.svg"
+title="Firebase"
+description="Integrate Scalekit in your Firebase Project"
+url="/integrations/firebase"></CardTileWithImage>
+
+<CardTileWithImage imageSrc="https://upload.wikimedia.org/wikipedia/commons/1/1d/No_image.svg"
 title="Auth0"
 description="Integrate Scalekit in your Auth0 Tenant"
 url="/integrations/auth0"></CardTileWithImage>
 
 
-<CardTileWithImage imageSrc="https://firebase.google.com/static/downloads/brand-guidelines/SVG/logo-logomark.svg"
-title="Firebase"
-description="Integrate Scalekit in your Firebase Project"
-url="/integrations/firebase"></CardTileWithImage>
 
 
 </section>

@@ -1,5 +1,3 @@
-import {SimpleCode} from '@site/src/components/custom';
-import Subtitle from '@site/src/components/custom';
 
 # Custom Domain (CNAME)
 <Subtitle>Host Admin Portal on your own domain</Subtitle>

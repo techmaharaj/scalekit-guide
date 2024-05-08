@@ -1,5 +1,5 @@
 # Error Handling
-import {SimpleCode} from '@site/src/components/custom';
+
 
 If there are any configuration or application issues while the user tries to login with Single Sign-on via Scalekit, your application's redirect uri will receive the details of the error via the request parameters: error_code, error_description.
 

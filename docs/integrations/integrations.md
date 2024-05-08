@@ -2,7 +2,6 @@
 hide_table_of_contents: true
 pagination_next: integrations/saml
 ---
-import {CardTileWithImage} from '@site/src/components/custom';
 
 # Integrations
 

@@ -3,7 +3,6 @@ sidebar_position: 2
 title: Okta - SAML
 description: SSO Configuration Guide for Okta
 ---
-import Subtitle from '@site/src/components/custom';
 
 # Okta - SAML
 <Subtitle>Step-by-step guide to configure Single Sign-on with Okta as the Identity Provider. </Subtitle>

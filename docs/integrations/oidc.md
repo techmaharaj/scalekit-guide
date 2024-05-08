@@ -1,4 +1,3 @@
-import Subtitle from '@site/src/components/custom';
 
 # OIDC
 <Subtitle>Step-by-step guide to configure Single Sign-on using OIDC with any Identity Provider. </Subtitle>

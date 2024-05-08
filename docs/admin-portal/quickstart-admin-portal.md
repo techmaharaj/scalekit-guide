@@ -2,8 +2,6 @@
 sidebar_position: 1
 ---
 import InstallSDK from './../templates/install-sdk.md';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Integrate Admin Portal
 

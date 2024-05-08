@@ -1,5 +1,3 @@
-import Subtitle from '@site/src/components/custom';
-
 # JumpCloud - SAML
 
 <Subtitle>Step-by-step guide to configure Single Sign-on with JumpCloud as the Identity Provider. </Subtitle>

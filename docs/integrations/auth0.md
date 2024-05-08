@@ -3,8 +3,6 @@ excerpt: "This article describes how to integrate Scalekit with your Auth0 imple
 metadata: 
   description: "This document provides a guide on integrating Scalekit with Auth0 applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in your Auth0 tenant."
 ---
-import Subtitle from '@site/src/components/custom';
-
 # Auth0
 <Subtitle>Learn how to integrate Scalekit with Auth0 via OpenID Connect (OIDC)</Subtitle>
 

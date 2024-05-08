@@ -1,7 +1,6 @@
 ---
 sidebar_position: 5
 ---
-import Subtitle from '@site/src/components/custom';
 
 # Microsoft Entra ID (Azure AD) - SAML
 

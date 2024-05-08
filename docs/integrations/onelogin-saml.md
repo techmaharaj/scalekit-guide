@@ -1,4 +1,3 @@
-import Subtitle from '@site/src/components/custom';
 
 # OneLogin - SAML
 

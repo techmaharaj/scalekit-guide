@@ -1,4 +1,3 @@
-import {SimpleCode} from '@site/src/components/custom';
 
 # Redirect URI
 

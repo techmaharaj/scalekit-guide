@@ -1,6 +1,3 @@
-import {SimpleCode} from '@site/src/components/custom';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Authorization URL
 

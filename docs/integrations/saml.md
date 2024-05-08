@@ -1,6 +1,4 @@
 
-import Subtitle from '@site/src/components/custom';
-
 # SAML
 <Subtitle>Step-by-step guide to configure Single Sign-on using SAML with any Identity Provider. </Subtitle> 
 

@@ -2,10 +2,6 @@
 slug: /
 ---
 import InstallSDK from './../templates/install-sdk.md';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import {SimpleCode} from '@site/src/components/custom';
-
 
 # SSO Quick Start
 

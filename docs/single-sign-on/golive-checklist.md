@@ -1,9 +1,6 @@
 ---
 sidebar_position: 1
 ---
-import Subtitle from '@site/src/components/custom';
-import LabeledCheckbox from '@site/src/components/checkbox';
-
 # Go-live Checklist
 <Subtitle>Use this checklist to ensure a smooth transition when taking your integration live.</Subtitle>
 

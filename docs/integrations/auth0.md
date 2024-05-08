@@ -7,15 +7,15 @@ metadata:
 <Subtitle>Learn how to integrate Scalekit with Auth0 via OpenID Connect (OIDC)</Subtitle>
 
 ## Introduction
-This guide is designed to provide you a walkthrough of integrating Scalekit with Auth0, thereby facilitating seamless Single Sign-on (SSO) authentication for your application's users. In this guide, the assumption is that Auth0 acts as an identity management solution for your users and the login, session management functionality is powered by Auth0.
+This guide is designed to provide you a walkthrough of integrating Scalekit with Auth0, thereby facilitating seamless Single Sign-on (SSO) authentication for your application's users. We demonstrate how to configure Scalekit so that Auth0 can continue to act as the identity management solution for your users and manage the login, session management functionality. 
 
-To begin, we'll start with an overview of the SSO workflow, laying the foundation for the subsequent integration steps.
+To begin, here is an overview of the SSO workflow.
 
 <figure>![Scalekit - Auth0 Integration](./Auth0/How%20Scalekit%20connects%20with%20Auth0.png)
 <figcaption>Scalekit - Auth0 Integration</figcaption></figure>
 
 
-Scalekit is engineered as a fully compatible OpenID Connect Provider, thus streamlining the integration process. We'll demonstrate how to configure Scalekit so that Auth0 can automatically handle much of the workflow. As Auth0 manages the integration with Scalekit, you'll be able to seamlessly integrate Single Sign-On capability into your product without having to write a single line of code.
+Scalekit is designed as a fully compatible OpenID Connect (OIDC) provider, thus streamlining the integration with Auth0 and your application. As Auth0 continues to act as your identity management system, you'll be able to seamlessly integrate Single Sign-On capability into your application without having to write code.
 
 ## Pre-requisites
 

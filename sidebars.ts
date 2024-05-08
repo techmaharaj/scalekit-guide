@@ -27,7 +27,7 @@ const sidebars: SidebarsConfig = {
        'integrations/okta-saml',
        'integrations/azure-ad-saml',
        'integrations/onelogin-saml',
-       'integrations/jumpcloud-saml'
+       'integrations/jumpcloud-saml',
        'integrations/saml', 
        'integrations/oidc' 
       ]

@@ -243,26 +243,31 @@ figure img {
 
 article,
 nav.pagination-nav {
-    padding-left: 7%;
-    padding-right: 7%;
+    padding: 0 7%;
 }
 
-.pagination-nav__link--prev .pagination-nav__sublabel:before {
-    content: "« "
+.pagination-nav__link {
+    border: 0;
+    padding: 10px 0;
 }
 
-.pagination-nav__link--next .pagination-nav__sublabel::after {
-    content: " »"
+.pagination-nav__sublabel {
+    display: none;
 }
 
-.pagination-nav__link--prev .pagination-nav__label::before,
+
+.pagination-nav__link--prev .pagination-nav__label::before {
+    content: "<-  ";
+}
+
 .pagination-nav__link--next .pagination-nav__label::after {
-    content: "";
+    content: "  ->";
 }
 
 .pagination-nav__label {
-    color: var(--ifm-color-primary);
+    color: var(--ifm-link-color);
     font-weight: 600;
+    font-family: 'Inter';
 }
 
 .menu__caret {

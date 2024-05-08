@@ -61,7 +61,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          showLastUpdateTime: true,
+          showLastUpdateTime: false,
           sidebarCollapsed: false,
           sidebarCollapsible: false,
           sidebarPath: './sidebars.ts',

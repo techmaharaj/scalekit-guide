@@ -3,9 +3,9 @@ hide_table_of_contents: true
 pagination_next: integrations/saml
 ---
 
-# Integrations
+# Integration Guides
 
-## Integration guides for SSO Providers
+## Identity Providers
 <section class="row">
 
 
@@ -42,7 +42,7 @@ url="/integrations/jumpcloud-saml"></CardTileWithImage>
 
 </section>
 
-## Integration guides for Auth Providers
+## Auth Systems
 <section class="row">
 
 

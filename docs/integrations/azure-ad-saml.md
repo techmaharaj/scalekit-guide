@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Microsoft Entra ID (Azure AD) - SAML
+# Entra ID (Azure AD) SAML
 
 <Subtitle>Step-by-step guide to configure Single Sign-on with Microsoft Entra ID as the Identity Provider. </Subtitle>
 

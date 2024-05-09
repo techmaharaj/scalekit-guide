@@ -34,7 +34,6 @@ Because of an [existing issue](https://community.auth0.com/t/creating-an-oidc-co
 :::
 
 Use [Auth0 Connections API](https://auth0.com/docs/api/management/v2/connections/post-connections) to create Scalekit as a OpenID connection for your tenant. Sample curl command below:
-
 ```bash showLineNumbers
 
 curl --request POST \
@@ -45,6 +44,7 @@ curl --request POST \
   --data '{ "strategy": "oidc", "name": "Scalekit", "options": { "type": "back_channel", "discovery_url": "<SCALEKIT_ENV_URL>/.well-known/openid-configuration", "client_secret" : "<SCALEKIT_CLIENT_SECRET>", "client_id" : "<SCALEKIT_CLIENT_ID>",  "scopes": "openid profile" } }'
 
 ```
+
 To configure Scalekit OIDC credentials like client_id, client_secret, we recommend you to store these as environment variables. Sample .env file below:
 
 ```jsx title=".env"

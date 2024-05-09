@@ -33,7 +33,7 @@ Ensure you have:
 Because of an [existing issue](https://community.auth0.com/t/creating-an-oidc-connection-fails-with-options-issuer-is-required-error/128189) in adding OIDC connections via Auth0 Management Console, you need to use Auth0 API to create OIDC connection.
 :::
 
-Use [Auth0 Connections API] (https://auth0.com/docs/api/management/v2/connections/post-connections) to create Scalekit as a OpenID connection for your tenant. Sample curl command below:
+Use [Auth0 Connections API](https://auth0.com/docs/api/management/v2/connections/post-connections) to create Scalekit as a OpenID connection for your tenant. Sample curl command below:
 
 ```bash showLineNumbers
 
@@ -53,7 +53,7 @@ SCALEKIT_CLIENT_ID="skc_122056050118122349527"
 SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
 ```
 
-After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant. To conifrm this, you can navigate to [Enterprise Connections] (https://auth0.com/docs/authenticate/enterprise-connections#view-enterprise-connections) in your Auth0 dashboard.
+After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant. To conifrm this, you can navigate to [Enterprise Connections](https://auth0.com/docs/authenticate/enterprise-connections#view-enterprise-connections) in your Auth0 dashboard.
 
 
 ### 2. Add Redirect URI in Scalekit API Config

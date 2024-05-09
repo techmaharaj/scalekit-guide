@@ -20,13 +20,14 @@ Scalekit is designed as a fully compatible OpenID Connect (OIDC) provider, thus 
 ## Before getting started
 
 **Note** that Auth0 classifies OpenID Connect as Enterprise Connection and this feature is available only in the paid plans of Auth0. Please check whether your current plan has access to creating Enterprise Connections with OpenID Connect providers. 
-- Access to Auth0's Authenticate dashboard. You need to have a role as an 'Admin' or 'Editor - Connections' to create and edit OIDC connections on Auth0.
-- Access to your Scalekit dashboard.
 
+Ensure you have: 
+- access to Auth0's Authenticate dashboard. You need to have a role as an 'Admin' or 'Editor - Connections' to create and edit OIDC connections on Auth0.
+- access to your Scalekit dashboard.
 
-## Setting up Auth0
+## Integrate Scalekit with Auth0
 
-### Adding Scalekit as OpenID Connect Connection
+### 1. Adding Scalekit as OpenID Connect Connection
 
 :::info Note
 Because of an [existing issue](https://community.auth0.com/t/creating-an-oidc-connection-fails-with-options-issuer-is-required-error/128189) in adding OIDC Providers via Auth0 Management Console, you are required to use Auth0 API to create OpenID Connect Connections via API 
@@ -47,7 +48,7 @@ curl --request POST \
 
 After the successful execution of the above API call, you will see a new OpenID Connect Connection created in your Auth0 tenant.
 
-### Add Redirect URI in Scalekit API Config
+### 2. Add Redirect URI in Scalekit API Config
 
 After creating Scalekit as a new OIDC connection, you need to copy the Callback URL from your Auth0 Dashboard and add it as a new Redirect URI in your Scalekit API Config section.
 
@@ -56,7 +57,7 @@ After creating Scalekit as a new OIDC connection, you need to copy the Callback 
 ![Add Redirect URI in your Scalekit Dashboard](./Auth0/SCR-20240507-omtp.png)
 
 
-## Enable Home Realm Discovery
+### 3. Enable Home Realm Discovery
 
 After you have successfully configured Scalekit as OIDC provider in your Auth0 project, it's time to onboard your enterprise customers and enable home realm discovery for their domains so that they will be automatically routed to SSO connection based on their email domain and Auth0 will route the requests to Scalekit.
 

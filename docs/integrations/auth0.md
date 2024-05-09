@@ -70,7 +70,7 @@ Copy the "Callback URL" that's available in the General section of settings.
 #### 2b. Set Redirect URI in Scalekit API Config
 Go to your Scalekit dashboard. Select environment as Development or Production. Navigate to the "API Config" in the Settings (left nav). In the Redirect URIs section, select **Add new URI**. Paste the Callback URL that you copied from Auth0 dashboard. Click on Add button.
 
-![Add Redirect URI in your Scalekit Dashboard](./Auth0/SCR-20240507-omtp.png)
+![Add Redirect URI in your Scalekit Dashboard](./Auth0/SCR-20240509-mcic.png)
 
 
 ### 3. Enable Home Realm Discovery

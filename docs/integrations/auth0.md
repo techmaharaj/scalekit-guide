@@ -60,7 +60,15 @@ After the successful execution of the above API call, you will see a new OpenID 
 
 After creating Scalekit as a new OIDC connection, you need to copy the Callback URL from your Auth0 Dashboard and add it as a new Redirect URI in your Scalekit API Config section.
 
+#### 2a. Copy Callback URL from Auth0
+In your Auth0 dashboard, go to Authentication > Enterprise > OpenID Connect > Scalekit > Settings. 
+Copy the "Callback URL" that's available in the General section of settings.
+
 ![Copy Redirect URI from your Auth0 Dashboard](./Auth0/SCR-20240507-omfj.png)
+
+
+#### 2b. Set Redirect URI in Scalekit
+Go to your Scalekit dashboard. Select environment as Development or Production. Navigate to the "API Config" in the Settings (left nav). In the Redirect URIs section, select **Add new URI**. Paste the Callback URL that you copied from Auth0 dashboard. Click on Add button.
 
 ![Add Redirect URI in your Scalekit Dashboard](./Auth0/SCR-20240507-omtp.png)
 

@@ -699,7 +699,7 @@ code {
 
 table {
     border-collapse: collapse;
-
+    display: table;
 }
 
 table tbody {

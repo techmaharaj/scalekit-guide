@@ -7,7 +7,7 @@ metadata:
 <Subtitle>Learn how to integrate Scalekit with Auth0 via OpenID Connect (OIDC)</Subtitle>
 
 ## Introduction
-This guide is designed to provide you a walkthrough of integrating Scalekit with Auth0, thereby facilitating seamless Single Sign-on (SSO) authentication for your application's users. We demonstrate how to configure Scalekit so that Auth0 can continue to act as the identity management solution for your users and manage the login, session management functionality. 
+This guide is designed to provide you a walkthrough of integrating Scalekit with Auth0, thereby facilitating seamless Single Sign-on (SSO) authentication for your application's users. We demonstrate how to configure Scalekit so that Auth0 can allow  some of your enterprise users to login via Scalekit and still continue to act as the identity management solution for your users and manage the login, session management functionality.
 
 To begin, here is an overview of the SSO workflow.
 
@@ -41,19 +41,23 @@ curl --request POST \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   --header 'authorization: Bearer <API_TOKEN>' \
-  --data '{ "strategy": "oidc", "name": "Scalekit", "options": { "type": "back_channel", "discovery_url": "<SCALEKIT_ENV_URL>/.well-known/openid-configuration", "client_secret" : "<SCALEKIT_CLIENT_SECRET>", "client_id" : "<SCALEKIT_CLIENT_ID>",  "scopes": "openid profile" } }'
+  --data-raw '{ "strategy": "oidc", "name": "Scalekit", "options": { "type": "back_channel", "discovery_url": "<SCALEKIT_ENV_URL>/.well-known/openid-configuration", "client_secret" : "<SCALEKIT_CLIENT_SECRET>", "client_id" : "<SCALEKIT_CLIENT_ID>",  "scopes": "openid profile" } }'
 
 ```
+Use the table below to find out more about how to get the relevant information and replace the variables in the above command.
 
-To configure Scalekit OIDC credentials like client_id, client_secret, we recommend you to store these as environment variables. Sample .env file below:
+|Parameter|Description|
+|---|---|
+|AUTH0_TENANT_DOMAIN|This is your Auth0 tenant url. Typically, looks like https:<nolink />//yourapp.us.auth0.com|
+|API_TOKEN|[Generate an API token](https://auth0.com/docs/secure/tokens/access-tokens/management-api-access-tokens) from your Auth0 dashboard and use it to authenticate your Auth0 API calls.|
+|SCALEKIT_ENV_URL|Find this in your [API config](https://app.scalekit.com) section of Scalekit Dashboard|
+|SCALEKIT_CLIENT_SECRET|Generate a new client secret in your [API config](https://app.scalekit.com) section of Scalekit Dashboard and use that here|
+|SCALEKIT_CLIENT_ID|Find this in your [API config](https://app.scalekit.com) section of Scalekit Dashboard|
 
-```jsx title=".env"
-SCALEKIT_ENVIRONMENT_URL="<https://yoursaas-dev.scalekit.com>"
-SCALEKIT_CLIENT_ID="skc_122056050118122349527"
-SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
-```
 
-After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant. To conifrm this, you can navigate to [Enterprise Connections](https://auth0.com/docs/authenticate/enterprise-connections#view-enterprise-connections) in your Auth0 dashboard.
+
+
+After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant. To confirm this, you can navigate to [Enterprise Connections](https://auth0.com/docs/authenticate/enterprise-connections#view-enterprise-connections) in your Auth0 dashboard.
 
 
 ### 2. Add Redirect URI in Scalekit
@@ -64,33 +68,35 @@ After creating Scalekit as a new OIDC connection, you need to copy the Callback 
 In your Auth0 dashboard, go to Authentication > Enterprise > OpenID Connect > Scalekit > Settings. 
 Copy the "Callback URL" that's available in the General section of settings.
 
-![Copy Redirect URI from your Auth0 Dashboard](./Auth0/SCR-20240507-omfj.png)
+<figure>![Copy Redirect URI from your Auth0 Dashboard](./Auth0/SCR-20240507-omfj.png)
+<figcaption>Copy Redirect URI from your Auth0 Dashboard</figcaption></figure>
 
-<br>
+<br />
 
 #### 2b. Set Redirect URI in Scalekit API Config
 Go to your Scalekit dashboard. Select environment as Development or Production. Navigate to the "API Config" in the Settings (left nav). In the Redirect URIs section, select **Add new URI**. Paste the Callback URL that you copied from Auth0 dashboard. Click on Add button.
 
-![Add Redirect URI in your Scalekit Dashboard](./Auth0/SCR-20240509-mcic.png)
+<figure>![Add Redirect URI in your Scalekit Dashboard](./Auth0/SCR-20240509-mcic.png)
+<figcaption>Add Redirect URI in your Scalekit Dashboard</figcaption></figure>
 
-<br>
+<br />
 
 ### 3. Enable Home Realm Discovery
 
-After you have successfully configured Scalekit as OIDC connection in your Auth0 tenant, it's time to onboard your enterprise customers and enable home realm discovery for their email domains. This helps your application users to be automatically routed to SSO login experience. 
-
-The users email domain will be compared with the identity provider domains. If there is a match, users will be redirected to the SSO login through the identity provider. If there is no match, users will be prompted to enter their password.
+After you have successfully configured Scalekit as an OIDC connection in your Auth0 tenant, it's time to enable home realm discovery for your enterprise customers. This configuration will help Auth0 determine which users to be routed to login via Single Sign-on. 
 
 In your Auth0 dashboard, go to Authentication > Enterprise > OpenID Connect > Scalekit > Login Experience.
 Navigate to "Home Realm Discovery" in the Login Experience Customization section.
 
-In the Identity Provider domains, add the comma separated list of domains that needs to be authenticated with identity providers.
+In the Identity Provider domains, add the comma separated list of domains that need to be authenticated with Single Sign-on via Scalekit. Auth0 uses this configuration to compare the users email domain at the time of login: 
+- If there is a match in the configured domains, users will be redirected to the Scalekit's Single Sign-on
+- If there is no match, users will be prompted to login via other authentication methods like password or passwordless login based on your Auth0 configuration.
 
 For example, if you would like users from three Organizations (FooCorp, BarCorp, AcmeCorp) to access your application using their respective identity providers, you need to add them as a comma separated list foocorp.com, barcorp.com, acmecorp.com. Screenshot below for reference
 
 ![Add domains for Home Realm Discovery](./Auth0/SCR-20240509-mgoe.png)
-<br>
+<br />
 
 **Press Save** to save Home Realm Discovery settings. 
 
-This completes the integration Scalekit with Auth0, thus facilitating Single Sign-on (SSO) authentication for your application's users.
+That's it! You have successfully integrated Scalekit with Auth0, and are now ready to let your enterprise users login via Single Sign-on (SSO) authentication to your application.

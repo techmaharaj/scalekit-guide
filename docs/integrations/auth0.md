@@ -45,15 +45,13 @@ curl --request POST \
   --data '{ "strategy": "oidc", "name": "Scalekit", "options": { "type": "back_channel", "discovery_url": "<SCALEKIT_ENV_URL>/.well-known/openid-configuration", "client_secret" : "<SCALEKIT_CLIENT_SECRET>", "client_id" : "<SCALEKIT_CLIENT_ID>",  "scopes": "openid profile" } }'
 
 ```
-:::info Note
-We recommend you to store Scalekit credentials as environment variables. Sample .env file below:
+To configure Scalekit OIDC credentials like client_id, client_secret, we recommend you to store these as environment variables. Sample .env file below:
 
 ```jsx title=".env"
 SCALEKIT_ENVIRONMENT_URL="<https://yoursaas-dev.scalekit.com>"
 SCALEKIT_CLIENT_ID="skc_122056050118122349527"
 SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
 ```
-:::
 
 After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant.
 

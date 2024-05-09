@@ -53,9 +53,7 @@ SCALEKIT_CLIENT_ID="skc_122056050118122349527"
 SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
 ```
 
-After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant.
-
-To conifrm the creation of the new Scalekit OIDC connection, you can navigate to [Enterprise Connections] (https://auth0.com/docs/authenticate/enterprise-connections#view-enterprise-connections) in your Auth0 dashboard.
+After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant. To conifrm this, you can navigate to [Enterprise Connections] (https://auth0.com/docs/authenticate/enterprise-connections#view-enterprise-connections) in your Auth0 dashboard.
 
 
 ### 2. Add Redirect URI in Scalekit API Config

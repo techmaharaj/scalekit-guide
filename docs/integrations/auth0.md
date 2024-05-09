@@ -67,12 +67,14 @@ Copy the "Callback URL" that's available in the General section of settings.
 ![Copy Redirect URI from your Auth0 Dashboard](./Auth0/SCR-20240507-omfj.png)
 
 <br>
+
 #### 2b. Set Redirect URI in Scalekit API Config
 Go to your Scalekit dashboard. Select environment as Development or Production. Navigate to the "API Config" in the Settings (left nav). In the Redirect URIs section, select **Add new URI**. Paste the Callback URL that you copied from Auth0 dashboard. Click on Add button.
 
 ![Add Redirect URI in your Scalekit Dashboard](./Auth0/SCR-20240509-mcic.png)
 
 <br>
+
 ### 3. Enable Home Realm Discovery
 
 After you have successfully configured Scalekit as OIDC connection in your Auth0 tenant, it's time to onboard your enterprise customers and enable home realm discovery for their email domains. This helps your application users to be automatically routed to SSO login experience. 

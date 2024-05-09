@@ -27,13 +27,13 @@ Ensure you have:
 
 ## Integrate Scalekit with Auth0
 
-### 1. Adding Scalekit as OpenID Connect Connection
+### 1. Add Scalekit as OIDC connection
 
 :::info Note
-Because of an [existing issue](https://community.auth0.com/t/creating-an-oidc-connection-fails-with-options-issuer-is-required-error/128189) in adding OIDC Providers via Auth0 Management Console, you are required to use Auth0 API to create OpenID Connect Connections via API 
+Because of an [existing issue](https://community.auth0.com/t/creating-an-oidc-connection-fails-with-options-issuer-is-required-error/128189) in adding OIDC connections via Auth0 Management Console, you need to use Auth0 API to create OIDC connection.
 :::
 
-You need to use the Auth0 Management API to create Scalekit as a OpenID connection for your tenant. See the sample curl command below
+Use [Auth0 Connections API] (https://auth0.com/docs/api/management/v2/connections/post-connections) to create Scalekit as a OpenID connection for your tenant. Sample curl command below:
 
 ```bash showLineNumbers
 
@@ -45,8 +45,17 @@ curl --request POST \
   --data '{ "strategy": "oidc", "name": "Scalekit", "options": { "type": "back_channel", "discovery_url": "<SCALEKIT_ENV_URL>/.well-known/openid-configuration", "client_secret" : "<SCALEKIT_CLIENT_SECRET>", "client_id" : "<SCALEKIT_CLIENT_ID>",  "scopes": "openid profile" } }'
 
 ```
+:::info Note
+We recommend you to store Scalekit credentials as environment variables. Sample .env file below:
 
-After the successful execution of the above API call, you will see a new OpenID Connect Connection created in your Auth0 tenant.
+```jsx title=".env"
+SCALEKIT_ENVIRONMENT_URL="<https://yoursaas-dev.scalekit.com>"
+SCALEKIT_CLIENT_ID="skc_122056050118122349527"
+SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
+```
+:::
+
+After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant.
 
 ### 2. Add Redirect URI in Scalekit API Config
 

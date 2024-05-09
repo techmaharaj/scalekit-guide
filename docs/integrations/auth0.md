@@ -55,6 +55,9 @@ SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
 
 After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant.
 
+To conifrm the creation of the new Scalekit OIDC connection, you can navigate to [Enterprise Connections] (https://auth0.com/docs/authenticate/enterprise-connections#view-enterprise-connections) in your Auth0 dashboard.
+
+
 ### 2. Add Redirect URI in Scalekit API Config
 
 After creating Scalekit as a new OIDC connection, you need to copy the Callback URL from your Auth0 Dashboard and add it as a new Redirect URI in your Scalekit API Config section.

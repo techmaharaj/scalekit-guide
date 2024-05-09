@@ -12,7 +12,12 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   integrationsSidebar: [
-    {type: 'doc', label: 'Integrations Overview', id: 'integrations/integrations'}, {
+    {
+      type: 'doc',
+      label: 'Integrations Overview',
+      id: 'integrations/integrations'
+    },
+    {
       type: 'category',
       // link: {type: 'doc', id: 'integrations/integrations'},
       // link: {
@@ -24,12 +29,9 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       collapsed: false,
       items: [
-       'integrations/okta-saml',
-       'integrations/azure-ad-saml',
-       'integrations/onelogin-saml',
-       'integrations/jumpcloud-saml',
-       'integrations/saml', 
-       'integrations/oidc' 
+        'integrations/okta-saml', 'integrations/azure-ad-saml',
+        'integrations/onelogin-saml', 'integrations/jumpcloud-saml',
+        'integrations/saml', 'integrations/oidc'
       ]
     },
     {
@@ -163,7 +165,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Manage Scalekit',
-      items: ['manage-scalekit/glossary']
+      items: ['manage-scalekit/glossary', 'manage-scalekit/organization']
     },
 
     {

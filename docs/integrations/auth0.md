@@ -94,9 +94,19 @@ In the Identity Provider domains, add the comma separated list of domains that n
 
 For example, if you would like users from three Organizations (FooCorp, BarCorp, AcmeCorp) to access your application using their respective identity providers, you need to add them as a comma separated list foocorp.com, barcorp.com, acmecorp.com. Screenshot below for reference
 
-![Add domains for Home Realm Discovery](./Auth0/SCR-20240509-mgoe.png)
+<figure>![Add domains for Home Realm Discovery](./Auth0/SCR-20240509-mgoe.png)
+<figcaption>Add domains for Home Realm Discovery</figcaption></figure>
+
 <br />
 
 **Press Save** to save Home Realm Discovery settings. 
 
-That's it! You have successfully integrated Scalekit with Auth0, and are now ready to let your enterprise users login via Single Sign-on (SSO) authentication to your application.
+That's it! You have successfully integrated Scalekit with Auth0. Proceed to learn how to onboard a new enterprise customer to login via Single Sign-on. 
+
+### 4. Onboarding Single Sign-on customers in Scalekit
+While onboarding every new enterprise customer, 
+- create an organization in Scalekit
+- Generate Admin Portal link to help your customers configure their Single Sign-on settings.
+- Configure Home Real Discovery settings in the Scalekit dashboard.
+
+You can read more about managing organizations [here](/docs/manage-scalekit/organization.md)

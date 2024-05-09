@@ -82,12 +82,13 @@ The users email domain will be compared with the identity provider domains. If t
 In your Auth0 dashboard, go to Authentication > Enterprise > OpenID Connect > Scalekit > Login Experience.
 Navigate to "Home Realm Discovery" in the Login Experience Customization section.
 
-In the Identity Provider domains, add app.scalekit.com in the comma separated list of domains. 
-Example: app.yoursaas.com, app.scalekit.com
+In the Identity Provider domains, add the comma separated list of domains that needs to be authenticated with identity providers.
 
-**Press Save** to save Home Realm Discovery settings. Screenshot below for reference:
+For example, if you would like users from three Organizations (FooCorp, BarCorp, AcmeCorp) to access your application using their respective identity providers, you need to add them as a comma separated list foocorp.com, barcorp.com, acmecorp.com. Screenshot below for reference
 
-![Add domains for Home Realm Discovery](./Auth0/SCR-20240509-mdnn.png)
+![Add domains for Home Realm Discovery](./Auth0/SCR-20240509-mgoe.png)
 <br/>
+
+**Press Save** to save Home Realm Discovery settings. 
 
 This completes the integration Scalekit with Auth0, thus facilitating Single Sign-on (SSO) authentication for your application's users.

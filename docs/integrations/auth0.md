@@ -87,5 +87,5 @@ Example: app.yoursaas.com, app.scalekit.com
 
 **Press Save** to save Home Realm Discovery settings. Screenshot below for reference:
 
-![Add domains for Home Realm Discovery](./Auth0/SCR-20240509-mbhi.png)
+![Add domains for Home Realm Discovery](./Auth0/SCR-20240509-mdnn.png)
 

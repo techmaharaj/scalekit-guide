@@ -83,21 +83,18 @@ Go to your Scalekit dashboard. Select environment as Development or Production. 
 
 <br />
 
-
-You have now successfully integrated Scalekit with Auth0. Proceed to learn how to onboard a new enterprise customer to login via Single Sign-on using Scalekit. 
-
 ### 3. Onboarding Single Sign-on customers in Scalekit
 To onboard new enterprise customers using Single Sign-on login, you need to:
-1. Create an Organization in Scalekit
-2. Generate Admin Portal link to allow your customers configure SSO settings
-3. Configure **Domain** in the Scalekit dashboard for that organization.
-4. Update Home Realm Discovery settings in your Auth0 tenant with this organization's domain.
+1. **Create an Organization** in Scalekit
+2. **Generate Admin Portal link** to allow your customers configure SSO settings
+3. **Configure Domain** in the Scalekit dashboard for that Organization.
+4. **Update Home Realm Discovery** settings in your Auth0 tenant with this Organization's domain.
 
 You can read more about managing Organizations [here](/docs/manage-scalekit/organization.md).
 
-### 4. Update Home Realm Discovery settings in Auth0
+### 4. Update Home Realm Discovery in Auth0
 
-After you have successfully configured Scalekit as an OIDC connection in your Auth0 tenant, it's time to enable home realm discovery for your enterprise customers. This configuration will help Auth0 determine which users to be routed to login via Single Sign-on. 
+In step 2, you have successfully configured Scalekit as an OIDC connection in your Auth0 tenant. It's time to enable Home Realm Discovery for your enterprise customers in Auth0. This configuration will help Auth0 determine which users to be routed to login via Single Sign-on. 
 
 In your Auth0 dashboard, go to Authentication > Enterprise > OpenID Connect > Scalekit > Login Experience.
 Navigate to "Home Realm Discovery" in the Login Experience Customization section.
@@ -114,3 +111,5 @@ For example, if you would like users from three Organizations (FooCorp, BarCorp,
 <br />
 
 **Press Save** to save Home Realm Discovery settings. 
+
+You have now successfully integrated Scalekit with Auth0, thereby facilitating seamless SSO authentication for your application's users.

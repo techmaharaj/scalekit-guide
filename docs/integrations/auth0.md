@@ -106,7 +106,7 @@ You have now successfully integrated Scalekit with Auth0. Proceed to learn how t
 ### 4. Onboarding Single Sign-on customers in Scalekit
 To onboard new enterprise customers using Single Sign-on login, you need to:
 1. Create an Organization in Scalekit
-2. Generate Admin Portal link to help your customers configure SSO settings on their own
+2. Generate Admin Portal link to allow your customers configure SSO settings
 3. Configure Home Real Discovery settings in the Scalekit dashboard
 
 You can read more about managing Organizations [here](/docs/manage-scalekit/organization.md)

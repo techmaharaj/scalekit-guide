@@ -68,16 +68,16 @@ After creating Scalekit as a new OIDC connection, you need to copy the Callback 
 In your Auth0 dashboard, go to Authentication > Enterprise > OpenID Connect > Scalekit > Settings. 
 Copy the "Callback URL" that's available in the General section of settings.
 
-<figure>![Copy Redirect URI from your Auth0 Dashboard](./Auth0/SCR-20240507-omfj.png)
-<figcaption>Copy Redirect URI from your Auth0 Dashboard</figcaption></figure>
+<figure>![Copy Callback URL from Auth0 Dashboard](./Auth0/SCR-20240507-omfj.png)
+<figcaption>Copy Callback URL from your Auth0 Dashboard</figcaption></figure>
 
 <br />
 
 #### 2b. Set Redirect URI in Scalekit API Config
 Go to your Scalekit dashboard. Select environment as Development or Production. Navigate to the "API Config" in the Settings (left nav). In the Redirect URIs section, select **Add new URI**. Paste the Callback URL that you copied from Auth0 dashboard. Click on Add button.
 
-<figure>![Add Redirect URI in your Scalekit Dashboard](./Auth0/SCR-20240509-mcic.png)
-<figcaption>Add Redirect URI in your Scalekit Dashboard</figcaption></figure>
+<figure>![Add new Redirect URI in Scalekit Dashboard](./Auth0/SCR-20240509-mcic.png)
+<figcaption>Add new Redirect URI in Scalekit Dashboard</figcaption></figure>
 
 <br />
 
@@ -94,8 +94,8 @@ In the Identity Provider domains, add the comma separated list of domains that n
 
 For example, if you would like users from three Organizations (FooCorp, BarCorp, AcmeCorp) to access your application using their respective identity providers, you need to add them as a comma separated list foocorp.com, barcorp.com, acmecorp.com. Screenshot below for reference
 
-<figure>![Add domains for Home Realm Discovery](./Auth0/SCR-20240509-mgoe.png)
-<figcaption>Add domains for Home Realm Discovery</figcaption></figure>
+<figure>![Add domains for Home Realm Discovery in Auth0](./Auth0/SCR-20240509-mgoe.png)
+<figcaption>Add domains for Home Realm Discovery in Auth0</figcaption></figure>
 
 <br />
 

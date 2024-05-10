@@ -26,16 +26,19 @@ In the **Admin Portal** section, click 'Generate Link' to create a new shareable
 
 
 ## Enable Home Realm Discovery
-**Home Realm Discovery (HRD)** is the process that allows Scalekit to determine which identity provider (IdP) a user needs to authenticate with at the time of log-in. Based on the domain portion of the user's email address, Scalekit determines the organization and thus the SSO Connection that needs to be used to authenticate the user. 
+**Home Realm Discovery HRD)** is the algorithm that allows Scalekit to identify which Identity Provider (IdP) the user belongs to before authenticating them. At the time of login, Scalekit determines the Organization (the Realm) through the user’s email subdomain and thus initiates the SSO connection through that respective IdP. 
 
-To enable seamless Home Real Discovery, configure the domains that need to be mapped to an organization by adding all the relevant domains in the **Domains** section of the Overview tab. Example screenshot shown below.
+Example: if an Organization, Foo Corp, uses Okta as the IdP and if a user tries to login using her email, jane@foocorp.com, Scalekit would initiate the SSO through Foo Corp's Okta. 
+
+To enable seamless SSO experience for your users, we recommend to configure domains that need to be mapped to an Organization. Add all relevant domains in the **Domains** section. Reference screenshot below where acmecorp.com is added as verified domain.
+
 <figure>![Organization - Domain configuration](./organization/SCR-20240509-qjcq.png)
 <figcaption>Organization - Domain configuration</figcaption></figure>
 
 :::info
-Ensure you add only the domains that you know are owned by this organization. 
+Ensure you add only the domains that you know are owned by this Organization. 
 
-Coming Soon: Self Serve DNS based domain verification for your organizations.
+Coming Soon: Self-service DNS based domain verification for the Organizations.
 :::
 
 

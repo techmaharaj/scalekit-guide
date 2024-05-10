@@ -32,14 +32,14 @@ Example: if an Organization, Foo Corp, uses Okta as the IdP and if a user tries 
 
 To enable seamless SSO experience for your users, we recommend to configure domains that need to be mapped to an Organization. Add all relevant domains in the **Domains** section. Reference screenshot below where acmecorp.com is added as verified domain.
 
-<figure>![Organization - Domain configuration](./organization/SCR-20240509-qjcq.png)
-<figcaption>Organization - Domain configuration</figcaption></figure>
-
 :::info
 Ensure you add only the domains that you know are owned by this Organization. 
 
 Coming Soon: Self-service DNS based domain verification for the Organizations.
 :::
+
+<figure>![Organization - Domain configuration](./organization/SCR-20240509-qjcq.png)
+<figcaption>Organization - Domain configuration</figcaption></figure>
 
 
 ## Manage SSO Connections

@@ -1,4 +1,4 @@
-# Manage Organizations
+# Organizations
 
 ## Overview
 Organizations represent your customers or accounts in your application. For your every customer who needs to use Single Sign-on to login to your application, you would create an organization in Scalekit Dashboard and configure their Single Sign-on settings in that organization.

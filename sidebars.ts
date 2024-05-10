@@ -165,7 +165,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Manage Scalekit',
-      items: ['manage-scalekit/glossary', 'manage-scalekit/organization']
+      items: ['manage-scalekit/organization','manage-scalekit/glossary']
     },
 
     {

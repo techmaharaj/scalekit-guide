@@ -1,9 +1,10 @@
 # Organizations
 
 ## Overview
-Organizations represent your customers or accounts in your application. For your every customer who needs to use Single Sign-on to login to your application, you would create an organization in Scalekit Dashboard and configure their Single Sign-on settings in that organization.
+Organizations represent your customers (or accounts) in your application. Your application’s users would belong to these Organizations. For each of your customer who needs to use Single Sign-on (SSO) to login to your application, you need to create an Organization in Scalekit Dashboard and configure their SSO settings in that Organization.
 
-You can view all the organizations that are configured for your application by navigating to the **Organizations** section in your Scalekit Dashboard. Example screenshot shown below.
+Navigate to the **Organizations** section in your Scalekit Dashboard to view all Organizations that are configured for your application. Reference screenshot shown below:
+
 <figure>![Organizations View](./organization/SCR-20240509-qhnx.png)
 <figcaption>Organizations View</figcaption></figure>
 

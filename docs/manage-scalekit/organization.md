@@ -40,11 +40,3 @@ Coming Soon: Self-service DNS based domain verification for the Organizations.
 
 <figure>![Organization - Domain configuration](./organization/SCR-20240509-qjcq.png)
 <figcaption>Organization - Domain configuration</figcaption></figure>
-
-
-## Manage SSO Connections
-You can monitor the SSO configuration process to assist your customers by navigating to the **SSO Connection** tab. You can also modify and configure the Single Sign-on details on behalf of your customer, if you have all the necessary information about your customer's Identity provider. 
-
-Example screenshot below.
-<figure>![Organization - SSO Connection tab](./organization/SCR-20240509-qlnn.png)
-<figcaption>Organization - SSO Connection tab</figcaption></figure>

@@ -10,7 +10,7 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "# Introduction\nScalekit API is modeled around the [REST](https://en.wikipedia.org/wiki/REST) architecture style. That means, our API has predictable resource-oriented URLs, accepts form-encoded request bodies and produces JSON formatted responses, uses standard HTTP verbs and error codes.\n\n## Getting Started\nIf you are just getting started, you can also refer to our [Quick Start Guide](/single-sign-on/quickstart-sso).\n\nApart from REST APIs, we have published SDKs in some of the popular languages as shown below. You can use these SDKs and integrate with Scalekit much faster.\n\n```\nNodeJS\nGo Lang\n```\n\nSome additional instructions around using our APIs\n\n- API Endpoint Host must use the `Environment Domain` of the environment you are targeting.\n- All API communication must be made over `HTTPS`.\n- API requests without appropriate authentication headers will fail with 401 status code.\n\nRead below to understand more about how to authenticate the API calls and how to handle errors appropriately.\n\n\n# Authentication\nScalekit API uses [OAuth2 Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials) based authentication. You can view and manage the necessary information from your `API Config` section in the Scalekit Dashboard.\n\nYou will need the following information to authenticate with Scalekit APIs\n- Client ID\n- Client Secret\n- Environment Domain\n\nYou can obtain a secure token by making `POST` call to the `https://{ENV_DOMAIN}/oauth/token` endpoint and sending client_id and client_secret as part of the request body.\n\n```shell\n$ curl https://{ENV_DOMAIN}/oauth/token \\\n  -X POST \\\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\n  -d 'client_id={client_id}' \\\n  -d 'client_secret={client_secret}' \\\n  -d 'grant_type=client_credentials'\\\n```\n\nUpon successful processing, you will receive the access token as part of the JSON response as shown in example below:\n```json\n{\n  \"access_token\": \"DCRD10-e7c5c8139165228a82e442445fe01c16\",\n  \"token_type\": \"bearer\",\n  \"expires_in\": 1799\n}\n```\nThe `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit.\n\nTo make a request to one of our APIs, you need to include the access token in the Authorization header of the request as Bearer 'access_token' like the following example shows:\n```shell\n$ curl --request GET \"https://{ENV_DOMAIN}/api/v1/organizations\" \\\n-H \"Content-Type: application/json\" \\\n-H \"Authorization: Bearer {access_token}\"\n```\n\nPlease make sure that you keep your Client Secrets safely. Do not share your client secret in publicly accessible areas such as GitHub, client-side code, etc. Refer to [this guide](/security/client-secrets) to understand some of the best practices around keeping client secrets secure.\n\nOur SDKs will automatically handle the API authentication and error handling to make the job of using our APIs much easier for you.\n\n# Error Handling\nAs mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs.\n\nIn general:\n- `200 or 201`: API request is successful\n- `400`: The request was unacceptable, often due to missing a required parameter.\n- `401`: Invalid Authentication Headers found in the request.\n- `404`: Resource not found\n- `429`: Too many requests hit the API too quickly. Retry the request after a cool-off period.\n- `500 or 501 or 504`: Something went wrong at our end. However rare they are, we automatically log these requests for proactive support and fixing the underlying issue.\n\nAlong with HTTP Status Codes, we also respond with detailed error messages. An example error message for a 401 error is shown below.\n\n```json\n{\n    \"code\": 16,\n    \"message\": \"Token empty\",\n    \"details\":\n    [\n        {\n            \"@type\": \"type.googleapis.com/scalekit.v1.errdetails.ErrorInfo\",\n            \"error_code\": \"UNAUTHENTICATED\"\n        }\n    ]\n}\n```\n\nWe strongly recommend you to handle errors gracefully while writing code using our SDKs.",
+    "description": "# Introduction\nScalekit API is modeled around the [REST](https://en.wikipedia.org/wiki/REST) architecture style. That means, our API has predictable resource-oriented URLs, accepts form-encoded request bodies and produces JSON formatted responses, uses standard HTTP verbs and error codes.\n\n## Getting Started\nIf you are just getting started, you can also refer to our [Quick Start Guide](/single-sign-on/quickstart-sso).\n\nApart from REST APIs, we have published SDKs in some of the popular languages as shown below. You can use these SDKs and integrate with Scalekit much faster.\n\n- [NodeJS](https://github.com/scalekit-inc/scalekit-sdk-node)\n- [Go Lang](https://github.com/scalekit-inc/scalekit-sdk-go)\n\nSome additional instructions around using our APIs\n\n- API Endpoint Host must use the `Environment URL` of the environment you are targeting.\n- API requests without appropriate authentication headers will fail with 401 status code.\n\nRead below to understand more about how to authenticate the API calls and how to handle errors appropriately.\n\n\n# Authentication\nScalekit API uses [OAuth2 Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials) based authentication. You can view and manage the necessary information from your `API Config` section in the Scalekit Dashboard.\n\nYou will need the following information to authenticate with Scalekit APIs\n- Client ID\n- Client Secret\n- Environment URL\n\nYou can obtain a secure token by making `POST` call to the `https://{ENV_URL}/oauth/token` endpoint and sending client_id and client_secret as part of the request body.\n\n```shell\n$ curl https://{ENV_URL}/oauth/token \\\n  -X POST \\\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\n  -d 'client_id={client_id}' \\\n  -d 'client_secret={client_secret}' \\\n  -d 'grant_type=client_credentials'\\\n```\n\nUpon successful processing, you will receive the access token as part of the JSON response as shown in example below:\n```json\n{\n  \"access_token\": \"DCRD10-e7c5c8139165228a82e442445fe01c16\",\n  \"token_type\": \"bearer\",\n  \"expires_in\": 1799\n}\n```\nThe `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit.\n\nTo make a request to one of our APIs, you need to include the access token in the Authorization header of the request as Bearer 'access_token' like the following example shows:\n```shell\n$ curl --request GET \"https://{ENV_URL}/api/v1/organizations\" \\\n-H \"Content-Type: application/json\" \\\n-H \"Authorization: Bearer {access_token}\"\n```\n\nPlease make sure that you keep your Client Secrets safely. Do not share your client secret in publicly accessible areas such as GitHub, client-side code, etc. Refer to [this guide](/security/client-secrets) to understand some of the best practices around keeping client secrets secure.\n\nOur SDKs will automatically handle the API authentication and error handling to make the job of using our APIs much easier for you.\n\n# Error Handling\nAs mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs.\n\nIn general:\n- `200 or 201`: API request is successful\n- `400`: The request was unacceptable, often due to missing a required parameter.\n- `401`: Invalid Authentication Headers found in the request.\n- `404`: Resource not found\n- `429`: Too many requests hit the API too quickly. Retry the request after a cool-off period.\n- `500 or 501 or 504`: Something went wrong at our end. However rare they are, we automatically log these requests for proactive support and fixing the underlying issue.\n\nAlong with HTTP Status Codes, we also respond with detailed error messages. An example error message for a 401 error is shown below.\n\n```json\n{\n    \"code\": 16,\n    \"message\": \"Token empty\",\n    \"details\":\n    [\n        {\n            \"@type\": \"type.googleapis.com/scalekit.v1.errdetails.ErrorInfo\",\n            \"error_code\": \"UNAUTHENTICATED\"\n        }\n    ]\n}\n```\n\nWe strongly recommend you to handle errors gracefully while writing code using our SDKs.\n",
     "title": "Scalekit APIs",
     "contact": {
       "name": "Scalekit",
@@ -23,11 +23,27 @@
     },
     "version": "1.0"
   },
-  "host": "$ENV_DOMAIN",
+  "host": "$ENV_URL",
   "paths": {
+    "/.well-known/openid-configurations": {
+      "get": {
+        "description": "Returns the OpenID Connect configuration values from the provider's Well-Known Configuration Endpoint, per the specification (https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest). \n\nSample Response below.\n```\n{\n  \"issuer\": \"https://rexinc.scalekit.com\",\n  \"authorization_endpoint\": \"https://rexinc.scalekit.com/oauth/authorize\",\n  \"token_endpoint\": \"https://rexinc.scalekit.com/oauth/token\",\n  \"introspection_endpoint\": \"https://rexinc.scalekit.com/oauth/introspect\",\n  \"userinfo_endpoint\": \"https://rexinc.scalekit.com/userinfo\",\n  \"revocation_endpoint\": \"https://rexinc.scalekit.com/revoke\",\n  \"end_session_endpoint\": \"https://rexinc.scalekit.com/end_session\",\n  \"jwks_uri\": \"https://rexinc.scalekit.com/keys\",\n  \"scopes_supported\": [\n    \"openid\",\n    \"profile\",\n    \"offline_access\"\n  ],\n  \"response_types_supported\": [\n    \"code\"\n  ],\n  \"response_modes_supported\": [\n    \"query\"\n  ],\n  \"grant_types_supported\": [\n    \"authorization_code\",\n    \"client_credentials\",\n    \"refresh_token\"\n  ],\n  \"subject_types_supported\": [\n    \"public\"\n  ],\n  \"id_token_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"request_object_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"token_endpoint_auth_methods_supported\": [\n    \"none\",\n    \"client_secret_basic\",\n    \"client_secret_post\",\n    \"private_key_jwt\"\n  ],\n  \"token_endpoint_auth_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"revocation_endpoint_auth_methods_supported\": [\n    \"none\",\n    \"client_secret_basic\",\n    \"client_secret_post\",\n    \"private_key_jwt\"\n  ],\n  \"revocation_endpoint_auth_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"introspection_endpoint_auth_methods_supported\": [\n    \"client_secret_basic\",\n    \"private_key_jwt\"\n  ],\n  \"introspection_endpoint_auth_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"claims_supported\": [\n    \"sub\",\n    \"aud\",\n    \"exp\",\n    \"iat\",\n    \"iss\",\n    \"auth_time\",\n    \"nonce\",\n    \"acr\",\n    \"amr\",\n    \"c_hash\",\n    \"at_hash\",\n    \"act\",\n    \"scopes\",\n    \"client_id\",\n    \"azp\",\n    \"preferred_username\",\n    \"name\",\n    \"family_name\",\n    \"given_name\",\n    \"locale\",\n    \"email\",\n    \"email_verified\",\n    \"phone_number\",\n    \"phone_number_verified\"\n  ],\n  \"code_challenge_methods_supported\": [\n    \"S256\"\n  ],\n  \"ui_locales_supported\": [\n    \"en\"\n  ],\n  \"request_parameter_supported\": true,\n  \"request_uri_parameter_supported\": false\n}\n\n```",
+        "tags": [
+          "OpenID Metadata"
+        ],
+        "summary": "OpenID Provider metadata URL",
+        "operationId": "OpenID_WellKnownEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success . Please refer to the OpenID Provider Metadata properties here ( https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata )",
+            "schema": {}
+          }
+        }
+      }
+    },
     "/api/v1/connections": {
       "get": {
-        "description": "Get a Connection detail",
+        "description": "Get a filtered list of connections",
         "tags": [
           "Connection"
         ],
@@ -48,7 +64,7 @@
           },
           {
             "type": "string",
-            "description": "Email domain associated with this connection",
+            "description": "Email domain associated with this connection. If domain is not empty it would return connections that are available to email domain by matching the organization associated to the domain",
             "name": "domain",
             "in": "query"
           },
@@ -230,12 +246,12 @@
     },
     "/api/v1/organizations/{id}/portal_links": {
       "get": {
-        "description": "Returns the Customer portal link if it exists. Use Generate Customer portal link to create and fetch a link",
+        "description": "Returns the Admin portal link if it exists. Use Generate Portal link to create and fetch a link",
         "tags": [
-          "Customer Portal"
+          "Admin Portal"
         ],
         "summary": "Get Portal link",
-        "operationId": "OrganizationService_GetCustomerPortalLink",
+        "operationId": "OrganizationService_GetPortalLinks",
         "parameters": [
           {
             "type": "string",
@@ -249,18 +265,18 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/organizationsCustomerPortalLinksResponse"
+              "$ref": "#/definitions/organizationsGetPortalLinksResponse"
             }
           }
         }
       },
       "put": {
-        "description": "Generates a Customer portal link. The customer portal will be used by the IT Admins to create and manage the SSO connection in their Org. The customer portal link generate via API will be valid for 1 week.",
+        "description": "Generates a Admin Portal link. The Admin Portal will be used by the IT Admins to create and manage the SSO connection in their Org. The link generated via API will be valid for 1 week.",
         "tags": [
-          "Customer Portal"
+          "Admin Portal"
         ],
         "summary": "Generate Portal link",
-        "operationId": "OrganizationService_GenerateCustomerPortalLink",
+        "operationId": "OrganizationService_GeneratePortalLink",
         "parameters": [
           {
             "type": "string",
@@ -272,20 +288,20 @@
         ],
         "responses": {
           "200": {
-            "description": "Create Customer Portal Link",
+            "description": "Create Admin Portal Link",
             "schema": {
-              "$ref": "#/definitions/organizationsGenerateCustomerPortalLinkResponse"
+              "$ref": "#/definitions/organizationsGeneratePortalLinkResponse"
             }
           }
         }
       },
       "delete": {
-        "description": "Revokes and deletes a Customer portal link.",
+        "description": "Revokes and deletes an Admin portal link.",
         "tags": [
-          "Customer Portal"
+          "Admin Portal"
         ],
-        "summary": "Delete Portal link",
-        "operationId": "OrganizationService_DeleteCustomerPortalLink",
+        "summary": "Delete Admin Portal link",
+        "operationId": "OrganizationService_DeletePortalLink",
         "parameters": [
           {
             "type": "string",
@@ -422,6 +438,162 @@
           }
         }
       }
+    },
+    "/oauth/authorize": {
+      "get": {
+        "description": "Authorization URL initiates the Login flow with Scalekit.\n\nScalekit expects atleast one of the following parameters to be present. The parameters are used to determine the SSO connection used to Login in the user. \n\n`domain` - Email domain of the user. Domain should be mapped to an Organization. The SSO connection from the org would be used to login to the app. \n`connection_id` - ID of the SSO connection. If the Connection's status is `active`, the user will be redirected to the SSO Connection's identity provider configured \n`organization_id` -  ID of Organization. The user will be redirected to the SSO connection's identity provider configured for that organization.",
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Authorization URL",
+        "operationId": "OAuth_AuthorizeEndpoint",
+        "parameters": [
+          {
+            "type": "string",
+            "example": "code",
+            "description": "The client ID string that you obtain from the API Credentials page",
+            "name": "client_id",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "format": "uri",
+            "example": "https://mysaasapp.com/redirect_uri",
+            "description": "Determines where the response is sent. The value of this parameter must exactly match one of the authorized redirect values that you set in the API Credentials page (including the HTTP or HTTPS scheme, case, and trailing '/', if any).",
+            "name": "redirect_uri",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "format": "hostname",
+            "example": "acmecorp.com",
+            "description": "Domain part of the email address that is mapped to an organization. Example. yourcustomer.com",
+            "name": "domain",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "example": "conn_16796494564719556",
+            "description": "Connection ID for which the SSO flow must be initiated for. If the Connection's status is `active`, the user will be redirected to the SSO Connection's identity provider configured",
+            "name": "connection_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "example": "org_16796494564719556",
+            "description": "Organization ID for which the SSO flow must be initiated for. Based on the organization ID supplied, the user will be redirected to the SSO connection's identity provider configured for that organization.",
+            "name": "organization_id",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "code"
+            ],
+            "type": "string",
+            "example": "code",
+            "description": "Value must be `code`",
+            "name": "response_type",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "example": "code",
+            "description": "Value must be `openid profile`",
+            "name": "scope",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "example": "S256",
+            "description": "An opaque string that is round-tripped in the protocol; that is to say, it is returned back as-is as a URI parameter in the Basic flow. The state can be useful for correlating requests and responses. Because your redirect_uri can be guessed, using a state value can increase your assurance that an incoming connection is the result of an authentication request initiated by your app.\n\nState will be useful if you would like to retain some information about the user that you would like to use at the end of the login flow. E.g. deep link URL in your product to redirect the user to after a successful login.\n\nIf you generate a random string or encode the hash of some client state (e.g., a cookie) in this state variable, you can validate the response to additionally ensure that the request and response originated in the same browser. This additional validation offers protection against attacks such as cross-site request forgery.",
+            "name": "state",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "example": "code",
+            "description": "A random value generated by your app that enables replay protection.",
+            "name": "nonce",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "email",
+            "example": "johndoe@acmecorp.com",
+            "description": "When your app knows the email address of the user it is trying to authenticate, it can provide this parameter as a hint to the authentication server and Scalekit will pass this information to your customer's identity provider. Some identity providers prefill the login box with this value to make the login experience easier for the end user.",
+            "name": "login_hint",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "example": "a_rand_txt_34533",
+            "description": "A challenge code generated from `code_verifier` that is required for PKCE flows. This is used ensure if the request was handled by the right parties. The string is stored by Scalekit to be used when validating the token request with a `code_verifier`.  A code_challenge is generated as follows `code_challenge = SHA256(code_verifier)` .",
+            "name": "code_challenge",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "plain",
+              "S256"
+            ],
+            "type": "string",
+            "example": "S256",
+            "description": "The algorithm used to process the code challenge. The value should be `S256`",
+            "name": "code_challenge_method",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Success",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/oauth/token": {
+      "post": {
+        "description": "The code provided to the Redirect URI. Code can be exchanged for a ID Token containing the user details using the Token URL.",
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Token URL",
+        "operationId": "OAuth_TokenEndpoint",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The code received by the Redirect URI as part of the Authentication Response.",
+            "name": "code",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "The redirect URI where this code was received. This will used to validate the code to make the code was infact generated for this redirect_uri",
+            "name": "redirect_uri",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Used in PKCE flow, a `code_challenge` presented at the Authorization Endpoint",
+            "name": "code_verifier",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Code validated Successfuly",
+            "schema": {
+              "$ref": "#/definitions/oauthTokenResponse"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -481,7 +653,7 @@
         "provider": {
           "description": "SSO Connection Provider",
           "$ref": "#/definitions/connectionsConnectionProvider",
-          "example": "CUSTOM"
+          "example": "OKTA"
         },
         "saml_config": {
           "description": "SAML Configuration if ConnectionType == SAML",
@@ -844,6 +1016,31 @@
         "BASIC_AUTH"
       ]
     },
+    "oauthTokenResponse": {
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "description": "Access token ( JWT ) \nA decoded payload example below.\n```\n{\n  \"aud\": [\n    \"prd_skc_12511406029372224\"\n  ],\n  \"exp\": 1715187475,\n  \"iat\": 1715186575,\n  \"iss\": \"https://rexinc.scalekit.com\",\n  \"jti\": \"tkn_18655216756882331\",\n  \"nbf\": 1715186575,\n  \"sub\": \"conn_12652966976715584;johndoe@acmecorp.com\"\n}\n```",
+          "type": "string",
+          "example": "eyJhbGciOiJSUzI1NiIsImtpZCI6InNua18xMjUxMTQwNjE4MDAzOTQ4OCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vcmV4aW5jLnNjYWxla2l0LWRldi5jb206ODg4OCIsInN1YiI6ImNvbm5fMTI2NTI5NjY5NzY3MTU1ODQ7dmlqYXlAYWN0b3IuY29tIiwiYXVkIjpbInByZF9za2NfMTI1MTE0MDYwMjkzNzIyMjQiXSwiZXhwIjoxNzE1MTg3NDc1LCJpYXQiOjE3MTUxODY1NzUsIm5iZiI6MTcxNTE4NjU3NSwianRpIjoidGtuXzE4NjU1MjE2NzU2ODgyMzMxIn0.BdRj65bWTa4gKTuji3WZLOmWiaY9TFMV-lZK_le6yvzOR-NfwciuUDqE_um4dqDzX29Abt3JxCPb601iH33Wrs6iexeOsecqopYgk3IM1aU6tzUrEJ2Yhhza4UlCg856aSLcMyYzdSPIdEqMlyFy7leDMYgXjt4geupv0Qy9spseLfs2HGpZl_wAWRfN_w5HZEvCAR-Zqv6xywQj1G5J8efk6dISsuRE6MZrxDjup1hWhO56hG_7GzNzCrQUgdECs5lzte0d_lfirVbJnrnq4bEPhXJMXhznhf9ja8sasP-Onu7rLFVvMMl_aUrf3gsv0iJP5CfVOx45yr5vPnyWBQ"
+        },
+        "expires_in": {
+          "description": "Expiry in seconds",
+          "type": "number",
+          "example": 899
+        },
+        "id_token": {
+          "description": "ID Token ( JWT ) \nA decoded payload example below. For More details please refer [ID Token Claims](https://docs.scalekit.com/best-practices/idtoken-claims)\n```\n{\n  \"amr\": [\n    \"conn_12652966976715584\"\n  ],\n  \"at_hash\": \"SEqh15so69NgXdYoHVW6Pw\",\n  \"aud\": [\n    \"prd_skc_12511406029372224\"\n  ],\n  \"azp\": \"prd_skc_12511406029372224\",\n  \"c_hash\": \"BwHUQzZC9To9oOZ3z3NGMg\",\n  \"client_id\": \"prd_skc_12511406029372224\",\n  \"email\": \"johndoe@acmecorp.com\",\n  \"exp\": 1715190175,\n  \"iat\": 1715186575,\n  \"iss\": \"https://rexinc.scalekit.com\",\n  \"oid\": \"org_12649270050061120\",\n  \"sub\": \"conn_12652966976715584;johndoe@acmecorp.com\"\n}\n```",
+          "type": "string",
+          "example": "eyJhbGciOiJSUzI1NiIsImtpZCI6InNua18xMjUxMTQwNjE4MDAzOTQ4OCIsInR5cCI6IkpXVCJ9.eyJhbXIiOlsiY29ubl8xMjY1Mjk2Njk3NjcxNTU4NCJdLCJhdF9oYXNoIjoiU0VxaDE1c282OU5nWGRZb0hWVzZQdyIsImF1ZCI6WyJwcmRfc2tjXzEyNTExNDA2MDI5MzcyMjI0Il0sImF6cCI6InByZF9za2NfMTI1MTE0MDYwMjkzNzIyMjQiLCJjX2hhc2giOiJCd0hVUXpaQzlUbzlvT1ozejNOR01nIiwiY2xpZW50X2lkIjoicHJkX3NrY18xMjUxMTQwNjAyOTM3MjIyNCIsImVtYWlsIjoidmlqYXlAYWN0b3IuY29tIiwiZXhwIjoxNzE1MTkwMTc1LCJpYXQiOjE3MTUxODY1NzUsImlzcyI6Imh0dHA6Ly9yZXhpbmMuc2NhbGVraXQtZGV2LmNvbTo4ODg4Iiwib2lkIjoib3JnXzEyNjQ5MjcwMDUwMDYxMTIwIiwic3ViIjoiY29ubl8xMjY1Mjk2Njk3NjcxNTU4NDt2aWpheUBhY3Rvci5jb20ifQ.IyHEiM2F70iiEM3yqPtfFKZk4a3L0JMlMz7imBEUUCzsXWWWN1pZdhnyMiUs25jw9FiHgAueHKLfA8igwguWj3HBFDKghQ3TcgzJZii3qeGwum74fkx2TtWQu0c8GqRRZ_S9xMq5JBUKq6ZnoRXw-5LS8rgvQUvdDp-WSxMkIM4wn0OECK9uRPOb4eBaWf3jqzw4UL5EkVPDCK7JIszF1aI-nKIktwi7TO0hzpiDiPXjcR4rkZrWP2Zjmv_LsmUexYEiudYRJMogM7PHmxFTDpdZVmbTDSepCQrRw841hTXd7jKbE7vSporqlCVM2oFADrfzHdk6aClpjEkr79GwZg"
+        },
+        "token_type": {
+          "description": "Token type. Value will be `bearer`",
+          "type": "string",
+          "example": "Bearer"
+        }
+      }
+    },
     "organizationsCreateOrganizationResponse": {
       "type": "object",
       "properties": {
@@ -852,24 +1049,11 @@
         }
       }
     },
-    "organizationsCustomerPortalLinksResponse": {
-      "type": "object",
-      "properties": {
-        "links": {
-          "description": "Customer Portal Links",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/organizationsLink"
-          }
-        }
-      }
-    },
-    "organizationsGenerateCustomerPortalLinkResponse": {
+    "organizationsGeneratePortalLinkResponse": {
       "type": "object",
       "properties": {
         "link": {
-          "description": "Customer Portal Link",
+          "description": "Admin Portal Link",
           "$ref": "#/definitions/organizationsLink"
         }
       }
@@ -879,6 +1063,19 @@
       "properties": {
         "organization": {
           "$ref": "#/definitions/organizationsOrganization"
+        }
+      }
+    },
+    "organizationsGetPortalLinksResponse": {
+      "type": "object",
+      "properties": {
+        "links": {
+          "description": "Admin Portal Links",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/organizationsLink"
+          }
         }
       }
     },
@@ -897,7 +1094,7 @@
           "example": "lnk_123123123123123"
         },
         "location": {
-          "description": "Location of the link. This is the URL that can be used to access the customer portal. The link is valid for 1 week.",
+          "description": "Location of the link. This is the URL that can be used to access the Admin portal. The link is valid for 1 week.",
           "type": "string",
           "example": "https://scalekit.com/portal/lnk_123123123123123"
         }
@@ -1029,7 +1226,7 @@
     "OAuth2": {
       "type": "oauth2",
       "flow": "application",
-      "tokenUrl": "https://$ENV_DOMAIN/oauth/token"
+      "tokenUrl": "https://$ENV_URL/oauth/token"
     }
   },
   "security": [
@@ -1043,8 +1240,17 @@
       "name": "Organization"
     },
     {
-      "description": " Connection represents a unique Single Sign-on instance for an Organization. This resource has all the configuration and settings that are needed to establish an SSO and exchange user information securely between Scalekit and your customer's Identity Provider. Depending on the connection_type parameter, the corresponding configuration details can be retrieved by using `oidc_config` or `saml_config` parameter.\n\n**Connection Attributes**\n\n| Attribute Name | Attribute Description |\n|---|---|\n| `id`\u003cbr\u003e_string_ | Unique ID of an SSO Connection. This attribute is required for all API operations to be performed against this connection.  |\n| `provider`\u003cbr\u003e_ENUM_ | Name of the Identity Provider. Possible Values are: `OKTA`, `GOOGLE`, `MICROSOFT_AD`, `AUTH0`, `ONELOGIN`, `PING_IDENTITY`, `JUMPCLOUD`, `CUSTOM` |\n| `type`\u003cbr\u003e_ENUM_ | Protocol type that is used for this connection. Possible values are `SAML` or `OIDC` |\n| `status`\u003cbr\u003e_ENUM_ | Indicates the configuration progress status of the SSO Connection. Possible Values are `DRAFT`, `INPROGRESS`, `COMPLETED`. \u003cbr\u003e_Note_: This doesn't indicate whether this connection is active or not. |\n| `enabled`\u003cbr\u003e_boolean_ | Indicates whether this connection is active or not. Users can only login via active SSO connections. |\n| `organization_id`\u003cbr\u003e_string_ | Organization ID to which this SSO connection belongs to. |\n| `saml_config`\u003cbr\u003e_Object_ | If this connection is of type `SAML`, the configuration details are found in this object. |\n| `oidc_config`\u003cbr\u003e_Object_ | If this connection is of type `OIDC`, the configuration details are found in this object. |\n| `attribute_mapping`\u003cbr\u003e_Object_ | Array of attribute mappings using which the user information received from the Identity Provider is normalized. Example: \u003ccode\u003e \u003cbr/\u003e{ \u003cbr/\u003e\u0026nbsp;\u0026nbsp; \"email\": \"email\",\u003cbr/\u003e\u0026nbsp;\u0026nbsp; \"family_name\": \"lastName\", \u003cbr/\u003e\u0026nbsp;\u0026nbsp; \"given_name\": \"firstName\",\u003cbr/\u003e\u0026nbsp;\u0026nbsp;\u0026nbsp;\"sub\": \"nameid\" \u003cbr/\u003e} \u003c/code\u003e |\n| `create_time` | Timestamp at which this connection record was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-05T14:48:00.000Z` |\n| `update_time`\u003cbr\u003e_string_ | Timestamp at which this connection record was last updated in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-10T14:48:00.000Z` |",
+      "name": "Admin Portal"
+    },
+    {
+      "description": " Connection represents a unique Single Sign-on instance for an Organization. Connection has the configuration needed to establish an SSO and exchange user information securely between Scalekit and your customer's Identity Provider. Depending on the connection type parameter, the corresponding configuration details are found in `oidc_config` or `saml_config` parameter.\n\n**Connection Attributes**\n\n| Attribute Name | Attribute Description |\n|---|---|\n| `id`\u003cbr\u003e_string_ | Unique ID of an SSO Connection. This attribute is required for all API operations to be performed against this connection.  |\n| `provider`\u003cbr\u003e_ENUM_ | Name of the Identity Provider. Possible Values are: `OKTA`, `GOOGLE`, `MICROSOFT_AD`, `AUTH0`, `ONELOGIN`, `PING_IDENTITY`, `JUMPCLOUD`, `CUSTOM` |\n| `type`\u003cbr\u003e_ENUM_ | Protocol type that is used for this connection. Possible values are `SAML` or `OIDC` |\n| `status`\u003cbr\u003e_ENUM_ | Indicates the configuration progress status of the SSO Connection. Possible Values are `DRAFT`, `INPROGRESS`, `COMPLETED`. \u003cbr\u003e_Note_: This doesn't indicate whether this connection is active or not. |\n| `enabled`\u003cbr\u003e_boolean_ | Indicates whether this connection is active or not. Users can only login via active SSO connections. |\n| `organization_id`\u003cbr\u003e_string_ | Organization ID to which this SSO connection belongs to. |\n| `saml_config`\u003cbr\u003e_Object_ | If this connection is of type `SAML`, the configuration details are found in this object. |\n| `oidc_config`\u003cbr\u003e_Object_ | If this connection is of type `OIDC`, the configuration details are found in this object. |\n| `attribute_mapping`\u003cbr\u003e_Object_ | Array of attribute mappings using which the user information received from the Identity Provider is normalized. Example: \u003ccode\u003e \u003cbr/\u003e{ \u003cbr/\u003e\u0026nbsp;\u0026nbsp; \"email\": \"email\",\u003cbr/\u003e\u0026nbsp;\u0026nbsp; \"family_name\": \"lastName\", \u003cbr/\u003e\u0026nbsp;\u0026nbsp; \"given_name\": \"firstName\",\u003cbr/\u003e\u0026nbsp;\u0026nbsp;\u0026nbsp;\"sub\": \"nameid\" \u003cbr/\u003e} \u003c/code\u003e |\n| `create_time` | Timestamp at which this connection record was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-05T14:48:00.000Z` |\n| `update_time`\u003cbr\u003e_string_ | Timestamp at which this connection record was last updated in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-10T14:48:00.000Z` |",
       "name": "Connection"
+    },
+    {
+      "name": "Authentication"
+    },
+    {
+      "name": "OpenID Metadata"
     }
   ],
   "externalDocs": {

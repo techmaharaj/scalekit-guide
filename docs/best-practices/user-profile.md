@@ -1,8 +1,10 @@
 
 # Normalized User Profile
+
 When a user logs in with SSO using their Identity Provider via Scalekit, we normalize the user profile information in standard fields so that you can easily access the user profile information regardless of the format, the Identity Provider chooses to send it in.
 
 ## Example User Profile payload
+
 Below is the sample normalized user profile information in json.
 
 ```js wordWrap=true
@@ -61,6 +63,7 @@ Below is the sample normalized user profile information in json.
 |<SimpleCode>identities</SimpleCode>|Array of [Identity Objects](#identity-object-attributes)|Array of all identity information received from the Identity Providers in the raw format|
 
 ### Identity Object attributes
+
 |Identity Attribute|Data Type|Description|
 |--- |--- |--- |
 |<SimpleCode>organization_id</SimpleCode>|string|Unique ID of the organization to which this user belongs to|

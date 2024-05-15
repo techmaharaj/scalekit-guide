@@ -4,9 +4,9 @@
 
 ### 1. Download Metadata XML
 
-Sign into the SSO Configuration Portal, select **JumpCloud,** then **SAML,** and click on **Configure.** 
+Sign into the SSO Configuration Portal, select **JumpCloud,** then **SAML,** and click on **Configure.**
 
-Under **Service Provider Details,** click on **Download Metadata XML**. 
+Under **Service Provider Details,** click on **Download Metadata XML**.
 
 <figure>![Download Metadata XML](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled.png)
 <figcaption>Download Metadata XML</figcaption></figure>
@@ -18,54 +18,45 @@ Login to your JumpCloud Portal. Go to **SSO Applications**.
 <figure>![Locate SSO Applications](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%201.png)
 <figcaption>Locate SSO Applications</figcaption></figure>
 
-Click on **Add New Application.** 
+Click on **Add New Application.**
 
 <figure>![Click on Add New Application](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%202.png)
 <figcaption>Click on Add New Application</figcaption></figure>
 
-
-In the **Create New Application Integration** search box, type **Custom SAML App**, and select it from the drop down list. 
+In the **Create New Application Integration** search box, type **Custom SAML App**, and select it from the drop down list.
 
 Give your app a name, select your icon (optional) and then click on **Save.**  
 
-
 <figure>![Create and save a new application integration](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled_design_(1).gif)
 <figcaption>Create and save a new application integration</figcaption></figure>
-
 
 Click on **Configure Application.**
 
 <figure>![Click on Configure application](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%203.png)
 <figcaption>Click on Configure application</figcaption></figure>
 
-
 ### 3. SAML Configuration
 
-Go to the **SSO** tab**.** Upload the downloaded Metadata XML (from the SSO Configuration Portal) under **Service Provider Metadata→ Upload Metadata.** 
-
+Go to the **SSO** tab**.** Upload the downloaded Metadata XML (from the SSO Configuration Portal) under **Service Provider Metadata→ Upload Metadata.**
 
 <figure>![Upload Metadata XML under Service Provider Metadata](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%204.png)
 <figcaption>Upload Metadata XML under Service Provider Metadata</figcaption></figure>
 
-From your **SSO Configuration Portal**, copy the **SP Entity ID**. On your JumpCloud Portal paste it in the **IdP Entity ID** and the **SP Entity ID** field. 
+From your **SSO Configuration Portal**, copy the **SP Entity ID**. On your JumpCloud Portal paste it in the **IdP Entity ID** and the **SP Entity ID** field.
 
 <figure>![Copy SP Entity ID from your SSO Configuration Portal](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%205.png)
 <figcaption>Copy SP Entity ID from your SSO Configuration Portal</figcaption></figure>
 
-
 <figure>![Paste it under IdP Entity ID and SP Entity ID on JumpCloud Portal](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%206.png)
 <figcaption>Paste it under IdP Entity ID and SP Entity ID on JumpCloud Portal</figcaption></figure>
 
-
 - Similarly, copy the **ACS URL f**rom your SSO Configuration Portal. Go back to your JumpCloud Portal, scroll below to the **ACS URLs** section and paste it in the **Default URL** field.
-    
+
 <figure>![Copy ACS URL from SSO Configuration Portal](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%207.png)
 <figcaption>Copy ACS URL from SSO Configuration Portal</figcaption></figure>
-    
-    
+
 <figure>![Paste it under Default URL on JumpCloud Portal ](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%208.png)
 <figcaption>Paste it under Default URL on JumpCloud Portal </figcaption></figure>
-    
 
 ### 4. Attribute Mapping
 
@@ -74,32 +65,24 @@ In the SSO tab, scroll to find **Attributes.**
 <figure>![Locate Attributes section on JumpCloud Portal](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%209.png)
 <figcaption>Locate Attributes section on JumpCloud Portal</figcaption></figure>
 
-
 Check the **Attribute Mapping** section in the **SSO Configuration Portal**, and carefully map the same attributes on your **JumpCloud** application.
 
 <figure>![Attribute mapping from SSO Configuration Portal ](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%2010.png)
 <figcaption>Attribute mapping from SSO Configuration Portal </figcaption></figure>
 
-
 <figure>![Attribute Mapping on JumpCloud Portal](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled_design_(5).gif)
 <figcaption>Attribute Mapping on JumpCloud Portal</figcaption></figure>
 
-
-
-
 ### 5. Assign Users
 
-Go to the **User Groups** tab. Select appropriate users/groups you want to assign to this application, and click on **Save** once done. 
+Go to the **User Groups** tab. Select appropriate users/groups you want to assign to this application, and click on **Save** once done.
 
 <figure>![Assign individuals or groups to your application](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%2011.png)
 <figcaption>Assign individuals or groups to your application</figcaption></figure>
 
-
-
-
 ### 6. Upload IdP Metadata URL
 
-On your JumpCloud Portal, click on **SSO.** Copy the **Copy Metadata URL**. 
+On your JumpCloud Portal, click on **SSO.** Copy the **Copy Metadata URL**.
 
 <figure>![Copy Metadata URL from your JumpCloud portal ](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%2012.png)
 <figcaption>Copy Metadata URL from your JumpCloud portal </figcaption></figure>
@@ -109,25 +92,20 @@ Under **Identify Provider Configuration,** select **Configure using Metadata URL
 <figure>![Paste Metadata URL on SSO Configuration Portal](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%2013.png)
 <figcaption>Paste Metadata URL on SSO Configuration Portal</figcaption></figure>
 
-
-
 ### 7. Test Connection
 
-Click on **Test Connection.** If everything is done correctly, you will see a **Success** response as shown below. 
+Click on **Test Connection.** If everything is done correctly, you will see a **Success** response as shown below.
 
-If the connection fails, you’ll see an error, the reason for the error, and a way to solve that error right on the screen.   
+If the connection fails, you’ll see an error, the reason for the error, and a way to solve that error right on the screen.
 
 <figure>![Test SSO configuration](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%2014.png)
 <figcaption>Test SSO configuration </figcaption></figure>
 
-
-
 ### 8. Enable Connection
 
-Click on **Enable Connection.** This will let all your selected users login to the new application via your JumpCloud SSO. 
+Click on **Enable Connection.** This will let all your selected users login to the new application via your JumpCloud SSO.
 
 <figure>![Enable SSO on JumpCloud](JumpCloud%20-%20SAML%20af43b42b210f4986a63d07c245c2332e/Untitled%2015.png)
 <figcaption>Enable SSO on JumpCloud</figcaption></figure>
-
 
 With this, we are done configuring your JumpCloud application for an SSO login setup.

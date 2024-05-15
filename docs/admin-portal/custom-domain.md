@@ -1,13 +1,15 @@
 
 # Custom Domain (CNAME)
+
 <Subtitle>Host Admin Portal on your own domain</Subtitle>
 
-### Introduction
-By default, all your environments are accessible via a unique endpoint URL hosted at scalekit.com domain. For example <SimpleCode>https:<nolink />//yoursaas.scalekit.com</SimpleCode>. 
+## Introduction
+
+By default, all your environments are accessible via a unique endpoint URL hosted at scalekit.com domain. For example <SimpleCode>https:<nolink />//yoursaas.scalekit.com</SimpleCode>.
 
 But, if you would like to offer a deeply customized experience to your customers and show your branding everywhere, we offer you an option to customize this url to be hosted on your domain via CNAME configuration. For example: <SimpleCode>https:<nolink />//sso.yoursaas.com</SimpleCode>
 
-### Visibility of Custom Domain
+## Visibility of Custom Domain
 
 1. **Stand alone Admin Portal**
 When your customers visit the Self serve Admin Portal, they will see the URL of your environment in the browser's address bar.
@@ -25,5 +27,6 @@ When your customers login with SSO via SAML or OIDC, they may see the scalekit.c
 
 :::
 
-### How to configure CNAME
+## How to configure CNAME
+
 If you are interested to configure CNAME for your production environment, please reach out to support@scalekit.com

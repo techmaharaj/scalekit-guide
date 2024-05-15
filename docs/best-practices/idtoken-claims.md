@@ -1,20 +1,21 @@
 
 # Inspecting Claims in ID Token
 
-An ID Token is nothing but a cryptographically signed Base64-encoded JSON object containing a set of name/value pairs about the user's profile information. Essentially, it is a JWT token. Ideally, it is advised that you validate an ID token before you use it, but since you are communicating directly with Scalekit over an intermediary-free HTTPS channel and using your client secret to exchange the `code` for the ID Token, you can be confident that the token you receive really comes from Scalekit and is valid. 
+An ID Token is nothing but a cryptographically signed Base64-encoded JSON object containing a set of name/value pairs about the user's profile information. Essentially, it is a JWT token. Ideally, it is advised that you validate an ID token before you use it, but since you are communicating directly with Scalekit over an intermediary-free HTTPS channel and using your client secret to exchange the `code` for the ID Token, you can be confident that the token you receive really comes from Scalekit and is valid.
 
 If you are using our Scalekit SDK to exchange the code for the ID Token, the work of decoding the base64url-encoded values and parsing the JSON within, validating the JWT and accessing the claims within the ID token is automatically taken care of.
 
 ## Example ID Token Payload
 
 Here's an example, formatted for readability (and ignoring the header and signature fields for brevity):
+
 ```js
 
 {
   "iss": "https://yoursaas.scalekit.com",
   "azp": "skc_12205605011849527",
   "aud": [
-  	"skc_12205605011849527"
+   "skc_12205605011849527"
   ],
   "amr": [
     "conn_17576372041941092"

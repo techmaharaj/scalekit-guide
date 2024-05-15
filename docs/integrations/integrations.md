@@ -6,6 +6,7 @@ pagination_next: integrations/saml
 # Integration Guides
 
 ## Identity Providers
+
 <section class="row">
 
 <CardTileWithImage imageSrc="https://cdn.scalekit.com/v1/assets/okta-icon-logo-sE6hM2T8.svg"
@@ -33,18 +34,16 @@ title="SAML 2.0"
 description="Step-by-step guide to configure Single Sign-on using SAML"
 url="/integrations/saml"></CardTileWithImage>
 
-
 <CardTileWithImage imageSrc="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAuCAYAAACF6SFvAAADlklEQVR4Ae1Zv2/TQBT+4kaECaUrkzsXaKO0nZBq/gGaDkhsuMDAliKxN/kPmhUhEkQlxoaFtenatErYmKilqgwMKIUNkpjvBTukP3yJU9t1pH7S6Xz2O/s+v/fu3rsDrgD2M+Tsp1hHwNAQIewX0ElkBza22UwjYERGhiTy+I0GiRgICUmEDNEG/qAcJgkXoWomCm0MIjTN2CY1YmMTESLSCSBsXJOJK67JxBXXZOKKBAJCo9HQO53OvG3buqZpc6kfX/XZD48ML/nv9x5bR/dfNSn/OZFINLvdrrW0tNTEJTD2osnBp9vttikD54ByJNILHDkwsI1uMqXs307d0lnplM9Jm+/B/v6+XNbYf1fqxcXFGnzAFxmXAAewwsEb7sADhrzXYL1xcHBgsa6RaDGTyVjwGBO1mmc5GYmM24EE1vmhwEN3L4jJsjL5XZPEKqxLg6ZYr9cNjqvsyBWVZAZJIIT8ww84YDHpPqmpqam83Bu0DE8yZ1iPghb+23tz+ssnubfjJXy7/rp4nH1e5QB1Ng2WZZZ5DIFL6iLzvpAMHTHPanMEf3AJlM46ay9qHjLxOyYjpSptmRH5Aw1ebvj4iX2cI0M1yosKQ/q1hEAymdykY7YQEBwnr0jhOEz4JHWKzIhEarTXNa/ZJShks9kKLUR+VBkj+mufjJjWMCJ8XqQ5KWWCgLMACwnDTz/N7cxKmRVGRUSsg0QagP9Uu6cZOt2GSihKjXBRltlwFz5B/7WSjkpNLyEuktbCwkIBEcDxQwtjQnMWRBWKmBCIz8wpnrdkVsGEQMioVt1LheRRQ8h4zuHiL5ggCBnPFZyz3DQmCELG8npIzSxjgiBkVHN6WqJnTAg0LohVlQC1o1xQ4wTNCd1rChmD2gn8lCsM9GIzCVdUQqKdvb29oYnTVaNHxtFOSSGXZna3w8g6hxijnwsy/hJTqilkZT3alqgWMcWpxJZJ1yrUhMQkCyR06GSCscIpMpICU0MPoDa53hYQS9kl5eRDVw7P7dkxcvD+TiRzi+Z8KZPmrzpUyBcTb1FAgFDuNTu5ToGXT+ATqZ/HrTtbK2mPr9bQwctEJdhAdqSN83FI3fj1DXffPzx7W+JA0UgoB7cjHWlIBkhfMjlBzLD5bsxouoouZsIiIhj7SENiNpIy8S+5O7egDmjG4i9bS7xRz5JBIJDzGed0QAgJQSGXvnlypM9urX6EjQJ9I7CNQhX+Ag7L0Pd4K4tdAAAAAElFTkSuQmCC"
 title="OpenID Connect (OIDC)"
 description="Step-by-step guide to configure Single Sign-on using OIDC"
 url="/integrations/oidc"></CardTileWithImage>
 
-
 </section>
 
 ## Auth Systems
-<section class="row">
 
+<section class="row">
 
 <CardTileWithImage imageSrc="https://firebase.google.com/static/downloads/brand-guidelines/SVG/logo-logomark.svg"
 title="Firebase"
@@ -55,8 +54,5 @@ url="/integrations/firebase"></CardTileWithImage>
 title="Auth0"
 description="Integrate Scalekit in your Auth0 Tenant"
 url="/integrations/auth0"></CardTileWithImage>
-
-
-
 
 </section>

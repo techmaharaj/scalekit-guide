@@ -814,3 +814,6 @@ table thead tr {
     transition-duration: 300ms;
 
 }
+
+/* temporarily hide the category from search results till we fix it. */
+.DocSearch-Hit-source{display:none};

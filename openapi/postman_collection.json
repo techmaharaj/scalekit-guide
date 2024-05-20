@@ -1,0 +1,1886 @@
+{
+    "item": [
+        {
+            "name": "Organization",
+            "description": "Organization represents a customer or a tenant of your product. This is the top level entity and all the resources are mapped to this Organization object. Each organization will be uniquely identified by `organization_id`. You can use this service to create and manage Enterprise SSO Connections for an organization.\n\n**Attributes**\n\n| Attribute Name | Attribute Description |\n|---|---|\n| `id`<br>_string_ | Unique ID of an Organization. This attribute is required for all API operations to be performed against this organization.  |\n| `display_name`<br>_string_ | Name of the Organization |\n| `create_time`<br>_string_ | Timestamp at which this organization record was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2011-10-05T14:48:00.000Z` |\n| `update_time`<br>_string_ | Timestamp at which this organization record was last updated in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: <br>`2021-10-05T14:48:00.000Z` |\n| `external_id`<br>_string_ | Unique ID of this organization according to your system. You can store your unique ID for this organization in Scalekit's system and later use this to fetch Organization and Connection details. This is helpful if you don't want to persist Scalekit's Unique Identifiers in your database. |\n| `metadata`<br>_object_ | JSON representation of any additional organization information that you want to store in Scalekit's system. Example: `{\"key\":\"value\"}` |\n| `region_code`<br>_string_ | Represents the Data Center region in which this organization's data is stored. Currently, it always returns `US` |",
+            "item": [
+                {
+                    "id": "c047f812-a73c-4fec-9045-19f58fe262c0",
+                    "name": "List Organizations",
+                    "request": {
+                        "name": "List Organizations",
+                        "description": {
+                            "content": "List all Organizations in the Environment. The results are paginated. The response contains page_token that can be used to access the next page of results.",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Number of results to be returned. Max supported page_size is 30",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "page_size",
+                                    "value": "<long>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "page_token",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "ec89563e-8710-4dbe-8103-2e4b46135dc0",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) Number of results to be returned. Max supported page_size is 30",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "page_size",
+                                            "value": "<long>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "page_token",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"next_page_token\": \"<string>\",\n  \"organizations\": [\n    {\n      \"create_time\": \"<dateTime>\",\n      \"display_name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"id\": \"<string>\",\n      \"metadata\": {\n        \"esse_a\": \"<string>\",\n        \"proident_9\": \"<string>\"\n      },\n      \"region_code\": \"US\",\n      \"update_time\": \"<dateTime>\"\n    },\n    {\n      \"create_time\": \"<dateTime>\",\n      \"display_name\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"id\": \"<string>\",\n      \"metadata\": {\n        \"nullac\": \"<string>\",\n        \"sunt_7c7\": \"<string>\"\n      },\n      \"region_code\": \"US\",\n      \"update_time\": \"<dateTime>\"\n    }\n  ],\n  \"total_size\": \"<long>\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "987b8322-4d08-4943-96ae-523d6ac2ba50",
+                    "name": "Create Organization",
+                    "request": {
+                        "name": "Create Organization",
+                        "description": {
+                            "content": "Creates an Organization. An Organization represents a tenant in the your application",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"display_name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"metadata\": {\n    \"esse47\": \"<string>\"\n  }\n}",
+                            "options": {
+                                "raw": {
+                                    "headerFamily": "json",
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "4098cfd3-8efa-4135-8cf5-6e515c7a70b3",
+                            "name": "Created Successfully",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"display_name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"metadata\": {\n    \"esse47\": \"<string>\"\n  }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "Created",
+                            "code": 201,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"organization\": {\n    \"create_time\": \"<dateTime>\",\n    \"display_name\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"aliquipc\": \"<string>\",\n      \"deserunte8_\": \"<string>\"\n    },\n    \"region_code\": \"US\",\n    \"update_time\": \"<dateTime>\"\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "8bfe8e0a-738e-4347-b68d-d78cd217be11",
+                    "name": "Get Organization",
+                    "request": {
+                        "name": "Get Organization",
+                        "description": {},
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":id"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "External Id of the Org to update",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "external_id",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Id of the Org to update",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "a2818dab-452b-4555-9e53-1e54d3205748",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":id"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "External Id of the Org to update",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "external_id",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"organization\": {\n    \"create_time\": \"<dateTime>\",\n    \"display_name\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"aliquipc\": \"<string>\",\n      \"deserunte8_\": \"<string>\"\n    },\n    \"region_code\": \"US\",\n    \"update_time\": \"<dateTime>\"\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "c6df961e-15f7-468b-a0de-7617b602b339",
+                    "name": "Delete Organization",
+                    "request": {
+                        "name": "Delete Organization",
+                        "description": {},
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":id"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "External Id of the Org to update",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "external_id",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Id of the Org to update",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "DELETE",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "dd4cd312-5320-428b-a718-b168ce68905a",
+                            "name": "Deleted Successfully",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":id"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "External Id of the Org to update",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "external_id",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "DELETE",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "f4396ec1-8461-4066-b094-0612c4bf49fa",
+                    "name": "Update Organization",
+                    "request": {
+                        "name": "Update Organization",
+                        "description": {},
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":id"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "External Id of the Org to update",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "external_id",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Id of the Org to update",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"display_name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"metadata\": {\n    \"culpa_561\": \"<string>\"\n  }\n}",
+                            "options": {
+                                "raw": {
+                                    "headerFamily": "json",
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "6d0ec1b7-43c7-4aa7-8dec-02a6b0ff918b",
+                            "name": "Updated Successfully",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":id"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "External Id of the Org to update",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "external_id",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"display_name\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"metadata\": {\n    \"culpa_561\": \"<string>\"\n  }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"organization\": {\n    \"create_time\": \"<dateTime>\",\n    \"display_name\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"id\": \"<string>\",\n    \"metadata\": {\n      \"aliquipc\": \"<string>\",\n      \"deserunte8_\": \"<string>\"\n    },\n    \"region_code\": \"US\",\n    \"update_time\": \"<dateTime>\"\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Admin Portal",
+            "description": "",
+            "item": [
+                {
+                    "id": "a7cdf781-2090-4a41-97b2-181c4fbde4cf",
+                    "name": "Get Portal link",
+                    "request": {
+                        "name": "Get Portal link",
+                        "description": {
+                            "content": "Returns the Admin portal link if it exists. Use Generate Portal link to create and fetch a link",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":id",
+                                "portal_links"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Organization ID",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "0bc51b49-8718-40d8-8a67-304aafacbe34",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":id",
+                                        "portal_links"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"links\": [\n    {\n      \"expire_time\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\"\n    },\n    {\n      \"expire_time\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"location\": \"<string>\"\n    }\n  ]\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "5407dcc4-512d-46af-89c6-d0d0a3a80563",
+                    "name": "Generate Portal link",
+                    "request": {
+                        "name": "Generate Portal link",
+                        "description": {
+                            "content": "Generates a Admin Portal link. The Admin Portal will be used by the IT Admins to create and manage the SSO connection in their Org. The link generated via API will be valid for 1 week.",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":id",
+                                "portal_links"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Organization ID",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "PUT",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "0926d480-4610-4198-b25b-901805191a2c",
+                            "name": "Create Admin Portal Link",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":id",
+                                        "portal_links"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "PUT",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"link\": {\n    \"expire_time\": \"<dateTime>\",\n    \"id\": \"<string>\",\n    \"location\": \"<string>\"\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "8029ab6a-1767-485a-a3a3-9bed7978ef55",
+                    "name": "Delete Admin Portal link",
+                    "request": {
+                        "name": "Delete Admin Portal link",
+                        "description": {
+                            "content": "Revokes and deletes an Admin portal link.",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":id",
+                                "portal_links"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Organization ID",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "DELETE",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "ffc39a28-6bb9-48f7-a408-d27a882f294e",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":id",
+                                        "portal_links"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "DELETE",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Connection",
+            "description": " Connection represents a unique Single Sign-on instance for an Organization. Connection has the configuration needed to establish an SSO and exchange user information securely between Scalekit and your customer's Identity Provider. Depending on the connection type parameter, the corresponding configuration details are found in `oidc_config` or `saml_config` parameter.\n\n**Connection Attributes**\n\n| Attribute Name | Attribute Description |\n|---|---|\n| `id`<br>_string_ | Unique ID of an SSO Connection. This attribute is required for all API operations to be performed against this connection.  |\n| `provider`<br>_ENUM_ | Name of the Identity Provider. Possible Values are: `OKTA`, `GOOGLE`, `MICROSOFT_AD`, `AUTH0`, `ONELOGIN`, `PING_IDENTITY`, `JUMPCLOUD`, `CUSTOM` |\n| `type`<br>_ENUM_ | Protocol type that is used for this connection. Possible values are `SAML` or `OIDC` |\n| `status`<br>_ENUM_ | Indicates the configuration progress status of the SSO Connection. Possible Values are `DRAFT`, `INPROGRESS`, `COMPLETED`. <br>_Note_: This doesn't indicate whether this connection is active or not. |\n| `enabled`<br>_boolean_ | Indicates whether this connection is active or not. Users can only login via active SSO connections. |\n| `organization_id`<br>_string_ | Organization ID to which this SSO connection belongs to. |\n| `saml_config`<br>_Object_ | If this connection is of type `SAML`, the configuration details are found in this object. |\n| `oidc_config`<br>_Object_ | If this connection is of type `OIDC`, the configuration details are found in this object. |\n| `attribute_mapping`<br>_Object_ | Array of attribute mappings using which the user information received from the Identity Provider is normalized. Example: <code> <br/>{ <br/>&nbsp;&nbsp; \"email\": \"email\",<br/>&nbsp;&nbsp; \"family_name\": \"lastName\", <br/>&nbsp;&nbsp; \"given_name\": \"firstName\",<br/>&nbsp;&nbsp;&nbsp;\"sub\": \"nameid\" <br/>} </code> |\n| `create_time` | Timestamp at which this connection record was created in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-05T14:48:00.000Z` |\n| `update_time`<br>_string_ | Timestamp at which this connection record was last updated in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. For Example: `2021-10-10T14:48:00.000Z` |",
+            "item": [
+                {
+                    "id": "b2792366-7b9e-46f6-a7c1-c5cf09aa6857",
+                    "name": "List Connections",
+                    "request": {
+                        "name": "List Connections",
+                        "description": {
+                            "content": "Get a filtered list of connections",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "connections"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Organization ID for the Connection. Either Organization Id or Organization's External Id needs to be provided",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "organization_id",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Organization's External ID. Either Organization Id or Organization's External Id needs to be provided",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "external_id",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Email domain associated with this connection. If domain is not empty it would return connections that are available to email domain by matching the organization associated to the domain",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "domain",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "include",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "37c61d42-ca71-467c-a821-c1a3e13c4b5a",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "connections"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Organization ID for the Connection. Either Organization Id or Organization's External Id needs to be provided",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "organization_id",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Organization's External ID. Either Organization Id or Organization's External Id needs to be provided",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "external_id",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Email domain associated with this connection. If domain is not empty it would return connections that are available to email domain by matching the organization associated to the domain",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "domain",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "include",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"connections\": [\n    {\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"organization_id\": \"<string>\",\n      \"provider\": \"MICROSOFT_AD\",\n      \"status\": \"DRAFT\",\n      \"type\": \"SAML\"\n    },\n    {\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"organization_id\": \"<string>\",\n      \"provider\": \"MICROSOFT_AD\",\n      \"status\": \"IN_PROGRESS\",\n      \"type\": \"SAML\"\n    }\n  ]\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "5f177fcf-8f28-4622-943d-c9e4261af06a",
+                    "name": "Get Connection",
+                    "request": {
+                        "name": "Get Connection",
+                        "description": {
+                            "content": "Get  Connection details",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":organization_id",
+                                "connections",
+                                ":id"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Organization's External ID. Either Organization Id or Organization's External Id needs to be provided",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "external_id",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "organization_id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Organization ID for the Connection. Either Organization Id or Organization's External Id needs to be provided",
+                                        "type": "text/plain"
+                                    }
+                                },
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Connection ID. Unique ID for the connection",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "371b74df-8872-49e3-a20b-ab7c02766ec3",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":organization_id",
+                                        "connections",
+                                        ":id"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Organization's External ID. Either Organization Id or Organization's External Id needs to be provided",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "external_id",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"connection\": {\n    \"attribute_mapping\": {\n      \"consequata9\": \"<string>\"\n    },\n    \"configuration_type\": \"DISCOVERY\",\n    \"debug_enabled\": \"<boolean>\",\n    \"enabled\": \"<boolean>\",\n    \"id\": \"<string>\",\n    \"oidc_config\": {\n      \"authorize_uri\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"client_secret\": \"<string>\",\n      \"discovery_endpoint\": \"<string>\",\n      \"issuer\": \"<string>\",\n      \"jwks_uri\": \"<string>\",\n      \"pkce_enabled\": \"<boolean>\",\n      \"redirect_uri\": \"<string>\",\n      \"scopes\": [\n        \"phone\",\n        \"openid\"\n      ],\n      \"token_auth_type\": \"BASIC_AUTH\",\n      \"token_uri\": \"<string>\",\n      \"user_info_uri\": \"<string>\"\n    },\n    \"organization_id\": \"<string>\",\n    \"provider\": \"ONELOGIN\",\n    \"saml_config\": {\n      \"allow_idp_initiated_login\": \"<boolean>\",\n      \"assertion_encrypted\": \"<boolean>\",\n      \"default_redirect_uri\": \"<string>\",\n      \"force_authn\": \"<boolean>\",\n      \"idp_certificates\": [\n        {\n          \"certificate\": \"<string>\",\n          \"create_time\": \"<dateTime>\",\n          \"expiry_time\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"issuer\": \"<string>\"\n        },\n        {\n          \"certificate\": \"<string>\",\n          \"create_time\": \"<dateTime>\",\n          \"expiry_time\": \"<dateTime>\",\n          \"id\": \"<string>\",\n          \"issuer\": \"<string>\"\n        }\n      ],\n      \"idp_entity_id\": \"<string>\",\n      \"idp_metadata_url\": \"<string>\",\n      \"idp_name_id_format\": \"EMAIL\",\n      \"idp_slo_request_binding\": \"HTTP_REDIRECT\",\n      \"idp_slo_url\": \"<string>\",\n      \"idp_sso_request_binding\": \"HTTP_POST\",\n      \"idp_sso_url\": \"<string>\",\n      \"saml_signing_option\": \"SAML_ONLY_RESPONSE_SIGNING\",\n      \"sp_assertion_url\": \"<string>\",\n      \"sp_entity_id\": \"<string>\",\n      \"sp_metadata_url\": \"<string>\",\n      \"ui_button_title\": \"<string>\",\n      \"want_request_signed\": \"<boolean>\"\n    },\n    \"status\": \"DRAFT\",\n    \"test_connection_uri\": \"<string>\",\n    \"type\": \"PASSWORD\"\n  }\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "cf314321-0494-4e4a-897d-7ba9a9fef04d",
+                    "name": "Disable a Connection",
+                    "request": {
+                        "name": "Disable a Connection",
+                        "description": {
+                            "content": "Disable a SSO Connection",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":organization_id",
+                                "connections",
+                                "{{id}}:disable"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Organization's External ID. Either Organization Id or Organization's External Id needs to be provided",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "external_id",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "organization_id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Organization ID for the Connection. Either Organization Id or Organization's External Id needs to be provided",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "3fd55558-5aad-4bdd-a4ee-31fa562c1707",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":organization_id",
+                                        "connections",
+                                        "{{id}}:disable"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Organization's External ID. Either Organization Id or Organization's External Id needs to be provided",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "external_id",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "PATCH",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"enabled\": \"<boolean>\",\n  \"error_message\": \"<string>\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "f51eec20-3e92-4fb6-85be-fb44b699fd63",
+                    "name": "Enable a Connection",
+                    "request": {
+                        "name": "Enable a Connection",
+                        "description": {
+                            "content": "Enable a SSO Connection",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "organizations",
+                                ":organization_id",
+                                "connections",
+                                "{{id}}:enable"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Organization's External ID. Either Organization Id or Organization's External Id needs to be provided",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "external_id",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "<string>",
+                                    "key": "organization_id",
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Organization ID for the Connection. Either Organization Id or Organization's External Id needs to be provided",
+                                        "type": "text/plain"
+                                    }
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "d179f685-5f11-49fa-97c5-d82e8f296742",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "v1",
+                                        "organizations",
+                                        ":organization_id",
+                                        "connections",
+                                        "{{id}}:enable"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Organization's External ID. Either Organization Id or Organization's External Id needs to be provided",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "external_id",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "PATCH",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"enabled\": \"<boolean>\",\n  \"error_message\": \"<string>\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Authentication",
+            "description": "",
+            "item": [
+                {
+                    "id": "147da20d-00fd-42b4-bd26-ff11ed37485a",
+                    "name": "Authorization URL",
+                    "request": {
+                        "name": "Authorization URL",
+                        "description": {
+                            "content": "Authorization URL initiates the Login flow with Scalekit.\n\nScalekit expects atleast one of the following parameters to be present. The parameters are used to determine the SSO connection used to Login in the user. \n\n`domain` - Email domain of the user. Domain should be mapped to an Organization. The SSO connection from the org would be used to login to the app. \n`connection_id` - ID of the SSO connection. If the Connection's status is `active`, the user will be redirected to the SSO Connection's identity provider configured \n`organization_id` -  ID of Organization. The user will be redirected to the SSO connection's identity provider configured for that organization.",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "oauth",
+                                "authorize"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) The client ID string that you obtain from the API Credentials page",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "client_id",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Determines where the response is sent. The value of this parameter must exactly match one of the authorized redirect values that you set in the API Credentials page (including the HTTP or HTTPS scheme, case, and trailing '/', if any).",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "redirect_uri",
+                                    "value": "<uri>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Domain part of the email address that is mapped to an organization. Example. yourcustomer.com",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "domain",
+                                    "value": "<hostname>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Connection ID for which the SSO flow must be initiated for. If the Connection's status is `active`, the user will be redirected to the SSO Connection's identity provider configured",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "connection_id",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Organization ID for which the SSO flow must be initiated for. Based on the organization ID supplied, the user will be redirected to the SSO connection's identity provider configured for that organization.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "organization_id",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Value must be `code`",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "response_type",
+                                    "value": "code"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) Value must be `openid profile`",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "scope",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "An opaque string that is round-tripped in the protocol; that is to say, it is returned back as-is as a URI parameter in the Basic flow. The state can be useful for correlating requests and responses. Because your redirect_uri can be guessed, using a state value can increase your assurance that an incoming connection is the result of an authentication request initiated by your app.\n\nState will be useful if you would like to retain some information about the user that you would like to use at the end of the login flow. E.g. deep link URL in your product to redirect the user to after a successful login.\n\nIf you generate a random string or encode the hash of some client state (e.g., a cookie) in this state variable, you can validate the response to additionally ensure that the request and response originated in the same browser. This additional validation offers protection against attacks such as cross-site request forgery.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "state",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A random value generated by your app that enables replay protection.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "nonce",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "When your app knows the email address of the user it is trying to authenticate, it can provide this parameter as a hint to the authentication server and Scalekit will pass this information to your customer's identity provider. Some identity providers prefill the login box with this value to make the login experience easier for the end user.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "login_hint",
+                                    "value": "<email>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "A challenge code generated from `code_verifier` that is required for PKCE flows. This is used ensure if the request was handled by the right parties. The string is stored by Scalekit to be used when validating the token request with a `code_verifier`.  A code_challenge is generated as follows `code_challenge = SHA256(code_verifier)` .",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "code_challenge",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "The algorithm used to process the code challenge. The value should be `S256`",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "code_challenge_method",
+                                    "value": "plain"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "012d7fe2-0b97-43cf-837b-e2e38be8415f",
+                            "name": "Success",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "oauth",
+                                        "authorize"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) The client ID string that you obtain from the API Credentials page",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "client_id",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) Determines where the response is sent. The value of this parameter must exactly match one of the authorized redirect values that you set in the API Credentials page (including the HTTP or HTTPS scheme, case, and trailing '/', if any).",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "redirect_uri",
+                                            "value": "<uri>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Domain part of the email address that is mapped to an organization. Example. yourcustomer.com",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "domain",
+                                            "value": "<hostname>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Connection ID for which the SSO flow must be initiated for. If the Connection's status is `active`, the user will be redirected to the SSO Connection's identity provider configured",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "connection_id",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Organization ID for which the SSO flow must be initiated for. Based on the organization ID supplied, the user will be redirected to the SSO connection's identity provider configured for that organization.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "organization_id",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) Value must be `code`",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "response_type",
+                                            "value": "code"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) Value must be `openid profile`",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "scope",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "An opaque string that is round-tripped in the protocol; that is to say, it is returned back as-is as a URI parameter in the Basic flow. The state can be useful for correlating requests and responses. Because your redirect_uri can be guessed, using a state value can increase your assurance that an incoming connection is the result of an authentication request initiated by your app.\n\nState will be useful if you would like to retain some information about the user that you would like to use at the end of the login flow. E.g. deep link URL in your product to redirect the user to after a successful login.\n\nIf you generate a random string or encode the hash of some client state (e.g., a cookie) in this state variable, you can validate the response to additionally ensure that the request and response originated in the same browser. This additional validation offers protection against attacks such as cross-site request forgery.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "state",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A random value generated by your app that enables replay protection.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "nonce",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "When your app knows the email address of the user it is trying to authenticate, it can provide this parameter as a hint to the authentication server and Scalekit will pass this information to your customer's identity provider. Some identity providers prefill the login box with this value to make the login experience easier for the end user.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "login_hint",
+                                            "value": "<email>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "A challenge code generated from `code_verifier` that is required for PKCE flows. This is used ensure if the request was handled by the right parties. The string is stored by Scalekit to be used when validating the token request with a `code_verifier`.  A code_challenge is generated as follows `code_challenge = SHA256(code_verifier)` .",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "code_challenge",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "The algorithm used to process the code challenge. The value should be `S256`",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "code_challenge_method",
+                                            "value": "plain"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "Found",
+                            "code": 302,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                },
+                {
+                    "id": "3cfd3098-88b3-4c4e-8e13-164b3e17518d",
+                    "name": "Token URL",
+                    "request": {
+                        "name": "Token URL",
+                        "description": {
+                            "content": "The code provided to the Redirect URI. Code can be exchanged for a ID Token containing the user details using the Token URL.",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "oauth",
+                                "token"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) The code received by the Redirect URI as part of the Authentication Response.",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "code",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "(Required) The redirect URI where this code was received. This will used to validate the code to make the code was infact generated for this redirect_uri",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "redirect_uri",
+                                    "value": "<string>"
+                                },
+                                {
+                                    "disabled": false,
+                                    "description": {
+                                        "content": "Used in PKCE flow, a `code_challenge` presented at the Authorization Endpoint",
+                                        "type": "text/plain"
+                                    },
+                                    "key": "code_verifier",
+                                    "value": "<string>"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "ba9b160d-7bf6-49c0-8a4b-57a3026f448b",
+                            "name": "Code validated Successfuly",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "oauth",
+                                        "token"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) The code received by the Redirect URI as part of the Authentication Response.",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "code",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) The redirect URI where this code was received. This will used to validate the code to make the code was infact generated for this redirect_uri",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "redirect_uri",
+                                            "value": "<string>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Used in PKCE flow, a `code_challenge` presented at the Authorization Endpoint",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "code_verifier",
+                                            "value": "<string>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"access_token\": \"<string>\",\n  \"expires_in\": \"<number>\",\n  \"id_token\": \"<string>\",\n  \"token_type\": \"<string>\"\n}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "OpenID Metadata",
+            "description": "",
+            "item": [
+                {
+                    "id": "abc75f4f-462a-41b5-bcc1-ff77a9041a35",
+                    "name": "OpenID Provider metadata URL",
+                    "request": {
+                        "name": "OpenID Provider metadata URL",
+                        "description": {
+                            "content": "Returns the OpenID Connect configuration values from the provider's Well-Known Configuration Endpoint, per the specification (https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest). \n\nSample Response below.\n```\n{\n  \"issuer\": \"https://rexinc.scalekit.com\",\n  \"authorization_endpoint\": \"https://rexinc.scalekit.com/oauth/authorize\",\n  \"token_endpoint\": \"https://rexinc.scalekit.com/oauth/token\",\n  \"introspection_endpoint\": \"https://rexinc.scalekit.com/oauth/introspect\",\n  \"userinfo_endpoint\": \"https://rexinc.scalekit.com/userinfo\",\n  \"revocation_endpoint\": \"https://rexinc.scalekit.com/revoke\",\n  \"end_session_endpoint\": \"https://rexinc.scalekit.com/end_session\",\n  \"jwks_uri\": \"https://rexinc.scalekit.com/keys\",\n  \"scopes_supported\": [\n    \"openid\",\n    \"profile\",\n    \"offline_access\"\n  ],\n  \"response_types_supported\": [\n    \"code\"\n  ],\n  \"response_modes_supported\": [\n    \"query\"\n  ],\n  \"grant_types_supported\": [\n    \"authorization_code\",\n    \"client_credentials\",\n    \"refresh_token\"\n  ],\n  \"subject_types_supported\": [\n    \"public\"\n  ],\n  \"id_token_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"request_object_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"token_endpoint_auth_methods_supported\": [\n    \"none\",\n    \"client_secret_basic\",\n    \"client_secret_post\",\n    \"private_key_jwt\"\n  ],\n  \"token_endpoint_auth_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"revocation_endpoint_auth_methods_supported\": [\n    \"none\",\n    \"client_secret_basic\",\n    \"client_secret_post\",\n    \"private_key_jwt\"\n  ],\n  \"revocation_endpoint_auth_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"introspection_endpoint_auth_methods_supported\": [\n    \"client_secret_basic\",\n    \"private_key_jwt\"\n  ],\n  \"introspection_endpoint_auth_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"claims_supported\": [\n    \"sub\",\n    \"aud\",\n    \"exp\",\n    \"iat\",\n    \"iss\",\n    \"auth_time\",\n    \"nonce\",\n    \"acr\",\n    \"amr\",\n    \"c_hash\",\n    \"at_hash\",\n    \"act\",\n    \"scopes\",\n    \"client_id\",\n    \"azp\",\n    \"preferred_username\",\n    \"name\",\n    \"family_name\",\n    \"given_name\",\n    \"locale\",\n    \"email\",\n    \"email_verified\",\n    \"phone_number\",\n    \"phone_number_verified\"\n  ],\n  \"code_challenge_methods_supported\": [\n    \"S256\"\n  ],\n  \"ui_locales_supported\": [\n    \"en\"\n  ],\n  \"request_parameter_supported\": true,\n  \"request_uri_parameter_supported\": false\n}\n\n```",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                ".well-known",
+                                "openid-configurations"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "672ee836-e68f-4763-b223-e9a684959eae",
+                            "name": "Success . Please refer to the OpenID Provider Metadata properties here ( https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata )",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        ".well-known",
+                                        "openid-configurations"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{}",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "oauth2",
+        "oauth2": [
+            {
+                "type": "any",
+                "value": "https://$ENV_URL/oauth/token",
+                "key": "accessTokenUrl"
+            },
+            {
+                "type": "any",
+                "value": "client_credentials",
+                "key": "grant_type"
+            }
+        ]
+    },
+    "event": [],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "https://$ENV_URL"
+        },
+        {
+            "key": "id",
+            "value": "<string>"
+        },
+        {
+            "key": "id",
+            "value": "<string>"
+        }
+    ],
+    "info": {
+        "_postman_id": "7cb36b35-145e-4bcd-9017-5fc1a0f12b9e",
+        "name": "Scalekit APIs",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": {
+            "content": "# Introduction\nScalekit API is modeled around the [REST](https://en.wikipedia.org/wiki/REST) architecture style. That means, our API has predictable resource-oriented URLs, accepts form-encoded request bodies and produces JSON formatted responses, uses standard HTTP verbs and error codes.\n\n## Getting Started\nIf you are just getting started, you can also refer to our [Quick Start Guide](/single-sign-on/quickstart-sso).\n\nApart from REST APIs, we have published SDKs in some of the popular languages as shown below. You can use these SDKs and integrate with Scalekit much faster.\n\n- [NodeJS](https://github.com/scalekit-inc/scalekit-sdk-node)\n- [Go Lang](https://github.com/scalekit-inc/scalekit-sdk-go)\n\nSome additional instructions around using our APIs\n\n- API Endpoint Host must use the `Environment URL` of the environment you are targeting.\n- API requests without appropriate authentication headers will fail with 401 status code.\n\nRead below to understand more about how to authenticate the API calls and how to handle errors appropriately.\n\n\n# Authentication\nScalekit API uses [OAuth2 Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials) based authentication. You can view and manage the necessary information from your `API Config` section in the Scalekit Dashboard.\n\nYou will need the following information to authenticate with Scalekit APIs\n- Client ID\n- Client Secret\n- Environment URL\n\nYou can obtain a secure token by making `POST` call to the `https://{ENV_URL}/oauth/token` endpoint and sending client_id and client_secret as part of the request body.\n\n```shell\n$ curl https://{ENV_URL}/oauth/token \\\n  -X POST \\\n  -H 'Content-Type: application/x-www-form-urlencoded' \\\n  -d 'client_id={client_id}' \\\n  -d 'client_secret={client_secret}' \\\n  -d 'grant_type=client_credentials'\\\n```\n\nUpon successful processing, you will receive the access token as part of the JSON response as shown in example below:\n```json\n{\n  \"access_token\": \"DCRD10-e7c5c8139165228a82e442445fe01c16\",\n  \"token_type\": \"bearer\",\n  \"expires_in\": 1799\n}\n```\nThe `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit.\n\nTo make a request to one of our APIs, you need to include the access token in the Authorization header of the request as Bearer 'access_token' like the following example shows:\n```shell\n$ curl --request GET \"https://{ENV_URL}/api/v1/organizations\" \\\n-H \"Content-Type: application/json\" \\\n-H \"Authorization: Bearer {access_token}\"\n```\n\nPlease make sure that you keep your Client Secrets safely. Do not share your client secret in publicly accessible areas such as GitHub, client-side code, etc. Refer to [this guide](/security/client-secrets) to understand some of the best practices around keeping client secrets secure.\n\nOur SDKs will automatically handle the API authentication and error handling to make the job of using our APIs much easier for you.\n\n# Error Handling\nAs mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs.\n\nIn general:\n- `200 or 201`: API request is successful\n- `400`: The request was unacceptable, often due to missing a required parameter.\n- `401`: Invalid Authentication Headers found in the request.\n- `404`: Resource not found\n- `429`: Too many requests hit the API too quickly. Retry the request after a cool-off period.\n- `500 or 501 or 504`: Something went wrong at our end. However rare they are, we automatically log these requests for proactive support and fixing the underlying issue.\n\nAlong with HTTP Status Codes, we also respond with detailed error messages. An example error message for a 401 error is shown below.\n\n```json\n{\n    \"code\": 16,\n    \"message\": \"Token empty\",\n    \"details\":\n    [\n        {\n            \"@type\": \"type.googleapis.com/scalekit.v1.errdetails.ErrorInfo\",\n            \"error_code\": \"UNAUTHENTICATED\"\n        }\n    ]\n}\n```\n\nWe strongly recommend you to handle errors gracefully while writing code using our SDKs.\n\n\nContact Support:\n Name: Scalekit\n Email: support@scalekit.com",
+            "type": "text/plain"
+        }
+    }
+}

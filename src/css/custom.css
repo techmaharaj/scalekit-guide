@@ -444,7 +444,7 @@ p {
     font-size: 1.25rem;
 }
 
-.cardContainer img,svg {
+.cardContainer img,.cardContainer svg {
     float: left;
     margin-right: 12px;
     width: 36px;

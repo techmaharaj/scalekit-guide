@@ -860,3 +860,126 @@ table thead tr {
   fill: #e9430f;
   transform: scale(-1, -1) translateY(-0.25em);
 }
+
+/*API Reference*/
+.section {
+  border-bottom: 1px solid var(--scalar-border-color);
+  padding-bottom: 20px;
+}
+
+.scalar-card {
+  all: unset;
+  border: 1px solid var(--scalar-border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ifm-font-family-base);
+  max-height: calc(
+    var(--full-height) / 2 - var(--refs-header-height) / 2 - 30px
+  );
+  overflow: hidden;
+  position: relative;
+}
+
+.scalar-card-header {
+  background-color: aliceblue;
+  border-bottom: 1px solid var(--scalar-border-color);
+  color: var(--scalar-color-3);
+  flex-shrink: 0;
+  font-size: var(--scalar-mini);
+  font-weight: var(--scalar-semibold);
+  padding: 9px 0 9px 12px;
+}
+
+.scalar-card-header-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.scalar-card-content {
+  overflow: auto;
+}
+
+.scalar-card-header-slots {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.35;
+}
+
+.endpoints {
+  background: var(--scalar-background-2);
+  overflow: auto;
+  padding: 10px 12px;
+}
+
+.endpoint {
+  cursor: pointer;
+  display: flex;
+  white-space: nowrap;
+}
+
+.endpoint:hover {
+  text-decoration: none;
+}
+.endpoint span {
+  color: var(--scalar-color-1);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--scalar-small);
+  line-height: 1.55;
+  min-width: 62px;
+  text-align: right;
+}
+
+.endpoint span + span {
+  margin-left: 12px;
+  text-align: left;
+  text-transform: none;
+}
+
+.scalar-card-content .theme-code-block {
+  margin-bottom: 0 !important;
+}
+
+.ApiReference-Parameters {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  row-gap: 16px;
+  align-items: stretch;
+  padding: 0;
+}
+
+.ApiReference-Parameter {
+  list-style: none;
+  border-bottom: 1px solid var(--scalar-border-color);
+  font-size: var(--scalar-small);
+  padding-bottom: 1rem;
+}
+.ApiReference-Parameter.header {
+  font-weight: 600;
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+.ApiReference-Parameter .attr {
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  align-items: baseline;
+}
+
+.ApiReference-Parameter .attr .key {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 500;
+}
+
+.ApiReference-Parameter .attr .required {
+  text-transform: uppercase;
+  color: var(--tblr-warning);
+  font-weight: 500;
+  font-size: smaller;
+}

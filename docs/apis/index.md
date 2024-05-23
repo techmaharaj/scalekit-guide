@@ -26,8 +26,9 @@ Read below to understand more about how to authenticate the API calls and how to
 
 Refer to our <a href="/" target="_blank">Quick Start Guide</a>
 <br />
-**SDKs**
+<CodeWithHeader title="Client Libraries">
 <InstallSDK />
+</CodeWithHeader>
 
 <CodeWithHeader title="API Server Endpoint">
 
@@ -108,7 +109,9 @@ go get https://www.github.com/scalekit-inc/go-sdk
 #### Using Access Token
 <div class="row section">
     <div class="col col--6">
-The `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit.\n\nTo make a request to one of our APIs, you need to include the access token in the Authorization header of the request as Bearer 'access_token'.
+The `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit.
+
+To make a request to one of our APIs, you need to include the access token in the Authorization header of the request as Bearer 'access_token'.
 
 Please make sure that you keep your Client Secrets safely. Do not share your client secret in publicly accessible areas such as GitHub, client-side code, etc.
 
@@ -117,6 +120,7 @@ Refer to [this guide](/security/client-secrets) to understand some of the best p
 Our SDKs will automatically handle the API authentication and error handling to make the job of using our APIs much easier for you.
 </div>
 <div class="col col--6">
+<CodeWithHeader title="Using Bearer Token">
 
 ```shell showLineNumbers
 $ curl --request GET "https://{ENV_URL}/api/v1/organizations" \
@@ -124,22 +128,33 @@ $ curl --request GET "https://{ENV_URL}/api/v1/organizations" \
 -H "Authorization: Bearer {access_token}"
 ```
 
+</CodeWithHeader>
+
 </div>
 </div>
 ### Error Handling
+<div class="row section">
+    <div class="col col--6">
+As mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs.
 
-As mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs. In general:
+You can see the list of different HTTP Status Codes and the error message format in the right pane. We strongly recommend you to handle errors gracefully while writing code using our SDKs.
+</div>
+<div class="col col--6">
+<CodeWithHeader title="Error Codes">
 
-- `200 or 201`: API request is successful
-- `400`: The request was unacceptable, often due to missing a required parameter.
-- `401`: Invalid Authentication Headers found in the request.
-- `404`: Resource not found
-- `429`: Too many requests hit the API too quickly. Retry the request after a cool-off period.
-- `500 or 501 or 504`: Something went wrong at our end. However rare they are, we automatically log these requests for proactive support and fixing the underlying issue.
+| HTTP Status | Description |
+| - | - |
+| 200 or 201 | API request is successful |
+| 400 | The request was unacceptable, often due to missing a required parameter. |
+| 401 | Invalid Authentication Headers found in the request. |
+| 404 | Resource not found |
+| 429 | Too many requests hit the API too quickly. Retry the request after a cool-off period. |
+| 500 or 501 or 504 | Something went wrong at our end. These are usually a very rare occurrence. We automatically log these requests for alert our on-call engineers |
 
-Along with HTTP Status Codes, we also respond with detailed error messages. An example error message for a 401 error is shown below.
+</CodeWithHeader>
 
-```json
+<CodeWithHeader title="401: Error Message">
+```js
 {
   "code": 16,
   "message": "Token empty",
@@ -151,9 +166,9 @@ Along with HTTP Status Codes, we also respond with detailed error messages. An e
   ]
 }
 ```
-
-We strongly recommend you to handle errors gracefully while writing code using our SDKs.
-
+</CodeWithHeader>
+</div>
+</div>
 ### Single Sign-on {#tag/sso}
 
 <div class="row section">

@@ -19,12 +19,12 @@
     "@docusaurus/core": "^3.3.2",
     "@docusaurus/preset-classic": "^3.3.2",
     "@mdx-js/react": "^3.0.0",
-    "@scalar/docusaurus": "^0.2.9",
     "clsx": "^2.0.0",
     "plugin-image-zoom": "github:flexanalytics/plugin-image-zoom",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-markdown": "^9.0.1",
     "redocusaurus": "^2.0.2"
   },
   "devDependencies": {

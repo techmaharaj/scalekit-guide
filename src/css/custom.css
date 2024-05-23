@@ -879,8 +879,23 @@ table thead tr {
   );
   overflow: hidden;
   position: relative;
+  margin-bottom: 1rem;
+}
+.scalar-card .tabs-container {
+  margin-bottom: 0;
+}
+.scalar-card table {
+  margin-bottom: 0;
+  border: 0;
 }
 
+.scalar-card table tr {
+  border: 0;
+}
+
+.scalar-card table th {
+  white-space: nowrap;
+}
 .scalar-card-header {
   background-color: aliceblue;
   border-bottom: 1px solid var(--scalar-border-color);
@@ -897,6 +912,7 @@ table thead tr {
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
+  font-size: ;
 }
 
 .scalar-card-content {

@@ -1,3 +1,5 @@
+import Markdown from "react-markdown";
+
 var data = require("../../openapi/scalekit.swagger.json");
 let endpoints = {
   sso: [
@@ -18,7 +20,9 @@ function Parameter({ attrKey, type, required, description }) {
         <span className="type">{type}</span>
         {required ? <span class="required">required</span> : ""}
       </div>
-      <div className="desc">{description}</div>
+      <div className="desc">
+        <Markdown>{description}</Markdown>
+      </div>
     </li>
   );
 }

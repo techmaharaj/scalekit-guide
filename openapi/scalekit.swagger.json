@@ -568,21 +568,28 @@
             "type": "string",
             "description": "The code received by the Redirect URI as part of the Authentication Response.",
             "name": "code",
-            "in": "query",
+            "in": "body",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "The client secret to authorize the client.",
+            "name": "client_secret",
+            "in": "body",
             "required": true
           },
           {
             "type": "string",
             "description": "The redirect URI where this code was received. This will used to validate the code to make the code was infact generated for this redirect_uri",
             "name": "redirect_uri",
-            "in": "query",
+            "in": "body",
             "required": true
           },
           {
             "type": "string",
             "description": "Used in PKCE flow, a `code_challenge` presented at the Authorization Endpoint",
             "name": "code_verifier",
-            "in": "query"
+            "in": "body"
           }
         ],
         "responses": {

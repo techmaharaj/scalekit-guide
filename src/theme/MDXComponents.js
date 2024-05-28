@@ -1,5 +1,6 @@
 import LabeledCheckbox from "@site/src/components/checkbox";
 import Parameters from "../components/parameters";
+import { OrganizationAttributes } from "../components/parameters";
 import Endpoints from "@site/src/components/endpoint";
 import CodeWithHeader from "@site/src/components/CodeWithHeader";
 import Subtitle from "@site/src/components/custom";
@@ -9,7 +10,7 @@ import MDXComponents from "@theme-original/MDXComponents";
 import CodeBlock from "@theme/CodeBlock";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
-import React from "react";
+import IntersectingHeader from "../components/IntersectingHeader";
 
 export default {
   // Re-use the default mapping
@@ -26,4 +27,6 @@ export default {
   Endpoints,
   CodeWithHeader,
   Parameters,
+  OrganizationAttributes,
+  IntersectingHeader,
 };

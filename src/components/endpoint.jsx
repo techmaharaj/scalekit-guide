@@ -1,13 +1,24 @@
-let endpoints = {
-  sso: [
-    {
-      href: "#tag/sso/get/oauth/authorize",
-      label: "/oauth/authorize",
-      method: "GET",
-    },
-    { href: "#tag/sso/get/oauth/token", label: "/oauth/token", method: "POST" },
-  ],
-};
+var data = require("../../openapi/scalekit.swagger.json");
+
+function getEndPoints(tag) {
+  let desiredEndpoints = [];
+  for (const endpoint in data["paths"]) {
+    // go through all the endpoints
+    for (const key in data["paths"][endpoint]) {
+      // Go through all the methods with that endpoint
+      const value = data["paths"][endpoint][key];
+      // get the actual method + endpoint object and check if it contains tag
+      if (value.tags.includes(tag)) {
+        desiredEndpoints.push({
+          method: key,
+          label: endpoint,
+          href: "#tag/" + tag + "/" + key + endpoint,
+        });
+      }
+    }
+  }
+  return desiredEndpoints;
+}
 
 function Endpoint({ href, method, label }) {
   return (
@@ -18,7 +29,7 @@ function Endpoint({ href, method, label }) {
   );
 }
 
-export default function Endpoints({ category }) {
+export default function Endpoints({ tag }) {
   return (
     <div className="scalar-card scalar-card-sticky">
       <div className="scalar-card-content scalar-card--muted scalar-card-header">
@@ -31,7 +42,7 @@ export default function Endpoints({ category }) {
       </div>
       <div className="scalar-card-content scalar-card--muted custom-scroll">
         <div className="endpoints">
-          {endpoints[category].map((endpoint) => (
+          {getEndPoints(tag).map((endpoint) => (
             <Endpoint
               key={endpoint.href}
               href={endpoint.href}

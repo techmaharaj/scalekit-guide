@@ -897,7 +897,7 @@ table thead tr {
   white-space: nowrap;
 }
 .scalar-card-header {
-  background-color: aliceblue;
+  background-color: var(--scalar-background-2);
   border-bottom: 1px solid var(--scalar-border-color);
   color: var(--scalar-color-3);
   flex-shrink: 0;
@@ -912,11 +912,49 @@ table thead tr {
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
-  font-size: ;
+}
+
+.scalar-card-header-title span {
+  display: inline;
+  padding-right: 12px;
+}
+
+.scalar-card-header-title span.method.get,
+.endpoint span.get {
+  color: var(--scalar-color-blue);
+  text-transform: uppercase;
+}
+
+.scalar-card-header-title span.method.post,
+.endpoint span.post {
+  color: var(--scalar-color-green);
+  text-transform: uppercase;
+}
+
+.scalar-card-header-title span.method.delete,
+.endpoint span.delete {
+  text-transform: uppercase;
+  color: var(--scalar-color-red);
+}
+
+.scalar-card-header-title span.method.patch,
+.endpoint span.patch {
+  text-transform: uppercase;
+  color: var(--scalar-color-yellow);
+}
+
+.scalar-card-header-title span.endpoint {
+  text-transform: none;
+  color: var(--scalar-color-1);
+  font-family: var(--ifm-font-family-monospace);
 }
 
 .scalar-card-content {
   overflow: auto;
+}
+
+.scalar-card-content pre {
+  font-size: smaller;
 }
 
 .scalar-card-header-slots {
@@ -961,6 +999,12 @@ table thead tr {
   margin-bottom: 0 !important;
 }
 
+.scalar-card-content p {
+  font-size: smaller;
+  padding: 12px;
+  margin: 0;
+}
+
 .ApiReference-Parameters {
   display: flex;
   flex-direction: column;
@@ -975,6 +1019,9 @@ table thead tr {
   border-bottom: 1px solid var(--scalar-border-color);
   font-size: var(--scalar-small);
   padding-bottom: 1rem;
+}
+.ApiReference-Parameter:last-child {
+  border-bottom: 0;
 }
 .ApiReference-Parameter.header {
   font-weight: 600;
@@ -998,4 +1045,10 @@ table thead tr {
   color: var(--tblr-warning);
   font-weight: 500;
   font-size: smaller;
+}
+.headingWithStickyNavBar {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem);
+}
+.ApiCategoryList {
+  padding-left: 14px;
 }

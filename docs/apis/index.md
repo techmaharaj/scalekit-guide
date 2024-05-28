@@ -1,11 +1,12 @@
 ---
 hide_table_of_contents: true
 title: ""
+displayed_sidebar: apiReferenceSidebar
 ---
 
 import InstallSDK from '../templates/install-sdk.md';
 
-### Introduction
+<IntersectingHeader id="introduction" title="Introduction" initialInView="true"/>
 
 <div class="row section">
 <div class="col col--6">
@@ -45,7 +46,7 @@ https://auth.yoursaas.com
 </div>
 </div>
 
-### Authentication
+<IntersectingHeader id="authentication" title="Authentication" initialInView="false"/>
 
 <div class="row section">
     <div class="col col--6">
@@ -60,7 +61,7 @@ You will need the following information to authenticate with Scalekit APIs
 You can obtain a secure token by making `POST` call to the `https://{ENV_URL}/oauth/token` endpoint and sending client_id and client_secret as part of the request body.
 </div>
 <div class="col col--6">
-
+<CodeWithHeader title="API Authentication">
 <Tabs groupId="tech-stack">
 <TabItem value="curl" label="cURL">
 
@@ -94,8 +95,9 @@ go get https://www.github.com/scalekit-inc/go-sdk
 
 </TabItem> -->
 </Tabs>
-
+</CodeWithHeader>
 <CodeWithHeader title="Response">
+
 ```js showLineNumbers
 {
   "access_token": "DCR5c8139165228a82e442445fe01c16",
@@ -103,10 +105,13 @@ go get https://www.github.com/scalekit-inc/go-sdk
   "expires_in": 1799
 }
 ```
+
 </CodeWithHeader>
 </div>
 </div>
-#### Using Access Token
+
+<IntersectingHeader id="using-access-token" title="Using Access Token" subheading="true"/>
+
 <div class="row section">
     <div class="col col--6">
 The `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit.
@@ -132,7 +137,9 @@ $ curl --request GET "https://{ENV_URL}/api/v1/organizations" \
 
 </div>
 </div>
-### Error Handling
+
+<IntersectingHeader id="error-handling" title="Error Handling"/>
+
 <div class="row section">
     <div class="col col--6">
 As mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs.
@@ -169,26 +176,27 @@ You can see the list of different HTTP Status Codes and the error message format
 </CodeWithHeader>
 </div>
 </div>
-### Single Sign-on {#tag/sso}
+<IntersectingHeader id="tag/Authentication" title="Single Sign-on"/>
 
 <div class="row section">
     <div class="col col--6">
         When you need one of your customers to login via Enterprise SSO, you can redirect them to Scalekit's Authorization URL with necessary details about the organization or the SSO connection. Scalekit will seamleslly deal with integrating with any Identity Provider and exchanges user information via SAML or OIDC or OAuth2.
 
-        More details about the Single Sign-on flow is described <a href="/">here</a>
+More details about the Single Sign-on flow is described <a href="/">here</a>
+
     </div>
     <div class="col col--6">
-        <Endpoints category="sso" />
+        <Endpoints tag="Authentication" />
     </div>
 </div>
 
-#### Authorization URL {#tag/sso/get/oauth/authorize}
+<IntersectingHeader id="tag/Authentication/get/oauth/authorize" title="Authorization URL" subheading="true"/>
 
 <div class="row section">
     <div class="col col--6">
 Authorization URL initiates the Login flow with Scalekit.
 
-Scalekit expects atleast one of the following parameters to be present. The parameters are used to determine the SSO connection used to Login in the user.
+Scalekit expects atleast one of the following parameters to be present to determine the SSO connection and the identity provider to be used to verify user's identity.
 
 **organization_id** - ID of Organization. The user will be redirected to the SSO connection's identity provider configured for that organization.
 
@@ -200,11 +208,231 @@ Scalekit expects atleast one of the following parameters to be present. The para
 
 </div>
 <div class="col col--6">
+<CodeWithHeader method="get" endpoint="/oauth/authorize">
+<Tabs groupId="tech-stack">
+<TabItem value="curl" label="cURL">
+
+```bash showLineNumbers
+curl --request GET \
+  --url 'https://$env_url/oauth/authorize
+  ?client_id=skc_12344
+  &redirect_uri=https%3A%2F%2Fmysaasapp.com%2Fredirect_uri
+  &response_type=code
+  &state=hf68uyjh2189iuhj56789
+  &scope=openid profile'
+```
+
+</TabItem>
+<TabItem value="nodejs" label="Node.js">
+
+```js showLineNumbers
+// scalekit client takes care of authentication behind the scenes.
+const scalekit = new Scalekit(
+  SCALEKIT_ENVIRONMENT_URL,
+  SCALEKIT_CLIENT_ID,
+  SCALEKIT_CLIENT_SECRET
+);
+
+// Authorization URL with organization ID parameter and optional state parameter
+ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+   organizationId: 'org_12442',
+   state: state
+ })
+
+ // Authorization URL with optional login hint parameter
+ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+   loginHint: "user@example.com",
+   organizationId: 'org_12442'
+ })
+
+// Authorization URL with connection ID parameter
+ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+   connectionId: 'conn_1242242',
+ })
+```
+
+</TabItem>
+<!-- <TabItem value="golang" label="Go">
+
+```go
+go get https://www.github.com/scalekit-inc/go-sdk
+```
+
+</TabItem> -->
+</Tabs>
+</CodeWithHeader>
+<CodeWithHeader title="Response">
+
+User will be redirected to the appropriate Identity provider's login page based on either organization_id, or connection_id or domain.
+
+</CodeWithHeader>
 </div>
 </div>
 
-#### Token Endpoint {#tag/sso/get/oauth/token}
+<IntersectingHeader id="tag/Authentication/post/oauth/token" title="Token Endpoint" subheading="true"/>
 
-### Organization
+<div class="row section">
+    <div class="col col--6">
+After the user returns to your application via the redirect URL, you can get the authorization code from the URL and use it to request an access token and the id token. This request will be made to the token endpoint by passing in the authorization code, client secret and the redirect url that was sent in the initial authorization url.
 
-#### List Organizations
+The ID Token that you receive will contain the user profile information.
+
+<Parameters endpoint="/oauth/token" method="post" />
+
+</div>
+<div class="col col--6">
+<CodeWithHeader method="post" endpoint="/oauth/token">
+<Tabs groupId="tech-stack">
+<TabItem value="curl" label="cURL">
+
+```bash showLineNumbers
+curl --request POST \
+  --url 'https://$env_url/oauth/token
+  ?code=jhasd72
+  &redirect_uri=https%3A%2F%2Fmysaasapp.com%2Fredirect_uri
+  &client_secret=skc_prod_12441kjasad'
+```
+
+</TabItem>
+<TabItem value="nodejs" label="Node.js">
+
+```js showLineNumbers
+// scalekit client takes care of authentication behind the scenes.
+const scalekit = new Scalekit(
+  SCALEKIT_ENVIRONMENT_URL,
+  SCALEKIT_CLIENT_ID,
+  SCALEKIT_CLIENT_SECRET
+);
+
+
+```
+
+</TabItem>
+<!-- <TabItem value="golang" label="Go">
+
+```go
+go get https://www.github.com/scalekit-inc/go-sdk
+```
+
+</TabItem> -->
+</Tabs>
+</CodeWithHeader>
+<CodeWithHeader title="Response">
+
+```js
+{
+  "access_token": "ey ... vPnyWBQ",
+  "expires_in": 899,
+  "id_token": "eyJhbGc ... ar79GwZg",
+  "token_type": "Bearer"
+}
+```
+
+</CodeWithHeader>
+</div>
+</div>
+
+<IntersectingHeader id="tag/Organization" title="Organization" />
+
+<div class="row section">
+    <div class="col col--6">
+Organization represents a customer or a tenant of your application. Use this to create enterprise Single Sign-on connections or Admin Portal links for your customers.
+    </div>
+    <div class="col col--6">
+        <Endpoints tag="Organization" />
+    </div>
+</div>
+
+<IntersectingHeader id="tag/Organization/object" title="The Organization Object" subheading="true" />
+
+<div class="row section">
+    <div class="col col--6">
+<OrganizationAttributes />
+    </div>
+    <div class="col col--6">
+        <CodeWithHeader title="Organization Object">
+
+```js
+{
+    "id": "org_2123312131125533",
+    "display_name": "Acme Corp",
+    "create_time": "2024-001-05T14:48:00.000Z",
+    "external_id": "my_unique_id",
+    "metadata": {
+      "someKey": "somevalue"
+    },
+    "region_code": "US",
+    "update_time": "…"
+}
+```
+
+</CodeWithHeader>
+    </div>
+</div>
+
+<IntersectingHeader title="List all Organizations" id="tag/Organization/get/api/v1/organizations" subheading="true" />
+
+<div class="row section">
+    <div class="col col--6">
+    Returns a list of all organizations in a paginated format.
+<Parameters endpoint="/api/v1/organizations" method="get" />
+    </div>
+    <div class="col col--6">
+
+<CodeWithHeader method="get" endpoint="/api/v1/organizations">
+<Tabs groupId="tech-stack">
+<TabItem value="curl" label="cURL">
+
+```bash showLineNumbers
+curl --request GET \
+  --url 'https://$env_url/api/v1/organizations'
+```
+
+</TabItem>
+<TabItem value="nodejs" label="Node.js">
+
+```js showLineNumbers
+// scalekit client takes care of authentication behind the scenes.
+const scalekit = new Scalekit(
+  SCALEKIT_ENVIRONMENT_URL,
+  SCALEKIT_CLIENT_ID,
+  SCALEKIT_CLIENT_SECRET
+);
+
+```
+
+</TabItem>
+<!-- <TabItem value="golang" label="Go">
+
+```go
+go get https://www.github.com/scalekit-inc/go-sdk
+```
+
+</TabItem> -->
+</Tabs>
+</CodeWithHeader>
+<CodeWithHeader title="Response">
+
+```js
+{
+  "next_page_token": "…",
+  "organizations": [
+    {
+      "create_time": "2024-001-05T14:48:00.000Z",
+      "display_name": "Acme Corp",
+      "external_id": "my_unique_id",
+      "id": "org_2123312131125533",
+      "metadata": {
+        "someKey": "…"
+      },
+      "region_code": "US",
+      "update_time": "…"
+    }
+  ],
+  "total_size": 1
+}
+```
+
+</CodeWithHeader>
+    </div>
+</div>

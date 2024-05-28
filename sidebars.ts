@@ -58,19 +58,55 @@ const sidebars: SidebarsConfig = {
   ],
   apiReferenceSidebar: [
     {
-      type: "doc",
-      id: "apis/index",
+      type: "link",
+      href: "#introduction",
       label: "Introduction",
     },
     {
       type: "link",
-      href: "/apis#authentication",
+      href: "#authentication",
       label: "Authentication",
     },
     {
       type: "link",
-      href: "/apis#error-handling",
+      href: "#error-handling",
       label: "Error Handling",
+    },
+    {
+      type: "link",
+      href: "#tag/Authentication",
+      label: "Single Sign-on",
+      className: "ApiCategory",
+    },
+    {
+      type: "link",
+      href: "#tag/Authentication/get/oauth/authorize", // The link label
+      label: "Authorization URL", // The internal path
+      className: "ApiCategoryList",
+    },
+    {
+      type: "link",
+      href: "#tag/Authentication/post/oauth/token", // The link label
+      label: "Token URL", // The internal path
+      className: "ApiCategoryList",
+    },
+    {
+      type: "link",
+      href: "#tag/Organization",
+      label: "Organization",
+      className: "ApiCategory",
+    },
+    {
+      type: "link",
+      href: "#tag/Organization/object",
+      label: "The Organization object",
+      className: "ApiCategoryList",
+    },
+    {
+      type: "link",
+      href: "#tag/Organization/get/api/v1/organizations",
+      label: "List all Organizations",
+      className: "ApiCategoryList",
     },
   ],
   tutorialSidebar: [

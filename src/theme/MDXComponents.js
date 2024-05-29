@@ -11,6 +11,7 @@ import CodeBlock from "@theme/CodeBlock";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import IntersectingHeader from "../components/IntersectingHeader";
+import { APIEndpoint } from "../components/APIEndpoint";
 
 export default {
   // Re-use the default mapping
@@ -29,4 +30,5 @@ export default {
   Parameters,
   OrganizationAttributes,
   IntersectingHeader,
+  APIEndpoint,
 };

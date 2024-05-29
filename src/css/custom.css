@@ -942,6 +942,11 @@ table thead tr {
   text-transform: uppercase;
   color: var(--scalar-color-yellow);
 }
+.scalar-card-header-title span.method.put,
+.endpoint span.put {
+  text-transform: uppercase;
+  color: var(--scalar-color-orange);
+}
 
 .scalar-card-header-title span.endpoint {
   text-transform: none;
@@ -1060,19 +1065,8 @@ table thead tr {
   font-family: var(--ifm-font-family-base);
   font-weight: 500;
   font-size: smaller;
-  background: var(--method-color, var(--scalar-background-3));
-  background: color-mix(
-    in srgb,
-    var(--method-color, var(--scalar-background-3)),
-    #0000 90%
-  );
+  color: var(--method-color);
 
-  color: #fff;
-  color: color-mix(
-    in srgb,
-    var(--method-color, var(--scalar-color-1)),
-    #0000 0
-  );
   border-radius: 1rem;
   text-align: center;
   white-space: nowrap;
@@ -1091,4 +1085,61 @@ table thead tr {
 .ApiCategoryList.post a:after {
   content: "POST";
   --method-color: var(--scalar-color-green);
+}
+.ApiCategoryList.delete a:after {
+  content: "DELETE";
+  --method-color: var(--scalar-color-red);
+}
+.ApiCategoryList.patch a:after {
+  content: "PATCH";
+  --method-color: var(--scalar-color-yellow);
+}
+.ApiCategoryList.put a:after {
+  content: "PUT";
+  --method-color: var(--scalar-color-orange);
+}
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: var(--ifm-navbar-height);
+  width: var(--doc-sidebar-width);
+}
+.custom_container aside {
+  display: block;
+  width: var(--doc-sidebar-width);
+  min-width: var(--doc-sidebar-width);
+  border-right: 1px solid var(--ifm-toc-border-color);
+  will-change: width;
+  transition: width var(--ifm-transition-fast) ease;
+  clip-path: inset(0);
+  margin-top: calc(var(--ifm-navbar-height) * -1);
+}
+
+.sidebar {
+  top: 0;
+  position: sticky;
+  height: 100%;
+  max-height: 100vh;
+}
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: var(--ifm-navbar-height);
+  width: var(--doc-sidebar-width);
+}
+.custom_container {
+  display: flex;
+  width: 100%;
+}
+.custom_container .markdown {
+  margin: 0 calc(var(--ifm-spacing-horizontal) * 1);
+  padding: 0 4%;
+}
+article:has(.custom_container) {
+  padding: 0;
+}
+.margin-vert--lg:has(.custom_container) {
+  margin: 0 !important;
 }

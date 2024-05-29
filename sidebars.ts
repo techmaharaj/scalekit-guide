@@ -105,9 +105,74 @@ const sidebars: SidebarsConfig = {
     {
       type: "link",
       href: "#tag/Organization/get/api/v1/organizations",
-      label: "List all Organizations",
+      label: "List Organizations",
       className: "ApiCategoryList get method",
     },
+    //<h4 id="tag/Organization/post/api/v1/organizations" class="headingWithStickyNavBar anchor">Create Organization</h4>
+    {
+      type: "link",
+      href: "#tag/Organization/post/api/v1/organizations",
+      label: "Create Organization",
+      className: "ApiCategoryList post method",
+    },
+    //<h4 id="tag/Organization/get/api/v1/organizations/{id}" class="headingWithStickyNavBar anchor">Get Organization</h4>
+    // {
+    //   type: "link",
+    //   href: "#tag/Organization/get/api/v1/organizations/{id}",
+    //   label: "Get Organization",
+    //   className: "ApiCategoryList get method",
+    // },
+    // //<h4 id="tag/Organization/patch/api/v1/organizations/{id}" class="headingWithStickyNavBar anchor">Update Organization</h4>
+    // {
+    //   type: "link",
+    //   href: "#tag/Organization/patch/api/v1/organizations/{id}",
+    //   label: "Update Organization",
+    //   className: "ApiCategoryList patch method",
+    // },
+    // //<h4 id="tag/Organization/delete/api/v1/organizations/{id}" class="headingWithStickyNavBar anchor">Delete Organization</h4>
+    // {
+    //   type: "link",
+    //   href: "#tag/Organization/delete/api/v1/organizations/{id}",
+    //   label: "Delete Organization",
+    //   className: "ApiCategoryList delete method",
+    // },
+
+    // // Admin Portal
+    // //<h3 id="tag/Admin Portal" class="headingWithStickyNavBar anchor">Admin Portal</h3>
+    // {
+    //   type: "link",
+    //   href: "#tag/Admin Portal",
+    //   label: "Admin Portal",
+    //   className: "ApiCategory",
+    // },
+    // //<h4 id="tag/Admin Portal/object" class="headingWithStickyNavBar anchor">The Admin Portal Object</h4>
+    // {
+    //   type: "link",
+    //   href: "#tag/Admin Portal/object",
+    //   label: "The Admin Portal object",
+    //   className: "ApiCategoryList",
+    // },
+    // // <h4 id="tag/Admin Portal/get/api/v1/organizations/{id}/portal_links" class="headingWithStickyNavBar anchor">Get Portal link</h4>
+    // {
+    //   type: "link",
+    //   href: "#tag/Admin Portal/get/api/v1/organizations/{id}/portal_links",
+    //   label: "List Portal Links",
+    //   className: "ApiCategoryList get method",
+    // },
+    // //<h4 id="tag/Admin Portal/put/api/v1/organizations/{id}/portal_links" class="headingWithStickyNavBar anchor">Generate Portal link</h4>
+    // {
+    //   type: "link",
+    //   href: "#tag/Admin Portal/put/api/v1/organizations/{id}/portal_links",
+    //   label: "Generate Portal Link",
+    //   className: "ApiCategoryList put method",
+    // },
+    // //<h4 id="tag/Admin Portal/delete/api/v1/organizations/{id}/portal_links" class="headingWithStickyNavBar anchor">Delete Admin Portal link</h4>
+    // {
+    //   type: "link",
+    //   href: "#tag/Admin Portal/delete/api/v1/organizations/{id}/portal_links",
+    //   label: "Delete Portal Link",
+    //   className: "ApiCategoryList delete method",
+    // },
   ],
   tutorialSidebar: [
     {

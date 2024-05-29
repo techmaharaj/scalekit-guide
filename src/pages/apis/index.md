@@ -1,13 +1,27 @@
 ---
 hide_table_of_contents: true
-title: ""
-displayed_sidebar: apiReferenceSidebar
+title: "API Reference"
+
 ---
+import InstallSDK from '@site/docs/templates/install-sdk.md';
+import {sidebarItems} from '@site/src/components/IntersectingHeader';
 
-import InstallSDK from '../templates/install-sdk.md';
+<div class="custom_container">
 
-<IntersectingHeader id="introduction" title="Introduction" initialInView="true"/>
+<aside>
+<div class="sidebar">
+<div class="sidebarContainer">
+<nav class="menu thin-scrollbar">
+<ul class="theme-doc-sidebar-menu menu__list">
+{sidebarItems}
+</ul>
+</nav>
+</div>
+</div>
+</aside>
 
+<div class="theme-doc-markdown markdown">
+<IntersectingHeader id="introduction" title="Introduction" initialInView="true" addSidebar="true" classList=""/>
 <div class="row section">
 <div class="col col--6">
 Scalekit API is modeled around the [REST](https://en.wikipedia.org/wiki/REST) architecture style. That means, our API has predictable resource-oriented URLs, accepts form-encoded request bodies and produces JSON formatted responses, uses standard HTTP verbs and error codes.
@@ -110,7 +124,7 @@ go get https://www.github.com/scalekit-inc/go-sdk
 </div>
 </div>
 
-<IntersectingHeader id="using-access-token" title="Using Access Token" subheading="true"/>
+<IntersectingHeader id="using-access-token" title="Using Access Token" subheading="true" classList="ApiCategoryList"/>
 
 <div class="row section">
     <div class="col col--6">
@@ -176,8 +190,9 @@ You can see the list of different HTTP Status Codes and the error message format
 </CodeWithHeader>
 </div>
 </div>
-<IntersectingHeader id="tag/Authentication" title="Single Sign-on"/>
 
+<!-- Single Sign-on Section -->
+<IntersectingHeader id="tag/Authentication" title="Single Sign-on"/>
 <div class="row section">
     <div class="col col--6">
         When you need one of your customers to login via Enterprise SSO, you can redirect them to Scalekit's Authorization URL with necessary details about the organization or the SSO connection. Scalekit will seamleslly deal with integrating with any Identity Provider and exchanges user information via SAML or OIDC or OAuth2.
@@ -190,148 +205,10 @@ More details about the Single Sign-on flow is described <a href="/">here</a>
     </div>
 </div>
 
-<IntersectingHeader id="tag/Authentication/get/oauth/authorize" title="Authorization URL" subheading="true"/>
+<APIEndpoint method="get" endpoint="/oauth/authorize" tag="Authentication" />
+<APIEndpoint method="post" endpoint="/oauth/token" tag="Authentication" />
 
-<div class="row section">
-    <div class="col col--6">
-Authorization URL initiates the Login flow with Scalekit.
-
-Scalekit expects atleast one of the following parameters to be present to determine the SSO connection and the identity provider to be used to verify user's identity.
-
-**organization_id** - ID of Organization. The user will be redirected to the SSO connection's identity provider configured for that organization.
-
-**connection_id** - ID of the SSO connection. If the Connection's status is active, the user will be redirected to the SSO Connection's identity provider configured
-
-**domain** - Email domain of the user. Domain should be mapped to an Organization. The SSO connection from the org would be used to login to the app.
-
-<Parameters endpoint="/oauth/authorize" method="get" />
-
-</div>
-<div class="col col--6">
-<CodeWithHeader method="get" endpoint="/oauth/authorize">
-<Tabs groupId="tech-stack">
-<TabItem value="curl" label="cURL">
-
-```bash showLineNumbers
-curl --request GET \
-  --url 'https://$env_url/oauth/authorize
-  ?client_id=skc_12344
-  &redirect_uri=https%3A%2F%2Fmysaasapp.com%2Fredirect_uri
-  &response_type=code
-  &state=hf68uyjh2189iuhj56789
-  &scope=openid profile'
-```
-
-</TabItem>
-<TabItem value="nodejs" label="Node.js">
-
-```js showLineNumbers
-// scalekit client takes care of authentication behind the scenes.
-const scalekit = new Scalekit(
-  SCALEKIT_ENVIRONMENT_URL,
-  SCALEKIT_CLIENT_ID,
-  SCALEKIT_CLIENT_SECRET
-);
-
-// Authorization URL with organization ID parameter and optional state parameter
- const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-   organizationId: 'org_12442',
-   state: state
- })
-
- // Authorization URL with optional login hint parameter
- const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-   loginHint: "user@example.com",
-   organizationId: 'org_12442'
- })
-
-// Authorization URL with connection ID parameter
- const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-   connectionId: 'conn_1242242',
- })
-```
-
-</TabItem>
-<!-- <TabItem value="golang" label="Go">
-
-```go
-go get https://www.github.com/scalekit-inc/go-sdk
-```
-
-</TabItem> -->
-</Tabs>
-</CodeWithHeader>
-<CodeWithHeader title="Response">
-
-User will be redirected to the appropriate Identity provider's login page based on either organization_id, or connection_id or domain.
-
-</CodeWithHeader>
-</div>
-</div>
-
-<IntersectingHeader id="tag/Authentication/post/oauth/token" title="Token Endpoint" subheading="true"/>
-
-<div class="row section">
-    <div class="col col--6">
-After the user returns to your application via the redirect URL, you can get the authorization code from the URL and use it to request an access token and the id token. This request will be made to the token endpoint by passing in the authorization code, client secret and the redirect url that was sent in the initial authorization url.
-
-The ID Token that you receive will contain the user profile information.
-
-<Parameters endpoint="/oauth/token" method="post" />
-
-</div>
-<div class="col col--6">
-<CodeWithHeader method="post" endpoint="/oauth/token">
-<Tabs groupId="tech-stack">
-<TabItem value="curl" label="cURL">
-
-```bash showLineNumbers
-curl --request POST \
-  --url 'https://$env_url/oauth/token
-  ?code=jhasd72
-  &redirect_uri=https%3A%2F%2Fmysaasapp.com%2Fredirect_uri
-  &client_secret=skc_prod_12441kjasad'
-```
-
-</TabItem>
-<TabItem value="nodejs" label="Node.js">
-
-```js showLineNumbers
-// scalekit client takes care of authentication behind the scenes.
-const scalekit = new Scalekit(
-  SCALEKIT_ENVIRONMENT_URL,
-  SCALEKIT_CLIENT_ID,
-  SCALEKIT_CLIENT_SECRET
-);
-
-
-```
-
-</TabItem>
-<!-- <TabItem value="golang" label="Go">
-
-```go
-go get https://www.github.com/scalekit-inc/go-sdk
-```
-
-</TabItem> -->
-</Tabs>
-</CodeWithHeader>
-<CodeWithHeader title="Response">
-
-```js
-{
-  "access_token": "ey ... vPnyWBQ",
-  "expires_in": 899,
-  "id_token": "eyJhbGc ... ar79GwZg",
-  "token_type": "Bearer"
-}
-```
-
-</CodeWithHeader>
-</div>
-</div>
-
+<!-- Organization Tag -->
 <IntersectingHeader id="tag/Organization" title="Organization" />
 
 <div class="row section">
@@ -343,7 +220,7 @@ Organization represents a customer or a tenant of your application. Use this to 
     </div>
 </div>
 
-<IntersectingHeader id="tag/Organization/object" title="The Organization Object" subheading="true" />
+<IntersectingHeader id="tag/Organization/object" title="The Organization Object" subheading="true" classList="ApiCategoryList"/>
 
 <div class="row section">
     <div class="col col--6">
@@ -369,70 +246,95 @@ Organization represents a customer or a tenant of your application. Use this to 
 </CodeWithHeader>
     </div>
 </div>
+<APIEndpoint tag="Organization" method="get" endpoint="/api/v1/organizations" />
+<APIEndpoint tag="Organization" method="post" endpoint="/api/v1/organizations" />
+<APIEndpoint tag="Organization" method="get" endpoint="/api/v1/organizations/{id}" />
+<APIEndpoint tag="Organization" method="patch" endpoint="/api/v1/organizations/{id}" />
+<APIEndpoint tag="Organization" method="delete" endpoint="/api/v1/organizations/{id}" />
 
-<IntersectingHeader title="List all Organizations" id="tag/Organization/get/api/v1/organizations" subheading="true" />
+<!-- Organization Tag -->
+<IntersectingHeader id="tag/Admin Portal" title="Admin Portal" />
 
 <div class="row section">
     <div class="col col--6">
-    Returns a list of all organizations in a paginated format.
-<Parameters endpoint="/api/v1/organizations" method="get" />
+Organization represents a customer or a tenant of your application. Use this to create enterprise Single Sign-on connections or Admin Portal links for your customers.
     </div>
     <div class="col col--6">
+        <Endpoints tag="Admin Portal" />
+    </div>
+</div>
 
-<CodeWithHeader method="get" endpoint="/api/v1/organizations">
-<Tabs groupId="tech-stack">
-<TabItem value="curl" label="cURL">
+<IntersectingHeader id="tag/Admin Portal/object" title="The Admin Portal Object" subheading="true" classList="ApiCategoryList"/>
 
-```bash showLineNumbers
-curl --request GET \
-  --url 'https://$env_url/api/v1/organizations'
-```
-
-</TabItem>
-<TabItem value="nodejs" label="Node.js">
-
-```js showLineNumbers
-// scalekit client takes care of authentication behind the scenes.
-const scalekit = new Scalekit(
-  SCALEKIT_ENVIRONMENT_URL,
-  SCALEKIT_CLIENT_ID,
-  SCALEKIT_CLIENT_SECRET
-);
-
-```
-
-</TabItem>
-<!-- <TabItem value="golang" label="Go">
-
-```go
-go get https://www.github.com/scalekit-inc/go-sdk
-```
-
-</TabItem> -->
-</Tabs>
-</CodeWithHeader>
-<CodeWithHeader title="Response">
+<div class="row section">
+    <div class="col col--6">
+<OrganizationAttributes />
+    </div>
+    <div class="col col--6">
+        <CodeWithHeader title="Admin Portal Object">
 
 ```js
 {
-  "next_page_token": "…",
-  "organizations": [
-    {
-      "create_time": "2024-001-05T14:48:00.000Z",
-      "display_name": "Acme Corp",
-      "external_id": "my_unique_id",
-      "id": "org_2123312131125533",
-      "metadata": {
-        "someKey": "…"
-      },
-      "region_code": "US",
-      "update_time": "…"
-    }
-  ],
-  "total_size": 1
+    "id": "org_2123312131125533",
+    "display_name": "Acme Corp",
+    "create_time": "2024-001-05T14:48:00.000Z",
+    "external_id": "my_unique_id",
+    "metadata": {
+      "someKey": "somevalue"
+    },
+    "region_code": "US",
+    "update_time": "…"
 }
 ```
 
 </CodeWithHeader>
     </div>
+</div>
+<APIEndpoint tag="Admin Portal" method="get" endpoint="/api/v1/organizations/{id}/portal_links" />
+<APIEndpoint tag="Admin Portal" method="put" endpoint="/api/v1/organizations/{id}/portal_links" />
+<APIEndpoint tag="Admin Portal" method="delete" endpoint="/api/v1/organizations/{id}/portal_links" />
+
+<!-- Connections Tag -->
+<IntersectingHeader id="tag/Connection" title="Connection" />
+
+<div class="row section">
+    <div class="col col--6">
+Organization represents a customer or a tenant of your application. Use this to create enterprise Single Sign-on connections or Admin Portal links for your customers.
+    </div>
+    <div class="col col--6">
+        <Endpoints tag="Connection" />
+    </div>
+</div>
+
+<IntersectingHeader id="tag/Connection/object" title="The Connection Object" subheading="true" classList="ApiCategoryList"/>
+
+<div class="row section">
+    <div class="col col--6">
+<OrganizationAttributes />
+    </div>
+    <div class="col col--6">
+        <CodeWithHeader title="Connection Object">
+
+```js
+{
+    "id": "org_2123312131125533",
+    "display_name": "Acme Corp",
+    "create_time": "2024-001-05T14:48:00.000Z",
+    "external_id": "my_unique_id",
+    "metadata": {
+      "someKey": "somevalue"
+    },
+    "region_code": "US",
+    "update_time": "…"
+}
+```
+
+</CodeWithHeader>
+    </div>
+</div>
+<APIEndpoint tag="Connection" method="get" endpoint="/api/v1/connections" />
+<APIEndpoint tag="Connection" method="get" endpoint="/api/v1/organizations/{organization_id}/connections/{id}" />
+<APIEndpoint tag="Connection" method="patch" endpoint="/api/v1/organizations/{organization_id}/connections/{id}:disable" />
+<APIEndpoint tag="Connection" method="patch" endpoint="/api/v1/organizations/{organization_id}/connections/{id}:enable" />
+</div>
 </div>

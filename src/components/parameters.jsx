@@ -8,7 +8,7 @@ function Parameter({ attrKey, type, required, description }) {
       <div className="attr">
         <span className="key">{attrKey}</span>
         <span className="type">{type}</span>
-        {required ? <span class="required">required</span> : ""}
+        {required ? <span className="required">required</span> : ""}
       </div>
       <div className="desc">
         <Markdown>{description}</Markdown>

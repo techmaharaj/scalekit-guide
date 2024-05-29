@@ -82,13 +82,13 @@ const sidebars: SidebarsConfig = {
       type: "link",
       href: "#tag/Authentication/get/oauth/authorize", // The link label
       label: "Authorization URL", // The internal path
-      className: "ApiCategoryList",
+      className: "ApiCategoryList get method",
     },
     {
       type: "link",
       href: "#tag/Authentication/post/oauth/token", // The link label
       label: "Token URL", // The internal path
-      className: "ApiCategoryList",
+      className: "ApiCategoryList post method",
     },
     {
       type: "link",
@@ -106,7 +106,7 @@ const sidebars: SidebarsConfig = {
       type: "link",
       href: "#tag/Organization/get/api/v1/organizations",
       label: "List all Organizations",
-      className: "ApiCategoryList",
+      className: "ApiCategoryList get method",
     },
   ],
   tutorialSidebar: [

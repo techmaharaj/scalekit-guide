@@ -134,8 +134,6 @@ To make a request to one of our APIs, you need to include the access token in th
 
 Please make sure that you keep your Client Secrets safely. Do not share your client secret in publicly accessible areas such as GitHub, client-side code, etc.
 
-Refer to [this guide](/security/client-secrets) to understand some of the best practices around keeping client secrets secure.
-
 Our SDKs will automatically handle the API authentication and error handling to make the job of using our APIs much easier for you.
 </div>
 <div class="col col--6">
@@ -197,8 +195,7 @@ You can see the list of different HTTP Status Codes and the error message format
     <div class="col col--6">
         When you need one of your customers to login via Enterprise SSO, you can redirect them to Scalekit's Authorization URL with necessary details about the organization or the SSO connection. Scalekit will seamleslly deal with integrating with any Identity Provider and exchanges user information via SAML or OIDC or OAuth2.
 
-More details about the Single Sign-on flow is described <a href="/">here</a>
-
+More details about the Single Sign-on flow is described <Link href="/" target="_blank">here</Link>
     </div>
     <div class="col col--6">
         <Endpoints tag="Authentication" />
@@ -252,7 +249,7 @@ Organization represents a customer or a tenant of your application. Use this to 
 <APIEndpoint tag="Organization" method="patch" endpoint="/api/v1/organizations/{id}" />
 <APIEndpoint tag="Organization" method="delete" endpoint="/api/v1/organizations/{id}" />
 
-<!-- Organization Tag -->
+<!-- Admin Portal Tag -->
 <IntersectingHeader id="tag/Admin Portal" title="Admin Portal" />
 
 <div class="row section">

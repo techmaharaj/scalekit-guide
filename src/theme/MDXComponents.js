@@ -12,6 +12,7 @@ import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import IntersectingHeader from "../components/IntersectingHeader";
 import { APIEndpoint } from "../components/APIEndpoint";
+import Link from "@docusaurus/Link";
 
 export default {
   // Re-use the default mapping
@@ -31,4 +32,5 @@ export default {
   OrganizationAttributes,
   IntersectingHeader,
   APIEndpoint,
+  Link,
 };

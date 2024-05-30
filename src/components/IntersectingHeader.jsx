@@ -41,7 +41,7 @@ export default function IntersectingHeader({ ...props }) {
   return (
     <InView
       initialInView={props.initialInView}
-      rootMargin="0% 0 -30% 0"
+      rootMargin="0% 0% -30% 0%"
       onChange={(inView, entry) => {
         if (inView) {
           highlightIntersectingSection(entry.target.id);

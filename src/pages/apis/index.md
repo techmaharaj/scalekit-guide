@@ -24,7 +24,7 @@ import {sidebarItems} from '@site/src/components/IntersectingHeader';
 </aside>
 
 <div class="theme-doc-markdown markdown">
-<IntersectingHeader id="introduction" title="Introduction" initialInView="true" addSidebar="true" classList=""/>
+<IntersectingHeader id="introduction" title="Introduction" initialInView="true" classList=""/>
 <div class="row section">
 <div class="col col--6">
 Scalekit API is modeled around the [REST](https://en.wikipedia.org/wiki/REST) architecture style. That means, our API has predictable resource-oriented URLs, accepts form-encoded request bodies and produces JSON formatted responses, uses standard HTTP verbs and error codes.
@@ -79,7 +79,7 @@ You can obtain a secure token by making `POST` call to the `https://{ENV_URL}/oa
 </div>
 <div class="col col--6">
 <CodeWithHeader title="API Authentication">
-<Tabs groupId="tech-stack">
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers

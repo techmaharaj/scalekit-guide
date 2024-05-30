@@ -1,5 +1,5 @@
 
-<Tabs groupId="tech-stack">
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="nodejs" label="Node.js">
 
 ```bash

@@ -1,6 +1,6 @@
 
 <CodeWithHeader method="get" endpoint="/api/v1/connections">
-<Tabs groupId="tech-stack">
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers

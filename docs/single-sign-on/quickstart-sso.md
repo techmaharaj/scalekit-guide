@@ -90,7 +90,7 @@ After a successful user authentication, Scalekit provides a temporary code value
 :::tip
 our SDK automatically fills in the required parameters while constructing the authorizationURL as shown below.
 :::
-<Tabs groupId="tech-stack">
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
@@ -142,7 +142,7 @@ const scalekit = new Scalekit(
 
 After Scalekit completes SSO authentication, it sends a unique authorization code to the redirect_uri that is sent as part of the authorization URL above. You will need to send this `code` and `redirect_uri` to get the authenticated user's profile information.
 
-<Tabs groupId="tech-stack">
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers

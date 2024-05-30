@@ -678,15 +678,7 @@ pre {
 code {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-}
-
-#tag\/customer-portal .section-column .markdown code,
-#tag\/connection .section-column .markdown code,
-#tag\/organization .section-column .markdown code {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  font-size: 0.875rem !important;
-  font-weight: 501;
+  font-size: smaller !important;
 }
 
 .persist_chkbox {
@@ -695,11 +687,6 @@ code {
   accent-color: var(--ifm-color-primary);
 }
 
-/* #tag\/customer-portal>div>div>div:nth-child(2),
-#tag\/organization>div>div>div:nth-child(2),
-#tag\/connection>div>div>div:nth-child(2) {
-  display: none;
-} */
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
   z-index: 999;
@@ -896,6 +883,10 @@ table thead tr {
 .scalar-card table th {
   white-space: nowrap;
 }
+.scalar-card-sticky {
+  position: sticky;
+  top: 4rem;
+}
 .scalar-card-header {
   background-color: var(--scalar-background-2);
   border-bottom: 1px solid var(--scalar-border-color);
@@ -956,10 +947,6 @@ table thead tr {
 
 .scalar-card-content {
   overflow: auto;
-}
-
-.scalar-card-content pre {
-  font-size: smaller;
 }
 
 .scalar-card-header-slots {
@@ -1087,7 +1074,7 @@ table thead tr {
   --method-color: var(--scalar-color-green);
 }
 .ApiCategoryList.delete a:after {
-  content: "DELETE";
+  content: "DEL";
   --method-color: var(--scalar-color-red);
 }
 .ApiCategoryList.patch a:after {
@@ -1142,4 +1129,21 @@ article:has(.custom_container) {
 }
 .margin-vert--lg:has(.custom_container) {
   margin: 0 !important;
+}
+
+.ApiReference-Parameters details.alert {
+  padding: 0.5rem;
+  background-color: transparent;
+  --docusaurus-details-decoration-color: var(--ifm-toc-border-color);
+  border-color: var(--ifm-toc-border-color);
+}
+
+.ApiReference-Parameters summary {
+  font-weight: 500;
+}
+.ApiReference-Parameters details.alert > summary:before {
+  border-color: transparent transparent transparent var(--ifm-color-primary);
+}
+::marker {
+  display: none;
 }

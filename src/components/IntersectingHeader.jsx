@@ -50,15 +50,6 @@ export default function IntersectingHeader({ ...props }) {
     >
       {props.subheading
         ? ({ inView, ref, entry }) => (
-            <h4
-              id={props.id}
-              ref={ref}
-              className="headingWithStickyNavBar anchor"
-            >
-              {props.title}
-            </h4>
-          )
-        : ({ inView, ref, entry }) => (
             <h3
               id={props.id}
               ref={ref}
@@ -66,6 +57,15 @@ export default function IntersectingHeader({ ...props }) {
             >
               {props.title}
             </h3>
+          )
+        : ({ inView, ref, entry }) => (
+            <h2
+              id={props.id}
+              ref={ref}
+              className="headingWithStickyNavBar anchor"
+            >
+              {props.title}
+            </h2>
           )}
     </InView>
   );

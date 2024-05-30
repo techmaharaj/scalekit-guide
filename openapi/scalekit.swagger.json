@@ -1137,7 +1137,7 @@
           "type": "string",
           "format": "date-time",
           "title": "Created Time",
-          "example": "2024-001-05T14:48:00.000Z"
+          "example": "2024-01-05T14:48:00.000Z"
         },
         "display_name": {
           "description": "Display Name of the Organization",

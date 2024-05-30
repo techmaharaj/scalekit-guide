@@ -1,6 +1,6 @@
 export default function CodeWithHeader({ children, ...props }) {
   return (
-    <div className="scalar-card scalar-card-sticky">
+    <div className="scalar-card">
       <div className="scalar-card-content scalar-card--muted scalar-card-header">
         <div className="scalar-card-header-slots">
           <div className="scalar-card-header-slot scalar-card-header-title">

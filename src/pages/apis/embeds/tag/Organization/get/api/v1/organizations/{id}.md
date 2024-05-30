@@ -35,7 +35,7 @@ go get https://www.github.com/scalekit-inc/go-sdk
 
 ```js
 {
-  "create_time": "2024-001-05T14:48:00.000Z",
+  "create_time": "2024-01-05T14:48:00.000Z",
   "display_name": "Acme Corp",
   "external_id": "my_unique_id",
   "id": "org_2123312131125533",

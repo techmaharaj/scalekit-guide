@@ -42,15 +42,17 @@ export function APIEndpoint({ endpoint, method, tag }) {
         classList={"ApiCategoryList " + method + " method"}
         addSidebar="true"
       />
-      <div class="row section">
-        <div class="col col--6">
+      <div className="row section">
+        <div className="col col--6">
           <Markdown>{endpointData.description(endpoint, method)}</Markdown>
           <Parameters endpoint={endpoint} method={method} />
         </div>
-        <div class="col col--6">
-          <APIEndpointCodeSamples
-            filename={endpointData.filename(endpoint, method, tag)}
-          />
+        <div className="col col--6">
+          <div className="scalar-card-sticky">
+            <APIEndpointCodeSamples
+              filename={endpointData.filename(endpoint, method, tag)}
+            />
+          </div>
         </div>
       </div>
     </>

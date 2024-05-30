@@ -1,6 +1,5 @@
 import LabeledCheckbox from "@site/src/components/checkbox";
-import Parameters from "../components/parameters";
-import { OrganizationAttributes } from "../components/parameters";
+import Parameters, { Parameter } from "../components/parameters";
 import Endpoints from "@site/src/components/endpoint";
 import CodeWithHeader from "@site/src/components/CodeWithHeader";
 import Subtitle from "@site/src/components/custom";
@@ -30,7 +29,7 @@ export default {
   Endpoints,
   CodeWithHeader,
   Parameters,
-  OrganizationAttributes,
+  Parameter,
   IntersectingHeader,
   APIEndpoint,
   Link,

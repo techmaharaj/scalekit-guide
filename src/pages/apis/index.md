@@ -9,13 +9,13 @@ import AdminPortalTag from './adminPortal.md';
 import OrganizationTag from './organization.md';
 import {sidebarItems} from '@site/src/components/IntersectingHeader';
 
-<div class="custom_container">
+<div className="custom_container">
 
 <aside>
-<div class="sidebar">
-<div class="sidebarContainer">
-<nav class="menu thin-scrollbar">
-<ul class="theme-doc-sidebar-menu menu__list">
+<div className="sidebar">
+<div className="sidebarContainer">
+<nav className="menu thin-scrollbar">
+<ul className="theme-doc-sidebar-menu menu__list">
 {sidebarItems}
 </ul>
 </nav>
@@ -23,10 +23,10 @@ import {sidebarItems} from '@site/src/components/IntersectingHeader';
 </div>
 </aside>
 
-<div class="theme-doc-markdown markdown">
+<div className="theme-doc-markdown markdown">
 <IntersectingHeader id="introduction" title="Introduction" initialInView="true" classList=""/>
-<div class="row section">
-<div class="col col--6">
+<div className="row section">
+<div className="col col--6">
 Scalekit API is modeled around the [REST](https://en.wikipedia.org/wiki/REST) architecture style. That means, our API has predictable resource-oriented URLs, accepts form-encoded request bodies and produces JSON formatted responses, uses standard HTTP verbs and error codes.
 
 Apart from REST APIs, we have published SDKs in some of the popular languages as shown below. You can use these SDKs and integrate with Scalekit much faster.
@@ -39,7 +39,7 @@ Some additional instructions around using our APIs
 Read below to understand more about how to authenticate the API calls and how to handle errors appropriately.
 
 </div>
-<div class="col col--6">
+<div className="col col--6">
 **Just getting Started?**
 
 Refer to our <a href="/" target="_blank">Quick Start Guide</a>
@@ -65,8 +65,8 @@ https://auth.yoursaas.com
 
 <IntersectingHeader id="authentication" title="Authentication" initialInView="false"/>
 
-<div class="row section">
-    <div class="col col--6">
+<div className="row section">
+    <div className="col col--6">
 Scalekit API uses [OAuth2 Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials) based authentication. You can view and manage the necessary information from your `API Config` section in the Scalekit Dashboard.
 
 You will need the following information to authenticate with Scalekit APIs
@@ -77,7 +77,7 @@ You will need the following information to authenticate with Scalekit APIs
 
 You can obtain a secure token by making `POST` call to the `https://{ENV_URL}/oauth/token` endpoint and sending client_id and client_secret as part of the request body.
 </div>
-<div class="col col--6">
+<div className="col col--6">
 <CodeWithHeader title="API Authentication">
 <Tabs groupId="tech-stack" querystring>
 <TabItem value="curl" label="cURL">
@@ -129,8 +129,8 @@ go get https://www.github.com/scalekit-inc/go-sdk
 
 <IntersectingHeader id="using-access-token" title="Using Access Token" subheading="true" classList="ApiCategoryList"/>
 
-<div class="row section">
-    <div class="col col--6">
+<div className="row section">
+    <div className="col col--6">
 The `access_token` is the OAuth access token you need to use for all subsequent API calls to Scalekit.
 
 To make a request to one of our APIs, you need to include the access token in the Authorization header of the request as Bearer 'access_token'.
@@ -139,7 +139,7 @@ Please make sure that you keep your Client Secrets safely. Do not share your cli
 
 Our SDKs will automatically handle the API authentication and error handling to make the job of using our APIs much easier for you.
 </div>
-<div class="col col--6">
+<div className="col col--6">
 <CodeWithHeader title="Using Bearer Token">
 
 ```shell showLineNumbers
@@ -155,13 +155,13 @@ $ curl --request GET "https://{ENV_URL}/api/v1/organizations" \
 
 <IntersectingHeader id="error-handling" title="Error Handling"/>
 
-<div class="row section">
-    <div class="col col--6">
+<div className="row section">
+    <div className="col col--6">
 As mentioned earlier, Scalekit APIs return appropriate HTTP Status Codes along with the detailed error messages in case of invalid usage of APIs.
 
 You can see the list of different HTTP Status Codes and the error message format in the right pane. We strongly recommend you to handle errors gracefully while writing code using our SDKs.
 </div>
-<div class="col col--6">
+<div className="col col--6">
 <CodeWithHeader title="Error Codes">
 
 | HTTP Status | Description |
@@ -194,13 +194,13 @@ You can see the list of different HTTP Status Codes and the error message format
 
 <!-- Single Sign-on Section -->
 <IntersectingHeader id="tag/Authentication" title="Single Sign-on"/>
-<div class="row section">
-    <div class="col col--6">
+<div className="row section">
+    <div className="col col--6">
         When you need one of your customers to login via Enterprise SSO, you can redirect them to Scalekit's Authorization URL with necessary details about the organization or the SSO connection. Scalekit will seamleslly deal with integrating with any Identity Provider and exchanges user information via SAML or OIDC or OAuth2.
 
 More details about the Single Sign-on flow is described <Link href="/" target="_blank">here</Link>
     </div>
-    <div class="col col--6">
+    <div className="col col--6">
         <Endpoints tag="Authentication" />
     </div>
 </div>

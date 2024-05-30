@@ -13,6 +13,7 @@ import Tabs from "@theme/Tabs";
 import IntersectingHeader from "../components/IntersectingHeader";
 import { APIEndpoint } from "../components/APIEndpoint";
 import Link from "@docusaurus/Link";
+import Markdown from "react-markdown";
 
 export default {
   // Re-use the default mapping
@@ -33,4 +34,5 @@ export default {
   IntersectingHeader,
   APIEndpoint,
   Link,
+  Markdown,
 };

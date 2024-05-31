@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-import InstallSDK from './../templates/install-sdk.md';
+import InstallSDK from './../templates/_install-sdk.md';
 
 # Integrate Admin Portal
 

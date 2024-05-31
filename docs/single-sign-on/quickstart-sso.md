@@ -1,7 +1,7 @@
 ---
 slug: /
 ---
-import InstallSDK from './../templates/install-sdk.md';
+import InstallSDK from './../templates/_install-sdk.md';
 
 # SSO Quick Start
 

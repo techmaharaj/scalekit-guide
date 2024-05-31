@@ -72,6 +72,11 @@ const config: Config = {
         theme: {
           customCss: ["./src/css/scalar_theme.css", "./src/css/custom.css"],
         },
+        sitemap: {
+          lastmod: "date",
+          changefreq: "daily",
+          priority: 0.5,
+        },
       } satisfies Preset.Options,
     ],
     // Redocusaurus config

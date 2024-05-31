@@ -573,13 +573,6 @@
           },
           {
             "type": "string",
-            "description": "The client secret to authorize the client.",
-            "name": "client_secret",
-            "in": "body",
-            "required": true
-          },
-          {
-            "type": "string",
             "description": "The redirect URI where this code was received. This will used to validate the code to make the code was infact generated for this redirect_uri",
             "name": "redirect_uri",
             "in": "body",
@@ -587,7 +580,28 @@
           },
           {
             "type": "string",
-            "description": "Used in PKCE flow, a `code_challenge` presented at the Authorization Endpoint",
+            "description": "Unique client ID that represents your application.",
+            "name": "client_id",
+            "in": "body",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "The client secret to authorize the client.",
+            "name": "client_secret",
+            "in": "body",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Grant Type must be `authorization_code`.",
+            "name": "grant_type",
+            "in": "body",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Used in PKCE flow, code_verifier is derived from the `code_challenge` presented at the Authorization Endpoint",
             "name": "code_verifier",
             "in": "body"
           }

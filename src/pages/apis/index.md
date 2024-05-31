@@ -95,12 +95,21 @@ $ curl https://{ENV_URL}/oauth/token \
 <TabItem value="nodejs" label="Node.js">
 
 ```js showLineNumbers
+import {Scalekit} from "@scalekit-sdk/node";
+
 // scalekit client takes care of authentication behind the scenes.
 const scalekit = new Scalekit(
-  SCALEKIT_ENVIRONMENT_URL,
-  SCALEKIT_CLIENT_ID,
-  SCALEKIT_CLIENT_SECRET
+  <SCALEKIT_ENVIRONMENT_URL>, <SCALEKIT_CLIENT_ID>, <SCALEKIT_CLIENT_SECRET>
 );
+```
+
+</TabItem>
+<TabItem value="py" label="Python">
+
+```python
+from scalekit import ScalekitClient
+
+scalekit_client = ScalekitClient(<SCALEKIT_ENVIRONMENT_URL>, <SCALEKIT_CLIENT_ID>, <SCALEKIT_CLIENT_SECRET>)
 ```
 
 </TabItem>

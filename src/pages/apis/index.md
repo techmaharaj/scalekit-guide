@@ -7,8 +7,11 @@ import InstallSDK from '@site/docs/templates/_install-sdk.md';
 import ConnectionTag from './_connection.md';
 import AdminPortalTag from './_adminPortal.md';
 import OrganizationTag from './_organization.md';
-import {sidebarItems} from '@site/src/components/IntersectingHeader';
+import SidebarWrapper from '@site/src/components/SidebarWrapper';
 
+import SidebarItems from '@site/src/components/SidebarItems';
+
+<SidebarWrapper>
 <div className="custom_container">
 
 <aside>
@@ -16,7 +19,10 @@ import {sidebarItems} from '@site/src/components/IntersectingHeader';
 <div className="sidebarContainer">
 <nav className="menu thin-scrollbar">
 <ul className="theme-doc-sidebar-menu menu__list">
-{sidebarItems}
+    
+<SidebarItems></SidebarItems>
+    
+    
 </ul>
 </nav>
 </div>
@@ -233,3 +239,4 @@ More details about the Single Sign-on flow is described <Link href="/" target="_
 
 </div>
 </div>
+</SidebarWrapper>

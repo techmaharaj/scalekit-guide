@@ -21,22 +21,37 @@ curl --location --request PATCH 'https://$ENV_URL/api/v1/organizations/{id}' \
 
 ```js showLineNumbers
 // scalekit client takes care of authentication behind the scenes.
-const scalekit = new Scalekit(
+const sc = new Scalekit(
   SCALEKIT_ENVIRONMENT_URL,
   SCALEKIT_CLIENT_ID,
   SCALEKIT_CLIENT_SECRET
 );
 
+const organization = await sc.organization.updateOrganization(organization_id, {
+  displayName: "displayName",
+  externalId: "externalId"
+})
 ```
 
 </TabItem>
-<!-- <TabItem value="golang" label="Go">
+<TabItem value="py" label="Python">
 
-```go
-go get https://www.github.com/scalekit-inc/go-sdk
+```python showLineNumbers
+# scalekit client takes care of authentication behind the scenes.
+sc = ScalekitClient(
+  SCALEKIT_ENVIRONMENT_URL,
+  SCALEKIT_CLIENT_ID,
+  SCALEKIT_CLIENT_SECRET
+)
+
+organization = sc.organization.update_organization(organization_id, {
+  display_name: "display_name",
+  external_id: "external_id"
+})
+
 ```
 
-</TabItem> -->
+</TabItem>
 </Tabs>
 </CodeWithHeader>
 <CodeWithHeader title="Response">

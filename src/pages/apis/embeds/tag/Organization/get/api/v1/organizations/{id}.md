@@ -13,22 +13,30 @@ curl --request GET \
 
 ```js showLineNumbers
 // scalekit client takes care of authentication behind the scenes.
-const scalekit = new Scalekit(
+const sc = new Scalekit(
   SCALEKIT_ENVIRONMENT_URL,
   SCALEKIT_CLIENT_ID,
   SCALEKIT_CLIENT_SECRET
 );
 
+const organization =await sc.organization.getOrganization(organization_id)
 ```
 
 </TabItem>
-<!-- <TabItem value="golang" label="Go">
+<TabItem value="py" label="Python">
 
-```go
-go get https://www.github.com/scalekit-inc/go-sdk
+```python showLineNumbers
+# scalekit client takes care of authentication behind the scenes.
+sc = ScalekitClient(
+  SCALEKIT_ENVIRONMENT_URL,
+  SCALEKIT_CLIENT_ID,
+  SCALEKIT_CLIENT_SECRET
+)
+
+organization = sc.organization.get_organization(organization_id)
 ```
 
-</TabItem> -->
+</TabItem>
 </Tabs>
 </CodeWithHeader>
 <CodeWithHeader title="Response">

@@ -50,7 +50,11 @@ const scalekit = new Scalekit(
 ```python showLineNumbers
 from scalekit import ScalekitClient, AuthorizationUrlOptions, CodeAuthenticationOptions
 
-scalekit_client = ScalekitClient(<SCALEKIT_ENVIRONMENT_URL>, <SCALEKIT_CLIENT_ID>, <SCALEKIT_CLIENT_SECRET>)
+scalekit_client = ScalekitClient(
+  <SCALEKIT_ENVIRONMENT_URL>, 
+  <SCALEKIT_CLIENT_ID>, 
+  <SCALEKIT_CLIENT_SECRET>
+)
 
 
 options = AuthorizationUrlOptions()
@@ -70,7 +74,7 @@ options.login_hint = '<user@example.com>'
 authorization_url = scalekit_client.get_authorization_url(
   redirect_uri=<redirect_uri>, 
   options=options
-  )
+)
 
 # TODO redirect the user to the authorization url
 ```

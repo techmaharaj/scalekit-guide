@@ -19,6 +19,8 @@ const sc = new Scalekit(
   SCALEKIT_CLIENT_SECRET
 );
 
+await sc.organization.deleteOrganization(organizationId)
+
 ```
 
 </TabItem>
@@ -32,6 +34,7 @@ sc = ScalekitClient(
   SCALEKIT_CLIENT_SECRET
 )
 
+sc.organization.delete_organization(organization_id)
 ```
 
 </TabItem>
@@ -40,17 +43,7 @@ sc = ScalekitClient(
 <CodeWithHeader title="Response">
 
 ```js
-{
-    "create_time": "2024-01-05T14:48:00.000Z",
-    "display_name": "Acme Corp",
-    "external_id": "my_unique_id",
-    "id": "org_2123312131125533",
-    "metadata": {
-        "someKey": "…"
-    },
-    "region_code": "US",
-    "update_time": "…"
-}
+{}
 ```
 
 </CodeWithHeader>

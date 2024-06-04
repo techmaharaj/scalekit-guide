@@ -19,6 +19,8 @@ const sc = new Scalekit(
   SCALEKIT_CLIENT_SECRET
 );
 
+await sc.organization.deletePortalLink(organizationId, linkId)
+
 ```
 
 </TabItem>
@@ -31,6 +33,8 @@ sc = ScalekitClient(
   SCALEKIT_CLIENT_ID,
   SCALEKIT_CLIENT_SECRET
 )
+
+sc.organization.delete_portal_link(organization_id, link_id)
 
 ```
 

@@ -44,15 +44,28 @@ connection = sc.connection.get_connection(connection_id,organization_id)
 
 ```js
 {
+  "id": "conn_2123312131125533",
+  "organization_id": "org_1232434",
+  "provider": "OKTA",
+  "type": "SAML",
+  "status": "COMPLETED",
+  "enabled": true,
+  "debug_enabled": false,
+  "configuration_type": "MANUAL",
+  "saml_config":{
+    "sp_entity_id": "https://yourapp.com/service/saml",
+    "sp_assertion_url": "https://youridp.com/service/saml/assertion",
+    "sp_metadata_url": "https://youridp.com/service/saml/metadata",
+    "idp_metadata_url": "https://youridp.com/service/idp/metadata",
+    "idp_sso_url": "https://youridp.com/sso/saml",
+  }
+  "attribute_mapping":{
+    "email": "email", 
+    "family_name": "lastName", 
+    "given_name": "firstName", 
+    "sub": "nameid",
+  }
   "create_time": "2024-01-05T14:48:00.000Z",
-  "display_name": "Acme Corp",
-  "external_id": "my_unique_id",
-  "id": "org_2123312131125533",
-  "metadata": {
-    "someKey": "…"
-  },
-  "region_code": "US",
-  "update_time": "…"
 }
 ```
 

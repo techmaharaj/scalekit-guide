@@ -44,21 +44,13 @@ links = sc.organization.get_portal_links(organization_id)
 
 ```js
 {
-  "next_page_token": "…",
-  "organizations": [
+  "links": [
     {
-      "create_time": "2024-01-05T14:48:00.000Z",
-      "display_name": "Acme Corp",
-      "external_id": "my_unique_id",
-      "id": "org_2123312131125533",
-      "metadata": {
-        "someKey": "…"
-      },
-      "region_code": "US",
-      "update_time": "…"
+      "id": "lnk_123123123123123",
+      "location": "https://scalekit.com/portal/lnk_123123123123123",
+      "expire_time": "2024-02-06T14:48:00.000Z"
     }
-  ],
-  "total_size": 1
+  ]
 }
 ```
 

@@ -44,21 +44,8 @@ sc.connection.enable_connection(connection_id,organization_id)
 
 ```js
 {
-  "next_page_token": "…",
-  "organizations": [
-    {
-      "create_time": "2024-01-05T14:48:00.000Z",
-      "display_name": "Acme Corp",
-      "external_id": "my_unique_id",
-      "id": "org_2123312131125533",
-      "metadata": {
-        "someKey": "…"
-      },
-      "region_code": "US",
-      "update_time": "…"
-    }
-  ],
-  "total_size": 1
+  "enabled": true,
+  "error_message": ""
 }
 ```
 

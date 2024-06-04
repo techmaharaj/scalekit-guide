@@ -1,9 +1,9 @@
 <IntersectingHeader id="tag/Admin Portal" title="Admin Portal" />
 
-<div class="row section">
-    <div class="col col--6">
+<div className="row section">
+    <div className="col col--6">
     </div>
-    <div class="col col--6">
+    <div className="col col--6">
         <Endpoints tag="Admin Portal" />
     </div>
 </div>

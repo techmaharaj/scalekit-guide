@@ -1,14 +1,14 @@
 <IntersectingHeader id="tag/Connection" title="Connection" />
-<div class="row section">
-    <div class="col col--6">
+<div className="row section">
+    <div className="col col--6">
     </div>
-    <div class="col col--6">
+    <div className="col col--6">
         <Endpoints tag="Connection" />
     </div>
 </div>
 <IntersectingHeader id="tag/Connection/object" title="The Connection Object" subheading="true" classList="ApiCategoryList" />
-<div class="row section">
-    <div class="col col--6">
+<div className="row section">
+    <div className="col col--6">
         <ul className="ApiReference-Parameters">
             <li className="ApiReference-Parameter header">Attributes</li>
             <Parameter attrKey="id" type="string" description="Unique ID of the Connection" />
@@ -109,8 +109,8 @@
             <Parameter attrKey="update_time" type="string" description="Timestamp at which this organization record was last updated in ISO 8601 format" />
         </ul>
     </div>
-    <div class="col col--6">
-        <div class="scalar-card-sticky">
+    <div className="col col--6">
+        <div className="scalar-card-sticky">
             <CodeWithHeader title="Connection Object">
                 ```js
                 {

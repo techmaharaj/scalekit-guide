@@ -26,37 +26,7 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: { defaultLocale: "en", locales: ["en"] },
-  plugins: [
-    // [
-    //   "@scalar/docusaurus",
-    //   {
-    //     label: "API Reference",
-    //     route: "/api-reference",
-    //     configuration: {
-    //       isEditable: false,
-    //       spec: {
-    //         url: "https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json",
-    //       },
-    //       searchHotKey: "b",
-    //       hideModels: false,
-    //       showSidebar: true,
-    //       hiddenClients: [
-    //         "c",
-    //         "objc",
-    //         "clojure",
-    //         "powershell",
-    //         "swift",
-    //         "cohttp",
-    //       ],
-    //       hideDownloadButton: true,
-    //       darkMode: false,
-
-    //       // customCss: './css/custom.css',
-    //     },
-    //   } as ScalarOptions,
-    // ],
-    "plugin-image-zoom",
-  ],
+  plugins: ["plugin-image-zoom"],
   presets: [
     [
       "classic",
@@ -79,28 +49,6 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
-    // Redocusaurus config
-    // [
-    //   'redocusaurus',
-    //   {
-    //     // Plugin Options for loading OpenAPI files
-    //     specs: [
-    //       // Pass it a path to a local OpenAPI YAML file
-    //       {
-    //         // Redocusaurus will automatically bundle your spec into a single
-    //         file during the build spec: 'openapi/scalekit.swagger.json',
-    //         route: '/api',
-
-    //       },
-
-    //     ],
-    //     // Theme Options for modifying how redoc renders them
-    //     theme: {
-    //       // Change with your site colors
-    //       primaryColor: '#1890ff',
-    //     },
-    //   },
-    // ] satisfies Redocusaurus.PresetEntry,
   ],
 
   themeConfig: {

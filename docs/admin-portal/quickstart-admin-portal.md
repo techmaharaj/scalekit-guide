@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-import InstallSDK from './../templates/install-sdk.md';
+import InstallSDK from './../templates/_install-sdk.md';
 
 # Integrate Admin Portal
 
@@ -30,7 +30,7 @@ Begin by installing the Scalekit SDK, which provides necessary tools for creatin
 
 Use the [generatePortalLink](/api-reference#tag/customer-portal/put/api/v1/organizations/{id}/portal_links) API to generate an Admin Portal link that is uniquely keyed to an organization. You can either embed this as an iframe in your application or redirect the user to this link for the admin to self serve configure SSO for their organization.
 
-<Tabs groupId="tech-stack">
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers

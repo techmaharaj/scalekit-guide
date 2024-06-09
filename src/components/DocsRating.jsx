@@ -5,16 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const DocsRating = ({ label }) => {
   const [haveVoted, setHaveVoted] = useState(false);
   const giveFeedback = (value) => {
     if (window.ga) {
-      window.ga("send", {
-        hitType: "event",
-        eventCategory: "button",
-        eventAction: "feedback",
+      window.ga('send', {
+        hitType: 'event',
+        eventCategory: 'button',
+        eventAction: 'feedback',
         eventLabel: label,
         eventValue: value,
       });
@@ -25,7 +25,7 @@ const DocsRating = ({ label }) => {
   return (
     <div className="docsRating">
       {haveVoted ? (
-        "Thank you for the feedback!"
+        'Thank you for the feedback!'
       ) : (
         <>
           Is this page useful?

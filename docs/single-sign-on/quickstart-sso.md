@@ -1,5 +1,4 @@
 ---
-slug: /
 ---
 
 import InstallSDK from './../templates/install-sdk.md';

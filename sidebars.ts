@@ -8,36 +8,21 @@ const sidebars: SidebarsConfig = {
       id: 'home',
     },
     {
-      type: 'doc',
-      label: 'Quickstart',
-      id: 'home',
-    },
-    {
       type: 'category',
       label: 'Single Sign-on',
       className: 'sso_category',
-      collapsible: true,
-      collapsed: true,
+      collapsible: false,
+      collapsed: false,
       items: [
         {
           type: 'doc',
-          label: 'Build', // The link label
+          label: 'Quickstart', // The link label
           id: 'single-sign-on/quickstart-sso', // The internal path
         },
         {
           type: 'doc',
-          label: 'Test', // The link label
-          id: 'single-sign-on/testing-sso', // The internal path
-        },
-        {
-          type: 'doc',
-          label: 'Go-live', // The link label
-          id: 'single-sign-on/golive-checklist', // The internal path
-        },
-        {
-          type: "doc",
-          label: "Integrate",
-          id: "admin-portal/quickstart-admin-portal",
+          label: 'Integrate',
+          id: 'admin-portal/quickstart-admin-portal',
         },
 
         {
@@ -52,6 +37,49 @@ const sidebars: SidebarsConfig = {
           id: 'admin-portal/branding-theming',
         },
       ],
+    },
+    {
+      type: 'link',
+      label: 'Integrations',
+      href: '/integrations',
+    },
+    {
+      type: 'link',
+      label: 'Guides',
+      href: '/guides',
+    },
+    {
+      type: 'doc',
+      label: 'Errors',
+      id: 'best-practices/error-handling',
+    },
+    {
+      type: 'link',
+      label: 'API', // The link label
+      href: '/api-reference', // The internal path
+    },
+    'sdks',
+    {
+      type: 'doc',
+      label: 'Concepts',
+      id: 'manage-scalekit/glossary',
+    },
+    {
+      type: 'doc',
+      label: 'Launch Checklist',
+      id: 'best-practices/launch-checklist',
+    },
+  ],
+  integrationsSidebar: [
+    {
+      type: 'link',
+      label: 'Back to Home',
+      href: '/',
+    },
+    {
+      type: 'doc',
+      label: 'Overview',
+      id: 'integrations/integrations',
     },
     {
       type: 'category',
@@ -89,11 +117,21 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+  ],
+  guidesSidebar: [
+    {
+      type: 'link',
+      label: 'Back to Home',
+      href: '/',
+    },
+    {
+      type: 'doc',
+      label: 'Overview',
+      id: 'guides/guides',
+    },
     {
       type: 'category',
-      label: 'Guides',
-      collapsible: true,
-      collapsed: true,
+      label: 'Learn',
       items: [
         {
           type: 'doc',
@@ -130,33 +168,17 @@ const sidebars: SidebarsConfig = {
           label: "Handling IdP Initiated SSO",
           id: "best-practices/handling-idp-initiated",
         },
-        {
-          type: 'doc',
-          label: 'SAML Configurations',
-          id: 'best-practices/advanced-saml',
-        },
-        {
-          type: 'doc',
-          label: 'Organizations',
-          id: 'manage-scalekit/organization',
-        },
       ],
     },
     {
       type: 'doc',
-      label: 'Errors',
-      id: 'best-practices/error-handling',
+      label: 'SAML Configurations',
+      id: 'best-practices/advanced-saml',
     },
-    {
-      type: 'link',
-      label: 'API', // The link label
-      href: '/api-reference', // The internal path
-    },
-    'sdks',
     {
       type: 'doc',
-      label: 'Concepts',
-      id: 'manage-scalekit/glossary',
+      label: 'Organizations',
+      id: 'manage-scalekit/organization',
     },
   ],
 };

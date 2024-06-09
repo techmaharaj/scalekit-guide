@@ -1,6 +1,7 @@
 ---
 slug: /
 ---
+
 import InstallSDK from './../templates/install-sdk.md';
 
 # SSO Quick Start
@@ -39,7 +40,6 @@ Here's a description of how it works:
 - Ensure you're logged into your [Scalekit account](https://app.scalekit.com) and have your API credentials ready
 - Access to your codebase is also necessary to implement and test changes
 
-
 ### 1. Install SDK
 
 Scalekit provides SDKs for various languages to quickly add SSO in your application.
@@ -50,7 +50,6 @@ Install the relevant SDK using the command below:
 
 ### 2. Configure your Secrets
 
-
 Set up your API credentials, found on your Scalekit dashboard, as environment variables for secure API communication.
 
 **API Credentials:**
@@ -59,20 +58,20 @@ Set up your API credentials, found on your Scalekit dashboard, as environment va
 - **Client ID**: A unique, alpha-numeric string that your application will use for all communications with Scalekit.
 - **Client Secret**: Randomly generated secret that is used to authenticate your APIs. For security purposes, this is generated only when you request using the Scalekit Dashboard. See [here](/docs/best-practices/manage-client-secrets.md) to learn best practices on how to manage Client Secret.
 
-Now, go to your Scalekit Dashboard, choose the "Development" environment and select “API Config” to access these configuration details. 
+Now, go to your Scalekit Dashboard, choose the "Development" environment and select “API Config” to access these configuration details.
 
-We recommend you to store these credentials as environment variables (in your .env file). 
+We recommend you to store these credentials as environment variables (in your .env file).
 
 ```jsx title=".env"
-SCALEKIT_ENVIRONMENT_URL="<https://yoursaas-dev.scalekit.com>"
-SCALEKIT_CLIENT_ID="skc_122056050118122349527"
-SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
+SCALEKIT_ENVIRONMENT_URL = '<https://yoursaas-dev.scalekit.com>';
+SCALEKIT_CLIENT_ID = 'skc_122056050118122349527';
+SCALEKIT_CLIENT_SECRET =
+  'test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN';
 ```
 
 ### 3. Initiate the Authorization URL
 
 The endpoint to initiate SSO is crucial for the authentication workflow. The SSO integration starts after you redirect the user to Scalekit Authorization URL.
-
 
 As part of Authorization URL, you will need to send the following required parameters for successfully initiating SSO. You can read more details about the entire list of parameters that are accepted as part of authoriation url <a href="/best-practices/authorization-url" target="_blank">here</a>
 
@@ -82,14 +81,13 @@ After a successful user authentication, Scalekit provides a temporary code value
 
 2. **SSO Connection Identifier:** One of the following request parameters should be present to identify the appropriate SSO connection to be used to initiate the SSO.
 
-- **<SimpleCode>organization_id</SimpleCode>**: Organization ID that the user belongs to. This is the preferred parameter for SAML and OIDC connections.  Example: <SimpleCode>org_12434341</SimpleCode>
-
+- **<SimpleCode>organization_id</SimpleCode>**: Organization ID that the user belongs to. This is the preferred parameter for SAML and OIDC connections. Example: <SimpleCode>org_12434341</SimpleCode>
 
 - **<SimpleCode>connection_id</SimpleCode>**: You can also use the Connection ID for the specific SSO connection. Example: <SimpleCode>conn_121414141</SimpleCode>
 
 - **<SimpleCode>domain</SimpleCode>**: If your application enforces SSO for all users that belong to a particular email domain, this attribute can be useful to detect the appropriate SSO connection. Example: <SimpleCode>google.com or yourcustomerdomain.com</SimpleCode>
 
-3. **client_id:** Client ID uniquely identifies your application and environment and hence it is mandatory. 
+3. **client_id:** Client ID uniquely identifies your application and environment and hence it is mandatory.
 
 :::tip
 our SDK automatically fills in the required parameters while constructing the authorizationURL as shown below.
@@ -106,21 +104,21 @@ const scalekit = new Scalekit(
 );
 
 // Authorization URL with organization ID parameter and optional state parameter
- const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-   organizationId: 'org_12442',
-   state: state
- })
+const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+  organizationId: 'org_12442',
+  state: state,
+});
 
 // Authorization URL with optional login hint parameter
- const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-   loginHint: "user@example.com",
-   organizationId: 'org_12442'
- })
+const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+  loginHint: 'user@example.com',
+  organizationId: 'org_12442',
+});
 
 // Authorization URL with connection ID parameter
- const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-   connectionId: 'conn_1242242',
- })
+const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+  connectionId: 'conn_1242242',
+});
 
 // next step is to redirect the user to this authorizationURL
 ```
@@ -142,7 +140,6 @@ const scalekit = new Scalekit(
 </TabItem> -->
 </Tabs>
 
-
 ### 4. Fetch User Details
 
 After Scalekit completes SSO authentication, it sends a unique authorization code to the redirect_uri that is sent as part of the authorization URL above. You will need to send this `code` and `redirect_uri` to get the authenticated user's profile information.
@@ -151,19 +148,26 @@ After Scalekit completes SSO authentication, it sends a unique authorization cod
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
-const {code, error, error_description, idp_initiated_login, connection_id, relay_state} = req.query;
+const {
+  code,
+  error,
+  error_description,
+  idp_initiated_login,
+  connection_id,
+  relay_state,
+} = req.query;
 
 if (error) {
   // handle errors
 }
 
 // check if this is an idp initiated login
-if (idp_initiated_login && idp_initiated_login === "success") {
+if (idp_initiated_login && idp_initiated_login === 'success') {
   // handle idp initiated login
   const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
     connectionId: connection_id,
-    ...(relay_state && {state: relay_state}) // optionally pass relay state as state parameter
-  })
+    ...(relay_state && { state: relay_state }), // optionally pass relay state as state parameter
+  });
 
   // next step is to redirect the user to this authorizationURL
 }
@@ -171,12 +175,11 @@ if (idp_initiated_login && idp_initiated_login === "success") {
 // if there are no errors and if this is not an IdP initiated SSO, then authenticate with the code
 const res = await sc.authenticateWithCode({
   code: code,
-  redirectUri: redirectUri
+  redirectUri: redirectUri,
 });
 
-// res.user has the authenticated user's details 
+// res.user has the authenticated user's details
 const userEmail = res.user.email;
-
 
 // next step is to create a session for this user and allow access to your application resources
 ```
@@ -195,10 +198,8 @@ const userEmail = res.user.email;
 // write go code here
 ```
 
-</TabItem>  -->
+</TabItem> -->
 </Tabs>
-
-
 
 ## Onboarding Enterprise Customers
 
@@ -207,11 +208,9 @@ Once SSO is implemented, you’ll want to thoroughly test the setup and go throu
 - [Test SSO](/docs/single-sign-on/testing-sso.md)
 - [Production Check-list](/docs/single-sign-on/golive-checklist.md)
 
-
 Explore more. Check out:
 
 - [Node.js SDK](https://github.com/scalekit-inc/scalekit-sdk-node) - Reference the SDK used in this guide for a deep dive into its capabilities
 - [Sample Next JS App](https://github.com/scalekit-inc/scalekit-nextjs-example) - Download and explore a fully functional sample app to jumpstart your implementation
-
 
 Now that you have a working SSO integration with Scalekit, you're ready to provide a seamless authentication experience for your users. Happy coding!

@@ -1,60 +1,51 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import type {ScalarOptions} from '@scalar/docusaurus'
-
+import type { ScalarOptions } from '@scalar/docusaurus';
 
 const config: Config = {
-  title: 'Scalekit | Developer Documentation',
+  title: 'Scalekit Docs',
   tagline: 'Enterprise Ready Authentiction Platform for SaaS',
   favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
   url: 'https://docs.scalekit.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
   trailingSlash: false,
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'scalekit-inc',  // Usually your GitHub org/user name.
-  projectName: 'docs',               // Usually your repo name.
+  organizationName: 'scalekit-inc',
+  projectName: 'docs',
   deploymentBranch: 'gh-pages',
   onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'warn',
   clientModules: ['./iframedetector.js'],
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
-  i18n: {defaultLocale: 'en', locales: ['en']},
+  i18n: { defaultLocale: 'en', locales: ['en'] },
   plugins: [
     [
       '@scalar/docusaurus',
       {
-        label: 'API Reference',
+        label: '',
         route: '/api-reference',
         configuration: {
           isEditable: false,
           spec: {
-            url:
-                'https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json',
-
+            url: 'https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json',
           },
           searchHotKey: 'b',
           hideModels: false,
           showSidebar: true,
-          hiddenClients:
-              ['c', 'objc', 'clojure', 'powershell', 'swift', 'cohttp'],
+          hiddenClients: [
+            'c',
+            'objc',
+            'clojure',
+            'powershell',
+            'swift',
+            'cohttp',
+          ],
           hideDownloadButton: true,
           darkMode: false,
-
           // customCss: './css/custom.css',
-
         },
       } as ScalarOptions,
     ],
-    'plugin-image-zoom'
+    'plugin-image-zoom',
   ],
   presets: [
     [
@@ -65,13 +56,11 @@ const config: Config = {
           sidebarCollapsed: false,
           sidebarCollapsible: false,
           sidebarPath: './sidebars.ts',
-          routeBasePath: '/'
+          routeBasePath: '/',
         },
         blog: false,
         theme: {
-          customCss: [
-            './src/css/custom.css',
-          ]
+          customCss: ['./src/css/custom.css'],
         },
       } satisfies Preset.Options,
     ],
@@ -100,25 +89,35 @@ const config: Config = {
   ],
 
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
+
     navbar: {
       // title: 'Scalekit Docs',
       logo: {
         src: 'https://cdn.scalekit.cloud/v1/scalekit-logo-dark.svg',
         srcDark:
-            'https://assets-global.website-files.com/65b87d98fa638289e10b8f61/65c269053d86c92e0cf91db5_scalekit-logo.svg'
+          'https://assets-global.website-files.com/65b87d98fa638289e10b8f61/65c269053d86c92e0cf91db5_scalekit-logo.svg',
       },
       items: [
-        // { to: '/api', label: 'API Docs', position: 'left' },
-        {
-          to: '/',
-          label: 'Documentation',
-          position: 'left',
-        },
-        {
-          to: '/integrations',
-          label: 'Integrations',
-          position: 'left',
-        },
+        // {
+        //   to: '/home',
+        //   label: 'Home',
+        //   position: 'left',
+        // },
+        // {
+        //   to: '/',
+        //   label: 'Documentation',
+        //   position: 'left',
+        // },
+        // {
+        //   to: '/integrations',
+        //   label: 'Integrations',
+        //   position: 'left',
+        // },
         {
           type: 'search',
           position: 'right',
@@ -127,7 +126,7 @@ const config: Config = {
           to: 'https://app.scalekit.com',
           label: 'Go to Dashboard ->',
           position: 'right',
-          className: 'loginLink'
+          className: 'loginLink',
         },
       ],
     },
@@ -156,10 +155,9 @@ const config: Config = {
       contextualSearch: false,
       insights: true,
       searchPagePath: false,
-
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.duotoneLight,
       additionalLanguages: ['bash'],
     },
   } satisfies Preset.ThemeConfig,

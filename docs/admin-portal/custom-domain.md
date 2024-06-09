@@ -1,4 +1,3 @@
-
 # Custom Domain (CNAME)
 
 <Subtitle>Host Admin Portal on your own domain</Subtitle>
@@ -12,10 +11,10 @@ But, if you would like to offer a deeply customized experience to your customers
 ## Visibility of Custom Domain
 
 1. **Stand alone Admin Portal**
-When your customers visit the Self serve Admin Portal, they will see the URL of your environment in the browser's address bar.
+   When your customers visit the Self serve Admin Portal, they will see the URL of your environment in the browser's address bar.
 
 2. **SSO Redirects**
-When your customers login with SSO via SAML or OIDC, they may see the scalekit.com in their browser's address bar as part of redirection to their Identity Provider.
+   When your customers login with SSO via SAML or OIDC, they may see the scalekit.com in their browser's address bar as part of redirection to their Identity Provider.
 
 :::info
 

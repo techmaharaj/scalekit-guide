@@ -1,8 +1,5 @@
-
-
 <Tabs groupId="tech-stack">
 <TabItem value="nodejs" label="Node.js">
-
 
 ```command-line
 $ npm install @scalekit-sdk/node

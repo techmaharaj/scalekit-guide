@@ -25,6 +25,7 @@ You can use our SDK to generate this authorization URL.
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
+import {Scalekit} from "@scalekit-sdk/node";
 // init client
 const scalekit = new Scalekit(
   SCALEKIT_ENVIRONMENT_URL,
@@ -33,30 +34,37 @@ const scalekit = new Scalekit(
 );
 
 const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-        loginHint: "user@example.com",
-        //connectionId: "conn_1223231234124",
-        //domain: "example.com",
-        organizationId: "org_123235245"
-      })
+  loginHint: "user@example.com",
+  //connectionId: "conn_1223231234124",
+  //domain: "example.com",
+  organizationId: "org_123235245"
+})
 
 // next step is to redirect the user to this authorizationURL
 ```
 
 </TabItem>
-<!-- <TabItem value="py" label="Python">
+<TabItem value="py" label="Python">
 
-```python
-# write python code here
+```python showLineNumbers
+from scalekit import ScalekitClient, AuthorizationUrlOptions
+
+# init client
+scalekit_client = ScalekitClient(
+  SCALEKIT_ENVIRONMENT_URL, 
+  SCALEKIT_CLIENT_ID, 
+  SCALEKIT_CLIENT_SECRET
+)
+
+options = AuthorizationUrlOptions()
+options.organization_id = "org_123235245"
+options.login_hint = "user@example.com"
+
+authorization_url = scalekit_client.get_authorization_url(redirect_uri, options)
+# next step is to redirect the user to this authorization_url
 ```
 
 </TabItem>
-<TabItem value="golang" label="Go">
-
-```go
-// write go code here
-```
-
-</TabItem> -->
 </Tabs>
 
 ## Possible Authorization URL Parameters

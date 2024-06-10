@@ -33,7 +33,20 @@ https://default_redirect_uri?idp_initiated_login=success&connection_id=conn_1244
 
 2. You can handle this incoming idp initiated request and construct a new Authorization URL and redirect the user to this authorizationURL. This would automatically start the SP initiated SSO workflow for the user. Since the user is already logged into their Identity Provider (which is why they could initiate the IdP iniitated SSO in the first place), their identity provider will send a new clean SAML response thus eliminating all the risks of IdP initiated SSO and concerns of stolen assertions being used.
 
-```javascript showLineNumbers title="handle_redirect_url.js"
+
+<Tabs groupId="tech-stack" querystring>
+<TabItem value="nodejs" label="Node.js">
+
+```javascript showLineNumbers
+import {Scalekit} from "@scalekit-sdk/node";
+
+// init client
+const scalekit = new Scalekit(
+  SCALEKIT_ENVIRONMENT_URL,
+  SCALEKIT_CLIENT_ID,
+  SCALEKIT_CLIENT_SECRET
+);
+
 const {code, error, error_description, idp_initiated_login, connection_id, relay_state} = req.query;
 
 if (error) {
@@ -65,6 +78,50 @@ const userEmail = res.user.email;
 
 // next step is to create a session for this user and allow access to your application resources
 ```
+
+</TabItem>
+<TabItem value="py" label="Python">
+
+```python showLineNumbers
+from scalekit import ScalekitClient, AuthorizationUrlOptions, CodeAuthenticationOptions
+
+# init client
+scalekit_client = ScalekitClient(
+  <SCALEKIT_ENVIRONMENT_URL>, 
+  <SCALEKIT_CLIENT_ID>, 
+  <SCALEKIT_CLIENT_SECRET>
+)
+
+# Handle the oauth redirect_url
+# fetch code and error_description from request parameters.
+code = request.args.get('code')
+error = request.args.get('error')
+error_description = request.args.get('error_description')
+idp_initiated_login = request.args.get('idp_initiated_login')
+connection_id = request.args.get('connection_id')
+relay_state = request.args.get('relay_state')
+
+if error:
+    raise Exception(error_description)
+
+if idp_initiated_login and idp_initiated_login == "success":
+    # handle idp initiated login
+    authorization_url = scalekit_client.get_authorization_url(redirect_uri, {
+        'connection_id': connection_id,
+        'state': relay_state
+    })
+    # next step is to redirect the user to this authorization_url
+
+# if there are no errors and if this is not an IdP initiated SSO, then authenticate with the code
+result = scalekit_client.authenticate_with_code(code, redirect_uri)
+# result.user has the authenticated user's details
+user_email = result.user.email
+
+# TODO Create a session and redirect the user to your dashboard
+```
+
+</TabItem>
+</Tabs>
 
 ## Advantages
 

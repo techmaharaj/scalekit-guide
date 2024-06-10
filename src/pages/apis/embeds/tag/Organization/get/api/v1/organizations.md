@@ -38,7 +38,9 @@ sc = ScalekitClient(
 options = ListOrganizationOptions()
 options.page_size = 10
 
-organizations = sc.organization.list_organizations(options=options)
+organizations = sc.organization.list_organizations(
+  options=options
+)
 
 ```
 

@@ -19,7 +19,10 @@ const sc = new Scalekit(
   SCALEKIT_CLIENT_SECRET
 );
 
-const connection = await sc.connection.getConnection(connectionId, organizationId)
+const connection = await sc.connection.getConnection(
+  connectionId, 
+  organizationId
+)
 
 ```
 
@@ -33,7 +36,11 @@ sc = ScalekitClient(
   SCALEKIT_CLIENT_ID,
   SCALEKIT_CLIENT_SECRET
 )
-connection = sc.connection.get_connection(connection_id,organization_id)
+
+connection = sc.connection.get_connection(
+  connection_id,
+  organization_id
+)
 
 ```
 

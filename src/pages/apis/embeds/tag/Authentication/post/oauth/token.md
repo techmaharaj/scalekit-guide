@@ -47,25 +47,26 @@ from scalekit import ScalekitClient, AuthorizationUrlOptions, CodeAuthentication
 
 scalekit_client = ScalekitClient(<SCALEKIT_ENVIRONMENT_URL>, <SCALEKIT_CLIENT_ID>, <SCALEKIT_CLIENT_SECRET>)
 
-
 # Handle the oauth redirect_url 
 # fetch code and error_description from request parameters.
-if error_description:
+code = request.args.get('code')
+error = request.args.get('error')
+error_description = request.args.get('error_description')
+idp_initiated_login = request.args.get('idp_initiated_login')
+connection_id = request.args.get('connection_id')
+relay_state = request.args.get('relay_state')
+
+if error:
     raise Exception(error_description)
 
 result = scalekit_client.authenticate_with_code(<code>, <redirect_uri>)
+# result.user has the authenticated user's details
+user_email = result.user.email
 
 # TODO Create a session and redirect the user to your dashboard
 ```
 
 </TabItem>
-<!-- <TabItem value="golang" label="Go">
-
-```go
-go get https://www.github.com/scalekit-inc/go-sdk
-```
-
-</TabItem> -->
 </Tabs>
 </CodeWithHeader>
 <CodeWithHeader title="Response">

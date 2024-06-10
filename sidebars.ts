@@ -179,7 +179,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "link",
           label: "API Reference", // The link label
-          href: "/api-reference", // The internal path
+          href: "/apis", // The internal path
         },
         // 'sdks'
       ],

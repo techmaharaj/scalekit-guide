@@ -27,9 +27,10 @@ const sc = new Scalekit(
   SCALEKIT_CLIENT_SECRET
 );
 
-const organization = await sc.organization.createOrganization(name, {
-  externalId: "externalId"
-})
+const organization = await sc.organization.createOrganization(
+  name, 
+  {externalId: "externalId"}
+)
 ```
 
 </TabItem>
@@ -44,7 +45,10 @@ sc = ScalekitClient(
 )
 options = CreateOrganizationOptions()
 options.external_id = "externalId"
-organization = sc.organization.create_organization(name, options=options)
+organization = sc.organization.create_organization(
+  name, 
+  options=options
+)
 ```
 
 </TabItem>

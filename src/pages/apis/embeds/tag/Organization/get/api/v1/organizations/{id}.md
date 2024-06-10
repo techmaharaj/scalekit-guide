@@ -19,7 +19,9 @@ const sc = new Scalekit(
   SCALEKIT_CLIENT_SECRET
 );
 
-const organization =await sc.organization.getOrganization(organization_id)
+const organization = await sc.organization.getOrganization(
+  organization_id
+)
 ```
 
 </TabItem>
@@ -33,7 +35,9 @@ sc = ScalekitClient(
   SCALEKIT_CLIENT_SECRET
 )
 
-organization = sc.organization.get_organization(organization_id)
+organization = sc.organization.get_organization(
+  organization_id
+)
 ```
 
 </TabItem>

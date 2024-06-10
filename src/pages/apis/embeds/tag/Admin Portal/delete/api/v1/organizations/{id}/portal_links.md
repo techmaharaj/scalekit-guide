@@ -19,7 +19,10 @@ const sc = new Scalekit(
   SCALEKIT_CLIENT_SECRET
 );
 
-await sc.organization.deletePortalLink(organizationId, linkId)
+await sc.organization.deletePortalLink(
+  organizationId,
+  linkId
+)
 
 ```
 
@@ -34,7 +37,10 @@ sc = ScalekitClient(
   SCALEKIT_CLIENT_SECRET
 )
 
-sc.organization.delete_portal_link(organization_id, link_id)
+sc.organization.delete_portal_link(
+  organization_id,
+  link_id
+)
 
 ```
 

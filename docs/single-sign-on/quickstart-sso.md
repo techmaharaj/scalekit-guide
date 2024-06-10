@@ -94,6 +94,7 @@ our SDK automatically fills in the required parameters while constructing the au
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
+import {Scalekit} from "@scalekit-sdk/node";
 // init client
 const scalekit = new Scalekit(
   SCALEKIT_ENVIRONMENT_URL,
@@ -122,20 +123,38 @@ const scalekit = new Scalekit(
 ```
 
 </TabItem>
-<!-- <TabItem value="py" label="Python">
+<TabItem value="py" label="Python">
 
-```python
-# write python code here
+```python showLineNumbers
+from scalekit import ScalekitClient, AuthorizationUrlOptions, CodeAuthenticationOptions
+
+scalekit_client = ScalekitClient(
+  <SCALEKIT_ENVIRONMENT_URL>, 
+  <SCALEKIT_CLIENT_ID>, 
+  <SCALEKIT_CLIENT_SECRET>
+)
+
+options = AuthorizationUrlOptions()
+# use one of the three strategies below to determine how to log the user in.
+
+# If you would like to authenticate the user via connection_id
+options.connection_id = 'conn_1242242'
+
+# If you would like to authenticate the user via organization_id
+options.organization_id = 'org_12442'
+
+# If you would like to authenticate the user via their email address 
+# Domain portion of the user's email address is used to detect the appropriate enterprise SSO connection
+options.login_hint = '<user@example.com>'
+
+authorization_url = scalekit_client.get_authorization_url(
+  redirect_uri=<redirect_uri>, 
+  options=options
+)
+
 ```
 
 </TabItem>
-<TabItem value="golang" label="Go">
-
-```go
-// write go code here
-```
-
-</TabItem> -->
 </Tabs>
 
 ### 4. Fetch User Details
@@ -177,20 +196,33 @@ const userEmail = res.user.email;
 ```
 
 </TabItem>
-<!-- <TabItem value="py" label="Python">
+<TabItem value="py" label="Python">
 
-<CodeBlock language="python">
- {`# write python code here`}
-</CodeBlock>
+```python showLineNumbers
+from scalekit import ScalekitClient, AuthorizationUrlOptions, CodeAuthenticationOptions
 
-</TabItem>
-<TabItem value="golang" label="Go">
+scalekit_client = ScalekitClient(<SCALEKIT_ENVIRONMENT_URL>, <SCALEKIT_CLIENT_ID>, <SCALEKIT_CLIENT_SECRET>)
 
-```go
-// write go code here
+# Handle the oauth redirect_url 
+# fetch code and error_description from request parameters.
+code = request.args.get('code')
+error = request.args.get('error')
+error_description = request.args.get('error_description')
+idp_initiated_login = request.args.get('idp_initiated_login')
+connection_id = request.args.get('connection_id')
+relay_state = request.args.get('relay_state')
+
+if error:
+    raise Exception(error_description)
+
+result = scalekit_client.authenticate_with_code(<code>, <redirect_uri>)
+# result.user has the authenticated user's details
+user_email = result.user.email
+
+# TODO Create a session and redirect the user to your dashboard
 ```
 
-</TabItem>  -->
+</TabItem>
 </Tabs>
 
 ## Onboarding Enterprise Customers

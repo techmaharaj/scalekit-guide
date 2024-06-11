@@ -30,18 +30,26 @@ const sidebars: SidebarsConfig = {
           id: 'single-sign-on/quickstart-admin-portal',
         },
         {
-          type: 'doc',
-          label: 'Custom Domain',
-          id: 'admin-portal/custom-domain',
-        },
-        {
-          type: 'doc',
-          label: 'UX Customization',
-          id: 'admin-portal/branding-theming',
+          type: 'category',
+          label: 'Customization',
+          className: 'category_customization',
+          collapsible: false,
+          collapsed: false,
+          items: [
+            {
+              type: 'doc',
+              label: 'Custom Domain',
+              id: 'admin-portal/custom-domain',
+            },
+            {
+              type: 'doc',
+              label: 'Interface',
+              id: 'admin-portal/branding-theming',
+            },
+          ],
         },
       ],
     },
-
     {
       type: 'link',
       label: 'Guides',
@@ -50,7 +58,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'doc',
       label: 'Errors',
-      id: 'best-practices/error-handling',
+      id: 'guides/error-handling',
     },
     {
       type: 'link',

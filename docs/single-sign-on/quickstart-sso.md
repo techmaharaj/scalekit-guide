@@ -85,8 +85,8 @@ Never hardcode secrets in your app. Use environment variables instead. Here's ho
 
 ```sh
 SCALEKIT_ENVIRONMENT_URL="https://yoursaas-dev.scalekit.com"
-SCALEKIT_CLIENT_ID="skc_122056050118122349527"
-SCALEKIT_CLIENT_SECRET="test_CbGfKxzwUVO6ISirRcTKMbcX3dsfdsfdsfsdfdsfsdfGmXLN"
+SCALEKIT_CLIENT_ID="<COPY_CLIENT_ID_SCALEKIT_DASHBOARD>"
+SCALEKIT_CLIENT_SECRET="<COPY_SECRET_SCALEKIT_DASHBOARD>"
 ```
 
 ⚠️ Security Alert:

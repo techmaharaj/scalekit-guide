@@ -20,17 +20,20 @@ const sidebars: SidebarsConfig = {
           id: 'single-sign-on/quickstart-sso', // The internal path
         },
         {
-          type: 'doc',
-          label: 'Integrate',
-          id: 'admin-portal/quickstart-admin-portal',
+          type: 'link',
+          label: 'Integrations',
+          href: '/integrations',
         },
-
+        {
+          type: 'doc',
+          label: 'Admin Portal',
+          id: 'single-sign-on/quickstart-admin-portal',
+        },
         {
           type: 'doc',
           label: 'Custom Domain',
           id: 'admin-portal/custom-domain',
         },
-
         {
           type: 'doc',
           label: 'UX Customization',
@@ -38,11 +41,7 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    {
-      type: 'link',
-      label: 'Integrations',
-      href: '/integrations',
-    },
+
     {
       type: 'link',
       label: 'Guides',

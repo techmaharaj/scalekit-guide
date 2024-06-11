@@ -3,7 +3,7 @@ hide_table_of_contents: true
 pagination_next: integrations/saml
 ---
 
-# Integration Guides
+# Overview
 
 ## Identity Providers
 

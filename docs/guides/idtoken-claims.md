@@ -1,4 +1,3 @@
-
 # Inspecting Claims in ID Token
 
 An ID Token is nothing but a cryptographically signed Base64-encoded JSON object containing a set of name/value pairs about the user's profile information. Essentially, it is a JWT token. Ideally, it is advised that you validate an ID token before you use it, but since you are communicating directly with Scalekit over an intermediary-free HTTPS channel and using your client secret to exchange the `code` for the ID Token, you can be confident that the token you receive really comes from Scalekit and is valid.
@@ -38,22 +37,22 @@ Here's an example, formatted for readability (and ignoring the header and signat
 
 ## Full list of ID Token Claims
 
-|Claim|Provided|Description|
-|--- |--- |--- |
-|<SimpleCode>aud</SimpleCode>|always|The audience that this ID token is intended for. It must be one of the client IDs of your application.|
-|<SimpleCode>amr</SimpleCode>|always|Array of Authentication Method Reference values that the user used to sign-in. Usually, it will have the connection_id using which the user completed the SSO flow.|
-|<SimpleCode>exp</SimpleCode>|always|Expiration time on or after which the ID token must not be accepted. Represented in Unix time (integer seconds).|
-|<SimpleCode>iat</SimpleCode>|always|The time the ID token was issued. Represented in Unix time (integer seconds).|
-|<SimpleCode>iss</SimpleCode>|always|The Issuer Identifier for the Issuer of the response. It must be your environment url. https:<nolink/>//yoursaas.scalekit.com or https:<nolink/>//sso.yourdomain.com|
-|<SimpleCode>oid</SimpleCode>|always|organization_id of the user|
-|<SimpleCode>sub</SimpleCode>|always|An identifier for the user, as submitted by the Identity Provider that completed the Single Sign-on.|
-|<SimpleCode>at_hash</SimpleCode>|always|Access token hash. Provides validation that the access token is tied to the identity token. |
-|<SimpleCode>c_hash</SimpleCode>|always|Authorization code hash. Provides validation that the authorization code is tied to the identity token. |
-|<SimpleCode>azp</SimpleCode>|always|The client_id of the authorized presenter. Usually, this will be same as the `aud`|
-|<SimpleCode>email</SimpleCode>|always|The user's email address.|
-|<SimpleCode>email_verified</SimpleCode>||True if the user's e-mail address has been verified as claimed by the Identity Provider; otherwise false.|
-|<SimpleCode>name</SimpleCode>||Fully formatted user's name|
-|<SimpleCode>family_name</SimpleCode>||The user's surname or last name.|
-|<SimpleCode>given_name</SimpleCode>||The user's given name or first name.|
-|<SimpleCode>locale</SimpleCode>||The user's locale, represented by a BCP 47 language tag.|
-|<SimpleCode>picture</SimpleCode>||The user's profile picture in URL format|
+| Claim                                   | Provided | Description                                                                                                                                                          |
+| --------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <SimpleCode>aud</SimpleCode>            | always   | The audience that this ID token is intended for. It must be one of the client IDs of your application.                                                               |
+| <SimpleCode>amr</SimpleCode>            | always   | Array of Authentication Method Reference values that the user used to sign-in. Usually, it will have the connection_id using which the user completed the SSO flow.  |
+| <SimpleCode>exp</SimpleCode>            | always   | Expiration time on or after which the ID token must not be accepted. Represented in Unix time (integer seconds).                                                     |
+| <SimpleCode>iat</SimpleCode>            | always   | The time the ID token was issued. Represented in Unix time (integer seconds).                                                                                        |
+| <SimpleCode>iss</SimpleCode>            | always   | The Issuer Identifier for the Issuer of the response. It must be your environment url. https:<nolink/>//yoursaas.scalekit.com or https:<nolink/>//sso.yourdomain.com |
+| <SimpleCode>oid</SimpleCode>            | always   | organization_id of the user                                                                                                                                          |
+| <SimpleCode>sub</SimpleCode>            | always   | An identifier for the user, as submitted by the Identity Provider that completed the Single Sign-on.                                                                 |
+| <SimpleCode>at_hash</SimpleCode>        | always   | Access token hash. Provides validation that the access token is tied to the identity token.                                                                          |
+| <SimpleCode>c_hash</SimpleCode>         | always   | Authorization code hash. Provides validation that the authorization code is tied to the identity token.                                                              |
+| <SimpleCode>azp</SimpleCode>            | always   | The client_id of the authorized presenter. Usually, this will be same as the `aud`                                                                                   |
+| <SimpleCode>email</SimpleCode>          | always   | The user's email address.                                                                                                                                            |
+| <SimpleCode>email_verified</SimpleCode> |          | True if the user's e-mail address has been verified as claimed by the Identity Provider; otherwise false.                                                            |
+| <SimpleCode>name</SimpleCode>           |          | Fully formatted user's name                                                                                                                                          |
+| <SimpleCode>family_name</SimpleCode>    |          | The user's surname or last name.                                                                                                                                     |
+| <SimpleCode>given_name</SimpleCode>     |          | The user's given name or first name.                                                                                                                                 |
+| <SimpleCode>locale</SimpleCode>         |          | The user's locale, represented by a BCP 47 language tag.                                                                                                             |
+| <SimpleCode>picture</SimpleCode>        |          | The user's profile picture in URL format                                                                                                                             |

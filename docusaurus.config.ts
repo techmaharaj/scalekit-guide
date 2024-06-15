@@ -46,6 +46,7 @@ const config: Config = {
       } as ScalarOptions,
     ],
     'plugin-image-zoom',
+    './plugins/learn-filters',
   ],
   presets: [
     [
@@ -65,7 +66,6 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     docs: {
       sidebar: {

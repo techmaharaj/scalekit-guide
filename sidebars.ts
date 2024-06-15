@@ -48,12 +48,17 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+        {
+          type: 'doc',
+          label: 'Launch Checklist',
+          id: 'best-practices/launch-checklist',
+        },
       ],
     },
     {
       type: 'link',
       label: 'Guides',
-      href: '/guides',
+      href: '/guides-new',
     },
     {
       type: 'doc',
@@ -70,11 +75,6 @@ const sidebars: SidebarsConfig = {
       type: 'doc',
       label: 'Concepts',
       id: 'manage-scalekit/glossary',
-    },
-    {
-      type: 'doc',
-      label: 'Launch Checklist',
-      id: 'best-practices/launch-checklist',
     },
   ],
   integrationsSidebar: [
@@ -131,11 +131,11 @@ const sidebars: SidebarsConfig = {
       label: 'Back to Home',
       href: '/',
     },
-    {
-      type: 'doc',
-      label: 'Overview',
-      id: 'guides/guides',
-    },
+    // {
+    //   type: 'doc',
+    //   label: 'Overview',
+    //   id: 'guides/guides',
+    // },
     {
       type: 'category',
       label: 'Learn',

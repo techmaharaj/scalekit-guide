@@ -5,6 +5,8 @@ hide_table_of_contents: true
 pagination_next: null
 ---
 
+import CardList from "../src/components/CardList/CardList";
+import Card from "../src/components/Card/Card";
 
 # Welcome to the docs
 
@@ -13,6 +15,13 @@ pagination_next: null
 
 Scalekit can deliver production-ready enterprise authentication to your app in hours.
 
-1. Quickstart
-2. API Reference
-3. SDKs
+<CardList size="medium">
+  <Card title="Quickstart" href="/single-sign-on/quickstart-sso" linkText="Let's Get Started">
+    Learn Scalekit, Master Key Concepts, and Implement Single Sign-On
+  </Card>
+  <Card title="APIs" href="https://docs.scalekit.com/apis" linkText="Explore">
+    Explore server-side Libraries and API Endpoints
+  </Card>
+
+
+</CardList>

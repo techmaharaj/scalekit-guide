@@ -1,15 +1,16 @@
 ---
-excerpt: "This article describes how to integrate Scalekit with your Auth0 implementation"
-metadata: 
-  description: "This document provides a guide on integrating Scalekit with Auth0 applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in your Auth0 tenant."
+excerpt: 'This article describes how to integrate Scalekit with your Auth0 implementation'
+metadata:
+  description: 'This document provides a guide on integrating Scalekit with Auth0 applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in your Auth0 tenant.'
 ---
+
 # Auth0
 
 <Subtitle>Learn how to integrate Scalekit with Auth0 via OpenID Connect (OIDC)</Subtitle>
 
 ### Introduction
 
-This guide is designed to provide you a walkthrough of integrating Scalekit with Auth0, thereby facilitating seamless Single Sign-on (SSO) authentication for your application's users. We demonstrate how to configure Scalekit so that Auth0 can allow  some of your enterprise users to login via Scalekit and still continue to act as the identity management solution for your users and manage the login, session management functionality.
+This guide is designed to provide you a walkthrough of integrating Scalekit with Auth0, thereby facilitating seamless Single Sign-on (SSO) authentication for your application's users. We demonstrate how to configure Scalekit so that Auth0 can allow some of your enterprise users to login via Scalekit and still continue to act as the identity management solution for your users and manage the login, session management functionality.
 
 To begin, here is an overview of the SSO workflow.
 
@@ -50,13 +51,13 @@ curl --request POST \
 
 Use the table below to find out more about how to get the relevant information and replace the variables in the above command.
 
-|Parameter|Description|
-|---|---|
-|AUTH0_TENANT_DOMAIN|This is your Auth0 tenant url. Typically, looks like https:<nolink />//yourapp.us.auth0.com|
-|API_TOKEN|[Generate an API token](https://auth0.com/docs/secure/tokens/access-tokens/management-api-access-tokens) from your Auth0 dashboard and use it to authenticate your Auth0 API calls.|
-|SCALEKIT_ENV_URL|Find this in your [API config](https://app.scalekit.com) section of Scalekit Dashboard|
-|SCALEKIT_CLIENT_SECRET|Generate a new client secret in your [API config](https://app.scalekit.com) section of Scalekit Dashboard and use that here|
-|SCALEKIT_CLIENT_ID|Find this in your [API config](https://app.scalekit.com) section of Scalekit Dashboard|
+| Parameter              | Description                                                                                                                                                                         |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AUTH0_TENANT_DOMAIN    | This is your Auth0 tenant url. Typically, looks like https:<nolink />//yourapp.us.auth0.com                                                                                         |
+| API_TOKEN              | [Generate an API token](https://auth0.com/docs/secure/tokens/access-tokens/management-api-access-tokens) from your Auth0 dashboard and use it to authenticate your Auth0 API calls. |
+| SCALEKIT_ENV_URL       | Find this in your [API config](https://app.scalekit.com) section of Scalekit Dashboard                                                                                              |
+| SCALEKIT_CLIENT_SECRET | Generate a new client secret in your [API config](https://app.scalekit.com) section of Scalekit Dashboard and use that here                                                         |
+| SCALEKIT_CLIENT_ID     | Find this in your [API config](https://app.scalekit.com) section of Scalekit Dashboard                                                                                              |
 
 After the successful execution of the above API call, you will see a new OpenID connection created in your Auth0 tenant. To confirm this, you can navigate to [Enterprise Connections](https://auth0.com/docs/authenticate/enterprise-connections#view-enterprise-connections) in your Auth0 dashboard.
 

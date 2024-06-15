@@ -46,6 +46,7 @@ const config: Config = {
       } as ScalarOptions,
     ],
     'plugin-image-zoom',
+    './plugins/learn-filters',
   ],
   presets: [
     [
@@ -87,7 +88,6 @@ const config: Config = {
     //   },
     // ] satisfies Redocusaurus.PresetEntry,
   ],
-
   themeConfig: {
     docs: {
       sidebar: {

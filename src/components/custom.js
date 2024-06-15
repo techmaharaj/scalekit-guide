@@ -18,7 +18,6 @@ export function CardTileWithImage({ url, imageSrc, title, description }) {
   );
 }
 
-
 export default function Subtitle({ children }) {
   return <p className="subtitle"> {children} </p>;
 }

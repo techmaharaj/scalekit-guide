@@ -1,3 +1,10 @@
+---
+description: Learn how to send sequences & automate push, email, SMS and other product notifications based on rules. Using code or Courier's visual designer.
+displayed_sidebar: guidesSidebar
+product: ['Automations']
+type: ['UI']
+sidebar_position: 1
+---
 
 # Redirect URI
 
@@ -5,7 +12,7 @@ As part of integration between your application and Scalekit, redirect URI is th
 
 For successful integration between B2B product and Scalekit, there has to be at least one redirect URI configured per environment. Depending on your use case, you may choose to configure more than one redirect URI, but at least one of these must be marked as default.
 
-At the time of initiating the authentication flow for a user in B2B product via SSO, redirect_uri is one of the required parameters and this redirect_uri should match exactly with one of the redirect URIs configured in the Scalekit dashboard.  
+At the time of initiating the authentication flow for a user in B2B product via SSO, redirect_uri is one of the required parameters and this redirect_uri should match exactly with one of the redirect URIs configured in the Scalekit dashboard.
 
 :::info
 
@@ -22,8 +29,8 @@ During the IdP initiated SAML SSO flow, the redirect_uri that is marked as defau
 **Additional Validation Rules for Redirect URI in Dev Environment**
 
 - `localhost` URIs are supported in Dev Environment only
-- Redirect URIs must begin with one of the two schemes `http`  or `https`
-  - `http`  scheme is only supported for `localhost`  as the host name
+- Redirect URIs must begin with one of the two schemes `http` or `https`
+  - `http` scheme is only supported for `localhost` as the host name
 - Redirect URIs **can** contain wildcard character provided all the rules mentioned below regarding the usage of wildcard character in Redirect URI are followed.
 
 **Additional Validation Rules for Redirect URI in Prod Environment**
@@ -42,13 +49,13 @@ In Production enironments, Redirect URIs cannot contain Wildcard characters.
 
 :::
 
-In the DEV environments, the wildcard character `*`  can be used to configure the redirect URIs in the dashboard. However, the following rules will apply while allowing the wildcard character.
+In the DEV environments, the wildcard character `*` can be used to configure the redirect URIs in the dashboard. However, the following rules will apply while allowing the wildcard character.
 
-- Wildcard character as a root level domain is **not** allowed (<SimpleCode>https://*.com</SimpleCode> is not allowed).
+- Wildcard character as a root level domain is **not** allowed (<SimpleCode>https://\*.com</SimpleCode> is not allowed).
 - Only **one** wildcard is allowed per callback (`https://*.*.acmecorp.com` is not allowed).
 - The wildcard **must** be located in a subdomain within the hostname component. If URI has multiple subdomains, wildcard **must** be part of the subdomain that is farthest from the hostname component
-  - For example, `https://xyz.*.com`  is not allowed
-  - `https://*.acmecorp.com`  is allowed
-  - `https://saml-auth-*.acmecorp.com`  is also allowed
+  - For example, `https://xyz.*.com` is not allowed
+  - `https://*.acmecorp.com` is allowed
+  - `https://saml-auth-*.acmecorp.com` is also allowed
 - A URL with a valid wildcard **will** match only one subdomain in it’s place.
-  - For example, `https://*.acmecorp.com/`  will match `https://auth.acmecorp.com` and not match `https://saml.auth.acmecorp.com`
+  - For example, `https://*.acmecorp.com/` will match `https://auth.acmecorp.com` and not match `https://saml.auth.acmecorp.com`

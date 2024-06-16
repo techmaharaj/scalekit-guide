@@ -1,9 +1,9 @@
 ---
-description: Learn how to send sequences & automate push, email, SMS and other product notifications based on rules. Using code or Courier's visual designer.
+
 displayed_sidebar: guidesSidebar
-product: ['Automations']
-type: ['UI']
+tags: ['SSO Essentials']
 ---
+
 
 # Introduction to Single Sign-on
 
@@ -20,8 +20,9 @@ Furthermore, this integrated SSO mechanism enhances user convenience, boosts pro
 
 Fundamentally, Single Sign-on works by exchanging user information in a pre-determined format between two trusted parties - your application and your customer's identity provider (aka IdP). Most of these interactions happen in the browser context as some steps need user intervention.
 
-<!-- <Single Sign-on Image>
-<Application <==> Identity Provider> -->
+{/*
+<Single Sign-on Image>
+<Application <==> Identity Provider> */}
 
 To ensure secure exchange of user information between your application and your customer's identity provider, most IdPs support two protocols: Secure Assertion Markup Language (SAML) or OpenID Connect (OIDC). The objective of both these protocols is same: allow secure user information exchange between the Service Provider (your application) and Identity Provider (your customer's identity system). These protocols differ in how these systems trust each other, communicate, and exchange user information.
 
@@ -40,7 +41,8 @@ Lets understand these two SSO flows.
 
 ### Service Provider initiated SSO
 
-<figure>![SP initiated SSO workflow](./SP%20initiated%20SSO.png)
+
+<figure>![SP initiated SSO workflow](../assets/guides/sp-initiated-sso.png)
 <figcaption>SP initiated SSO workflow</figcaption></figure>
 
 For service provider initiated SSO flow,
@@ -54,7 +56,7 @@ As you can imagine, in this workflow, the user login behaviour starts from your 
 
 ### Identity Provider initiated SSO
 
-<figure>![IdP initiated SSO workflow](./IDP%20initiated%20SSO.png)
+<figure>![IdP initiated SSO workflow](../assets/guides/idp-initiated-sso.png)
 <figcaption>IdP initiated SSO workflow</figcaption></figure>
 In case of Identity Provider initiated SSO,
 1. User logs into their identity provider portal and selects your application from within the IdP portal.

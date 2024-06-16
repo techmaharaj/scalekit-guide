@@ -1,12 +1,12 @@
-import LabeledCheckbox from '@site/src/components/checkbox';
-import Subtitle from '@site/src/components/custom';
-import {CardTileWithImage, SimpleCode} from '@site/src/components/custom';
+import LabeledCheckbox from "@site/src/components/checkbox";
+import Subtitle from "@site/src/components/custom";
+import { CardTileWithImage, SimpleCode } from "@site/src/components/custom";
 // Import the original mapper
-import MDXComponents from '@theme-original/MDXComponents';
-import CodeBlock from '@theme/CodeBlock';
-import TabItem from '@theme/TabItem';
-import Tabs from '@theme/Tabs';
-import React from 'react';
+import MDXComponents from "@theme-original/MDXComponents";
+import CodeBlock from "@theme/CodeBlock";
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import React from "react";
 
 export default {
   // Re-use the default mapping
@@ -19,5 +19,5 @@ export default {
   SimpleCode,
   Tabs,
   TabItem,
-  CodeBlock
+  CodeBlock,
 };

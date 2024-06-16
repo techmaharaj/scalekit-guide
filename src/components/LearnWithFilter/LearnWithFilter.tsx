@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { usePluginData } from '@docusaurus/useGlobalData';
-import FilterOptionsList from './FilterOptionsList';
-import styles from './learnWithFilter.module.css';
-import CardList from '../CardList/CardList';
-import Card from '../Card/Card';
+import React, { useEffect, useState } from "react";
+import { usePluginData } from "@docusaurus/useGlobalData";
+import FilterOptionsList from "./FilterOptionsList";
+import styles from "./learnWithFilter.module.css";
+import CardList from "../CardList/CardList";
+import Card from "../Card/Card";
 
 type DataType = {
   slug: string;
@@ -19,7 +19,7 @@ const TutorialsTags = () => {
     types = [],
     products = [],
     allTags = [],
-  } = usePluginData('learn-filters') as {
+  } = usePluginData("learn-filters") as {
     types: string[];
     allData: DataType[];
     products: string[];
@@ -85,7 +85,7 @@ const TutorialsTags = () => {
               <Card
                 key={data.slug}
                 title={data.title}
-                href={`./guides-new/${data.slug}`}
+                href={`./guides/${data.slug}`}
                 linkText="Read"
               />
             );

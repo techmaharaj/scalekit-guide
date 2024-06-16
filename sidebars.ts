@@ -1,4 +1,4 @@
-import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 const sidebars: SidebarsConfig = {
   homeSidebar: [
@@ -90,7 +90,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Integrations",
+      label: "Identity Providers",
       items: [
         {
           type: "doc",
@@ -121,6 +121,22 @@ const sidebars: SidebarsConfig = {
           type: "doc",
           label: "OIDC",
           id: "integrations/oidc",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Auth Systems",
+      items: [
+        {
+          type: "doc",
+          label: "Auth0",
+          id: "integrations/auth0",
+        },
+        {
+          type: "doc",
+          label: "Firebase",
+          id: "integrations/firebase",
         },
       ],
     },

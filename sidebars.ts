@@ -3,133 +3,133 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   homeSidebar: [
     {
-      type: 'doc',
-      label: 'Home',
-      id: 'home',
+      type: "doc",
+      label: "Home",
+      id: "home",
     },
     {
-      type: 'category',
-      label: 'Single Sign-on',
-      className: 'sso_category',
+      type: "category",
+      label: "Single Sign-on",
+      className: "sso_category",
       collapsible: false,
       collapsed: false,
       items: [
         {
-          type: 'doc',
-          label: 'Quickstart', // The link label
-          id: 'single-sign-on/quickstart-sso', // The internal path
+          type: "doc",
+          label: "Quickstart", // The link label
+          id: "single-sign-on/quickstart-sso", // The internal path
         },
         {
-          type: 'link',
-          label: 'Integrations',
-          href: '/integrations',
+          type: "doc",
+          label: "Admin Portal",
+          id: "single-sign-on/quickstart-admin-portal",
         },
         {
-          type: 'doc',
-          label: 'Admin Portal',
-          id: 'single-sign-on/quickstart-admin-portal',
-        },
-        {
-          type: 'category',
-          label: 'Customization',
-          className: 'category_customization',
+          type: "category",
+          label: "Customization",
+          className: "category_customization",
           collapsible: false,
           collapsed: false,
           items: [
             {
-              type: 'doc',
-              label: 'Custom Domain',
-              id: 'admin-portal/custom-domain',
+              type: "doc",
+              label: "Custom Domain",
+              id: "admin-portal/custom-domain",
             },
             {
-              type: 'doc',
-              label: 'Interface',
-              id: 'admin-portal/branding-theming',
+              type: "doc",
+              label: "Interface",
+              id: "admin-portal/branding-theming",
             },
           ],
         },
         {
-          type: 'doc',
-          label: 'Launch Checklist',
-          id: 'best-practices/launch-checklist',
+          type: "doc",
+          label: "Launch Checklist",
+          id: "best-practices/launch-checklist",
         },
       ],
     },
     {
-      type: 'link',
-      label: 'Guides',
-      href: '/guides',
+      type: "link",
+      label: "Guides",
+      href: "/guides",
     },
     {
-      type: 'doc',
-      label: 'Errors',
-      id: 'guides/error-handling',
+      type: "link",
+      label: "Integrations",
+      href: "/integrations",
     },
     {
-      type: 'link',
-      label: 'API', // The link label
-      href: '/api-reference', // The internal path
+      type: "doc",
+      label: "Errors",
+      id: "guides/error-handling",
     },
-    'sdks',
     {
-      type: 'doc',
-      label: 'Concepts',
-      id: 'manage-scalekit/glossary',
+      type: "link",
+      label: "API", // The link label
+      href: "/api-reference", // The internal path
+    },
+    "sdks",
+    {
+      type: "doc",
+      label: "Concepts",
+      id: "manage-scalekit/glossary",
     },
   ],
   integrationsSidebar: [
     {
-      type: 'link',
-      label: 'Back to Home',
-      href: '/',
+      type: "link",
+      label: "Back to Home",
+      href: "/",
     },
     {
-      type: 'doc',
-      label: 'Overview',
-      id: 'integrations/integrations',
+      type: "doc",
+      label: "Overview",
+      id: "integrations/integrations",
     },
     {
-      type: 'category',
-      label: 'Integrations',
+      type: "category",
+      label: "Integrations",
       items: [
         {
-          type: 'doc',
-          label: 'Okta SAML',
-          id: 'integrations/okta-saml',
+          type: "doc",
+          label: "Okta SAML",
+          id: "integrations/okta-saml",
         },
         {
-          type: 'doc',
-          label: 'Azure AD SAML',
-          id: 'integrations/azure-ad-saml',
+          type: "doc",
+          label: "Azure AD SAML",
+          id: "integrations/azure-ad-saml",
         },
         {
-          type: 'doc',
-          label: 'OneLogin SAML',
-          id: 'integrations/onelogin-saml',
+          type: "doc",
+          label: "OneLogin SAML",
+          id: "integrations/onelogin-saml",
         },
         {
-          type: 'doc',
-          label: 'JumpCloud SAML',
-          id: 'integrations/jumpcloud-saml',
+          type: "doc",
+          label: "JumpCloud SAML",
+          id: "integrations/jumpcloud-saml",
         },
         {
-          type: 'doc',
-          label: 'SAML',
-          id: 'integrations/saml',
+          type: "doc",
+          label: "SAML",
+          id: "integrations/saml",
         },
         {
-          type: 'doc',
-          label: 'OIDC',
-          id: 'integrations/oidc',
+          type: "doc",
+          label: "OIDC",
+          id: "integrations/oidc",
         },
       ],
     },
   ],
   guidesSidebar: [
     {
-      type: 'link',
-      label: 'Back to Home',
-      href: '/',
+      type: "link",
+      label: "Back to Home",
+      href: "/",
     },
     // {
     //   type: 'doc',
@@ -137,13 +137,13 @@ const sidebars: SidebarsConfig = {
     //   id: 'guides/guides',
     // },
     {
-      type: 'category',
-      label: 'Learn',
+      type: "category",
+      label: "Learn",
       items: [
         {
-          type: 'doc',
-          label: 'SSO Basics', // The link label
-          id: 'best-practices/single-sign-on', // The internal path
+          type: "doc",
+          label: "SSO Basics", // The link label
+          id: "best-practices/single-sign-on", // The internal path
         },
         {
           type: "doc",
@@ -178,14 +178,14 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'doc',
-      label: 'SAML Configurations',
-      id: 'best-practices/advanced-saml',
+      type: "doc",
+      label: "SAML Configurations",
+      id: "best-practices/advanced-saml",
     },
     {
-      type: 'doc',
-      label: 'Organizations',
-      id: 'manage-scalekit/organization',
+      type: "doc",
+      label: "Organizations",
+      id: "manage-scalekit/organization",
     },
   ],
 };

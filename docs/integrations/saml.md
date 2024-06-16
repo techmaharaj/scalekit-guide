@@ -1,14 +1,14 @@
-
 # SAML
-<Subtitle>Step-by-step guide to configure Single Sign-on using SAML with any Identity Provider. </Subtitle> 
+
+<Subtitle>Step-by-step guide to configure Single Sign-on using SAML with any Identity Provider. </Subtitle>
 
 ## 0. Create a SAML application
 
-Login to your Identity Provider portal as an admin and create a new Application with SAML as the single sign-on method. 
+Login to your Identity Provider portal as an admin and create a new Application with SAML as the single sign-on method.
 
 ## 1. Service Provider Configuration
 
-Depending on your Identity Provider, they may allow you to configure **Service Provider section** in your SAML application via either of the three following methods: 
+Depending on your Identity Provider, they may allow you to configure **Service Provider section** in your SAML application via either of the three following methods:
 
 1. via SAML Metadata URL
 2. via SAML Metadata file
@@ -16,25 +16,25 @@ Depending on your Identity Provider, they may allow you to configure **Service P
 
 ### via SAML Metadata URL
 
-Copy the **Metadata URL** content in your Identity Provider portal 
+Copy the **Metadata URL** content in your Identity Provider portal
 
 ### via SAML Metadata File
 
 Under **Service Provider Details,** click on **Download Metadata XML** and upload in your Identity Portal
 
-![Download Metadata XML](Custom%20Provider-%20SAML%20(1)%20f79db4733d184166b276277f03539c6b/Untitled.png)
+![Download Metadata XML](../assets/integrations/saml-custom-provider/0.png)
 
 Download Metadata XML
 
 ### via Manual Configuration
 
-Copy the **ACS URL (Assertion Consumer Service)** and **Service Provider Entity ID**  from the Service Provider Details section and paste them in the appropriate sections in your Identity Provider Portal. 
+Copy the **ACS URL (Assertion Consumer Service)** and **Service Provider Entity ID** from the Service Provider Details section and paste them in the appropriate sections in your Identity Provider Portal.
 
 ## 2. Attribute Mapping & Assigning Users/Groups
 
 **2.1 Attribute Mapping**
 
-SAML Attributes need to be configured in your Identity Provider portal so that the user profile details are shared with us at the time of user login as part of SAML Response payload. 
+SAML Attributes need to be configured in your Identity Provider portal so that the user profile details are shared with us at the time of user login as part of SAML Response payload.
 
 User profile details that are needed for seamless user login are-
 
@@ -44,19 +44,19 @@ User profile details that are needed for seamless user login are-
 
 To configure these attributes, locate **Attribute Settings** section in the SAML Configuration page in your Identity Provider’s application, and carefully map the attributes with the Attribute names exactly as shown in the below image.
 
-![Attribute Mapping section in SSO Configuration Portal ](Custom%20Provider-%20SAML%20(1)%20f79db4733d184166b276277f03539c6b/Untitled%201.png)
+![Attribute Mapping section in SSO Configuration Portal ](../assets/integrations/saml-custom-provider/1.png)
 
-Attribute Mapping section in SSO Configuration Portal 
+Attribute Mapping section in SSO Configuration Portal
 
-**2.2 Assign User/Group** 
+**2.2 Assign User/Group**
 
-To finish the Service Provider section of the SAML configuration, you need to “Assign” the users who need to access to this application. 
+To finish the Service Provider section of the SAML configuration, you need to “Assign” the users who need to access to this application.
 
-Find the User/Group assignment section in your Identity Provider application and select and assign all the required users or user groups that need access to this application via Single Sign-On. 
+Find the User/Group assignment section in your Identity Provider application and select and assign all the required users or user groups that need access to this application via Single Sign-On.
 
 ## 3. Identity Provider Configuration
 
-After you have completed the Service Provider configuration, you now need to configure the Identity Provider details in our SSO Configuration page. 
+After you have completed the Service Provider configuration, you now need to configure the Identity Provider details in our SSO Configuration page.
 
 Depending on your Identity Provider, you can choose either of the below methods-
 
@@ -67,7 +67,7 @@ Depending on your Identity Provider, you can choose either of the below methods-
 
 :::info
 
-If you supply the Identity Provider Metadata URL, our system will automatically fetch the necessary configuration details required like Login URL, Identity Provider Entity ID, X.509 Certificate to complete the SAML SSO configuration. 
+If you supply the Identity Provider Metadata URL, our system will automatically fetch the necessary configuration details required like Login URL, Identity Provider Entity ID, X.509 Certificate to complete the SAML SSO configuration.
 
 Also, we will periodically scan this url to keep the configuration up-to-date incase any of this information changes in your Identity Provider reducing the manual effort needed from your side.
 
@@ -76,40 +76,40 @@ Locate and copy the Identity Provider Metadata URL from your Identity Provider�
 
 Under **Identify Provider Configuration,** select **Configure using Metadata URL,** and paste it under **Metadata URL** on the **SSO Configuration Portal.**
 
-![Paste Issuer URL on SSO Configuration Portal ](Custom%20Provider-%20SAML%20(1)%20f79db4733d184166b276277f03539c6b/Untitled%202.png)
+![Paste Issuer URL on SSO Configuration Portal ](../assets/integrations/saml-custom-provider/2.png)
 
-Paste Issuer URL on SSO Configuration Portal 
+Paste Issuer URL on SSO Configuration Portal
 
 ### Manual Configuration
 
 1. Choose “Configure Manually” option in the “Identity Provider Configuration” section
 2. Carefully copy the below configuration details from your Identity Provider section and paste them in the appropriate fields-
-    1. Issuer (also referred to as Identity Provider Entity ID)
-    2. Sign-on URL (also referred to as SSO URL or Single Sign-on URL)
-    3. Signing Certificate (also referred to as X.509 certificate)
-        1. You can also upload the certificate file instead of copying the contents manually.
+   1. Issuer (also referred to as Identity Provider Entity ID)
+   2. Sign-on URL (also referred to as SSO URL or Single Sign-on URL)
+   3. Signing Certificate (also referred to as X.509 certificate)
+      1. You can also upload the certificate file instead of copying the contents manually.
 
 <!-- <Insert Screenshot below> -->
 
 ## 4. Test Single Sign-on
 
-To verify whether the SAML SSO configuration is completed correctly, click on **Test Connection** on the SSO Configuration Portal**.** 
+To verify whether the SAML SSO configuration is completed correctly, click on **Test Connection** on the SSO Configuration Portal**.**
 
-If everything is done correctly, you will see a **Success** response as shown below. 
+If everything is done correctly, you will see a **Success** response as shown below.
 
-![Test your SAML application for SSO configuration ](Custom%20Provider-%20SAML%20(1)%20f79db4733d184166b276277f03539c6b/Untitled%203.png)
+![Test your SAML application for SSO configuration ](../assets/integrations/saml-custom-provider/3.png)
 
-Test your SAML application for SSO configuration 
+Test your SAML application for SSO configuration
 
-If there’s a misconfiguration, our test will identify the errors and will offer you a way to correct the configuration right on the screen. 
+If there’s a misconfiguration, our test will identify the errors and will offer you a way to correct the configuration right on the screen.
 
 ## 5. Enable Single Sign-on
 
 After you successfully verified that the connection is configured correctly, you can enable the connection to let your users login to this application via Single Sign-on.
 
-Click on **Enable Connection.** 
+Click on **Enable Connection.**
 
-![Enable Single Sign-on](Custom%20Provider-%20SAML%20(1)%20f79db4733d184166b276277f03539c6b/Untitled%204.png)
+![Enable Single Sign-on](../assets/integrations/saml-custom-provider/4.png)
 
 Enable Single Sign-on
 

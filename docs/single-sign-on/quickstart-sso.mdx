@@ -3,6 +3,7 @@ description: Step-by-step guide to implement Single Sign-on in your application 
 ---
 
 import InstallSDK from './../templates/install-sdk.md';
+import Card from '../../src/components/Card/Card';
 
 # Quickstart
 
@@ -237,7 +238,7 @@ if (error) {
 }
 
 // If it is an idp initiated login
-if (idp_initiated_login && idp_initiated_login === 'success') {
+if (idp_initiated_login && idp_initiated_login === "success") {
   const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
     connectionId: connection_id,
     ...(relay_state && { state: relay_state }), // optional: pass relay state as state parameter
@@ -264,4 +265,12 @@ We mitigate [risks](https://example.com) for the users by performing Service Pro
 
 ## Next steps
 
+
 As we start our journey to offer enterprise-grade authentication, learn to [test the Single Sign On (SSO)](https://example.org) and [launch checklist](https://example.org).
+
+  <Card
+      title="Learn Single Sign On"
+      href="/single-sign-on/quickstart-sso"
+      linkText="Let's Get Started">
+    Get started with SSO Basics
+  </Card>

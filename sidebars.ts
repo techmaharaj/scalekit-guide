@@ -58,7 +58,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: 'Guides',
-      href: '/guides-new',
+      href: '/guides',
     },
     {
       type: 'doc',

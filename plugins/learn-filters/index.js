@@ -9,8 +9,9 @@ module.exports = async function myPlugin() {
     name: 'learn-filters',
     async loadContent() {
       const files = listFilesInTopLevel();
+      console.log('listFilesInTopLevel:', files);
       const results = readMDXFilesAndExtractFrontmatter(files ?? []) ?? [];
-
+      console.log('results\n', results);
       return {
         types: getUniqueArray({ objects: results, key: 'type' }),
         products: getUniqueArray({ objects: results, key: 'product' }),

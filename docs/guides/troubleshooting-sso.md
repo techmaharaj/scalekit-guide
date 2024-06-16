@@ -1,5 +1,0 @@
----
-displayed_sidebar: guidesSidebar
----
-
-# Troubleshooting SSO Errors

@@ -80,14 +80,16 @@ const TutorialsTags = () => {
 
       <div className={styles.cardsContainer}>
         <CardList size="small">
-          {selectedData.map((data) => (
-            <Card
-              key={data.slug}
-              title={data.title}
-              href={`./${data.slug}`}
-              linkText="Learn More"
-            />
-          ))}
+          {selectedData.map((data) => {
+            return (
+              <Card
+                key={data.slug}
+                title={data.title}
+                href={`./guides-new/${data.slug}`}
+                linkText="Read"
+              />
+            );
+          })}
         </CardList>
       </div>
     </div>

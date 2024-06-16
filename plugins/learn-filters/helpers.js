@@ -3,12 +3,7 @@ const grayMatter = require('gray-matter');
 const fs = require('fs');
 
 function listFilesInTopLevel(repositoryPath) {
-  repositoryPath = path.resolve(
-    path.basename(__dirname),
-    '../../docs/docs/guides-new'
-  ); // here
-
-  console.log('repositoryPath::', repositoryPath);
+  repositoryPath = path.resolve(path.basename(__dirname), '../docs/guides'); // here
 
   try {
     // Read the contents of the repository path
@@ -39,7 +34,7 @@ function readMDXFilesAndExtractFrontmatter(fileNames) {
   fileNames
     .filter((name) => name !== 'index.mdx')
     .forEach((fileName) => {
-      const filePath = path.join(__dirname, '../../docs/guides-new', fileName); // Adjust the directory if needed
+      const filePath = path.join(__dirname, '../../docs/guides', fileName); // Adjust the directory if needed
 
       try {
         const fileContent = fs.readFileSync(filePath, 'utf8');

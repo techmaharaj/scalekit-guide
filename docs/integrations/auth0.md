@@ -1,7 +1,7 @@
 ---
-excerpt: 'This article describes how to integrate Scalekit with your Auth0 implementation'
+excerpt: "This article describes how to integrate Scalekit with your Auth0 implementation"
 metadata:
-  description: 'This document provides a guide on integrating Scalekit with Auth0 applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in your Auth0 tenant.'
+  description: "This document provides a guide on integrating Scalekit with Auth0 applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in your Auth0 tenant."
 ---
 
 # Auth0
@@ -14,7 +14,7 @@ This guide is designed to provide you a walkthrough of integrating Scalekit with
 
 To begin, here is an overview of the SSO workflow.
 
-<figure>![Scalekit - Auth0 Integration](./Auth0/How%20Scalekit%20connects%20with%20Auth0.png)
+<figure>![Scalekit - Auth0 Integration](../assets/integrations/auth0/0.png)
 <figcaption>Scalekit - Auth0 Integration</figcaption></figure>
 
 Scalekit is designed as a fully compatible OpenID Connect (OIDC) provider, thus streamlining the integration. As Auth0 continues to act as your identity management system, you'll be able to seamlessly integrate Single Sign-On into your application without having to write code.
@@ -73,7 +73,7 @@ After creating Scalekit as a new OIDC connection, you need to
 In your Auth0 dashboard, go to Authentication > Enterprise > OpenID Connect > Scalekit > Settings.
 Copy the "Callback URL" that's available in the General section of settings.
 
-<figure>![Copy Callback URL from Auth0 Dashboard](./Auth0/SCR-20240507-omfj.png)
+<figure>![Copy Callback URL from Auth0 Dashboard](../assets/integrations/auth0/1.png)
 <figcaption>Copy Callback URL from your Auth0 Dashboard</figcaption></figure>
 
 <br />
@@ -82,7 +82,7 @@ Copy the "Callback URL" that's available in the General section of settings.
 
 Go to your Scalekit dashboard. Select environment as Development or Production. Navigate to the "API Config" in the Settings (left nav). In the Redirect URIs section, select **Add new URI**. Paste the Callback URL that you copied from Auth0 dashboard. Click on Add button.
 
-<figure>![Add new Redirect URI in Scalekit Dashboard](./Auth0/SCR-20240509-mcic.png)
+<figure>![Add new Redirect URI in Scalekit Dashboard](../assets/integrations/auth0/2.png)
 <figcaption>Add new Redirect URI in Scalekit Dashboard</figcaption></figure>
 
 <br />
@@ -112,7 +112,7 @@ In the Identity Provider domains, add the comma separated list of domains that n
 
 For example, if you would like users from three Organizations (FooCorp, BarCorp, AcmeCorp) to access your application using their respective identity providers, you need to add them as a comma separated list foocorp.com, barcorp.com, acmecorp.com. Screenshot below for reference
 
-<figure>![Add domains for Home Realm Discovery in Auth0](./Auth0/SCR-20240509-mgoe.png)
+<figure>![Add domains for Home Realm Discovery in Auth0](../assets/integrations/auth0/3.png)
 <figcaption>Add domains for Home Realm Discovery in Auth0</figcaption></figure>
 
 <br />

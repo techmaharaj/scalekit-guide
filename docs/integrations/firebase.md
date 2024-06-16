@@ -1,8 +1,9 @@
 ---
 excerpt: "This article describes how to integrate Scalekit with your Firebase application"
-metadata: 
+metadata:
   description: "This document provides a guide on integrating Scalekit with Firebase applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in Firebase and provides sample code for managing SSO within the app's Firebase environment."
 ---
+
 # Firebase
 
 <Subtitle>Learn how to integrate Scalekit with Firebase via OpenID Connect (OIDC)</Subtitle>
@@ -13,7 +14,7 @@ This guide is designed to streamline the integration process of Scalekit with Fi
 
 To begin, we'll start with an overview of the SSO workflow, laying the foundation for the subsequent integration steps.
 
-<figure>![Scalekit - Firebase Integration](./firebase/How%20Scalekit%20connects%20with%20Firebase.png)
+<figure>![Scalekit - Firebase Integration](../assets/integrations/firebase/0.png)
 <figcaption>Scalekit - Firebase Integration</figcaption></figure>
 
 Scalekit is engineered as a fully compatible OpenID Connect Provider, thus streamlining the integration process. We'll demonstrate how to configure Scalekit so that Firebase can automatically handle much of the workflow. With just a few lines of code, you'll be able to seamlessly integrate Single Sign-On capability into your product.
@@ -29,7 +30,7 @@ Scalekit is engineered as a fully compatible OpenID Connect Provider, thus strea
 
 - Login to your [Firebase Management Console](https://console.firebase.google.com/) and access your project. Go to the **Authentication** section to configure appropriate authentication methods for your project. Select **Sign-in method** tab.
 
-![Sign-in tab in your Firebase Console](./firebase/df26e33-SCR-20240405-lcif.png)
+![Sign-in tab in your Firebase Console](../assets/integrations/firebase/1.png)
 
 - Click on **Add new provider** and select **OpenID Connect** to start configuring Scalekit as an authentication method in your Firebase project
 - This opens up a window where you have to Define new OIDC provider settings in your Firebase project
@@ -43,17 +44,17 @@ Scalekit is engineered as a fully compatible OpenID Connect Provider, thus strea
   - copy Environment URL from the Scalekit API Config and paste it in your Firebase project's Issuer URL
   - Generate a new Client secret from the Scalekit API Config and paste it in your Firebase project's Client secret
 
-![Copy credentials from your Scalekit Dashboard](./firebase/5e3a493-SCR-20240405-ldav.png)
+![Copy credentials from your Scalekit Dashboard](../assets/integrations/firebase/2.png)
 
-![Paste in your Firebase Console](./firebase/e5e5377-SCR-20240405-mjzz.png)
+![Paste in your Firebase Console](../assets/integrations/firebase/3.png)
 
 ### Add Redirect URI in Scalekit API Config
 
 After defining new OIDC provider, you would need to Configure OIDC Integration in your Firebase project. Copy the Callback URL from your Firebase project and add it as a new Redirect URI in your Scalekit API Config
 
-![Copy Redirect URI from your Firebase Console](./firebase/2f0f7f9-SCR-20240405-ldjm.png)
+![Copy Redirect URI from your Firebase Console](../assets/integrations/firebase/4.png)
 
-![Add Redirect URI in your Scalekit Dashboard](./firebase/4519fa4-SCR-20240405-ldlf.png)
+![Add Redirect URI in your Scalekit Dashboard](../assets/integrations/firebase/5.png)
 
 ## Enable Single Sign-on in your Login Page
 

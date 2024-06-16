@@ -25,23 +25,9 @@ const sidebars: SidebarsConfig = {
           id: "single-sign-on/quickstart-admin-portal",
         },
         {
-          type: "category",
+          type: "doc",
           label: "Customization",
-          className: "category_customization",
-          collapsible: false,
-          collapsed: false,
-          items: [
-            {
-              type: "doc",
-              label: "Custom Domain",
-              id: "admin-portal/custom-domain",
-            },
-            {
-              type: "doc",
-              label: "Interface",
-              id: "admin-portal/branding-theming",
-            },
-          ],
+          id: "single-sign-on/domain-and-theme-customization",
         },
         {
           type: "doc",
@@ -68,7 +54,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "link",
       label: "API", // The link label
-      href: "/api-reference", // The internal path
+      href: "/apis", // The internal path
     },
     "sdks",
     {

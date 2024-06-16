@@ -2,20 +2,19 @@ const {
   readMDXFilesAndExtractFrontmatter,
   listFilesInTopLevel,
   getUniqueArray,
-} = require('./helpers');
+} = require("./helpers");
 
 module.exports = async function myPlugin() {
   return {
-    name: 'learn-filters',
+    name: "learn-filters",
     async loadContent() {
       const files = listFilesInTopLevel();
-      console.log('listFilesInTopLevel:', files);
       const results = readMDXFilesAndExtractFrontmatter(files ?? []) ?? [];
-      console.log('results\n', results);
+
       return {
-        types: getUniqueArray({ objects: results, key: 'type' }),
-        products: getUniqueArray({ objects: results, key: 'product' }),
-        allTags: getUniqueArray({ objects: results, key: 'tags' }),
+        types: getUniqueArray({ objects: results, key: "type" }),
+        products: getUniqueArray({ objects: results, key: "product" }),
+        allTags: getUniqueArray({ objects: results, key: "tags" }),
         allData: results,
       };
     },

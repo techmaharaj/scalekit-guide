@@ -144,11 +144,6 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          label: "Manage Client Secrets",
-          id: "best-practices/manage-client-secrets",
-        },
-        {
-          type: "doc",
           label: "Authorization URL",
           id: "best-practices/authorization-url",
         },
@@ -172,17 +167,12 @@ const sidebars: SidebarsConfig = {
           label: "Handling IdP Initiated SSO",
           id: "best-practices/handling-idp-initiated",
         },
+        {
+          type: "doc",
+          label: "Organizations",
+          id: "manage-scalekit/organization",
+        },
       ],
-    },
-    {
-      type: "doc",
-      label: "SAML Configurations",
-      id: "best-practices/advanced-saml",
-    },
-    {
-      type: "doc",
-      label: "Organizations",
-      id: "manage-scalekit/organization",
     },
   ],
 };

@@ -1,7 +1,3 @@
-import BackToHomeButton from '@site/src/components/BackToHomeButton';
-
-<BackToHomeButton />
-
 # Glossary
 
 <Subtitle>Familiarize yourself with the entities and glossary of Scalekit platform</Subtitle>

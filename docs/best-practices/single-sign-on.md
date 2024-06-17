@@ -1,14 +1,15 @@
 ---
-
+displayed_sidebar: guidesSidebar
 ---
+
 # Introduction to Single Sign-on
 
 Single Sign-On (SSO) streamlines user access by enabling a single authentication event to grant access to multiple applications with the same credentials. For example, logging into one Google service, such as Gmail, automatically authenticates you to YouTube, Google Drive, and other Google platforms.
 
 There are two key benefits to the users and organizations with a secure single sign-on implementation:
 
-1) User can seamlessly access multiple applications using only one set of credentials.
-2) User credentials are managed in a centralized identity system. This enables Admins to easily configure and manage authentication policies for all their users from the centralized identity provider.
+1. User can seamlessly access multiple applications using only one set of credentials.
+2. User credentials are managed in a centralized identity system. This enables Admins to easily configure and manage authentication policies for all their users from the centralized identity provider.
 
 Furthermore, this integrated SSO mechanism enhances user convenience, boosts productivity, and reduces the risks associated with password fatigue and reuse. These security & administration benefits are driving factors for enterprise organizations to only procure SaaS applications that offer SSO-based authentication.
 
@@ -29,8 +30,8 @@ SAML 2.0 (Secure Assertion Markup Language) has been in use since 2005 and is al
 
 After the trust has been established, subsequent user information can be exchanged in two ways -
 
-1) your application requesting for a user's information - this is Service Provider initiated login flow
-2) Or the identity provider directly shares user details via a pre-configured ACS URL - this is Identity Provider initiated Login flow
+1. your application requesting for a user's information - this is Service Provider initiated login flow
+2. Or the identity provider directly shares user details via a pre-configured ACS URL - this is Identity Provider initiated Login flow
 
 Lets understand these two SSO flows.
 

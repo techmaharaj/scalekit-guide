@@ -12,14 +12,16 @@ As you get ready to deploy your Single Sign-On (SSO) implementation to productio
 
 <!-- <label for="env_variables"><LabeledCheckbox id="env_variables"/> **Use appropriate environment variables**</label> -->
 
-<LabeledCheckbox id="env_variables"> **Use appropriate environment variables**</LabeledCheckbox>
+<LabeledCheckbox id="env_variables"> **Use appropriate environment variables** </LabeledCheckbox>
 
-    Switch from development to production credentials, including the Client ID, Client Secret, and Environment URL. Your .env file should reflect these production values, distinct from your test settings. Sample .env file is below:
+    Switch from development to production credentials, including the Client ID, Client Secret, and Environment URL. Your .env file should reflect these production values, distinct from your test settings.
+
+    Sample `.env` file is below:
 
 ```typescript title=".env"
-SCALEKIT_ENV_URL="https://acmecorp.scalekit.com"
-SCALEKIT_CLIENT_ID="12wedfgt567898uyg"
-SCALEKIT_CLIENT_SECRET="b6264fca-8adf-457f-a94f-5a4b0d1ca2b9"
+SCALEKIT_ENV_URL = "https://acmecorp.scalekit.com";
+SCALEKIT_CLIENT_ID = "12wedfgt567898uyg";
+SCALEKIT_CLIENT_SECRET = "b6264fca-8adf-457f-a94f-5a4b0d1ca2b9";
 ```
 
 <LabeledCheckbox id="client_secrets"> **Secure the Client Secret**</LabeledCheckbox>
@@ -40,6 +42,6 @@ SCALEKIT_CLIENT_SECRET="b6264fca-8adf-457f-a94f-5a4b0d1ca2b9"
 
 <LabeledCheckbox id="error_handling"> **Graceful Error Handling**</LabeledCheckbox>
 
-    Test your integration thoroughly across all possible edge cases, including incomplete, invalid, or duplicate data submissions. Review our [error handling documentation](/docs/best-practices/error-handling.md) to ensure your application manages errors elegantly and informs users accordingly.
+    Test your integration thoroughly across all possible edge cases, including incomplete, invalid, or duplicate data submissions. Review our [error handling documentation](/docs/guides/error-handling.mdx) to ensure your application manages errors elegantly and informs users accordingly.
 
 Completing these steps is pivotal to a successful launch. While our SDK covers many bases, vigilance is the key to a secure and user-friendly SSO implementation. Good luck with your launch!

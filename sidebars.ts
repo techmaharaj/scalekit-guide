@@ -38,18 +38,18 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "link",
-      label: "Guides",
-      href: "/guides",
-    },
-    {
-      type: "link",
       label: "Integrations",
       href: "/integrations",
     },
     {
+      type: "link",
+      label: "Guides",
+      href: "/guides",
+    },
+    {
       type: "doc",
       label: "Errors",
-      id: "guides/error-handling",
+      id: "best-practices/error-handling",
     },
     {
       type: "link",
@@ -59,7 +59,7 @@ const sidebars: SidebarsConfig = {
     "sdks",
     {
       type: "doc",
-      label: "Concepts",
+      label: "Glossary",
       id: "manage-scalekit/glossary",
     },
   ],
@@ -133,20 +133,15 @@ const sidebars: SidebarsConfig = {
       label: "Back to Home",
       href: "/",
     },
-    // {
-    //   type: 'doc',
-    //   label: 'Overview',
-    //   id: 'guides/guides',
-    // },
+    {
+      type: "doc",
+      label: "Explore",
+      id: "guides/index",
+    },
     {
       type: "category",
-      label: "Learn",
+      label: "Key Concepts",
       items: [
-        {
-          type: "doc",
-          label: "SSO Basics", // The link label
-          id: "best-practices/single-sign-on", // The internal path
-        },
         {
           type: "doc",
           label: "Manage Client Secrets",

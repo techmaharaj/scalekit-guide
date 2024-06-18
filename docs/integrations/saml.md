@@ -1,6 +1,6 @@
 # SAML
 
-<Subtitle>Step-by-step guide to configure Single Sign-on using SAML with any Identity Provider. </Subtitle>
+<Subtitle>Configure Single Sign-on using SAML with any Identity Provider. </Subtitle>
 
 ## 0. Create a SAML application
 
@@ -93,7 +93,7 @@ Paste Issuer URL on SSO Configuration Portal
 
 ## 4. Test Single Sign-on
 
-To verify whether the SAML SSO configuration is completed correctly, click on **Test Connection** on the SSO Configuration Portal**.**
+To verify whether the SAML SSO configuration is completed correctly, click on **Test Connection** on the SSO Configuration Portal.
 
 If everything is done correctly, you will see a **Success** response as shown below.
 

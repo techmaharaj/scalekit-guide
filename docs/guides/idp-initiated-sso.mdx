@@ -1,0 +1,100 @@
+---
+displayed_sidebar: guidesSidebar
+tags: ['SSO Essentials']
+hide_table_of_contents: false
+---
+# How to handle SSO initiated by Identity Provider (IdP)
+
+IdP initiated SSO allows users to log into your application directly from their identity provider's portal. While convenient, it comes with security risks like stolen SAML assertions being used for unauthorized access.
+
+In IdP initiated SSO:
+
+1. The user logs into their identity provider portal and selects your application.
+2. The identity provider sends the user's details as assertions to your application.
+3. Your application validates the assertions, retrieves the user information, and if everything checks out, logs the user in.
+
+<figure>![IdP initiated SSO workflow](../../docs/assets/guides/idp-initiated-sso.png)
+<figcaption>IdP initiated SSO workflow</figcaption></figure>
+
+Since the login starts from the identity provider's portal rather than your application, this flow is called IdP initiated SSO.
+
+Follow this guide to support IdP initiated SSO in your application while mitigating the security risks.
+
+## Risks with IdP initiated SSO
+
+IdP initiated SSO, while convenient for users, comes with significant security risks. The main concern is stolen SAML assertions, which attackers can use to gain unauthorized access to user accounts.
+Stolen SAML Assertions
+In IdP initiated SSO, the identity provider sends the user's details as SAML assertions directly to your application. If an attacker manages to steal these assertions, they can:
+
+- Inject them into another service provider, gaining access to the user's account there
+- Inject them back into your application with different assertions, potentially elevating their privileges
+
+With a stolen SAML assertion, an attacker can log in as the compromised user, bypassing the usual authentication process. This is much harder to achieve with SP initiated SSO.
+
+### How Attackers Steal SAML Assertions
+
+Attackers can steal SAML assertions through various methods:
+
+- **Man-In-The-Middle (MITM) Attacks**: The attacker intercepts the SAML response during transmission and replaces it with a forged one.
+- **Open Redirect Attacks**: The attacker exploits improper endpoint validation to redirect the SAML response to a malicious server.
+- **Leaky Logs and Headers**: Sensitive information, including SAML assertions, can be leaked through logs or headers and intercepted by attackers.
+- **Browser-Based Attacks**: Vulnerabilities in the user's browser can be exploited to steal SAML assertions.
+
+### The Challenge for Service Providers
+
+The chief problem with stolen assertions is that everything appears legitimate to the service provider. The message and assertion are valid, issued by the expected identity provider, and signed with the expected key.
+However, the service provider cannot verify that a malicious party didn't steal and use the assertion. This makes it difficult to detect and prevent unauthorized access through stolen SAML assertions.
+
+## Convert the IdP Initiated Request to SP Initiated SSO
+
+Despite the security risks, IdP initiated SSO offers significant convenience to end users, allowing them to easily log into various applications used within their organization. As such, it's important for your application to support it.
+Fortunately, you can overcome the inherent security risks of IdP initiated SSO by converting the incoming IdP initiated request to an SP initiated SSO flow.
+
+1. When Scalekit receives an IdP initiated SSO request for one of your customers, it will ping your configured default `redirect_uri` with the `connection_id` as a request parameter:
+
+```sh
+https://default_redirect_uri?idp_initiated_login=success&connection_id=conn_12442
+```
+
+2. In your redirect URI handler, check for the `idp_initiated_login` parameter. If it's present and set to "success", construct a new authorization URL using the `connection_id`:
+
+
+```javascript showLineNumbers title="handle_redirect_url.js"
+const {code, error, error_description, idp_initiated_login, connection_id, relay_state} = req.query;
+
+if (error) {
+  // handle errors
+}
+
+// check if this is an idp initiated login
+if (idp_initiated_login && idp_initiated_login === "success") {
+  // handle idp initiated login
+  const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+    connectionId: connection_id,
+    ...(relay_state && {state: relay_state}) // optionally pass relay state as state parameter
+  })
+
+  // next step is to redirect the user to this authorizationURL
+}
+
+// check if state received is same as what was sent as part of authorization-url
+
+// if there are no errors and if this is not an IdP initiated SSO, then authenticate with the code
+const res = await sc.authenticateWithCode({
+  code: code,
+  redirectUri: redirectUri
+});
+
+// res.user has the authenticated user's details
+const userEmail = res.user.email;
+
+
+// next step is to create a session for this user and allow access to your application resources
+```
+
+## Advantages
+
+The advantages of using this approach to support IdP initiated SSO are
+
+- You will completely overcome the security risks of handling IdP initiated SSO using this approach
+- For the end user, it is a completely seamless experience except for an additional redirect which is almost always instantaneous. So, the end user wouldn't even notice the additional latency.

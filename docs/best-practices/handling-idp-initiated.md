@@ -72,7 +72,7 @@ const res = await sc.authenticateWithCode({
   redirectUri: redirectUri
 });
 
-// res.user has the authenticated user's details 
+// res.user has the authenticated user's details
 const userEmail = res.user.email;
 
 

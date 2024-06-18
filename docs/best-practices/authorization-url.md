@@ -1,3 +1,7 @@
+---
+pagination_prev: guides/overview-of-sso
+---
+
 # Authorization URL
 
 As mentioned in the [SSO Basics](./single-sign-on.md) document, the first step of initiating login with SSO via Scalekit is to send the **Authorization URL** request.

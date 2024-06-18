@@ -165,7 +165,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Handling IdP Initiated SSO",
-          id: "best-practices/handling-idp-initiated",
+          id: "guides/idp-initiated-sso",
         },
         {
           type: "doc",

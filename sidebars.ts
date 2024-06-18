@@ -20,6 +20,11 @@ const sidebars: SidebarsConfig = {
           id: "single-sign-on/quickstart-sso", // The internal path
         },
         {
+          type: "link",
+          label: "Key Concepts",
+          href: "/guides",
+        },
+        {
           type: "doc",
           label: "Admin Portal",
           id: "single-sign-on/quickstart-admin-portal",
@@ -143,6 +148,11 @@ const sidebars: SidebarsConfig = {
       label: "Key Concepts",
       items: [
         {
+          type: "link",
+          label: "Overview of SSO",
+          href: "/guides/overview-of-sso",
+        },
+        {
           type: "doc",
           label: "Authorization URL",
           id: "best-practices/authorization-url",
@@ -161,11 +171,6 @@ const sidebars: SidebarsConfig = {
           type: "doc",
           label: "Normalized User Profile",
           id: "best-practices/user-profile",
-        },
-        {
-          type: "doc",
-          label: "Handling IdP Initiated SSO",
-          id: "guides/idp-initiated-sso",
         },
         {
           type: "doc",

@@ -2,10 +2,32 @@
 displayed_sidebar: guidesSidebar
 pagination_prev: null
 pagination_next: null
+title: Guides
 ---
 
-import LearnWithFilter from "../../src/components/LearnWithFilter/LearnWithFilter";
+import LearnWithFilter from "@site/src/components/LearnWithFilter/LearnWithFilter";
+import CardList from "@site/src/components/CardList/CardList";
+import Card from "@site/src/components/Card/Card";
 
-# Guides
+
+## Key Concepts
+
+
+<CardList size="small">
+  <Card title="1. SSO Basics" href="guides/overview-of-sso" linkText="Read">
+  Discover the basics of SSO in this guide—perfect for newcomers looking to implement Single Sign-On in their apps.
+  </Card>
+  <Card title="2. Authorization URL" href="../best-practices/authorization-url" linkText="Read">
+  Understand the role of the Authorization URL in Single Sign-On (SSO)
+  </Card>
+  <Card title="3. Redirect URI" href="/sdks" linkText="Read">
+  </Card>
+  <Card title="4. Normalized User Profile" href="/sdks" linkText="Read">
+  </Card>
+  <Card title="5. IdP Initiated SSO" href="/sdks" linkText="Read">
+  </Card>
+</CardList>
+
+## Guides
 
 <LearnWithFilter />

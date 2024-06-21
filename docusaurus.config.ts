@@ -105,6 +105,11 @@ const config: Config = {
               label: "Blog",
               href: "https://www.scalekit.com/blog",
             },
+            {
+              type: "doc",
+              label: "Glossary",
+              docId: "manage-scalekit/glossary",
+            },
           ],
         },
         {

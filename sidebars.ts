@@ -38,29 +38,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "link",
-      label: "Integrations",
-      href: "/integrations",
-    },
-    {
-      type: "link",
       label: "Key Concepts",
-      href: "/guides",
+      href: "single-sign-on/key-concepts/sso-basics",
     },
     {
       type: "link",
-      label: "Guides",
+      label: "Implementation Guides",
       href: "/guides",
-    },
-    {
-      type: "doc",
-      label: "Errors",
-      id: "best-practices/error-handling",
-    },
-    "sdks",
-    {
-      type: "doc",
-      label: "Glossary",
-      id: "manage-scalekit/glossary",
     },
   ],
   integrationsSidebar: [
@@ -138,41 +122,32 @@ const sidebars: SidebarsConfig = {
       label: "Explore",
       id: "guides/index",
     },
+  ],
+  keyConceptsSidebar: [
     {
-      type: "category",
-      label: "Key Concepts",
-      items: [
-        {
-          type: "link",
-          label: "Overview of SSO",
-          href: "/guides/overview-of-sso",
-        },
-        {
-          type: "doc",
-          label: "Authorization URL",
-          id: "best-practices/authorization-url",
-        },
-        {
-          type: "doc",
-          label: "Redirect URI",
-          id: "best-practices/redirect-uri",
-        },
-        {
-          type: "doc",
-          label: "ID Token Claims",
-          id: "best-practices/idtoken-claims",
-        },
-        {
-          type: "doc",
-          label: "Normalized User Profile",
-          id: "best-practices/user-profile",
-        },
-        {
-          type: "doc",
-          label: "Organizations",
-          id: "manage-scalekit/organization",
-        },
-      ],
+      type: "doc",
+      label: "➡️ SSO Basics",
+      id: "single-sign-on/key-concepts/sso-basics",
+    },
+    {
+      type: "doc",
+      label: "➡️ Authorization URL",
+      id: "single-sign-on/key-concepts/authorization-url",
+    },
+    {
+      type: "doc",
+      label: "➡️ Redirect URI",
+      id: "single-sign-on/key-concepts/redirect-uri",
+    },
+    {
+      type: "doc",
+      label: "➡️ ID Token Claims",
+      id: "single-sign-on/key-concepts/idtoken-claims",
+    },
+    {
+      type: "doc",
+      label: "➡️ Normalized User Profile",
+      id: "single-sign-on/key-concepts/user-profile",
     },
   ],
 };

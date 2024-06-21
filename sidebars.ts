@@ -20,11 +20,6 @@ const sidebars: SidebarsConfig = {
           id: "single-sign-on/quickstart-sso", // The internal path
         },
         {
-          type: "link",
-          label: "Key Concepts",
-          href: "/guides",
-        },
-        {
           type: "doc",
           label: "Admin Portal",
           id: "single-sign-on/quickstart-admin-portal",
@@ -48,6 +43,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "link",
+      label: "Key Concepts",
+      href: "/guides",
+    },
+    {
+      type: "link",
       label: "Guides",
       href: "/guides",
     },
@@ -55,11 +55,6 @@ const sidebars: SidebarsConfig = {
       type: "doc",
       label: "Errors",
       id: "best-practices/error-handling",
-    },
-    {
-      type: "link",
-      label: "API", // The link label
-      href: "/apis", // The internal path
     },
     "sdks",
     {

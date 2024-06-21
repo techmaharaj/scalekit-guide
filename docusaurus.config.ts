@@ -65,28 +65,6 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
-    // Redocusaurus config
-    // [
-    //   'redocusaurus',
-    //   {
-    //     // Plugin Options for loading OpenAPI files
-    //     specs: [
-    //       // Pass it a path to a local OpenAPI YAML file
-    //       {
-    //         // Redocusaurus will automatically bundle your spec into a single
-    //         file during the build spec: 'openapi/scalekit.swagger.json',
-    //         route: '/api',
-
-    //       },
-
-    //     ],
-    //     // Theme Options for modifying how redoc renders them
-    //     theme: {
-    //       // Change with your site colors
-    //       primaryColor: '#1890ff',
-    //     },
-    //   },
-    // ] satisfies Redocusaurus.PresetEntry,
   ],
   themeConfig: {
     docs: {
@@ -126,6 +104,11 @@ const config: Config = {
             {
               label: "Blog",
               href: "https://www.scalekit.com/blog",
+            },
+            {
+              type: "doc",
+              label: "Glossary",
+              docId: "manage-scalekit/glossary",
             },
           ],
         },

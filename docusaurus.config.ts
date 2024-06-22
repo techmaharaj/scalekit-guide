@@ -17,37 +17,7 @@ const config: Config = {
   onBrokenMarkdownLinks: "warn",
   clientModules: ["./iframedetector.js"],
   i18n: { defaultLocale: "en", locales: ["en"] },
-  plugins: [
-    [
-      "@scalar/docusaurus",
-      {
-        label: "",
-        route: "/api-reference",
-        configuration: {
-          isEditable: false,
-          spec: {
-            url: "https://raw.githubusercontent.com/scalekit-inc/docs/main/openapi/scalekit.swagger.json",
-          },
-          searchHotKey: "b",
-          hideModels: false,
-          showSidebar: true,
-          hiddenClients: [
-            "c",
-            "objc",
-            "clojure",
-            "powershell",
-            "swift",
-            "cohttp",
-          ],
-          hideDownloadButton: true,
-          darkMode: false,
-          // customCss: './css/custom.css',
-        },
-      } as ScalarOptions,
-    ],
-    "plugin-image-zoom",
-    "./plugins/learn-filters",
-  ],
+  plugins: ["plugin-image-zoom", "./plugins/learn-filters"],
   presets: [
     [
       "classic",

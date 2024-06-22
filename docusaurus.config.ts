@@ -121,7 +121,7 @@ const config: Config = {
       searchPagePath: false,
     },
     prism: {
-      theme: prismThemes.duotoneLight,
+      theme: prismThemes.github,
       additionalLanguages: ["bash"],
     },
   } satisfies Preset.ThemeConfig,

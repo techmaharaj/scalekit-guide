@@ -1,4 +1,7 @@
 import LabeledCheckbox from "@site/src/components/checkbox";
+import Parameters, { Parameter } from "../components/parameters";
+import Endpoints from "@site/src/components/endpoint";
+import CodeWithHeader from "@site/src/components/CodeWithHeader";
 import Subtitle from "@site/src/components/custom";
 import { CardTileWithImage, SimpleCode } from "@site/src/components/custom";
 // Import the original mapper
@@ -6,7 +9,10 @@ import MDXComponents from "@theme-original/MDXComponents";
 import CodeBlock from "@theme/CodeBlock";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
-import React from "react";
+import IntersectingHeader from "../components/IntersectingHeader";
+import { APIEndpoint } from "../components/APIEndpoint";
+import Link from "@docusaurus/Link";
+import Markdown from "react-markdown";
 
 export default {
   // Re-use the default mapping
@@ -20,4 +26,12 @@ export default {
   Tabs,
   TabItem,
   CodeBlock,
+  Endpoints,
+  CodeWithHeader,
+  Parameters,
+  Parameter,
+  IntersectingHeader,
+  APIEndpoint,
+  Link,
+  Markdown,
 };

@@ -4,7 +4,7 @@ pagination_prev: guides/overview-of-sso
 
 # Authorization URL
 
-As mentioned in the [SSO Basics](./single-sign-on.md) document, the first step of initiating login with SSO via Scalekit is to send the **Authorization URL** request.
+As mentioned in the [SSO Basics](../single-sign-on/key-concepts/1-overview-of-sso.mdx) document, the first step of initiating login with SSO via Scalekit is to send the **Authorization URL** request.
 
 In this document, we will detail all the parameters accepted by us and the corresponding behaviour of these request parameters.
 
@@ -28,7 +28,7 @@ You can use our SDK to generate this authorization URL.
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
-import {Scalekit} from "@scalekit-sdk/node";
+import { Scalekit } from "@scalekit-sdk/node";
 // init client
 const scalekit = new Scalekit(
   SCALEKIT_ENVIRONMENT_URL,

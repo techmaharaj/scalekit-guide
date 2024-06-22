@@ -1,7 +1,7 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './card.module.css';
-import Link from '@docusaurus/Link';
+import React from "react";
+import clsx from "clsx";
+import styles from "./card.module.css";
+import Link from "@docusaurus/Link";
 
 export type CardType = {
   href?: string;
@@ -11,13 +11,12 @@ export type CardType = {
   children?: React.ReactNode;
 };
 
-
 type PropType = CardType;
 
 const CardContentWrapper = ({
   href,
   children,
-}: Partial<Pick<PropType, 'href'>> & { children: React.ReactNode }) => {
+}: Partial<Pick<PropType, "href">> & { children: React.ReactNode }) => {
   if (href)
     return (
       <Link to={href} className={clsx(styles.container)}>
@@ -34,6 +33,11 @@ const Card = ({ href, title, description, linkText, children }: PropType) => {
       {title && <h5 className={clsx(styles.title)}>{title}</h5>}
       {description && <p className={clsx(styles.description)}>{description}</p>}
       {children && <p className={clsx(styles.description)}>{children}</p>}
+
+      {/*
+
+      This code adds link below cards. Commenting to temporarily remove it.
+
       {linkText && (
         <div className={clsx(styles.linkTextContainer)}>
           <div>
@@ -42,6 +46,8 @@ const Card = ({ href, title, description, linkText, children }: PropType) => {
           </div>
         </div>
       )}
+
+      */}
     </CardContentWrapper>
   );
 };

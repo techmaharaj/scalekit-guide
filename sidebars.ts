@@ -1,4 +1,5 @@
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
+import { generateDocObjects } from "./src/utils/config-helper-fns";
 
 const sidebars: SidebarsConfig = {
   homeSidebar: [
@@ -37,14 +38,53 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: "link",
+      type: "category",
       label: "Key Concepts",
-      href: "single-sign-on/key-concepts/sso-basics",
+      collapsible: true,
+      collapsed: true,
+      items: [
+        {
+          type: "doc",
+          label: "➡️ SSO Basics",
+          id: "single-sign-on/key-concepts/sso-basics",
+        },
+        {
+          type: "doc",
+          label: "➡️ Authorization URL",
+          id: "single-sign-on/key-concepts/authorization-url",
+        },
+        {
+          type: "doc",
+          label: "➡️ Redirect URI",
+          id: "single-sign-on/key-concepts/redirect-uri",
+        },
+        {
+          type: "doc",
+          label: "➡️ ID Token Claims",
+          id: "single-sign-on/key-concepts/idtoken-claims",
+        },
+        {
+          type: "doc",
+          label: "➡️ Normalized User Profile",
+          id: "single-sign-on/key-concepts/user-profile",
+        },
+      ],
     },
     {
-      type: "link",
-      label: "Implementation Guides",
-      href: "/guides",
+      type: "category",
+      label: "How-To Guides",
+      collapsible: true,
+      collapsed: true,
+      items: [
+        {
+          type: "doc",
+          label: "Overview",
+          id: "guides/index",
+        },
+        ...generateDocObjects("guides", {
+          "overview-of-sso.mdx": "SSO Basics",
+        }),
+      ],
     },
   ],
   integrationsSidebar: [
@@ -121,33 +161,6 @@ const sidebars: SidebarsConfig = {
       type: "doc",
       label: "Explore",
       id: "guides/index",
-    },
-  ],
-  keyConceptsSidebar: [
-    {
-      type: "doc",
-      label: "➡️ SSO Basics",
-      id: "single-sign-on/key-concepts/sso-basics",
-    },
-    {
-      type: "doc",
-      label: "➡️ Authorization URL",
-      id: "single-sign-on/key-concepts/authorization-url",
-    },
-    {
-      type: "doc",
-      label: "➡️ Redirect URI",
-      id: "single-sign-on/key-concepts/redirect-uri",
-    },
-    {
-      type: "doc",
-      label: "➡️ ID Token Claims",
-      id: "single-sign-on/key-concepts/idtoken-claims",
-    },
-    {
-      type: "doc",
-      label: "➡️ Normalized User Profile",
-      id: "single-sign-on/key-concepts/user-profile",
     },
   ],
 };

@@ -89,11 +89,6 @@ const sidebars: SidebarsConfig = {
   ],
   integrationsSidebar: [
     {
-      type: "link",
-      label: "Back to Home",
-      href: "/",
-    },
-    {
       type: "doc",
       label: "Overview",
       id: "integrations/integrations",

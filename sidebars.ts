@@ -51,6 +51,9 @@ const sidebars: SidebarsConfig = {
         },
         ...generateDocObjects("guides", {
           "overview-of-sso.mdx": "SSO Basics",
+          "auth0.mdx": "Auth0",
+          "testing-sso.mdx": "Testing SSO",
+          "idp-initiated-sso.mdx": "IDP Initiated SSO",
         }),
       ],
     },

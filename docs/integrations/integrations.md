@@ -9,7 +9,7 @@ pagination_next: integrations/saml
 
 <section class="row">
 
-<CardTileWithImage imageSrc=""
+<CardTileWithImage imageSrc="https://cdn.scalekit.com/v1/assets/okta-icon-logo-sE6hM2T8.svg"
 title="Okta SAML"
 description="Step-by-step guide to configure Single Sign-on using Okta"
 url="/integrations/okta-saml"></CardTileWithImage>

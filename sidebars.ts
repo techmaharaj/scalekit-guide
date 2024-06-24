@@ -94,7 +94,7 @@ const sidebars: SidebarsConfig = {
   integrationsSidebar: [
     {
       type: "doc",
-      label: "Overview",
+      label: "Integrations Overview",
       id: "integrations/integrations",
     },
     {

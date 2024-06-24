@@ -84,7 +84,7 @@ const config: Config = {
         },
         {
           type: "search",
-          position: "right",
+          position: "left",
         },
         // {
         //   to: "https://app.scalekit.com",

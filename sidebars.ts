@@ -65,27 +65,27 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          label: "➡️ SSO Basics",
+          label: "SSO Basics",
           id: "single-sign-on/key-concepts/sso-basics",
         },
         {
           type: "doc",
-          label: "➡️ Authorization URL",
+          label: "Authorization URL",
           id: "single-sign-on/key-concepts/authorization-url",
         },
         {
           type: "doc",
-          label: "➡️ Redirect URI",
+          label: "Redirect URI",
           id: "single-sign-on/key-concepts/redirect-uri",
         },
         {
           type: "doc",
-          label: "➡️ ID Token Claims",
+          label: "ID Token Claims",
           id: "single-sign-on/key-concepts/idtoken-claims",
         },
         {
           type: "doc",
-          label: "➡️ Normalized User Profile",
+          label: "Normalized User Profile",
           id: "single-sign-on/key-concepts/user-profile",
         },
       ],

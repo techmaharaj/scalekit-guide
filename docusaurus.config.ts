@@ -86,12 +86,12 @@ const config: Config = {
           type: "search",
           position: "right",
         },
-        {
-          to: "https://app.scalekit.com",
-          label: "Go to Dashboard ->",
-          position: "right",
-          className: "loginLink",
-        },
+        // {
+        //   to: "https://app.scalekit.com",
+        //   label: "Go to Dashboard ->",
+        //   position: "right",
+        //   className: "loginLink",
+        // },
       ],
     },
     imageZoom: {

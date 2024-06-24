@@ -37,6 +37,23 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+
+    {
+      type: "category",
+      label: "How-To Guides",
+      collapsible: true,
+      collapsed: true,
+      items: [
+        {
+          type: "doc",
+          label: "Overview",
+          id: "guides/index",
+        },
+        ...generateDocObjects("guides", {
+          "overview-of-sso.mdx": "SSO Basics",
+        }),
+      ],
+    },
     {
       type: "category",
       label: "Key Concepts",
@@ -68,22 +85,6 @@ const sidebars: SidebarsConfig = {
           label: "➡️ Normalized User Profile",
           id: "single-sign-on/key-concepts/user-profile",
         },
-      ],
-    },
-    {
-      type: "category",
-      label: "How-To Guides",
-      collapsible: true,
-      collapsed: true,
-      items: [
-        {
-          type: "doc",
-          label: "Overview",
-          id: "guides/index",
-        },
-        ...generateDocObjects("guides", {
-          "overview-of-sso.mdx": "SSO Basics",
-        }),
       ],
     },
   ],

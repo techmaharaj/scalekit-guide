@@ -373,9 +373,14 @@ p {
 .navbar__link {
   color: var(--ifm-color-primary);
   margin: 0 0.5rem;
-  font-weight: 400;
   border-radius: 4px;
-  font-size: 14px;
+
+  /* Match the boldness of left navigation sidebar items*/
+  font-weight: 600;
+  font-size: 0.875rem;
+
+  /* font-weight: 400; */
+  /* font-size: 14px; */
 }
 
 .navbar__link--active {

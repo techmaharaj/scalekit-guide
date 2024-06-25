@@ -37,24 +37,83 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-
     {
       type: "category",
       label: "How-To Guides",
-      collapsible: true,
-      collapsed: true,
+      collapsible: false,
+      collapsed: false,
       items: [
         {
           type: "doc",
           label: "Overview",
           id: "guides/index",
         },
-        ...generateDocObjects("guides", {
-          "overview-of-sso.mdx": "SSO Basics",
-          "auth0.mdx": "Auth0",
-          "testing-sso.mdx": "Testing SSO",
-          "idp-initiated-sso.mdx": "IDP Initiated SSO",
-        }),
+        {
+          type: "category",
+          label: "Implement Scalekit in my existing Auth System",
+          collapsed: true,
+          collapsible: true,
+          items: [
+            "guides/auth0",
+            "guides/firebase",
+            {
+              type: "doc",
+              label: "NextJS",
+              id: "guides/placeholder",
+            },
+            {
+              type: "doc",
+              label: "Mobile App",
+              id: "guides/placeholder",
+            },
+          ],
+        },
+        {
+          type: "category",
+          label: "Configure Advanced Single Sign On settings ",
+          collapsed: true,
+          collapsible: true,
+          items: [
+            {
+              type: "doc",
+              label: "Custom Attributes",
+              id: "guides/placeholder",
+            },
+            {
+              type: "doc",
+              label: "IdP initiated SSO",
+              id: "guides/placeholder",
+            },
+            {
+              type: "doc",
+              label: "Encrypted Assertions in SAML",
+              id: "guides/placeholder",
+            },
+          ],
+        },
+        {
+          type: "category",
+          label: "Manage Authentication",
+          collapsed: true,
+          collapsible: true,
+          items: [
+            {
+              type: "doc",
+              label: "Configure Webhooks",
+              id: "guides/placeholder",
+            },
+            {
+              type: "doc",
+              label: "Manage Client Secrets",
+              id: "guides/placeholder",
+            },
+            {
+              type: "doc",
+              label: "Accept IdP Raw Attributes",
+              id: "guides/placeholder",
+            },
+          ],
+        },
       ],
     },
     {

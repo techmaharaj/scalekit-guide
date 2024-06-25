@@ -174,7 +174,7 @@ figure img {
 } */
 
 .menu__link--sublist-caret:before {
-  content: "";
+  content: none; /* removes the arrow icone*/
   margin-right: 2px;
   margin-left: -1.25rem;
   line-height: 1.25rem;
@@ -191,6 +191,11 @@ figure img {
   transform: rotateZ(90deg);
 }
 
+/* This reduces the size of > arrow in the sub items*/
+.menu__link--sublist-caret:after {
+  background: var(--ifm-menu-link-sublist-icon) 30% / 1.2rem 1.2rem;
+}
+
 .menu__list .menu__list {
   margin-top: 0px;
 }
@@ -200,9 +205,9 @@ figure img {
 }
 
 .menu__list-item-collapsible {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.875rem;
-  margin-top: 8px;
+  margin-top: 2px;
 }
 
 .menu__list-item-collapsible:hover {
@@ -215,6 +220,12 @@ figure img {
 
 .theme-doc-sidebar-item-link-level-1 {
   margin-bottom: 4px;
+}
+
+/*custom: selector for categories within categories*/
+.theme-doc-sidebar-item-category-level-2 {
+  font-weight: 600;
+  /* background-color: yellow; */
 }
 
 .menu__list-item,
@@ -231,7 +242,7 @@ figure img {
 }
 
 .menu__caret:before {
-  background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem !important;
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem !important;
 }
 
 .badge--primary {
@@ -375,7 +386,7 @@ p {
   margin: 0 0.5rem;
   border-radius: 4px;
 
-  /* Match the boldness of left navigation sidebar items*/
+  /* custom: Match the boldness of left navigation sidebar items*/
   font-weight: 600;
   font-size: 0.875rem;
 
@@ -474,6 +485,11 @@ ul.table-of-contents.table-of-contents__left-border:before {
   box-shadow: none;
   border-radius: 0;
 }
+
+/* custom: makes collapsibles weight */
+/* .menu__link.menu__link--sublist.menu__link--sublist-caret {
+  font-weight: 400;
+} */
 
 .menu__link--sublist:after {
   padding-top: 0.3rem;

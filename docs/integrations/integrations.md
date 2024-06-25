@@ -1,9 +1,10 @@
 ---
 hide_table_of_contents: true
-pagination_next: integrations/saml
+pagination_next: null
+displayed_sidebar: integrationsSidebar
 ---
 
-# Overview
+# Integrations Overview
 
 ## Identity Providers
 

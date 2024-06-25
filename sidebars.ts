@@ -4,16 +4,15 @@ import { generateDocObjects } from "./src/utils/config-helper-fns";
 const sidebars: SidebarsConfig = {
   homeSidebar: [
     {
-      type: "doc",
-      label: "Home",
-      id: "home",
-    },
-    {
       type: "category",
       label: "Single Sign-on",
       className: "sso_category",
       collapsible: false,
       collapsed: false,
+      link: {
+        type: "doc",
+        id: "home",
+      },
       items: [
         {
           type: "doc",
@@ -42,12 +41,11 @@ const sidebars: SidebarsConfig = {
       label: "How-To Guides",
       collapsible: false,
       collapsed: false,
+      link: {
+        type: "doc",
+        id: "guides/index",
+      },
       items: [
-        {
-          type: "doc",
-          label: "Overview",
-          id: "guides/index",
-        },
         {
           type: "category",
           label: "Implement Scalekit in my existing Auth System",
@@ -151,11 +149,6 @@ const sidebars: SidebarsConfig = {
     },
   ],
   integrationsSidebar: [
-    {
-      type: "doc",
-      label: "Integrations Overview",
-      id: "integrations/integrations",
-    },
     {
       type: "category",
       label: "Identity Providers",

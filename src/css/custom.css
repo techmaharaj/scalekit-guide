@@ -223,9 +223,8 @@ figure img {
 }
 
 /*custom: selector for categories within categories*/
-.theme-doc-sidebar-item-category-level-2 {
-  font-weight: 600;
-  /* background-color: yellow; */
+.theme-doc-sidebar-item-category-level-2 .menu__list-item-collapsible {
+  font-weight: 400;
 }
 
 .menu__list-item,

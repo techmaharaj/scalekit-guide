@@ -1,19 +1,20 @@
 ---
 sidebar_position: 1
 ---
-import InstallSDK from './../templates/_install-sdk.md';
+
+import InstallSDK from './../templates/\_install-sdk.md';
 
 # Integrate Admin Portal
 
 ## Overview
 
-Admin Portal is a self-service interface that empowers your customers' IT admins to configure SSO on their own. Designed to streamline the SSO setup process, it reduces the demand on your engineering resources and provides comprehensive IdP-specific documentation. Fully hosted and managed by Scalekit, the Admin Portal simplifies the SSO config experience, ensuring a fast and secure integration with only a few lines of code.
+Admin Portal is a self-service interface that empowers your customers' IT admins to configure SSO on their own. Designed to streamline the setup process, it reduces the demand on your engineering resources and provides comprehensive IdP-specific documentation. Fully hosted and managed by Scalekit, the Admin Portal simplifies the config experience, ensuring a fast and secure integration with only a few lines of code.
 
 Depending on your architecture and UX preferences, you can choose one of the two methods to integrate the Admin Portal into your application:
 
 1. Integration via API
 2. Integration via Shareable Link
-<!-- 
+<!--
 <figure>![Two ways of integrating Admin Portal](./Integrate%20with%20Scalekit.png)
 <figcaption>Two ways of integrating Admin Portal</figcaption></figure> -->
 
@@ -35,7 +36,7 @@ Use the [generatePortalLink](/apis#tag/Admin%20Portal/put/api/v1/organizations/{
 
 ```javascript showLineNumbers
 // generate admin portal link by sending organization id as a parameter
-const link = await sc.organization.generatePortalLink('org_1233222');
+const link = await sc.organization.generatePortalLink("org_1233222");
 
 // link.location is the Admin Portal url
 ```
@@ -67,7 +68,9 @@ Note:
 Log in to your Scalekit Dashboard and navigate to the desired organization's overview section.
 
 ### Generate Link
+
 <!-- <Show screenshot> -->
+
 Click 'Generate Link' to create a new, shareable Admin Portal link.
 
 - This link is valid for 7 days but can be revoked at any time from the dashboard for security purposes.

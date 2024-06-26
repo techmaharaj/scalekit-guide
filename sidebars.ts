@@ -27,7 +27,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Customization",
-          id: "single-sign-on/domain-and-theme-customization",
+          id: "admin-portal/custom-domain",
         },
         {
           type: "doc",

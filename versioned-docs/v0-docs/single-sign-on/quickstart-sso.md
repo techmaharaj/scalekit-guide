@@ -92,7 +92,7 @@ SCALEKIT_CLIENT_SECRET="<COPY_SECRET_SCALEKIT_DASHBOARD>"
 ⚠️ Security Alert:
 
 - Never commit your `.env` file to version control.
-- Rotate your `secret `regularly. See our best practices guide for managing secrets.
+- Rotate your `secret`regularly. See our best practices guide for managing secrets.
 
 Now you're ready to start integrating SSO into your app! Next, we'll cover how to use the SDK to authenticate users.
 
@@ -144,7 +144,7 @@ Next, Construct your Authorization URL with these parameters and redirect users 
 
 With Scalekit NodeSDK:
 
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">
 
 ````javascript showLineNumbers

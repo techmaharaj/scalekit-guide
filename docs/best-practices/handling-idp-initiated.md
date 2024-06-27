@@ -33,8 +33,7 @@ https://default_redirect_uri?idp_initiated_login=success&connection_id=conn_1244
 
 2. You can handle this incoming idp initiated request and construct a new Authorization URL and redirect the user to this authorizationURL. This would automatically start the SP initiated SSO workflow for the user. Since the user is already logged into their Identity Provider (which is why they could initiate the IdP iniitated SSO in the first place), their identity provider will send a new clean SAML response thus eliminating all the risks of IdP initiated SSO and concerns of stolen assertions being used.
 
-
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers

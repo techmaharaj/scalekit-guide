@@ -24,7 +24,7 @@ https://<environment_domain>/oauth/authorize?
 
 You can use our SDK to generate this authorization URL.
 
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers

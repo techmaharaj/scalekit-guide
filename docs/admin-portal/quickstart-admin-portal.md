@@ -31,7 +31,7 @@ Begin by installing the Scalekit SDK, which provides necessary tools for creatin
 
 Use the [generatePortalLink](/apis#tag/Admin%20Portal/put/api/v1/organizations/{id}/portal_links) API to generate an SSO Configuration Portal link that can be shared with your customers. You can either embed this as an iframe in your application or redirect the user to this link for the admin to self serve configure SSO for their organization.
 
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers

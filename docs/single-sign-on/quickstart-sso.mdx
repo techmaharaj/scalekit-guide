@@ -2,16 +2,18 @@
 description: Step-by-step guide to implement Single Sign-on in your application using Scalekit's APIs
 ---
 
-import InstallSDK from './../templates/install-sdk.md';
-import Card from '../../src/components/Card/Card';
-import CardList from '../../src/components/CardList/CardList';
+import InstallSDK from "./../templates/install-sdk.md";
+import Card from "../../src/components/Card/Card";
+import CardList from "../../src/components/CardList/CardList";
 
 # Single Sign On Quickstart
 
 This quickstart guide will show you how to implement Single Sign-on (SSO). Scalekit is an authentication middleware between your application and Identity Providers over the OpenID Connect (OIDC) and Security Assertion Markup Language (SAML) protocols.
 
-<figure>![How Scalekit works](assets/how-scalekit-connects.png)
-<figcaption>Scalekit in a nutshell</figcaption></figure>
+<figure>
+  ![How Scalekit works](assets/how-scalekit-connects.png)
+  <figcaption>Scalekit in a nutshell</figcaption>
+</figure>
 
 ## Sequence of Authentication
 
@@ -19,8 +21,10 @@ Scalekit springs into action when the user logs into your app. It lets your app 
 
 Visualize the authentication flow with this high-level diagram:
 
-<figure>![Sequence Diagram for SSO Workflow](assets/how-sso-works.png)
-<figcaption>How Scalekit integrates with your SSO flow</figcaption></figure>
+<figure>
+  ![Sequence Diagram for SSO Workflow](assets/how-sso-works.png)
+  <figcaption>How Scalekit integrates with your SSO flow</figcaption>
+</figure>
 
 1. User triggers SSO by logging into your app
    1. When a user attempts to log in, your app recognizes the need for SSO.
@@ -114,16 +118,17 @@ After auth, Scalekit adds a temporary `code` to this URI. You'll `POST` this `co
 
 Provide one of:
 
-- <SimpleCode>organization_id</SimpleCode>: Preferred for both SAML and OIDC.
-  - Example: `org_12434341`
-- <SimpleCode>connection_id</SimpleCode>: Specific SSO connection ID.
-  - Example: `conn_121414141`
-- <SimpleCode>domain</SimpleCode>: Organization mandate for domain-wide SSO. This query parameter automatically detects the appropriate SSO connection.
-  - Example: `google.com` or `yourcustomerdomain.com`
+- <SimpleCode>organization_id</SimpleCode>: Preferred for both SAML and OIDC. -
+  Example: `org_12434341`
+- <SimpleCode>connection_id</SimpleCode>: Specific SSO connection ID. - Example:
+  `conn_121414141`
+- <SimpleCode>domain</SimpleCode>: Organization mandate for domain-wide SSO.
+  This query parameter automatically detects the appropriate SSO connection. -
+  Example: `google.com` or `yourcustomerdomain.com`
 
 **client_id**: Your app's unique Scalekit identifier which is mandatory for all requests. This Identifies both your app and the environment (staging, prod).
 
-<p style={{ textDecoration: 'underline' }}>Example Authorization URL</p>
+<p style={{ textDecoration: "underline" }}>Example Authorization URL</p>
 
 ```jsx title="Authorization URL"
 https://auth.scalekit.com/authorize?
@@ -144,7 +149,7 @@ Next, Construct your Authorization URL with these parameters and redirect users 
 
 With Scalekit NodeSDK:
 
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">
 
 ````javascript showLineNumbers
@@ -219,7 +224,7 @@ After a successful SSO, Scalekit redirects the user to your `redirect_uri` with 
 
 Here's how to turn that `code` into user data:
 
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
@@ -264,20 +269,13 @@ We mitigate [risks](https://example.com) for the users by performing Service Pro
 
 ## Next steps
 
-
 As we start our journey to offer enterprise-grade authentication, learn to [test the Single Sign On (SSO)](https://example.org) and [launch checklist](https://example.org).
 
 <CardList size="medium">
-  <Card
-      title="See Integrations"
-      href="/integrations"
-      linkText="Explore">
+  <Card title="See Integrations" href="/integrations" linkText="Explore">
     Get started with SSO Basics
   </Card>
-    <Card
-      title="Key Concepts"
-      href="/guides"
-      linkText="Explore">
+  <Card title="Key Concepts" href="/guides" linkText="Explore">
     Get started with SSO Basics
   </Card>
 </CardList>

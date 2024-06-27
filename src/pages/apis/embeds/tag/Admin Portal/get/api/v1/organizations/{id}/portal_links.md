@@ -1,6 +1,6 @@
 
 <CodeWithHeader method="get" endpoint="/api/v1/organizations/{id}/portal_links">
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers
@@ -41,6 +41,7 @@ links = sc.organization.get_portal_links(
 )
 
 ```
+
 </TabItem>
 </Tabs>
 </CodeWithHeader>

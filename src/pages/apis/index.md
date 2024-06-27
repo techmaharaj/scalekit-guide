@@ -19,10 +19,9 @@ import SidebarItems from '@site/src/components/SidebarItems';
 <div className="sidebarContainer">
 <nav className="menu thin-scrollbar">
 <ul className="theme-doc-sidebar-menu menu__list">
-    
+
 <SidebarItems></SidebarItems>
-    
-    
+
 </ul>
 </nav>
 </div>
@@ -85,7 +84,7 @@ You can obtain a secure token by making `POST` call to the `https://{ENV_URL}/oa
 </div>
 <div className="col col--6">
 <CodeWithHeader title="API Authentication">
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers

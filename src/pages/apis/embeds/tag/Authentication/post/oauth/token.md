@@ -1,5 +1,5 @@
 <CodeWithHeader method="post" endpoint="/oauth/token">
-<Tabs groupId="tech-stack" querystring>
+<Tabs groupId="tech-stack" queryString>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers

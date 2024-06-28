@@ -1,45 +1,42 @@
 ---
-title: Domain and Theme Customization
-toc_min_heading_level: 2
+displayed_sidebar: homeSidebar
 ---
 
-# Domain and Theme Customization
+# Custom Domain and Theme
+
 <Subtitle>Make Scalekit your own</Subtitle>
 
-## Custom Domain (CNAME)
+Scalekit's default behavior uses the auto-provisioned domain and branding in your application. However, it can be customized to represent your domain and brand, as described in the rest of this page.
 
+# Custom Domain
 
-By default, all your environments are accessible via a unique endpoint URL hosted at scalekit.com domain. For example <SimpleCode>https:<nolink />//yoursaas.scalekit.com</SimpleCode>.
+Scalekit sets up your environment using a unique endpoint URL that ends with the scalekit.com domain. We offer an option to customize this domain using CNAME configuration.
 
-But, if you would like to offer a deeply customized experience to your customers and show your branding everywhere, we offer you an option to customize this url to be hosted on your domain via CNAME configuration. For example: <SimpleCode>https:<nolink />//sso.yoursaas.com</SimpleCode>
+| Before                                                            | After                                                        |
+| ----------------------------------------------------------------- | ------------------------------------------------------------ |
+| <SimpleCode> https:<nolink />//b2b-app.scalekit.com </SimpleCode> | <SimpleCode> https://<nolink />sso.b2b-app.com </SimpleCode> |
 
-**Visibility**
+The URL is visible in the following ways:
 
-1. **Stand alone Admin Portal**
-   When your customers visit the Self serve Admin Portal, they will see the URL of your environment in the browser's address bar.
-
-2. **SSO Redirects**
-   When your customers login with SSO via SAML or OIDC, they may see the scalekit.com in their browser's address bar as part of redirection to their Identity Provider.
+- Organization users will see this URL in their browser’s address when they visit the [Admin Portal](https://example.org) to configure authentication settings.
+- Organization users logging into the app using [SSO via SAML](https://example.org) (or) [SSO via OIDC](https://example.org) will see this URL in the browser's address bar as part of redirections to their Identity Providers.
 
 :::info
 
-- The ability to configure CNAME is only available for production environments.
-
-- We will automatically configure the SSL certificate for the custom domain after you successfully configure CNAME records in your domain registrar.
-
-- After the successful configuration of CNAME for the production environment, don't forget to use this new CNAME url as base URL for the production environment.
+1. CNAME Configuration Limitation: CNAME configuration is exclusively available for production environments.
+2. SSL Certificate Automation: Upon successful CNAME record configuration in your domain registrar, the SSL certificate for the custom domain will be automatically set up.
+3. Base URL: After successfully configuring CNAME for the production environment, ensure that the new CNAME URL is utilized as the base URL.
 
 :::
 
-## Branding & Theming
+# Custom Theme
 
-We offer you the ability customize the Admin Portal to make it look and feel like your branded portal.
+You can let your Organization's users (usually IT Administrators) configure SSO settings through a self-service Admin Portal. You can customize this portal to present your app’s brand.
 
-There are three elements that can be customized:
+- Show your brand’s logo on the Admin Portal.
+- Match the Admin Portal with your brand’s color themes by updating its Accent Color.
+- The Favicon on the browser tab can be updated to fit your brand.
 
-- Brand Logo
-- Accent Color
-- Favicon
+## Next Steps
 
-## Domain and Branding Customization
-If you are interested in configuring a custom domain (CNAME) for your production environment or customizing the branding of the Admin Portal, please reach out to support@scalekit.com for assistance.
+Are you interested in customizing the domain or theme? Please reach out to support@scalekit.com for assistance.

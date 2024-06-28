@@ -27,18 +27,18 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Customization",
-          id: "admin-portal/custom-domain",
+          id: "single-sign-on/domain-and-theme-customization",
         },
         {
           type: "doc",
           label: "Launch Checklist",
-          id: "best-practices/launch-checklist",
+          id: "single-sign-on/launch-checklist",
         },
       ],
     },
     {
       type: "category",
-      label: "How-To Guides",
+      label: "Implementation Guides",
       collapsible: false,
       collapsed: false,
       link: {

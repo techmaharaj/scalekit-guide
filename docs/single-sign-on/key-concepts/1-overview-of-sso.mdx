@@ -4,7 +4,6 @@ id: sso-basics
 label: SSO Basics
 ---
 
-
 # Introduction to Single Sign-on
 
 Single Sign-On (SSO) streamlines user access by enabling a single authentication event to grant access to multiple applications with the same credentials. For example, logging into one Google service, such as Gmail, automatically authenticates you to YouTube, Google Drive, and other Google platforms.
@@ -19,10 +18,6 @@ Furthermore, this integrated SSO mechanism enhances user convenience, boosts pro
 ## How Single Sign-On (SSO) works
 
 Fundamentally, Single Sign-on works by exchanging user information in a pre-determined format between two trusted parties - your application and your customer's identity provider (aka IdP). Most of these interactions happen in the browser context as some steps need user intervention.
-
-{/*
-<Single Sign-on Image>
-<Application <==> Identity Provider> */}
 
 To ensure secure exchange of user information between your application and your customer's identity provider, most IdPs support two protocols: Secure Assertion Markup Language (SAML) or OpenID Connect (OIDC). The objective of both these protocols is same: allow secure user information exchange between the Service Provider (your application) and Identity Provider (your customer's identity system). These protocols differ in how these systems trust each other, communicate, and exchange user information.
 
@@ -41,9 +36,10 @@ Lets understand these two SSO flows.
 
 ### Service Provider initiated SSO
 
-
-<figure>![SP initiated SSO workflow](../../assets/guides/sp-initiated-sso.png)
-<figcaption>SP initiated SSO workflow</figcaption></figure>
+<figure>
+  ![SP initiated SSO workflow](../../assets/guides/sp-initiated-sso.png)
+  <figcaption>SP initiated SSO workflow</figcaption>
+</figure>
 
 For service provider initiated SSO flow,
 
@@ -56,12 +52,15 @@ As you can imagine, in this workflow, the user login behaviour starts from your 
 
 ### Identity Provider initiated SSO
 
-<figure>![IdP initiated SSO workflow](../../assets/guides/idp-initiated-sso.png)
-<figcaption>IdP initiated SSO workflow</figcaption></figure>
-In case of Identity Provider initiated SSO,
-1. User logs into their identity provider portal and selects your application from within the IdP portal.
-2. Identity Provider sends the user details as assertions to your application.
-3. You validate assertions, retrieve the user information, and if everything checks, allow the user to successfully login yo your application.
+<figure>
+  ![IdP initiated SSO workflow](../../assets/guides/idp-initiated-sso.png)
+  <figcaption>IdP initiated SSO workflow</figcaption>
+</figure>
+In case of Identity Provider initiated SSO, 1. User logs into their identity provider
+portal and selects your application from within the IdP portal. 2. Identity Provider
+sends the user details as assertions to your application. 3. You validate assertions,
+retrieve the user information, and if everything checks, allow the user to successfully
+login yo your application.
 
 Since the user login workflow starts from the Identity Provider portal (and not from your application), this flow is called as Identity Provider initiated SSO (aka IdP-initiated SSO).
 

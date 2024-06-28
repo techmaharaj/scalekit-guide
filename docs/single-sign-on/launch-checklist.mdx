@@ -1,0 +1,14 @@
+# Launch Checklist
+
+<Subtitle>
+  Check off these recommended steps before launching your app in Production
+</Subtitle>
+
+As you get ready to deploy your Single Sign-On (SSO) implementation to production, it's important to double-check that everything is properly configured for optimal security and a seamless user experience. The checklist below outlines recommended steps to ensure your SSO integration is robust, efficient, and maintainable in a live environment.
+
+- [ ] **Use appropriate environment variables:** Switch from development to production credentials, including the Client ID, Client Secret, and Environment URL.
+- [ ] **Secure the Client Secret:** Your client secret is akin to a key to your application. Secure it with the utmost care. To learn industry-standard practices, read Manage Client Secrets guide.
+- [ ] **Verify Redirect URI Configuration:** Double-check your Redirect URI settings in the production environment to ensure they point to the correct endpoints. For guidelines on valid configurations, visit our Redirect URI configuration guide.
+- [ ] **Finalize Branding & Theming:** For a consistent and professional user experience, confirm your branding (logos, accent colors, etc) is applied to the admin portal.
+- [ ] **Review Admin Portal URL:** Customize the admin portal URL to match your domain (for example, https://sso.b2b-app.com) for a seamless brand experience. Also, Remember to update `.env` file post-CNAME configuration.
+- [ ] **Graceful Error Handling:** Test your integration thoroughly across all possible edge cases, including incomplete, invalid, or duplicate data submissions. Review our [error handling documentation](notion://www.notion.so/docs/guides/error-handling.mdx) to ensure your application manages errors elegantly and informs users accordingly.

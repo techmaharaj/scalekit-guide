@@ -190,6 +190,59 @@ figure img {
   height: auto !important;
   margin-top: -1rem;
 }
+
+/**secondary nav*/
+.secondary_nav_container {
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 42px;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-behavior: normal;
+  transition-property: height;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.secondary_nav_container > div {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  padding-left: 24px;
+  height: 100%;
+}
+
+.secondary_nav_container a {
+  text-decoration-style: solid;
+  text-decoration-color: currentcolor;
+  text-decoration-line: none;
+  margin-top: -1px;
+  margin-right: 0px;
+  margin-bottom: -1px;
+  margin-left: 0px;
+  padding: 0 20px;
+  height: 44px;
+  line-height: 44px;
+  white-space-collapse: collapse;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  color: rgb(17, 19, 23);
+}
+.secondary_nav_container a.active {
+  font-weight: 500;
+}
+
 .menu__list-item--collapsed .menu__link--sublist::before,
 .menu__list-item--collapsed .menu__caret::before {
   transform: rotateZ(90deg);

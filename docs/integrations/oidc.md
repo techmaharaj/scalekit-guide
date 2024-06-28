@@ -1,3 +1,8 @@
+---
+pagination_next: null
+pagination_prev: null
+---
+
 # OIDC
 
 <Subtitle>Step-by-step guide to configure Single Sign-on using OIDC with any Identity Provider. </Subtitle>

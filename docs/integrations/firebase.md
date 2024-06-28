@@ -2,6 +2,8 @@
 excerpt: "This article describes how to integrate Scalekit with your Firebase application"
 metadata:
   description: "This document provides a guide on integrating Scalekit with Firebase applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in Firebase and provides sample code for managing SSO within the app's Firebase environment."
+pagination_next: null
+pagination_prev: null
 ---
 
 # Firebase

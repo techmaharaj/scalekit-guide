@@ -2,6 +2,7 @@
 sidebar_position: 2
 title: Okta SAML
 description: SSO Configuration Guide for Okta
+pagination_next: null
 ---
 
 # Okta SAML

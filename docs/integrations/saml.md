@@ -1,3 +1,7 @@
+---
+pagination_next: null
+pagination_prev: null
+---
 # SAML
 
 <Subtitle>Configure Single Sign-on using SAML with any Identity Provider. </Subtitle>

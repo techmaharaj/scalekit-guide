@@ -31,7 +31,7 @@ Use the [generatePortalLink](/api-reference#tag/customer-portal/put/api/v1/organ
 <TabItem value="nodejs" label="Node.js">
 
 ```javascript showLineNumbers
-const link = await sc.organization.generatePortalLink('org_1233222');
+const link = await sc.organization.generatePortalLink("org_1233222");
 
 // link.location is the Admin Portal url
 ```

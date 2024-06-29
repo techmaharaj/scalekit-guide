@@ -2,27 +2,21 @@
 slug: idtoken-claims
 displayed_sidebar: homeSidebar
 ---
-# Inspecting Claims in ID Token
 
-An ID Token is nothing but a cryptographically signed Base64-encoded JSON object containing a set of name/value pairs about the user's profile information. Essentially, it is a JWT token. Ideally, it is advised that you validate an ID token before you use it, but since you are communicating directly with Scalekit over an intermediary-free HTTPS channel and using your client secret to exchange the `code` for the ID Token, you can be confident that the token you receive really comes from Scalekit and is valid.
+# Inspect Claims in ID Token
 
-If you are using our Scalekit SDK to exchange the code for the ID Token, the work of decoding the base64url-encoded values and parsing the JSON within, validating the JWT and accessing the claims within the ID token is automatically taken care of.
+An ID Token is a JSON Web Token (JWT) containing cryptographically signed claims about a user's profile information, issued by Scalekit after successful authentication.
 
-## Example ID Token Payload
+The ID Token is a Base64-encoded JSON object with three parts: header, payload, and signature. This reference focuses on the payload.
 
-Here's an example, formatted for readability (and ignoring the header and signature fields for brevity):
+## Example Payload
 
 ```js
-
 {
   "iss": "https://yoursaas.scalekit.com",
   "azp": "skc_12205605011849527",
-  "aud": [
-   "skc_12205605011849527"
-  ],
-  "amr": [
-    "conn_17576372041941092"
-  ],
+  "aud": ["skc_12205605011849527"],
+  "amr": ["conn_17576372041941092"],
   "sub": "conn_17576372041941092;google-oauth2|104630259163176101050",
   "at_hash": "HK6E_P6Dh8Y93mRNtsDB1Q",
   "c_hash": "HK6E_P6Dh8Y93mRNtsDB1Q",
@@ -36,27 +30,40 @@ Here's an example, formatted for readability (and ignoring the header and signat
   "email": "john.doe@acmecorp.com",
   "email_verified": true
 }
-
 ```
 
 ## Full list of ID Token Claims
 
-|Claim|Provided|Description|
-|--- |--- |--- |
-|<SimpleCode>aud</SimpleCode>|always|The audience that this ID token is intended for. It must be one of the client IDs of your application.|
-|<SimpleCode>amr</SimpleCode>|always|Array of Authentication Method Reference values that the user used to sign-in. Usually, it will have the connection_id using which the user completed the SSO flow.|
-|<SimpleCode>exp</SimpleCode>|always|Expiration time on or after which the ID token must not be accepted. Represented in Unix time (integer seconds).|
-|<SimpleCode>iat</SimpleCode>|always|The time the ID token was issued. Represented in Unix time (integer seconds).|
-|<SimpleCode>iss</SimpleCode>|always|The Issuer Identifier for the Issuer of the response. It must be your environment url. https:<nolink/>//yoursaas.scalekit.com or https:<nolink/>//sso.yourdomain.com|
-|<SimpleCode>oid</SimpleCode>|always|organization_id of the user|
-|<SimpleCode>sub</SimpleCode>|always|An identifier for the user, as submitted by the Identity Provider that completed the Single Sign-on.|
-|<SimpleCode>at_hash</SimpleCode>|always|Access token hash. Provides validation that the access token is tied to the identity token. |
-|<SimpleCode>c_hash</SimpleCode>|always|Authorization code hash. Provides validation that the authorization code is tied to the identity token. |
-|<SimpleCode>azp</SimpleCode>|always|The client_id of the authorized presenter. Usually, this will be same as the `aud`|
-|<SimpleCode>email</SimpleCode>|always|The user's email address.|
-|<SimpleCode>email_verified</SimpleCode>||True if the user's e-mail address has been verified as claimed by the Identity Provider; otherwise false.|
-|<SimpleCode>name</SimpleCode>||Fully formatted user's name|
-|<SimpleCode>family_name</SimpleCode>||The user's surname or last name.|
-|<SimpleCode>given_name</SimpleCode>||The user's given name or first name.|
-|<SimpleCode>locale</SimpleCode>||The user's locale, represented by a BCP 47 language tag.|
-|<SimpleCode>picture</SimpleCode>||The user's profile picture in URL format|
+| Claim            | Presence | Description                                  |
+| ---------------- | -------- | -------------------------------------------- |
+| `aud`            | Always   | Intended audience (client ID)                |
+| `amr`            | Always   | Authentication Method Reference values       |
+| `exp`            | Always   | Expiration time (Unix timestamp)             |
+| `iat`            | Always   | Issuance time (Unix timestamp)               |
+| `iss`            | Always   | Issuer identifier (Scalekit environment URL) |
+| `oid`            | Always   | Organization ID of the user                  |
+| `sub`            | Always   | Subject identifier for the user              |
+| `at_hash`        | Always   | Access token hash                            |
+| `c_hash`         | Always   | Authorization code hash                      |
+| `azp`            | Always   | Authorized presenter (usually same as `aud`) |
+| `email`          | Always   | User's email address                         |
+| `email_verified` | Optional | Email verification status                    |
+| `name`           | Optional | User's full name                             |
+| `family_name`    | Optional | User's surname or last name                  |
+| `given_name`     | Optional | User's given name or first name              |
+| `locale`         | Optional | User's locale (BCP 47 language tag)          |
+| `picture`        | Optional | URL of user's profile picture                |
+
+## Usage Notes
+
+1. The ID Token is received over a secure HTTPS channel using the client secret.
+2. Validation of the ID Token is handled automatically when using the Scalekit SDK.
+3. The `sub` claim combines the `connection_id` and the provider's unique identifier.
+4. The `iss` claim must match your Scalekit environment URL.
+5. The `amr` claim typically contains the `connection_id` used for authentication.
+
+This structure provides a neutral, factual reference for ID Token Claims in Scalekit, organized according to the data structure itself.
+
+An ID Token is nothing but a cryptographically signed Base64-encoded JSON object containing a set of name/value pairs about the user's profile information. Essentially, it is a JWT token. Ideally, it is advised that you validate an ID token before you use it, but since you are communicating directly with Scalekit over an intermediary-free HTTPS channel and using your client secret to exchange the `code` for the ID Token, you can be confident that the token you receive really comes from Scalekit and is valid.
+
+If you are using our Scalekit SDK to exchange the code for the ID Token, the work of decoding the base64url-encoded values and parsing the JSON within, validating the JWT and accessing the claims within the ID token is automatically taken care of.

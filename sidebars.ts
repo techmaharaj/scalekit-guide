@@ -170,6 +170,10 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Identity Providers",
+      link: {
+        type: "doc",
+        id: "integrations/integrations",
+      },
       items: [
         {
           type: "doc",

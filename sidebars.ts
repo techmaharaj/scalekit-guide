@@ -1,241 +1,310 @@
-import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
-import { generateDocObjects } from "./src/utils/config-helper-fns";
+import Link from '@docusaurus/Link';
+import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
-const sidebars: SidebarsConfig = {
+export default {
   homeSidebar: [
+    { type: "doc", id: "home" },
     {
-      type: "category",
-      label: "Single Sign-on",
-      className: "sso_category",
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: "doc",
-        id: "home",
-      },
+      type: 'category',
+      label: 'Introduction',
+      collapsible: 'true',
       items: [
         {
-          type: "doc",
-          label: "Quickstart", // The link label
-          id: "single-sign-on/quickstart-sso", // The internal path
+          type: 'doc',
+          id: 'introduction/strategic-role-of-authentication',
         },
         {
-          type: "doc",
-          label: "Admin Portal",
-          id: "single-sign-on/quickstart-admin-portal",
-        },
-        {
-          type: "doc",
-          label: "Customization",
-          id: "single-sign-on/domain-and-theme-customization",
-        },
-        {
-          type: "doc",
-          label: "Launch Checklist",
-          id: "single-sign-on/launch-checklist",
+          type: 'doc',
+          id: 'introduction/challenges-in-b2b-environment',
         },
       ],
     },
     {
-      type: "category",
-      label: "Implementation Guides",
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: "doc",
-        id: "guides/index",
-      },
+      type: 'category',
+      label: 'Building Blocks of B2B Authentication',
+      collapsible: 'true',
+      collapsed: 'true',
       items: [
         {
-          type: "category",
-          label: "Setup SSO",
-          collapsed: true,
-          collapsible: true,
-          items: [
-            {
-              type: "doc",
-              label: "Build Login Page",
-              id: "guides/setup-sso/build-login-page",
-            },
-            {
-              type: "doc",
-              label: "Handle User Profile",
-              id: "guides/setup-sso/handle-user-profile",
-            },
-            {
-              type: "doc",
-              label: "Handle Raw Attributes from IdP",
-              id: "guides/setup-sso/handle-raw-idp-attributes",
-            },
-            {
-              type: "doc",
-              label: "Customize User Attributes",
-              id: "guides/setup-sso/customize-user-attributes",
-            },
-            {
-              type: "doc",
-              label: "Customize Admin Portal Branding",
-              id: "guides/setup-sso/customize-admin-portal-branding",
-            },
-            {
-              type: "doc",
-              label: "Implement IdP initated SSO",
-              id: "guides/setup-sso/implement-idp-initiated-sso",
-            },
-            {
-              type: "doc",
-              label: "Support Advanced SAML Settings",
-              id: "guides/setup-sso/support-advanced-saml-settings",
-            },
-          ],
+          type: 'doc',
+          id: 'building-blocks-of-b2b-authentication/architecture-of-b2b-applications',
         },
         {
-          type: "category",
-          label: "Integrate with your Auth System",
-          collapsed: true,
-          collapsible: true,
-          items: [
-            {
-              type: "doc",
-              label: "In-House Authentication",
-              id: "guides/integrate-with-your-auth-system/inhouse-authentication",
-            },
-            {
-              type: "doc",
-              label: "Auth0",
-              id: "guides/integrate-with-your-auth-system/auth0",
-            },
-            {
-              type: "doc",
-              label: "Firebase",
-              id: "guides/integrate-with-your-auth-system/firebase",
-            },
-          ],
+          type: 'doc',
+          id: 'building-blocks-of-b2b-authentication/multi-tenancy',
         },
         {
-          type: "category",
-          label: "Test your integration",
-          collapsed: true,
-          collapsible: true,
-          items: [
-            {
-              type: "doc",
-              label: "Using Mock IdP",
-              id: "guides/test-your-integration/using-mock-idp",
-            },
-            {
-              type: "doc",
-              label: "Using Okta",
-              id: "guides/test-your-integration/using-okta",
-            },
-          ],
+          type: 'doc',
+          id: 'building-blocks-of-b2b-authentication/organization-based-data-architecture',
+        },
+        {
+          type: 'doc',
+          id: 'building-blocks-of-b2b-authentication/planning-b2b-authentication',
+        },
+        {
+          type: 'doc',
+          id: 'building-blocks-of-b2b-authentication/token-management-in-authentication',
         },
       ],
     },
     {
-      type: "category",
-      label: "Key Concepts",
-      collapsible: true,
-      collapsed: true,
+      type: 'category',
+      label: 'Designing User Experiences',
+      collapsible: 'true',
+      collapsed: 'true',
       items: [
         {
-          type: "doc",
-          label: "SSO Basics",
-          id: "single-sign-on/key-concepts/sso-basics",
+          type: 'doc',
+          id: 'designing-user-experiences/login-experiences',
         },
         {
-          type: "doc",
-          label: "Authorization URL",
-          id: "single-sign-on/key-concepts/authorization-url",
-        },
-        {
-          type: "doc",
-          label: "Redirect URI",
-          id: "single-sign-on/key-concepts/redirect-uri",
-        },
-        {
-          type: "doc",
-          label: "ID Token Claims",
-          id: "single-sign-on/key-concepts/idtoken-claims",
-        },
-        {
-          type: "doc",
-          label: "Normalized User Profile",
-          id: "single-sign-on/key-concepts/user-profile",
+          type: 'doc',
+          id: 'designing-user-experiences/multi-product',
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'Authentication Methods in B2B Applications',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'authentication-methods-in-b2b-apps/index',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Multi-factor Authentication',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'multi-factor-authentication/types-of-multi-factor-authentication',
+        },
+        {
+          type: 'doc',
+          id: 'multi-factor-authentication/implementing-multi-factor-authentication-in-b2b-apps',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Passwordless Authentication',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'passwordless-authentication/magic-links',
+        },
+        {
+          type: 'doc',
+          id: 'passwordless-authentication/passkeys',
+        },
+        {
+          type: 'doc',
+          id: 'passwordless-authentication/one-time-passcodes',
+        },
+        {
+          type: 'doc',
+          id: 'passwordless-authentication/authenticator-apps',
+        },
+        {
+          type: 'doc',
+          id: 'passwordless-authentication/implementing-passwordless-in-b2b-apps',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'OAuth 2.0',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'oauth2/oauth-fundamentals',
+        },
+        {
+          type: 'doc',
+          id: 'oauth2/tokens-in-oauth2',
+        },
+        {
+          type: 'doc',
+          id: 'oauth2/scopes-and-claims',
+        },
+        {
+          type: 'doc',
+          id: 'oauth2/openid-connect',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Single Sign-On',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'single-sign-on/sso-overview',
+        },
+        {
+          type: 'doc',
+          id: 'single-sign-on/saml-based-sso',
+        },
+        {
+          type: 'doc',
+          id: 'single-sign-on/oidc-based-sso',
+        },
+        {
+          type: 'doc',
+          id: 'single-sign-on/enterprise-sso-requirements',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Social Logins',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'social-logins/how-social-login-works',
+        },
+        {
+          type: 'doc',
+          id: 'social-logins/why-implement-social-logins',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'API Authentication',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'api-authentication/index',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'User Management',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'user-management/provisioning-and-deprovisioning',
+        },
+        {
+          type: 'doc',
+          id: 'user-management/automation-with-directory-sync',
+        },
+        {
+          type: 'doc',
+          id: 'user-management/jit-provisioning',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Access Management',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'access-management/permissions-roles-groups',
+        },
+        {
+          type: 'doc',
+          id: 'access-management/rbac',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Security',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'security/application-security',
+        },
+        {
+          type: 'doc',
+          id: 'security/prevent-vulnerability-attacks',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Scaling',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'scaling/index',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Auditing and Monitoring',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'auditing-and-monitoring/access-logs',
+        },
+        {
+          type: 'doc',
+          id: 'auditing-and-monitoring/user-activity-logs',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Compliance and Regulatory Considerations',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'compliance/index',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'External References',
+      collapsible: 'true',
+      collapsed: 'true',
+      items: [
+        {
+          type: 'doc',
+          id: 'external-references/index',
+        },
+      ],
+    },
+  ],
+
+  guidesSidebar: [
+   
   ],
   integrationsSidebar: [
-    {
-      type: "category",
-      label: "Identity Providers",
-      link: {
-        type: "doc",
-        id: "integrations/integrations",
-      },
-      items: [
-        {
-          type: "doc",
-          label: "Okta SAML",
-          id: "integrations/okta-saml",
-        },
-        {
-          type: "doc",
-          label: "Azure AD SAML",
-          id: "integrations/azure-ad-saml",
-        },
-        {
-          type: "doc",
-          label: "OneLogin SAML",
-          id: "integrations/onelogin-saml",
-        },
-        {
-          type: "doc",
-          label: "JumpCloud SAML",
-          id: "integrations/jumpcloud-saml",
-        },
-        {
-          type: "doc",
-          label: "SAML",
-          id: "integrations/saml",
-        },
-        {
-          type: "doc",
-          label: "OIDC",
-          id: "integrations/oidc",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Auth Systems",
-      items: [
-        {
-          type: "doc",
-          label: "Auth0",
-          id: "integrations/auth0",
-        },
-        {
-          type: "doc",
-          label: "Firebase",
-          id: "integrations/firebase",
-        },
-      ],
-    },
-  ],
-  guidesSidebar: [
-    {
-      type: "link",
-      label: "Back to Home",
-      href: "/",
-    },
-    {
-      type: "doc",
-      label: "Explore",
-      id: "guides/index",
-    },
+   
   ],
 };
-
-export default sidebars;

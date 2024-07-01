@@ -3,8 +3,8 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "Scalekit Docs",
-  tagline: "Enterprise Ready Authentiction Platform for SaaS",
+  title: "B2B Authentication Guide",
+  tagline: "Complete B2B Authentication Guide",
   favicon: "img/favicon.ico",
   url: "https://docs.scalekit.com",
   baseUrl: "/",
@@ -52,45 +52,9 @@ const config: Config = {
       },
       items: [
         {
-          to: "/apis",
-          label: "API Reference",
-          position: "left",
-        },
-        {
-          to: "/sdks",
-          label: "SDKs",
-          position: "left",
-        },
-        {
-          type: "dropdown",
-          label: "Resources",
-          position: "left",
-          items: [
-            {
-              label: "Integrations",
-              href: "/integrations",
-            },
-            {
-              label: "Blog",
-              href: "https://www.scalekit.com/blog",
-            },
-            {
-              type: "doc",
-              label: "Glossary",
-              docId: "manage-scalekit/glossary",
-            },
-          ],
-        },
-        {
           type: "search",
           position: "left",
         },
-        // {
-        //   to: "https://app.scalekit.com",
-        //   label: "Go to Dashboard ->",
-        //   position: "right",
-        //   className: "loginLink",
-        // },
       ],
     },
     imageZoom: {

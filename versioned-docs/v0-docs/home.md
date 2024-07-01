@@ -1,7 +1,7 @@
 ---
 # id: home
 slug: /
-hide_table_of_contents: true
+hide_table_of_contents: false
 pagination_next: null
 ---
 

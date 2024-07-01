@@ -3,10 +3,6 @@ hide_table_of_contents: true
 title: "API Reference"
 
 ---
-import InstallSDK from '@site/docs/templates/_install-sdk.md';
-import ConnectionTag from './_connection.md';
-import AdminPortalTag from './_adminPortal.md';
-import OrganizationTag from './_organization.md';
 import SidebarWrapper from '@site/src/components/SidebarWrapper';
 
 import SidebarItems from '@site/src/components/SidebarItems';

@@ -155,11 +155,6 @@
     },
     {
       "type": "category",
-      "label": "Manage Scalekit",
-      "items": ["manage-scalekit/organization", "manage-scalekit/glossary"]
-    },
-    {
-      "type": "category",
       "label": "API & SDKs",
       "items": [
         {

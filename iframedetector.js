@@ -8,8 +8,8 @@ export function onRouteDidUpdate({ location, previousLocation }) {
   if (homeLink) {
     if (
       document.location.href.includes("/integrations") ||
-      document.location.href.includes("/api-reference") ||
-      document.location.href.includes("/apis")
+      document.location.href.includes("/api-reference")
+      // document.location.href.includes("/apis")
     ) {
       // remove .navbar__link--active class from Documentation narvbar link
 

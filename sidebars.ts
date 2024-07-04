@@ -6,7 +6,7 @@ export default {
     { type: "doc", id: "home" },
     {
       type: 'doc',
-      id: 'introduction/indexing', // document ID
+      id: 'introduction/index', // document ID
       label: 'Introduction', // sidebar label
     },
     {
